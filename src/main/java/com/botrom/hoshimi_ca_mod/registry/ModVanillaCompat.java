@@ -16,7 +16,7 @@ public class ModVanillaCompat
         registerCompostable(0.3F, ModItems.CUCUMBER_SEEDS.get());
         registerCompostable(0.3F, ModItems.PEPPER_SEEDS.get());
         registerCompostable(0.3F, ModItems.PINEAPPLE_SEEDS.get());
-        registerCompostable(0.3F, ModItems.CUCUMBER_SLICE.get());
+        registerCompostable(0.3F, ModItems.CUT_CUCUMBER.get());
         registerCompostable(0.3F, ModItems.TOMATO_SLICE.get());
         registerCompostable(0.3F, ModItems.ONION_SLICE.get());
         registerCompostable(0.3F, ModItems.PEPPER_SLICE.get());
@@ -24,11 +24,10 @@ public class ModVanillaCompat
         registerCompostable(0.3F, ModItems.MUSHROOM_SLICE.get());
         registerCompostable(0.5F, ModItems.OLIVE.get());
         registerCompostable(0.65F, ModItems.BROCCOLI.get());
-        registerCompostable(0.65F, ModItems.CUCUMBER_ITEM.get());
+        registerCompostable(0.65F, ModItems.CUCUMBER.get());
         registerCompostable(0.65F, ModItems.PEPPER.get());
         registerCompostable(0.65F, ModItems.PINEAPPLE.get());
-        registerCompostable(0.65F, ModItems.CORN_ITEM.get());
-        registerCompostable(0.65F, ModItems.FLOUR.get());
+        registerCompostable(0.65F, ModItems.CORN.get());
         registerCompostable(0.65F, ModItems.CORN_FLOUR.get());
     }
 

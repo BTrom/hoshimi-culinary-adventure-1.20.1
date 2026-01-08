@@ -26,20 +26,20 @@ public class ModEvents {
             int villagerLevel = 1;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(ModItems.CUCUMBER_ITEM.get(), 22),
+                    new ItemStack(ModItems.CUCUMBER.get(), 22),
                     stack,10,2,0.02F));
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(ModItems.EGGPLANT_ITEM.get(), 15),
+                    new ItemStack(ModItems.EGGPLANT.get(), 15),
                     stack,10,2,0.02F));
 
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(ModItems.CORN_ITEM.get(), 15),
+                    new ItemStack(ModItems.CORN.get(), 15),
                     stack,10,2,0.02F));
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(ModItems.AVOCADO_ITEM.get(), 20),
+                    new ItemStack(ModItems.AVOCADO.get(), 20),
                     stack,10,2,0.02F));
         }
 

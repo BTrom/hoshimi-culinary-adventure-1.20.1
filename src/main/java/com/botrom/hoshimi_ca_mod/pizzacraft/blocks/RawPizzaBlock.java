@@ -41,38 +41,30 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RawPizzaBlock extends Block implements EntityBlock
-{
+public class RawPizzaBlock extends Block implements EntityBlock {
     private static final VoxelShape SHAPE = box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D);
 
-    public RawPizzaBlock(Properties properties)
-    {
+    public RawPizzaBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context)
-    {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, Level level, BlockPos pos, RandomSource rand)
-    {
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
-            if(blockEntity.isBaking())
-            {
+    public void animateTick(BlockState stateIn, Level level, BlockPos pos, RandomSource rand) {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
+            if (blockEntity.isBaking()) {
                 //worldIn.playSound(null, pos, ModSounds.SIZZLING_SOUND.get(), SoundCategory.BLOCKS, 1.0F, 1.0F);
 
-                if(rand.nextDouble() < 0.3D)
-                {
+                if (rand.nextDouble() < 0.3D) {
                     level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.BLOCK_PIZZA_SIZZLING.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
 
-                if(rand.nextInt(2) == 0)
-                {
+                if (rand.nextInt(2) == 0) {
                     double[] particlePos = RenderUtils.getPosRandomAboveBlockHorizontal(level, pos);
                     level.addParticle(ParticleTypes.POOF, particlePos[0], pos.getY() + 0.4D, particlePos[1], 0D, 0.025D, 0D);
                 }
@@ -81,15 +73,12 @@ public class RawPizzaBlock extends Block implements EntityBlock
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit)
-    {
-        if(player.getItemInHand(handIn).getItem() instanceof PizzaPeelItem && level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+        if (player.getItemInHand(handIn).getItem() instanceof PizzaPeelItem && level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
             ItemStack stack = asItem().getDefaultInstance();
             stack = blockEntity.writeToItemStack(stack);
 
-            if(!level.isClientSide)
-            {
+            if (!level.isClientSide) {
                 level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
             }
 
@@ -98,57 +87,45 @@ public class RawPizzaBlock extends Block implements EntityBlock
             return InteractionResult.SUCCESS;
         }
 
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
             return blockEntity.onBlockActivated(player, handIn);
         }
         return InteractionResult.PASS;
     }
 
     @Override
-    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
-    {
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity && !player.isCreative() && !(player.getMainHandItem().getItem() instanceof PizzaPeelItem))
-        {
-            for(int i = 0; i < blockEntity.getInventory().getSlots(); i++)
-            {
-                if(!blockEntity.getInventory().getStackInSlot(i).isEmpty())
-                {
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity && !player.isCreative() && !(player.getMainHandItem().getItem() instanceof PizzaPeelItem)) {
+            for (int i = 0; i < blockEntity.getInventory().getSlots(); i++) {
+                if (!blockEntity.getInventory().getStackInSlot(i).isEmpty()) {
                     Utils.spawnItemStackInWorld(level, pos, blockEntity.getInventory().getStackInSlot(i));
                 }
             }
 
-            Utils.spawnItemStackInWorld(level, pos, new ItemStack(ModItems.DOUGH.get()));
+            Utils.spawnItemStackInWorld(level, pos, new ItemStack(ModItems.PIZZA_DOUGH.get()));
         }
         super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving)
-    {
-        if(!(newState.getBlock() instanceof PizzaBlock))
-        {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!(newState.getBlock() instanceof PizzaBlock)) {
             super.onRemove(state, level, pos, newState, isMoving);
         }
     }
 
     @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack)
-    {
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
-            if(stack.getTag() != null)
-            {
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
+            if (stack.getTag() != null) {
                 blockEntity.readFromStack(stack);
             }
         }
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult result, BlockGetter level, BlockPos pos, Player player)
-    {
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
+    public ItemStack getCloneItemStack(BlockState state, HitResult result, BlockGetter level, BlockPos pos, Player player) {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
             ItemStack stack = this.getCloneItemStack(level, pos, state);
             stack = blockEntity.writeToItemStack(stack);
             return stack;
@@ -157,34 +134,29 @@ public class RawPizzaBlock extends Block implements EntityBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos)
-    {
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         return facing == Direction.DOWN && !stateIn.canSurvive(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, level, currentPos, facingPos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos)
-    {
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         return level.getBlockState(pos.below()).isSolid();
     }
 
     @Override
     @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType)
-    {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
         return Utils.getTicker(blockEntityType, ModBlockEntityTypes.PIZZA.get(), PizzaBlockEntity::tick);
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
-    {
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new PizzaBlockEntity(pos, state);
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> tooltip, TooltipFlag flagIn)
-    {
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> tooltip, TooltipFlag flagIn) {
         PizzaBlock.addInformationForPizza(stack, tooltip);
     }
 }

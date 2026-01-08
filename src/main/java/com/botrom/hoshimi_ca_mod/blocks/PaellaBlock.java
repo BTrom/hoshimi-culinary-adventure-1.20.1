@@ -25,8 +25,8 @@ public class PaellaBlock extends FeastBlock {
     public final int MAX_SERVINGS = 4;
 
     public PaellaBlock(Properties properties) {
-        super(properties, ModItems.PAELLA_ITEM, true);
-        this.SERVINGS = Arrays.asList(ModItems.PAELLA_ITEM, ModItems.PAELLA_ITEM, ModItems.PAELLA_ITEM, ModItems.PAELLA_ITEM);
+        super(properties, ModItems.PAELLA_BOWL, true);
+        this.SERVINGS = Arrays.asList(ModItems.PAELLA_BOWL, ModItems.PAELLA_BOWL, ModItems.PAELLA_BOWL, ModItems.PAELLA_BOWL);
     }
 
     public IntegerProperty getServingsProperty() {

@@ -106,7 +106,7 @@ public class HoshimiCulinaryMod {
         //RenderTypes
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIZZA.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RAW_PIZZA.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVEN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIZZA_OVEN.get(), RenderType.cutout());
 
         //Crops
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BROCCOLI.get(), RenderType.cutout());
