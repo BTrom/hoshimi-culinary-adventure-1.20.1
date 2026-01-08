@@ -1,14 +1,13 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.blockentity.content.SauceType;
-import com.botrom.hoshimi_ca_mod.items.PizzaPeelItem;
-import com.botrom.hoshimi_ca_mod.items.PizzaSliceItem;
-import com.botrom.hoshimi_ca_mod.items.SauceItem;
+import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.SauceType;
+import com.botrom.hoshimi_ca_mod.pizzacraft.items.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -35,12 +34,12 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.EGGPLANTS.get(), new Item.Properties()));
     public static final RegistryObject<Item> AVOCADO_SEED = ITEMS.register("avocado_seed",
             () -> new ItemNameBlockItem(ModBlocks.EGGPLANTS.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BROCCOLI_SEEDS = ITEMS.register("broccoli_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.BROCCOLI.get(), new Item.Properties()));
-    public static final RegistryObject<Item> PEPPER_SEEDS = ITEMS.register("pepper_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.PEPPERS.get(), new Item.Properties()));
-    public static final RegistryObject<Item> PINEAPPLE_SEEDS = ITEMS.register("pineapple_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.PINEAPPLE.get(), new Item.Properties()));
+//    public static final RegistryObject<Item> BROCCOLI_SEEDS = ITEMS.register("broccoli_seeds",
+//            () -> new ItemNameBlockItem(ModBlocks.BROCCOLI.get(), new Item.Properties()));
+//    public static final RegistryObject<Item> PEPPER_SEEDS = ITEMS.register("pepper_seeds",
+//            () -> new ItemNameBlockItem(ModBlocks.PEPPERS.get(), new Item.Properties()));
+//    public static final RegistryObject<Item> PINEAPPLE_SEEDS = ITEMS.register("pineapple_seeds",
+//            () -> new ItemNameBlockItem(ModBlocks.PINEAPPLE.get(), new Item.Properties()));
 
 
     //Ingredients
@@ -54,8 +53,8 @@ public class ModItems {
     public static final FoodProperties CUCUMBER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.5F).build();
     public static final RegistryObject<Item> CUCUMBER_ITEM = ITEMS.register("cucumber",
             () -> new Item(new Item.Properties().food(CUCUMBER)));
-    public static final RegistryObject<Item> CUCUMBER_SLICE = ITEMS.register("cut_cucumber",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//    public static final RegistryObject<Item> CUCUMBER_SLICE = ITEMS.register("cut_cucumber",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
 
     public static final FoodProperties PICKLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.7F).build();
     public static final RegistryObject<Item> PICKLE_ITEM = ITEMS.register("pickle",
@@ -71,8 +70,8 @@ public class ModItems {
     public static final RegistryObject<Item> CUT_EGGPLANT_ITEM = ITEMS.register("cut_eggplant",
             () -> new Item(new Item.Properties().food(CUT_EGGPLANT)));
 
-    public static final RegistryObject<Item> TOMATO_SLICE = ITEMS.register("tomato_slice",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//    public static final RegistryObject<Item> TOMATO_SLICE = ITEMS.register("tomato_slice",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
     public static final FoodProperties SMOKED_TOMATO = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).build();
     public static final RegistryObject<Item> SMOKED_TOMATO_ITEM = ITEMS.register("smoked_tomato",
             () -> new Item(new Item.Properties().food(SMOKED_TOMATO)));
@@ -115,64 +114,64 @@ public class ModItems {
     public static final RegistryObject<Item> JAM_JAR_ITEM = ITEMS.register("jam_jar",
             () -> new ConsumableItem((new Item.Properties()).food(JAM_JAR).craftRemainder(Items.GLASS_BOTTLE), false, false));
 
-    public static final RegistryObject<Item> RAW_PIZZA = ITEMS.register("raw_pizza",
-            () -> new BlockItem(ModBlocks.RAW_PIZZA.get(), new Item.Properties().stacksTo(1)));
-    // -> new RawPizzaBlockItem...
-
-
-    public static final RegistryObject<Item> OLIVE_OIL = ITEMS.register("olive_oil",
-            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
-                    .nutrition(2).saturationMod(1.2F)
-                    .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 240, 1), 0.75F).build()),
-                    SauceType.NONE));
-    public static final RegistryObject<Item> TOMATO_SAUCE = ITEMS.register("tomato_sauce",
-            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
-                    .nutrition(10).saturationMod(1.2F).build()),
-                    SauceType.TOMATO));
-    public static final RegistryObject<Item> HOT_SAUCE = ITEMS.register("hot_sauce",
-            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
-                    .nutrition(10).saturationMod(1.2F).build()),
-                    SauceType.HOT));
-
-    public static final RegistryObject<Item> BROCCOLI = ITEMS.register("broccoli",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
-
-    public static final RegistryObject<Item> PEPPER = ITEMS.register("pepper",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
-    public static final RegistryObject<Item> PEPPER_SLICE = ITEMS.register("pepper_slice",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
-
-    public static final RegistryObject<Item> PINEAPPLE = ITEMS.register("pineapple",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
-    public static final RegistryObject<Item> PINEAPPLE_SLICE = ITEMS.register("pineapple_slice",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
-
-    public static final RegistryObject<Item> OLIVE = ITEMS.register("olive",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
-
-    public static final RegistryObject<Item> ONION_SLICE = ITEMS.register("onion_slice",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
-
-    public static final RegistryObject<Item> MUSHROOM_SLICE = ITEMS.register("mushroom_slice",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
-
-    public static final RegistryObject<Item> CUT_HAM = ITEMS.register("cut_ham",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build())));
-
-    public static final RegistryObject<Item> CHICKEN_WING = ITEMS.register("chicken_wing",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build())));
-    public static final RegistryObject<Item> COOKED_WING = ITEMS.register("cooked_wing",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).fast().meat().build())));
-    public static final RegistryObject<Item> HOT_WING = ITEMS.register("hot_wing",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).fast().meat().build())));
-
-    public static final RegistryObject<Item> CORN_FLOUR = ITEMS.register("corn_flour",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(1.6F).build())));
-    public static final RegistryObject<Item> CHEESE_BLOCK = ITEMS.register("cheese_block",
-            () -> new ItemNameBlockItem(ModBlocks.CHEESE_BLOCK.get(), new Item.Properties()));
+//    public static final RegistryObject<Item> RAW_PIZZA = ITEMS.register("raw_pizza",
+//            () -> new BlockItem(ModBlocks.RAW_PIZZA.get(), new Item.Properties().stacksTo(1)));
+//    // -> new RawPizzaBlockItem...
+//
+//
+//    public static final RegistryObject<Item> OLIVE_OIL = ITEMS.register("olive_oil",
+//            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
+//                    .nutrition(2).saturationMod(1.2F)
+//                    .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 240, 1), 0.75F).build()),
+//                    SauceType.NONE));
+//    public static final RegistryObject<Item> TOMATO_SAUCE = ITEMS.register("tomato_sauce",
+//            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
+//                    .nutrition(10).saturationMod(1.2F).build()),
+//                    SauceType.TOMATO));
+//    public static final RegistryObject<Item> HOT_SAUCE = ITEMS.register("hot_sauce",
+//            () -> new SauceItem(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder()
+//                    .nutrition(10).saturationMod(1.2F).build()),
+//                    SauceType.HOT));
+//
+//    public static final RegistryObject<Item> BROCCOLI = ITEMS.register("broccoli",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
+//
+//    public static final RegistryObject<Item> PEPPER = ITEMS.register("pepper",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
+//    public static final RegistryObject<Item> PEPPER_SLICE = ITEMS.register("pepper_slice",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//
+//    public static final RegistryObject<Item> PINEAPPLE = ITEMS.register("pineapple",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build())));
+//    public static final RegistryObject<Item> PINEAPPLE_SLICE = ITEMS.register("pineapple_slice",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//
+//    public static final RegistryObject<Item> OLIVE = ITEMS.register("olive",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//
+//    public static final RegistryObject<Item> ONION_SLICE = ITEMS.register("onion_slice",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//
+//    public static final RegistryObject<Item> MUSHROOM_SLICE = ITEMS.register("mushroom_slice",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build())));
+//
+//    public static final RegistryObject<Item> CUT_HAM = ITEMS.register("cut_ham",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build())));
+//
+//    public static final RegistryObject<Item> CHICKEN_WING = ITEMS.register("chicken_wing",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build())));
+//    public static final RegistryObject<Item> COOKED_WING = ITEMS.register("cooked_wing",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).fast().meat().build())));
+//    public static final RegistryObject<Item> HOT_WING = ITEMS.register("hot_wing",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).fast().meat().build())));
+//
+//    public static final RegistryObject<Item> CORN_FLOUR = ITEMS.register("corn_flour",
+//            () -> new Item(new Item.Properties()));
+//
+//    public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
+//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(1.6F).build())));
+//    public static final RegistryObject<Item> CHEESE_BLOCK = ITEMS.register("cheese_block",
+//            () -> new ItemNameBlockItem(ModBlocks.CHEESE_BLOCK.get(), new Item.Properties()));
 
 
     //Meals
@@ -328,22 +327,102 @@ public class ModItems {
 //            .effect(() -> new MobEffectInstance(NeapolitanCompat.getSugarRush(), 600, 1), 1F)
                     .effect(() -> new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0), 1F).build())));
 
-    public static final FoodProperties PAELLA = (new FoodProperties.Builder())
-            .nutrition(14).saturationMod(0.75F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F).build();
     public static final RegistryObject<Item> PAELLA_ITEM = ITEMS.register("paella_bowl",
-            () -> new ConsumableItem((new Item.Properties()).food(PAELLA).stacksTo(16).craftRemainder(Items.BOWL), true));
+            () -> new ConsumableItem((new Item.Properties()).food((new FoodProperties.Builder())
+                    .nutrition(14).saturationMod(0.75F)
+                    .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F)
+                    .build()).stacksTo(16).craftRemainder(Items.BOWL), true));
 
-    public static final RegistryObject<Item> PIZZA_SLICE = ITEMS.register("pizza_slice",
-            () -> new PizzaSliceItem(new Item.Properties()));
+//    public static final RegistryObject<Item> PIZZA_SLICE = ITEMS.register("pizza_slice",
+//            () -> new PizzaSliceItem(new Item.Properties()));
+//
+//
+//    // Tools
+//    public static final RegistryObject<Item> ROLLING_PIN = ITEMS.register("rolling_pin",
+//            () -> new Item(new Item.Properties().stacksTo(1).durability(60)));
+//
+//    public static final RegistryObject<Item> PIZZA_PEEL = ITEMS.register("pizza_peel",
+//            () -> new PizzaPeelItem(Tiers.IRON, 1.5F, -3.0F, new Item.Properties().stacksTo(1)));
 
 
-    // Tools
-    public static final RegistryObject<Item> ROLLING_PIN = ITEMS.register("rolling_pin",
-            () -> new Item(new Item.Properties().stacksTo(1).durability(60)));
 
-    public static final RegistryObject<Item> PIZZA_PEEL = ITEMS.register("pizza_peel",
-            () -> new PizzaPeelItem(Tiers.IRON, 1.5F, -3.0F, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> WILD_CUCUMBERS = ITEMS.register("wild_cucumbers", () -> new BlockItem(ModBlocks.WILD_CUCUMBERS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_CORN = ITEMS.register("wild_corn", () -> new BlockItem(ModBlocks.WILD_CORN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_EGGPLANTS = ITEMS.register("wild_eggplants", () -> new BlockItem(ModBlocks.WILD_EGGPLANTS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CORN_COB_CRATE = ITEMS.register("corn_crate", () -> new BlockItem(ModBlocks.CORN_COB_CRATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> EXOTIC_ROLL_MEDLEY = ITEMS.register("exotic_roll_medley", () -> new BlockItem(ModBlocks.EXOTIC_ROLL_MEDLEY.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> PAELLA = ITEMS.register("paella", () -> new BlockItem(ModBlocks.PAELLA.get(), new Item.Properties().stacksTo(1)));
+
+    // PizzaCraft
+    public static final RegistryObject<Item> PIZZA = ITEMS.register("pizza", () -> new PizzaBlockItem(ModBlocks.PIZZA.get(), pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> RAW_PIZZA = ITEMS.register("raw_pizza", () -> new RawPizzaBlockItem(ModBlocks.RAW_PIZZA.get(), pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> DOUGH = registerBlockItemPizza("dough", ModBlocks.DOUGH, pizzaProperties().stacksTo(16));
+    public static final RegistryObject<Item> PIZZA_STATION = registerBlockItemPizza("pizza_station", ModBlocks.PIZZA_STATION, pizzaProperties());
+    public static final RegistryObject<Item> OVEN = registerBlockItemPizza("oven", ModBlocks.OVEN, pizzaProperties());
+
+    //Basins
+    public static final RegistryObject<Item> GRANITE_BASIN = registerBlockItemPizza("granite_basin", ModBlocks.GRANITE_BASIN, pizzaProperties());
+    public static final RegistryObject<Item> DIORITE_BASIN = registerBlockItemPizza("diorite_basin", ModBlocks.DIORITE_BASIN, pizzaProperties());
+    public static final RegistryObject<Item> ANDESITE_BASIN = registerBlockItemPizza("andesite_basin", ModBlocks.ANDESITE_BASIN, pizzaProperties());
+    public static final RegistryObject<Item> BASALT_BASIN = registerBlockItemPizza("basalt_basin", ModBlocks.BASALT_BASIN, pizzaProperties());
+    public static final RegistryObject<Item> BLACKSTONE_BASIN = registerBlockItemPizza("blackstone_basin", ModBlocks.BLACKSTONE_BASIN, pizzaProperties());
+
+    //Tools
+    public static final RegistryObject<Item> ROLLING_PIN = ITEMS.register("rolling_pin", () -> new Item(pizzaProperties().stacksTo(1).durability(60)));
+    public static final RegistryObject<Item> STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(Tiers.STONE, 1, -2.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 1, -2.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 1, -2.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 1, -2.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 1, -2.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> STONE_PIZZA_PEEL = ITEMS.register("stone_pizza_peel", () -> new PizzaPeelItem(Tiers.STONE,1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> GOLDEN_PIZZA_PEEL = ITEMS.register("golden_pizza_peel", () -> new PizzaPeelItem( Tiers.GOLD,1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> IRON_PIZZA_PEEL = ITEMS.register("iron_pizza_peel", () -> new PizzaPeelItem(Tiers.IRON, 1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> DIAMOND_PIZZA_PEEL = ITEMS.register("diamond_pizza_peel", () -> new PizzaPeelItem(Tiers.DIAMOND, 1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> NETHERITE_PIZZA_PEEL = ITEMS.register("netherite_pizza_peel", () -> new PizzaPeelItem(Tiers.NETHERITE, 1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+
+    //Pizza Slice
+    public static final RegistryObject<Item> PIZZA_SLICE = ITEMS.register("pizza_slice", () -> new PizzaSliceItem(pizzaProperties()));
+
+    //Jugs
+    public static final RegistryObject<Item> OLIVE_OIL = ITEMS.register("olive_oil", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.OLIVE_OIL), SauceType.NONE));
+    public static final RegistryObject<Item> TOMATO_SAUCE = ITEMS.register("tomato_sauce", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.TOMATO_SAUCE), SauceType.TOMATO));
+    public static final RegistryObject<Item> HOT_SAUCE = ITEMS.register("hot_sauce", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.HOT_SAUCE), SauceType.HOT));
+
+    //Vegetables
+    public static final RegistryObject<Item> BROCCOLI = ITEMS.register("broccoli", () -> new Item(pizzaProperties().food(ModFoods.BROCCOLI)));
+    public static final RegistryObject<Item> PEPPER = ITEMS.register("pepper", () -> new Item(pizzaProperties().food(ModFoods.PEPPER)));
+
+    //Fruits
+    public static final RegistryObject<Item> PINEAPPLE = ITEMS.register("pineapple", () -> new Item(pizzaProperties().food(ModFoods.PINEAPPLE)));
+    public static final RegistryObject<Item> OLIVE = ITEMS.register("olive", () -> new Item(pizzaProperties().food(ModFoods.OLIVE)));
+
+    //Slices
+    public static final RegistryObject<Item> CUCUMBER_SLICE = ITEMS.register("cucumber_slice", () -> new Item(pizzaProperties().food(ModFoods.CUCUMBER_SLICE)));
+    public static final RegistryObject<Item> ONION_SLICE = ITEMS.register("onion_slice", () -> new Item(pizzaProperties().food(ModFoods.ONION_SLICE)));
+    public static final RegistryObject<Item> PEPPER_SLICE = ITEMS.register("pepper_slice", () -> new Item(pizzaProperties().food(ModFoods.PEPPER_SLICE)));
+    public static final RegistryObject<Item> PINEAPPLE_SLICE = ITEMS.register("pineapple_slice", () -> new Item(pizzaProperties().food(ModFoods.PINEAPPLE_SLICE)));
+    public static final RegistryObject<Item> TOMATO_SLICE = ITEMS.register("tomato_slice", () -> new Item(pizzaProperties().food(ModFoods.TOMATO_SLICE)));
+    public static final RegistryObject<Item> MUSHROOM_SLICE = ITEMS.register("mushroom_slice", () -> new Item(pizzaProperties().food(ModFoods.MUSHROOM_SLICE)));
+
+    //Meats
+    public static final RegistryObject<Item> HAM = ITEMS.register("ham", () -> new Item(pizzaProperties().food(ModFoods.HAM)));
+    public static final RegistryObject<Item> WING = ITEMS.register("wing", () -> new Item(pizzaProperties().food(ModFoods.WING)));
+    public static final RegistryObject<Item> COOKED_WING = ITEMS.register("cooked_wing", () -> new Item(pizzaProperties().food(ModFoods.COOKED_WING)));
+    public static final RegistryObject<Item> HOT_WING = ITEMS.register("hot_wing", () -> new Item(pizzaProperties().food(ModFoods.HOT_WING)));
+    public static final RegistryObject<Item> FISH_FILLET = ITEMS.register("fish_fillet", () -> new Item(pizzaProperties().food(ModFoods.FISH_FILLET)));
+    public static final RegistryObject<Item> COOKED_FISH_FILLET = ITEMS.register("cooked_fish_fillet", () -> new Item(pizzaProperties().food(ModFoods.COOKED_FISH_FILLET)));
+
+    //Ingredients
+    public static final RegistryObject<Item> FLOUR = ITEMS.register("flour", () -> new Item(pizzaProperties()));
+    public static final RegistryObject<Item> CORN_FLOUR = ITEMS.register("corn_flour", () -> new Item(pizzaProperties()));
+    public static final RegistryObject<Item> CHEESE_BLOCK = registerBlockItemPizza("cheese_block", ModBlocks.CHEESE_BLOCK, pizzaProperties());
+    public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(pizzaProperties().food(ModFoods.CHEESE)));
+
+    //Seeds
+    public static final RegistryObject<Item> BROCCOLI_SEEDS = ITEMS.register("broccoli_seeds", () -> new ItemNameBlockItem(ModBlocks.BROCCOLI.get(), pizzaProperties()));
+    public static final RegistryObject<Item> PEPPER_SEEDS = ITEMS.register("pepper_seeds", () -> new ItemNameBlockItem(ModBlocks.PEPPERS.get(), pizzaProperties()));
+    public static final RegistryObject<Item> PINEAPPLE_SEEDS = ITEMS.register("pineapple_seeds", () -> new ItemNameBlockItem(ModBlocks.PINEAPPLE.get(), pizzaProperties()));
+
 
 
     // Registry
@@ -354,4 +433,15 @@ public class ModItems {
     public static RegistryObject<Item> registerBlockItem(final String name, RegistryObject<Block> block, Item.Properties properties) {
         return ITEMS.register(name, () -> new BlockItem(block.get(), properties));
     }
+
+    public static RegistryObject<Item> registerBlockItemPizza(final String name, RegistryObject<Block> block, Item.Properties properties)
+    {
+        return ITEMS.register(name, () -> new BlockItem(block.get(), properties));
+    }
+
+    public static Item.Properties pizzaProperties()
+    {
+        return new Item.Properties();
+    }
+
 }

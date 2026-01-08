@@ -2,11 +2,16 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.*;
+import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.*;
+import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.crops.DoubleCropBlock;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -17,7 +22,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 public class ModBlocks {
 
@@ -27,15 +34,15 @@ public class ModBlocks {
     // Wild Plants
     public static final RegistryObject<Block> WILD_CUCUMBERS = registerBlock("wild_cucumbers",
             () -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6,
-                    Properties.copy(Blocks.TALL_GRASS)), 0, false, 0);
+                    Properties.copy(Blocks.TALL_GRASS)));
 
     public static final RegistryObject<Block> WILD_CORN = registerBlock("wild_corn",
             () -> new WildCropBlock(MobEffects.HUNGER, 6,
-                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), 0, false, 0);
+                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
 
     public static final RegistryObject<Block> WILD_EGGPLANTS = registerBlock("wild_eggplants",
             () -> new WildCropBlock(MobEffects.DAMAGE_BOOST, 6,
-                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), 0, false, 0);
+                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
 
 
     // Crops
@@ -50,14 +57,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> CORN_UPPER = registerBlockWithoutBlockItem("corn_upper",
             () -> new CornUpperBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
-    public static final RegistryObject<Block> BROCCOLI = registerBlockWithoutBlockItem("broccoli",
-            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.BROCCOLI_SEEDS));
-
-    public static final RegistryObject<Block> PEPPERS = registerBlockWithoutBlockItem("peppers",
-            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PEPPER_SEEDS));
-
-    public static final RegistryObject<Block> PINEAPPLE = registerBlockWithoutBlockItem("pineapple",
-            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PINEAPPLE_SEEDS));
+//    public static final RegistryObject<Block> BROCCOLI = registerBlockWithoutBlockItem("broccoli",
+//            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.BROCCOLI_SEEDS));
+//
+//    public static final RegistryObject<Block> PEPPERS = registerBlockWithoutBlockItem("peppers",
+//            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PEPPER_SEEDS));
+//
+//    public static final RegistryObject<Block> PINEAPPLE = registerBlockWithoutBlockItem("pineapple",
+//            () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PINEAPPLE_SEEDS));
 
 
     // Saplings
@@ -67,48 +74,77 @@ public class ModBlocks {
 
     // Blocks
     public static final RegistryObject<Block> CORN_COB_CRATE = registerBlock("corn_crate",
-            () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get())),0, false, 0);
+            () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get())));
 
-    public static final RegistryObject<Block> PIZZA_STATION = registerBlock("pizza_station",
-            () -> new PizzaStationBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)), 0, false, 0);
-
-    public static final RegistryObject<Block> PIZZA_OVEN = registerBlock("pizza_oven",
-            () -> new OvenBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F).noOcclusion().lightLevel((state) -> state.getValue(BlockStateProperties.LIT) ? 9 : 0)),0,  false, 0);
-
-    public static final RegistryObject<Block> GRANITE_BASIN = registerBlock("granite_basin",
-            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.DIRT).strength(1.5F, 6.0F)), 0, false, 0);
-    public static final RegistryObject<Block> DIORITE_BASIN = registerBlock("diorite_basin",
-            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.QUARTZ).strength(1.5F, 6.0F)), 0, false, 0);
-    public static final RegistryObject<Block> ANDESITE_BASIN = registerBlock("andesite_basin",
-            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)), 0, false, 0);
-    public static final RegistryObject<Block> BASALT_BASIN = registerBlock("basalt_basin",
-            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.25F, 4.2F).sound(SoundType.BASALT)),0, false, 0);
-    public static final RegistryObject<Block> BLACKSTONE_BASIN = registerBlock("blackstone_basin",
-            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.5F, 6.0F)), 0, false, 0);
+//    public static final RegistryObject<Block> PIZZA_STATION = registerBlock("pizza_station",
+//            () -> new PizzaStationBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)), 0, false, 0);
+//
+//    public static final RegistryObject<Block> PIZZA_OVEN = registerBlock("pizza_oven",
+//            () -> new OvenBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F).noOcclusion().lightLevel((state) -> state.getValue(BlockStateProperties.LIT) ? 9 : 0)),0,  false, 0);
+//
+//    public static final RegistryObject<Block> GRANITE_BASIN = registerBlock("granite_basin",
+//            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.DIRT).strength(1.5F, 6.0F)), 0, false, 0);
+//    public static final RegistryObject<Block> DIORITE_BASIN = registerBlock("diorite_basin",
+//            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.QUARTZ).strength(1.5F, 6.0F)), 0, false, 0);
+//    public static final RegistryObject<Block> ANDESITE_BASIN = registerBlock("andesite_basin",
+//            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)), 0, false, 0);
+//    public static final RegistryObject<Block> BASALT_BASIN = registerBlock("basalt_basin",
+//            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.25F, 4.2F).sound(SoundType.BASALT)),0, false, 0);
+//    public static final RegistryObject<Block> BLACKSTONE_BASIN = registerBlock("blackstone_basin",
+//            () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.5F, 6.0F)), 0, false, 0);
 
 
     // Meal Blocks
     public static final RegistryObject<Block> EXOTIC_ROLL_MEDLEY = registerBlock("exotic_roll_medley",
-            () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()), 0, false, 0);
+            () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()));
 
     public static final RegistryObject<Block> PAELLA = registerBlock("paella",
-            () -> new PaellaBlock(BlockBehaviour.Properties.of().forceSolidOn().strength(0.5F).sound(SoundType.METAL).pushReaction(PushReaction.DESTROY)), 0, false, 0);
+            () -> new PaellaBlock(BlockBehaviour.Properties.of().forceSolidOn().strength(0.5F).sound(SoundType.METAL).pushReaction(PushReaction.DESTROY)));
 
-    public static final RegistryObject<Block> PIZZA = registerBlock("pizza",
-            () -> new PizzaBlock(Block.Properties.copy(Blocks.CAKE)), 0, false, 0);
-    public static final RegistryObject<Block> RAW_PIZZA = registerBlockWithoutBlockItem("raw_pizza",
-            () -> new RawPizzaBlock(Block.Properties.copy(Blocks.CAKE)));
-    public static final RegistryObject<Block> PIZZA_DOUGH = registerBlock("pizza_dough",
-            () -> new DoughBlock(Block.Properties.copy(Blocks.CAKE)), 0, false, 0);
-    public static final RegistryObject<Block> CHEESE_BLOCK = registerBlockWithoutBlockItem("cheese_block",
-            () -> new CheeseBlock(Block.Properties.copy(Blocks.CAKE).mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.FUNGUS)));
+//    public static final RegistryObject<Block> PIZZA = registerBlock("pizza",
+//            () -> new PizzaBlock(Block.Properties.copy(Blocks.CAKE)), 0, false, 0);
+//    public static final RegistryObject<Block> RAW_PIZZA = registerBlockWithoutBlockItem("raw_pizza",
+//            () -> new RawPizzaBlock(Block.Properties.copy(Blocks.CAKE)));
+//    public static final RegistryObject<Block> PIZZA_DOUGH = registerBlock("pizza_dough",
+//            () -> new DoughBlock(Block.Properties.copy(Blocks.CAKE)), 0, false, 0);
+//    public static final RegistryObject<Block> CHEESE_BLOCK = registerBlockWithoutBlockItem("cheese_block",
+//            () -> new CheeseBlock(Block.Properties.copy(Blocks.CAKE).mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.FUNGUS)));
+
+
+
+    public static final RegistryObject<Block> PIZZA = registerBlock("pizza", () -> new PizzaBlock(Block.Properties.copy(Blocks.CAKE)));
+    public static final RegistryObject<Block> RAW_PIZZA = registerBlock("raw_pizza", () -> new RawPizzaBlock(Block.Properties.copy(Blocks.CAKE)));
+    public static final RegistryObject<Block> DOUGH = registerBlock("dough", () -> new DoughBlock(Block.Properties.copy(Blocks.CAKE)));
+    public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block", () -> new CheeseBlock(Block.Properties.copy(Blocks.CAKE).mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.FUNGUS)));
+    public static final RegistryObject<Block> PIZZA_STATION = registerBlock("pizza_station", () -> new PizzaStationBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> OVEN = registerBlock("oven", () -> new OvenBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F).noOcclusion().lightLevel(getLightValueLit(9))));
+
+    //Basins
+    public static final RegistryObject<Block> GRANITE_BASIN = registerBlock("granite_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.DIRT).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> DIORITE_BASIN = registerBlock("diorite_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.QUARTZ).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> ANDESITE_BASIN = registerBlock("andesite_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.STONE).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> BASALT_BASIN = registerBlock("basalt_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.25F, 4.2F).sound(SoundType.BASALT)));
+    public static final RegistryObject<Block> BLACKSTONE_BASIN = registerBlock("blackstone_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.5F, 6.0F)));
+
+    //Crops
+    public static final RegistryObject<Block> BROCCOLI = registerBlock("broccoli", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.BROCCOLI_SEEDS));
+    public static final RegistryObject<Block> PEPPERS = registerBlock("peppers", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PEPPER_SEEDS));
+    public static final RegistryObject<Block> PINEAPPLE = registerBlock("pineapple", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PINEAPPLE_SEEDS));
+
 
 
     // Registry
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Integer stackSize, Boolean isFuel, Integer fuelAmount) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, stackSize, isFuel, fuelAmount);
-        return toReturn;
+
+//    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Integer stackSize, Boolean isFuel, Integer fuelAmount) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerBlockItem(name, toReturn, stackSize, isFuel, fuelAmount);
+//        return toReturn;
+//    }
+    public static RegistryObject<Block> registerBlock(final String name, Supplier<Block> block) {
+        return BLOCKS.register(name, block);
+    }
+    private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
+        return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
     }
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
@@ -116,14 +152,18 @@ public class ModBlocks {
     }
 
     public static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Integer stackSize, Boolean isFuel, Integer fuelAmount) {
-        if(isFuel == false) {
+        if (isFuel == false) {
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                     new Item.Properties().stacksTo(stackSize != 0 ? stackSize : 64)));
         } else {
 
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                    new Item.Properties().stacksTo(stackSize != 0 ? stackSize : 64)){
-                @Override public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {return fuelAmount;}});
+                    new Item.Properties().stacksTo(stackSize != 0 ? stackSize : 64)) {
+                @Override
+                public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                    return fuelAmount;
+                }
+            });
         }
     }
 
