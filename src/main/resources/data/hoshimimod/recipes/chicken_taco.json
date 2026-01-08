@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:tortilla"
+    },
+    {
+      "tag": "forge:cooked_chicken"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "item": "farmersdelight:tomato_sauce"
+    },
+    {
+      "tag": "hoshimimod:cucumbers"
+    },
+    {
+      "tag": "hoshimimod:corns"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:chicken_taco",
+    "count": 1
+  }
+}

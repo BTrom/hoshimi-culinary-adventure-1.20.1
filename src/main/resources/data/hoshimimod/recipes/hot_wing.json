@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "food",
+  "ingredients": [
+    {
+      "item": "hoshimimod:cooked_wing"
+    },
+    {
+      "item": "hoshimimod:cooked_wing"
+    },
+    {
+      "item": "hoshimimod:cooked_wing"
+    },
+    {
+      "item": "hoshimimod:hot_sauce"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:hot_wing",
+    "count": 3
+  }
+}

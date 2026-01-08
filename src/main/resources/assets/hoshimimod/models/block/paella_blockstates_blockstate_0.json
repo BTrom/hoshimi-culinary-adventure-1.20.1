@@ -1,0 +1,11 @@
+{
+  "parent": "hoshimimod:block/paella_plate_stage3",
+  "textures": {
+    "all": "hoshimimod:block/paella_top",
+    "particle": "hoshimimod:block/paella_top",
+    "2": "hoshimimod:block/paella_bottom",
+    "3": "hoshimimod:block/paella_top_empty",
+    "4": "hoshimimod:block/paella_side"
+  },
+  "render_type": "cutout_mipped"
+}

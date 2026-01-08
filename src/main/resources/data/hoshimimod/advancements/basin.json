@@ -1,0 +1,84 @@
+{
+  "parent": "hoshimimod:root",
+  "display": {
+    "icon": {
+      "item": "hoshimimod:granite_basin"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.basin.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.basin.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "granite": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:granite_basin"
+          }
+        ]
+      }
+    },
+    "diorite": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:diorite_basin"
+          }
+        ]
+      }
+    },
+    "andesite": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:andesite_basin"
+          }
+        ]
+      }
+    },
+    "basalt": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:basalt_basin"
+          }
+        ]
+      }
+    },
+    "blackstone": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:blackstone_basin"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "granite",
+      "diorite",
+      "andesite",
+      "basalt",
+      "blackstone"
+    ]
+  ]
+}

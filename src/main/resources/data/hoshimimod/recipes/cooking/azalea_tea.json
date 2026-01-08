@@ -1,0 +1,120 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "hoshimimod:enabled",
+          "value": "azalea_tea"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "minecraft:flowers/azalea"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersrespite"
+          }
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "cantaloupe_slice"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.35,
+        "ingredients": [
+          [
+            {
+              "tag": "forge:water"
+            },
+            {
+              "count": 1,
+              "type": "forge:nbt",
+              "item": "minecraft:potion",
+              "nbt": "{Potion:\"minecraft:water\"}"
+            }
+          ],
+          {
+            "tag": "forge:tea_leaves"
+          },
+          {
+            "tag": "minecraft:flowers/azalea"
+          },
+          {
+            "tag": "forge:fruits/cantaloupe"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:azalea_tea"
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "hoshimimod:enabled",
+          "value": "azalea_tea"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "minecraft:flowers/azalea"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersrespite"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "hoshimimod:enabled",
+            "value": "cantaloupe_slice"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.35,
+        "ingredients": [
+          [
+            {
+              "tag": "forge:water"
+            },
+            {
+              "count": 1,
+              "type": "forge:nbt",
+              "item": "minecraft:potion",
+              "nbt": "{Potion:\"minecraft:water\"}"
+            }
+          ],
+          {
+            "tag": "forge:tea_leaves"
+          },
+          {
+            "tag": "minecraft:flowers/azalea"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:azalea_tea"
+        }
+      }
+    }
+  ]
+}

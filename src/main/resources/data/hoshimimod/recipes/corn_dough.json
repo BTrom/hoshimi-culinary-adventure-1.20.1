@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:waters"
+    },
+    {
+      "tag": "hoshimimod:corns"
+    },
+    {
+      "tag": "hoshimimod:corns"
+    },
+    {
+      "tag": "hoshimimod:corns"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:corn_dough",
+    "count": 3
+  }
+}

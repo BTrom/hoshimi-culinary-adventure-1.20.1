@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "hoshimimod:avocados"
+    },
+    {
+      "tag": "hoshimimod:corns"
+    },
+    {
+      "item": "hoshimimod:cucumber"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:hearty_salad"
+  }
+}

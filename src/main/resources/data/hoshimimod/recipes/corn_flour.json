@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "hoshimimod:corn"
+    }
+  },
+  "result": {
+    "item": "hoshimimod:corn_flour",
+    "count": 2
+  }
+}

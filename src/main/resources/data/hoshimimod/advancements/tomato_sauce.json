@@ -1,0 +1,37 @@
+{
+  "parent": "hoshimimod:basin",
+  "display": {
+    "icon": {
+      "item": "hoshimimod:tomato_sauce"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.tomato_sauce.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.tomato_sauce.description"
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tomato_sauce": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hoshimimod:tomato_sauce"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tomato_sauce"
+    ]
+  ]
+}

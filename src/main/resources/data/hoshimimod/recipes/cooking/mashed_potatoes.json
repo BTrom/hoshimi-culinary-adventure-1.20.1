@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 1.0,
+  "ingredients": [
+      {
+        "tag": "forge:milk"
+      },
+      {
+        "tag": "forge:potatoes"
+      },
+      {
+        "tag": "forge:potatoes"
+      }
+    ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "item": "hoshimimod:mashed_potatoes"
+  }
+}

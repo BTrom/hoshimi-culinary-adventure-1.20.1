@@ -1,0 +1,36 @@
+{
+  "parent": "hoshimimod:main/get_toast_with_egg",
+  "criteria": {
+    "omelette": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["hoshimimod:omelette"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "hoshimimod.advancement.omelette.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "hoshimimod:omelette"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "hoshimimod.advancement.omelette"
+    }
+  },
+  "requirements": [
+    [
+      "omelette"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

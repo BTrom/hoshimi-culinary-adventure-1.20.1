@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "tag": "forge:crops/pineapple"
+  },
+  "result": {
+    "item": "hoshimimod:pineapple_slice",
+    "count": 2
+  }
+}

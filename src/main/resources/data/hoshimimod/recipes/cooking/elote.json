@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:corns"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:elote",
+    "count": 1
+  },
+  "container": {
+    "item": "minecraft:stick"
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}

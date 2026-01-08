@@ -1,0 +1,8 @@
+{
+  "variants": {
+     "age=0": { "model": "hoshimimod:block/broccoli_stage0" },
+     "age=1": { "model": "hoshimimod:block/broccoli_stage1" },
+     "age=2": { "model": "hoshimimod:block/broccoli_stage2" },
+     "age=3": { "model": "hoshimimod:block/broccoli_stage3" }
+    }
+}

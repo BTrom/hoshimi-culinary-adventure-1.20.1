@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:avocado"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "hoshimimod:cut_avocado",
+      "count": 2
+    },
+    {
+      "item": "hoshimimod:avocado_seed"
+    }
+  ]
+}

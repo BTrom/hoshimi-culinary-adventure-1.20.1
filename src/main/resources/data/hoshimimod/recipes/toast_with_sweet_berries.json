@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "hoshimimod:toast"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "hoshimimod:toast_with_sweet_berries"
+  }
+}

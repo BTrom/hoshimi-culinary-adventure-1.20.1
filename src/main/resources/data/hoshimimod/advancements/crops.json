@@ -1,0 +1,126 @@
+{
+  "parent": "hoshimimod:root",
+  "display": {
+    "icon": {
+      "item": "farmersdelight:tomato"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.crops.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.crops.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tomato": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "farmersdelight:tomato"
+          ]
+        }
+      }
+    },
+    "pepper": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:pepper"
+          ]
+        }
+      }
+    },
+    "onion": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "farmersdelight:onion"
+          ]
+        }
+      }
+    },
+    "corn": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:corn"
+          ]
+        }
+      }
+    },
+    "pineapple": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:pineapple"
+          ]
+        }
+      }
+    },
+    "olive": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:olive"
+          ]
+        }
+      }
+    },
+    "broccoli": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:broccoli"
+          ]
+        }
+      }
+    },
+    "cucumber": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hoshimimod:cucumber"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tomato"
+    ],
+    [
+      "pepper"
+    ],
+    [
+      "onion"
+    ],
+    [
+      "corn"
+    ],
+    [
+      "pineapple"
+    ],
+    [
+      "olive"
+    ],
+    [
+      "broccoli"
+    ],
+    [
+      "cucumber"
+    ]
+  ]
+}

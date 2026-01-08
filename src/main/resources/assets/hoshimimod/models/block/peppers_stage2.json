@@ -1,0 +1,6 @@
+{
+    "parent": "hoshimimod:block/crop/crop_cross",
+    "textures": {
+        "crop_cross": "hoshimimod:block/peppers_stage2"
+    }
+}

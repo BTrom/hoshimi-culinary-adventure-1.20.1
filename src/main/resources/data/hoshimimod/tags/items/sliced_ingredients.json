@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:cut_avocado",
+    "hoshimimod:cut_pickle",
+    "hoshimimod.cut_eggplant",
+    "hoshimimod:cucumber_slice",
+    "hoshimimod:onion_slice",
+    "hoshimimod:pepper_slice",
+    "hoshimimod:pineapple_slice",
+    "hoshimimod:tomato_slice",
+    "hoshimimod:mushroom_slice",
+    "hoshimimod:cut_ham",
+    "hoshimimod:chicken_wing",
+    "hoshimimod:cooked_wing",
+    "hoshimimod:cheese"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:corns"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "hoshimimod:corn_kernels"
+    },
+    {
+      "item": "hoshimimod:corn_kernels"
+    },
+    {
+      "item": "hoshimimod:corn_kernels",
+      "chance": 0.5
+    },
+    {
+      "item": "farmersdelight:straw",
+      "chance": 1
+    }
+  ]
+}

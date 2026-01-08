@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "hoshimimod:corns"
+    }
+  },
+  "result": {
+    "item": "hoshimimod:corn_crate"
+  }
+}

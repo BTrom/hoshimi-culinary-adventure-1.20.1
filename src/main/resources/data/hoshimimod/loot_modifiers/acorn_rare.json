@@ -1,0 +1,43 @@
+{
+  "type": "hoshimimod:add_item",
+  "conditions": [
+    {
+      "condition": "hoshimimod:enabled",
+      "item": "acorn"
+    },
+    {
+      "chance": 0.01,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "tag": "forge:shears"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "condition": "hoshimimod:is_tag",
+      "tag": "hoshimimod:drops_acorn"
+    }
+  ],
+  "item": "hoshimimod:acorn",
+  "maxAmount": 1,
+  "minAmount": 1,
+  "unique": true
+}

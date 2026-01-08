@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "hoshimimod:corn_dough"
+    },
+    {
+      "item": "hoshimimod:corn_dough"
+    },
+    {
+      "tag": "hoshimimod:avocados"
+    },
+    {
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "forge:crops/onion"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:empanada",
+    "count": 2
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}

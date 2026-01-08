@@ -1,0 +1,37 @@
+{
+  "parent": "hoshimimod:dough",
+  "display": {
+    "icon": {
+      "item": "hoshimimod:raw_pizza"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.raw_pizza.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.raw_pizza.description"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "raw_pizza": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hoshimimod:raw_pizza"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "raw_pizza"
+    ]
+  ]
+}

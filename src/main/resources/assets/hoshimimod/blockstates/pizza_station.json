@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "hoshimimod:block/pizza_station" },
+    "facing=east": { "model": "hoshimimod:block/pizza_station", "y": 90 },
+    "facing=south": { "model": "hoshimimod:block/pizza_station", "y": 180 },
+    "facing=west": { "model": "hoshimimod:block/pizza_station", "y": 270 }
+  }
+}

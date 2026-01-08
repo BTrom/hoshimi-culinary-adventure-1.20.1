@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/bricks",
+    "east": "hoshimimod:block/pizza_station_side",
+    "north": "hoshimimod:block/pizza_station_side",
+    "particle": "hoshimimod:block/pizza_station_side",
+    "south": "hoshimimod:block/pizza_station_side",
+    "up": "hoshimimod:block/pizza_station_top",
+    "west": "hoshimimod:block/pizza_station_side"
+  }
+}

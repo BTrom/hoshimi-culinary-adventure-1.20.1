@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:avocado"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:avocado_seed",
+    "count": 1
+  }
+}

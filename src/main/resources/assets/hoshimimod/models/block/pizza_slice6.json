@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "hoshimimod:block/pizza_top",
+		"1": "hoshimimod:block/pizza_bottom",
+		"particle": "hoshimimod:block/pizza_top"
+	},
+	"elements": [
+		{
+			"from": [13, 0, 1],
+			"to": [15, 1, 15],
+			"faces": {
+				"north": {"uv": [1, 15, 3, 16], "texture": "#1"},
+				"east": {"uv": [1, 15, 15, 16], "texture": "#1"},
+				"south": {"uv": [13, 15, 15, 16], "texture": "#1"},
+				"west": {"uv": [1, 0, 15, 1], "texture": "#1"},
+				"up": {"uv": [13, 1, 15, 15], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [13, 1, 15, 15], "texture": "#1"}
+			}
+		}
+	]
+}

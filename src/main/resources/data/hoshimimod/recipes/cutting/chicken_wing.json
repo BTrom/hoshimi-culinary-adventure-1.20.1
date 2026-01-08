@@ -1,0 +1,15 @@
+{
+  "type": "hoshimimod:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "item": "minecraft:chicken"
+  },
+  "result": {
+    "item": "hoshimimod:wing",
+    "count": 2
+  }
+}

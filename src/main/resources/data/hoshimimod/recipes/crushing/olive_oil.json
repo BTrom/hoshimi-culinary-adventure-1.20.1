@@ -1,0 +1,13 @@
+{
+  "type": "hoshimimod:crushing_recipe",
+  "input":
+  {
+      "item": "hoshimimod:olive"
+  },
+  "inputCount": 4,
+  "content": "olive_oil",
+  "result": {
+    "item": "hoshimimod:olive_oil",
+    "count": 1
+  }
+}

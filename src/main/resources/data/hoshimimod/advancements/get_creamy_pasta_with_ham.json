@@ -1,0 +1,36 @@
+{
+  "parent": "hoshimimod:main/get_diced_potatoes_with",
+  "criteria": {
+    "creamy_pasta_with_ham": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["hoshimimod:creamy_pasta_with_ham"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "hoshimimod.advancement.creamy_pasta_with_ham.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "hoshimimod:creamy_pasta_with_ham"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "hoshimimod.advancement.creamy_pasta_with_ham"
+    }
+  },
+  "requirements": [
+    [
+      "creamy_pasta_with_ham"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

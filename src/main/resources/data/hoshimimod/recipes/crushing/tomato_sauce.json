@@ -1,0 +1,13 @@
+{
+  "type": "hoshimimod:crushing_recipe",
+  "input":
+  {
+      "tag": "forge:crops/tomato"
+  },
+  "inputCount": 4,
+  "content": "tomato_sauce",
+  "result": {
+    "item": "hoshimimod:tomato_sauce",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "hoshimimod:item/marshmallow_stick"
+  }
+}

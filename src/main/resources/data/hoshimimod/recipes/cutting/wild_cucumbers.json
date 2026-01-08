@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:wild_cucumbers"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "hoshimimod:cucumber"
+    },
+    {
+      "item": "hoshimimod:cucumber_seeds"
+    },
+    {
+      "item": "minecraft:yellow_dye",
+      "count": 2,
+      "chance": 0.5
+    }
+  ]
+}

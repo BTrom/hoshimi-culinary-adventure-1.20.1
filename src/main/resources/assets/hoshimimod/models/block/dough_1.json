@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "hoshimimod:block/pizza_dough_stage1",
+		"particle": "hoshimimod:block/pizza_dough_stage1"
+	},
+	"elements": [
+		{
+			"name": "dough2",
+			"from": [3, 0, 4],
+			"to": [11, 4, 11],
+			"faces": {
+				"north": {"uv": [0, 12, 8, 16], "texture": "#0"},
+				"east": {"uv": [8, 12, 15, 16], "texture": "#0"},
+				"south": {"uv": [0, 12, 8, 16], "texture": "#0"},
+				"west": {"uv": [8, 12, 15, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 7], "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 7], "texture": "#0"}
+			}
+		}
+	]
+}

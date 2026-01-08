@@ -1,0 +1,37 @@
+{
+  "parent": "hoshimimod:cheese_block",
+  "display": {
+    "icon": {
+      "item": "hoshimimod:cheese"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.cheese.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.cheese.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hoshimimod:cheese"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cheese"
+    ]
+  ]
+}

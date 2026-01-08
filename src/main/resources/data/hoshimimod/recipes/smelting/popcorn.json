@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "hoshimimod:corn_kernels"
+  },
+  "result": "hoshimimod:popcorn",
+  "experience": 0.05,
+  "cookingtime": 25
+}

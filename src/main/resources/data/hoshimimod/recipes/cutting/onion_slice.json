@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "tag": "forge:crops/onion"
+  },
+  "result": {
+    "item": "hoshimimod:onion_slice",
+    "count": 2
+  }
+}

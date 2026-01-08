@@ -1,0 +1,36 @@
+{
+  "parent": "hoshimimod:main/get_diced_potatoes_with",
+  "criteria": {
+    "mashed_potatoes": {
+      "conditions": {
+        "items": [
+          {
+            "items": ["hoshimimod:mashed_potatoes"]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "hoshimimod.advancement.mashed_potatoes.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "hoshimimod:mashed_potatoes"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "hoshimimod.advancement.mashed_potatoes"
+    }
+  },
+  "requirements": [
+    [
+      "mashed_potatoes"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

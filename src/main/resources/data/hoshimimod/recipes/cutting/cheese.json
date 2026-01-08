@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "item": "hoshimimod:cheese_block"
+  },
+  "result": {
+    "item": "hoshimimod:cheese",
+    "count": 3
+  }
+}

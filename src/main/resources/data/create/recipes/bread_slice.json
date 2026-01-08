@@ -1,0 +1,28 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:cutting",
+        "ingredients": [
+          {
+            "item": "minecraft:bread"
+          }
+        ],
+        "processingTime": 30,
+        "results": [
+          {
+            "count": 4,
+            "item": "hoshimimod:bread_slice"
+          }
+        ]
+      }
+    }
+  ]
+}

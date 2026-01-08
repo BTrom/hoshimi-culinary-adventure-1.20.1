@@ -1,0 +1,30 @@
+{
+  "type": "hoshimimod:add_item",
+  "conditions": [
+    {
+      "condition": "hoshimimod:enabled",
+      "item": "green_tea_leaf"
+    },
+    {
+      "chance": 0.005,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "tag": "forge:tools/knives"
+        }
+      }
+    },
+    {
+      "condition": "hoshimimod:is_tag",
+      "tag": "hoshimimod:drops_green_tea_leaf"
+    }
+  ],
+  "item": "hoshimimod:green_tea_leaf",
+  "maxAmount": 1,
+  "minAmount": 1,
+  "unique": true
+}

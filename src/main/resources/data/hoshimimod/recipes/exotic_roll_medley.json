@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:egg_roll"
+    },
+    {
+      "item": "hoshimimod:egg_roll"
+    },
+    {
+      "item": "hoshimimod:midori_roll_slice"
+    },
+    {
+      "item": "hoshimimod:tropical_roll"
+    },
+    {
+      "item": "hoshimimod:tropical_roll"
+    },
+    {
+      "item": "hoshimimod:midori_roll_slice"
+    },
+    {
+      "item": "hoshimimod:rice_ball"
+    },
+    {
+      "item": "hoshimimod:rice_ball"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:exotic_roll_medley"
+  }
+}

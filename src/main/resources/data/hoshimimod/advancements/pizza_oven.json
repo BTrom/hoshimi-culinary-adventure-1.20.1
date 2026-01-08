@@ -1,0 +1,36 @@
+{
+  "parent": "hoshimimod:root",
+  "display": {
+    "icon": {
+      "item": "hoshimimod:oven"
+    },
+    "title": {
+      "translate": "advancements.hoshimimod.oven.title"
+    },
+    "description": {
+      "translate": "advancements.hoshimimod.oven.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "oven": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "hoshimimod:pizza_oven"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oven"
+    ]
+  ]
+}

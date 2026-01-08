@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "hoshimimod:block/corn_crate_side",
+    "bottom": "hoshimimod:block/crate_bottom",
+    "top": "hoshimimod:block/corn_crate_top"
+  }
+}

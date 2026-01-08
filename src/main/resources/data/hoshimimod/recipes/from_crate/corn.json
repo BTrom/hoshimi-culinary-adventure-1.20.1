@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:corn_crate"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:corn",
+    "count": 9
+  }
+}

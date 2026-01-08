@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "tag": "forge:mushrooms"
+  },
+  "result": {
+    "item": "hoshimimod:mushroom_slice",
+    "count": 2
+  }
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "hoshimimod:block/base_basin",
+	"textures": {
+		"texture": "minecraft:block/polished_diorite",
+		"top": "minecraft:block/polished_diorite"
+	}
+}

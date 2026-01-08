@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ! ",
+    "@?@",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dried_kelp"
+    },
+    "@": {
+      "item": "farmersdelight:cooked_rice"
+    },
+    "?": {
+      "tag": "hoshimimod:avocados"
+    },
+    "!": {
+      "tag": "hoshimimod:cucumbers"
+    }
+  },
+  "result": {
+    "item": "hoshimimod:midori_roll"
+  }
+}
