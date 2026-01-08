@@ -1,11 +1,16 @@
 package com.botrom.hoshimi_ca_mod;
 
+import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
+import com.botrom.hoshimi_ca_mod.registry.ModMenuTypes;
 import com.botrom.hoshimi_ca_mod.tabs.ModCreativeTabs;
+import com.botrom.hoshimi_ca_mod.renderers.BasinRenderer;
+import com.botrom.hoshimi_ca_mod.renderers.PizzaRenderer;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -28,8 +33,10 @@ public class HoshimiCulinaryMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
+        ModBlockEntityTypes.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -78,6 +85,9 @@ public class HoshimiCulinaryMod {
             // ItemBlockRenderTypes.setRenderLayer(ModBlocks.AVOCADO_PIT.get(), RenderType.cutoutMipped());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CORN_BOTTOM.get(), RenderType.cutoutMipped());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CORN_UPPER.get(), RenderType.cutoutMipped());
+
+            BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntityTypes.PIZZA.get(), PizzaRenderer::new);
         }
     }
 }

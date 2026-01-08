@@ -1,6 +1,8 @@
 package com.botrom.hoshimi_ca_mod.utils;
 
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Containers;
@@ -12,10 +14,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.items.ItemStackHandler;
+import org.lwjgl.glfw.GLFW;
 
 import javax.annotation.Nullable;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.IntStream;
 
 public class Utils {
@@ -25,6 +31,8 @@ public class Utils {
     public static final String TAG_SATURATION = "Saturation";
     public static final String TAG_PROBABILITY = "Probability";
     public static final String TAG_EFFECTS = "Effects";
+
+    public static final long CONSTANT_RENDERING_LONG = 42;
 
     public static ItemStackHandler createHandlerFromStack(ItemStack stack, int size) {
         ItemStackHandler handler = new ItemStackHandler(size);
@@ -179,6 +187,10 @@ public class Utils {
         IntStream.range(0, handler.getSlots() - 1).forEach(i -> Containers.dropItemStack(pLevel, (double) pPos.getX(), (double) pPos.getY(), (double) pPos.getZ(), handler.getStackInSlot(i)));
     }
 
+    public static boolean isShiftPressed() {
+        return GLFW.glfwGetKey(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT) == GLFW.GLFW_PRESS || GLFW.glfwGetKey(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_RIGHT_SHIFT) == GLFW.GLFW_PRESS;
+    }
+
     // Render Utils
     public static double[] getPosRandomAboveBlockHorizontal(Level level, BlockPos pos) {
         double d0 = 0.5D;
@@ -188,5 +200,42 @@ public class Utils {
         double d8 = (double) pos.getZ() + d5 + level.random.nextDouble() * d0 * 2.0D;
 
         return new double[]{d6, d8};
+    }
+
+    public static int getDominantColor(TextureAtlasSprite sprite, boolean isRaw) {
+        int iconWidth = sprite.contents().width();
+        int iconHeight = sprite.contents().height();
+
+        int frameCount = (int) sprite.contents().getUniqueFrames().count();
+
+        if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
+            return 0xFFFFFF;
+        }
+        TreeMap<Integer, Integer> counts = new TreeMap<>();
+
+        for (int f = 0; f < frameCount; f++) {
+            for (int v = 0; v < iconWidth; v++) {
+                for (int u = 0; u < iconHeight; u++) {
+                    int rgba = sprite.getPixelRGBA(f, v, u);
+                    int alpha = rgba >> 24 & 0xFF;
+
+                    if (alpha > 0) {
+                        counts.merge(rgba, 1, (color, count) -> count + 1);
+                    }
+                }
+            }
+        }
+        int dominantColor = 0;
+        int dominantSum = 0;
+
+        for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
+            if (entry.getValue() > dominantSum) {
+                dominantSum = entry.getValue();
+                dominantColor = entry.getKey();
+            }
+        }
+        Color color = new Color(dominantColor, true);
+        // No idea why the r and b values are reversed, but they are
+        return isRaw ? new Color(color.getBlue(), color.getGreen(), color.getRed()).brighter().brighter().brighter().brighter().brighter().getRGB() : new Color(color.getBlue(), color.getGreen(), color.getRed()).brighter().getRGB();
     }
 }

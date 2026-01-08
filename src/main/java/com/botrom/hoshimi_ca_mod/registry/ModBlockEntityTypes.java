@@ -5,6 +5,7 @@ import com.botrom.hoshimi_ca_mod.blockentity.BasinBlockEntity;
 import com.botrom.hoshimi_ca_mod.blockentity.PizzaBlockEntity;
 import com.botrom.hoshimi_ca_mod.blockentity.PizzaStationBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -26,4 +27,8 @@ public class ModBlockEntityTypes {
     public static final RegistryObject<BlockEntityType<PizzaStationBlockEntity>> PIZZA_STATION = BLOCK_ENTITY_TYPES.register("pizza_station",
             () -> BlockEntityType.Builder.of(PizzaStationBlockEntity::new,
                     ModBlocks.PIZZA_STATION.get()).build(null));
+
+    public static void register(IEventBus eventBus) {
+        BLOCK_ENTITY_TYPES.register(eventBus);
+    }
 }

@@ -420,12 +420,12 @@ public class PizzaBlockEntity extends BaseBlockEntity implements MenuProvider {
         return modelData;
     }
 
-//    public ModelData getItemStackModelData(ItemStack stack) {
-//        readFromStack(stack);
-//        ModelData.Builder builder = ModelData.builder();
-//        builder.with(PizzaBakedModel.LAYER_PROVIDERS, Optional.of(getInventory()));
-//        builder.with(PizzaBakedModel.INTEGER_PROPERTY, Optional.of(0));
-//        builder.with(PizzaBakedModel.IS_RAW, Optional.of(stack.getItem() == ModItems.RAW_PIZZA.get()));
-//        return builder.build();
-//    }
+    public ModelData getItemStackModelData(ItemStack stack) {
+        readFromStack(stack);
+        ModelData.Builder builder = ModelData.builder();
+        builder.with(PizzaBakedModel.LAYER_PROVIDERS, Optional.of(getInventory()));
+        builder.with(PizzaBakedModel.INTEGER_PROPERTY, Optional.of(0));
+        builder.with(PizzaBakedModel.IS_RAW, Optional.of(stack.getItem() == ModItems.RAW_PIZZA.get()));
+        return builder.build();
+    }
 }
