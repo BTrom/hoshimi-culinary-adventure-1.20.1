@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "hoshimimod:pizza_dough"
+    "hoshimimod:pizza_dough",
+    "hoshimimod:corn_dough"
   ]
 }

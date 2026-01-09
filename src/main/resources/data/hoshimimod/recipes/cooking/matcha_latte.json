@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersrespite"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "cookingtime": 100,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "item": "minecraft:honey_bottle"
+          },
+          {
+            "tag": "forge:matcha"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:matcha_latte"
+        }
+      }
+    }
+  ]
+}

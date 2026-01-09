@@ -1,15 +1,21 @@
 {
   "type": "farmersdelight:cutting",
-  "tool":
-  {
+  "ingredients": [
+    {
+      "item": "farmersdelight:smoked_ham"
+    }
+  ],
+  "tool": {
     "tag": "forge:tools/knives"
   },
-  "input":
-  {
-    "item": "minecraft:porkchop"
-  },
-  "result": {
-    "item": "hoshimimod:ham",
-    "count": 2
-  }
+  "result": [
+    {
+      "item": "hoshimimod:cut_ham",
+      "count": 8
+    },
+    {
+      "item": "minecraft:bone",
+      "count": 1
+    }
+  ]
 }

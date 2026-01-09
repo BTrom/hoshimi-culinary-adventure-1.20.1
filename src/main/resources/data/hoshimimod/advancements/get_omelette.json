@@ -1,5 +1,5 @@
 {
-  "parent": "hoshimimod:main/get_toast_with_egg",
+  "parent": "hoshimimod:root",
   "criteria": {
     "omelette": {
       "conditions": {

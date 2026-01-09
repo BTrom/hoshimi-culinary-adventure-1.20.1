@@ -4,10 +4,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "cactus_flesh"
-        },
-        {
           "type": "forge:item_exists",
           "item": "sob:nopal"
         }
@@ -36,10 +32,6 @@
     },
     {
       "conditions": [
-        {
-          "type": "hoshimimod:enabled",
-          "value": "cactus_flesh"
-        },
         {
           "type": "forge:not",
           "value": {

@@ -1,15 +1,17 @@
 {
   "type": "farmersdelight:cutting",
-  "tool":
-  {
+  "ingredients": [
+    {
+      "item": "hoshimimod:pepper"
+    }
+  ],
+  "tool": {
     "tag": "forge:tools/knives"
   },
-  "input":
-  {
-    "tag": "forge:crops/pepper"
-  },
-  "result": {
-    "item": "hoshimimod:pepper_slice",
-    "count": 2
-  }
+  "result": [
+    {
+      "item": "hoshimimod:pepper_slice",
+      "count": 2
+    }
+  ]
 }

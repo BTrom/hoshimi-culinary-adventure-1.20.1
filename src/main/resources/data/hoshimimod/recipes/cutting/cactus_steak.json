@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:cactus_steak"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:green_dye"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

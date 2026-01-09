@@ -1,12 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#forge:vegetables/broccoli",
-    "#forge:vegetables/corn",
-    "#forge:vegetables/cucumber",
-    "#forge:vegetables/onion",
-    "#forge:vegetables/pepper",
-    "#forge:vegetables/tomato",
-    "#forge:vegetables/broccoli"
+    "#forge:crops/broccoli",
+    "#forge:crops/corn",
+    "#forge:crops/cucumber",
+    "#forge:crops/onion",
+    "#forge:crops/pepper",
+    "#forge:crops/tomato",
+    "#forge:crops/avocado",
+    "#forge:crops/eggplant",
+    "#forge:crops/potato",
+    "#forge:crops/pumpkin"
   ]
 }

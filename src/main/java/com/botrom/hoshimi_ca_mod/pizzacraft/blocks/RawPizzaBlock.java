@@ -6,7 +6,6 @@ import com.botrom.hoshimi_ca_mod.pizzacraft.util.RenderUtils;
 import com.botrom.hoshimi_ca_mod.pizzacraft.util.Utils;
 import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
-import com.botrom.hoshimi_ca_mod.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -37,6 +36,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import vectorwing.farmersdelight.common.registry.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -61,7 +61,7 @@ public class RawPizzaBlock extends Block implements EntityBlock {
                 //worldIn.playSound(null, pos, ModSounds.SIZZLING_SOUND.get(), SoundCategory.BLOCKS, 1.0F, 1.0F);
 
                 if (rand.nextDouble() < 0.3D) {
-                    level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.BLOCK_PIZZA_SIZZLING.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                    level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.BLOCK_SKILLET_SIZZLE.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
 
                 if (rand.nextInt(2) == 0) {

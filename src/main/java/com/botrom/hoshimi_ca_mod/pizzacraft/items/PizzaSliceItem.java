@@ -37,9 +37,9 @@ public class PizzaSliceItem extends Item
     {
         FoodProperties prop = stack.getFoodProperties(null);
 
-        tooltip.add(Component.translatable("information.pizzacraft.taste", new TasteHandler(NBTUtils.getUniqueness(stack), 9).getTaste().toString()));
-        tooltip.add(Component.translatable("information.pizzacraft.hunger_slice", prop.getNutrition()).withStyle(ChatFormatting.BLUE));
-        tooltip.add(Component.translatable("information.pizzacraft.saturation_slice", decimalFormat.format(prop.getSaturationModifier())).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("information.hoshimimod.taste", new TasteHandler(NBTUtils.getUniqueness(stack), 9).getTaste().toString()));
+        tooltip.add(Component.translatable("information.hoshimimod.hunger_slice", prop.getNutrition()).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("information.hoshimimod.saturation_slice", decimalFormat.format(prop.getSaturationModifier())).withStyle(ChatFormatting.BLUE));
 
         if(!NBTUtils.getSauceStack(stack).isEmpty())
         {

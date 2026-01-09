@@ -2,7 +2,7 @@
   "parent": "hoshimimod:root",
   "display": {
     "icon": {
-      "item": "hoshimimod:dough"
+      "item": "hoshimimod:pizza_dough"
     },
     "title": {
       "translate": "advancements.hoshimimod.dough.title"
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "hoshimimod:dough"
+              "hoshimimod:pizza_dough"
             ]
           }
         ]

@@ -1,15 +1,17 @@
 {
   "type": "farmersdelight:cutting",
-  "tool":
-  {
+  "ingredients": [
+    {
+      "item": "farmersdelight:tomato"
+    }
+  ],
+  "tool": {
     "tag": "forge:tools/knives"
   },
-  "input":
-  {
-    "tag": "forge:crops/tomato"
-  },
-  "result": {
-    "item": "hoshimimod:tomato_slice",
-    "count": 2
-  }
+  "result": [
+    {
+      "item": "hoshimimod:tomato_slice",
+      "count": 2
+    }
+  ]
 }

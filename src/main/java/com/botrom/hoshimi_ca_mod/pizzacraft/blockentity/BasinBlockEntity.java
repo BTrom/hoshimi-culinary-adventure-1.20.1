@@ -422,14 +422,6 @@ public class BasinBlockEntity extends BaseBlockEntity
             {
                 blockEntity.fermentProgress++;
                 //blockEntity.setChanged();
-
-                if(blockEntity.fermentProgress % 60 == 0)
-                {
-                    //if(tick == 59)
-                    //{
-                    level.playSound(null, pos, ModSounds.BLOCK_BASIN_FERMENTING.get(), SoundSource.BLOCKS, 0.8F, 0.9F + level.random.nextFloat());
-                    //}
-                }
             }
             if(blockEntity.fermentProgress >= blockEntity.defaultFermentTime)
             {

@@ -4,10 +4,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "azalea_tea"
-        },
-        {
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",
@@ -20,10 +16,6 @@
             "type": "forge:mod_loaded",
             "modid": "farmersrespite"
           }
-        },
-        {
-          "type": "hoshimimod:enabled",
-          "value": "cantaloupe_slice"
         }
       ],
       "recipe": {
@@ -60,10 +52,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "azalea_tea"
-        },
-        {
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",
@@ -75,13 +63,6 @@
           "value": {
             "type": "forge:mod_loaded",
             "modid": "farmersrespite"
-          }
-        },
-        {
-          "type": "forge:not",
-          "value": {
-            "type": "hoshimimod:enabled",
-            "value": "cantaloupe_slice"
           }
         }
       ],

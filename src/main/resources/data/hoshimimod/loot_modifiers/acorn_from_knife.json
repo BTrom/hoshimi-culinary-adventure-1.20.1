@@ -2,10 +2,6 @@
   "type": "hoshimimod:add_item",
   "conditions": [
     {
-      "condition": "hoshimimod:enabled",
-      "item": "acorn"
-    },
-    {
       "chance": 0.05,
       "condition": "minecraft:random_chance"
     },

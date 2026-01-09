@@ -132,7 +132,7 @@ repositories {
     maven {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
-        url = "https://modmaven.dev"
+        url = "https://modmaven.k-4u.nl"
     }
     maven {
         url = "https://www.cursemaven.com"
@@ -153,10 +153,7 @@ dependencies {
     // Farmer's Delight
     implementation fg.deobf("curse.maven:farmers-delight-398521:5051242")
     // JEI
-    // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    implementation fg.deobf("mezz.jei:${jei_version}")
     // Appleskin
     implementation fg.deobf("curse.maven:appleskin-248787:4770828")
     // implementation fg.deobf(files("libs/FarmersDelight-1.20.1-1.2.4.jar"))

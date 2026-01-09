@@ -47,8 +47,7 @@ import javax.annotation.Nullable;
 import java.text.DecimalFormat;
 import java.util.List;
 
-public class PizzaBlock extends Block implements EntityBlock
-{
+public class PizzaBlock extends Block implements EntityBlock {
     public static final IntegerProperty BITES = BlockStateProperties.BITES;
     private static final VoxelShape[] SHAPES = new VoxelShape[]{
             Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D),
@@ -59,21 +58,18 @@ public class PizzaBlock extends Block implements EntityBlock
             Block.box(11.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D),
             Block.box(13.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D)};
 
-    public PizzaBlock(Properties properties)
-    {
+    public PizzaBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(BITES, 0));
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context)
-    {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPES[state.getValue(BITES)];
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState)
-    {
+    public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
@@ -98,19 +94,15 @@ public class PizzaBlock extends Block implements EntityBlock
     } */
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit)
-    {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         ItemStack itemstack = player.getItemInHand(handIn);
 
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
-            if(itemstack.getItem() instanceof PizzaPeelItem && state.getValue(BITES) == 0)
-            {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
+            if (itemstack.getItem() instanceof PizzaPeelItem && state.getValue(BITES) == 0) {
                 ItemStack stack = asItem().getDefaultInstance();
                 stack = blockEntity.writeToItemStack(stack);
 
-                if(!level.isClientSide)
-                {
+                if (!level.isClientSide) {
                     level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
                 }
 
@@ -119,19 +111,15 @@ public class PizzaBlock extends Block implements EntityBlock
                 return InteractionResult.SUCCESS;
             }
 
-            if(itemstack.is(ModTags.KNIVES))
-            {
+            if (itemstack.is(ModTags.KNIVES)) {
                 int i = state.getValue(BITES);
 
                 ItemStack stack = ModItems.PIZZA_SLICE.get().getDefaultInstance();
                 blockEntity.writeToSliceItemStack(stack);
 
-                if(i < 6)
-                {
+                if (i < 6) {
                     level.setBlock(pos, state.setValue(BITES, i + 1), 3);
-                }
-                else
-                {
+                } else {
                     level.removeBlock(pos, false);
                 }
 
@@ -148,55 +136,42 @@ public class PizzaBlock extends Block implements EntityBlock
             }
         }
 
-        if(this.eatPizza(level, pos, state, player) == InteractionResult.SUCCESS)
-        {
+        if (this.eatPizza(level, pos, state, player) == InteractionResult.SUCCESS) {
             return InteractionResult.SUCCESS;
         }
 
-        if(itemstack.isEmpty())
-        {
+        if (itemstack.isEmpty()) {
             return InteractionResult.CONSUME;
         }
         return this.eatPizza(level, pos, state, player);
     }
 
-    private InteractionResult eatPizza(LevelAccessor level, BlockPos pos, BlockState state, Player player)
-    {
-        if(!player.canEat(true))
-        {
+    private InteractionResult eatPizza(LevelAccessor level, BlockPos pos, BlockState state, Player player) {
+        if (!player.canEat(true)) {
             return InteractionResult.PASS;
-        }
-        else
-        {
+        } else {
             int i = state.getValue(BITES);
 
-            if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-            {
+            if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
                 ItemStack stack = ModItems.PIZZA_SLICE.get().getDefaultInstance();
                 blockEntity.writeToSliceItemStack(stack);
                 FoodProperties props = stack.getFoodProperties(player);
 
-                for(Pair<MobEffectInstance, Float> pair : props.getEffects())
-                {
-                    if(!level.isClientSide() && pair.getFirst() != null && level.getRandom().nextFloat() < pair.getSecond())
-                    {
+                for (Pair<MobEffectInstance, Float> pair : props.getEffects()) {
+                    if (!level.isClientSide() && pair.getFirst() != null && level.getRandom().nextFloat() < pair.getSecond()) {
                         player.addEffect(new MobEffectInstance(pair.getFirst()));
                     }
                 }
                 player.getFoodData().eat(props.getNutrition(), props.getSaturationModifier());
             }
 
-            if(i < 6)
-            {
+            if (i < 6) {
                 level.setBlock(pos, state.setValue(BITES, i + 1), 3);
-            }
-            else
-            {
+            } else {
                 level.removeBlock(pos, false);
             }
 
-            if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-            {
+            if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
                 blockEntity.requestModelDataUpdate();
             }
 
@@ -205,22 +180,17 @@ public class PizzaBlock extends Block implements EntityBlock
     }
 
     @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack)
-    {
-        if(level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
-            if(stack.getTag() != null)
-            {
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        if (level.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
+            if (stack.getTag() != null) {
                 blockEntity.readFromStack(stack);
             }
         }
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player)
-    {
-        if(world.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity)
-        {
+    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
+        if (world.getBlockEntity(pos) instanceof PizzaBlockEntity blockEntity) {
             ItemStack stack = this.getCloneItemStack(world, pos, state);
             stack = blockEntity.writeToItemStack(stack);
             return stack;
@@ -229,26 +199,22 @@ public class PizzaBlock extends Block implements EntityBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos)
-    {
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         return facing == Direction.DOWN && !stateIn.isViewBlocking(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, level, currentPos, facingPos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos)
-    {
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         return level.getBlockState(pos.below()).isSolid();
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
-    {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BITES);
     }
 
     @Override
-    public int getSignal(BlockState blockState, BlockGetter level, BlockPos pos, Direction side)
-    {
+    public int getSignal(BlockState blockState, BlockGetter level, BlockPos pos, Direction side) {
         return (7 - blockState.getValue(BITES)) * 2;
     }
 
@@ -258,31 +224,28 @@ public class PizzaBlock extends Block implements EntityBlock
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
-    {
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new PizzaBlockEntity(pos, state);
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> tooltip, TooltipFlag flagIn)
-    {
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> tooltip, TooltipFlag flagIn) {
         addInformationForPizza(stack, tooltip);
     }
 
     private static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-    public static void addInformationForPizza(ItemStack stack, List<Component> tooltip)
-    {
-        if(!Utils.isShiftPressed()) {
-            tooltip.add(Component.translatable("information.pizzacraft.view_ingredients"));
+    public static void addInformationForPizza(ItemStack stack, List<Component> tooltip) {
+        if (!Utils.isShiftPressed()) {
+            tooltip.add(Component.translatable("information.hoshimimod.view_ingredients"));
         }
 
-        tooltip.add(Component.translatable("information.pizzacraft.taste", new TasteHandler(NBTUtils.getUniqueness(stack), 9).getTaste().toString()));
-        tooltip.add(Component.translatable("information.pizzacraft.hunger", NBTUtils.getHunger(stack) / 7, NBTUtils.getHunger(stack)).withStyle(ChatFormatting.BLUE));
-        tooltip.add(Component.translatable("information.pizzacraft.saturation", decimalFormat.format(NBTUtils.getSaturation(stack))).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("information.hoshimimod.taste", new TasteHandler(NBTUtils.getUniqueness(stack), 9).getTaste().toString()));
+        tooltip.add(Component.translatable("information.hoshimimod.hunger", NBTUtils.getHunger(stack) / 7, NBTUtils.getHunger(stack)).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable("information.hoshimimod.saturation", decimalFormat.format(NBTUtils.getSaturation(stack))).withStyle(ChatFormatting.BLUE));
 
-        if(!NBTUtils.getSauceStack(stack).isEmpty()) {
+        if (!NBTUtils.getSauceStack(stack).isEmpty()) {
             PotionUtils.addPotionTooltip(NBTUtils.getSauceStack(stack), tooltip, 1.0F);
         }
     }

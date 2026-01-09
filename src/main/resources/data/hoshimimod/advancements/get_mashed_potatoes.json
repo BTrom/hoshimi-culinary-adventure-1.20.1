@@ -1,5 +1,5 @@
 {
-  "parent": "hoshimimod:main/get_diced_potatoes_with",
+  "parent": "hoshimimod:root",
   "criteria": {
     "mashed_potatoes": {
       "conditions": {

@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:vegetables/corn"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "cookingtime": 200,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "tag": "forge:raw_pork"
+          },
+          {
+            "tag": "forge:vegetables/cactus"
+          },
+          {
+            "item": "farmersdelight:tomato_sauce"
+          },
+          {
+            "tag": "hoshimimod:hot_spices"
+          },
+          {
+            "tag": "forge:vegetables/corn"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "result": {
+          "item": "hoshimimod:cactus_chili"
+        }
+      }
+    }
+  ]
+}

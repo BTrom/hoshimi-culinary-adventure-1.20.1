@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "hoshimimod:oven"
+          "name": "hoshimimod:pizza_oven"
         }
       ],
       "conditions": [

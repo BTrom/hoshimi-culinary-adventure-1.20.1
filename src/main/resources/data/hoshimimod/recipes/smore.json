@@ -1,0 +1,37 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:chocolate"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "farmersdelight:honey_cookie"
+          },
+          {
+            "tag": "forge:chocolate"
+          },
+          {
+            "tag": "hoshimimod:roasted_marshmallows"
+          },
+          {
+            "item": "farmersdelight:honey_cookie"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:smore"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "item": "hoshimimod:cactus_steak"
+    },
+    {
+      "tag": "forge:vegetables/carrot"
+    },
+    {
+      "tag": "forge:fruits/salmonberries"
+    },
+    {
+      "tag": "forge:cooked_nuts"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:field_salad"
+  }
+}

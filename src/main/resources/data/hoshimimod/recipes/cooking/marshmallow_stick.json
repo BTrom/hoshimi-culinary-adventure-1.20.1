@@ -4,10 +4,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "marshmallow_stick"
-        },
-        {
           "type": "forge:tag_empty",
           "tag": "forge:marshmallow"
         },
@@ -31,17 +27,9 @@
         "cookingtime": 200,
         "experience": 1.0,
         "ingredients": [
-          [
-            {
-              "item": "hoshimimod:animal_fat"
-            },
-            {
-              "tag": "forge:slimeballs"
-            },
-            {
-              "tag": "forge:eggs"
-            }
-          ],
+          {
+            "tag": "forge:eggs"
+          },
           {
             "item": "minecraft:sugar"
           },
@@ -58,10 +46,6 @@
     },
     {
       "conditions": [
-        {
-          "type": "hoshimimod:enabled",
-          "value": "marshmallow_stick"
-        },
         {
           "type": "forge:tag_empty",
           "tag": "forge:marshmallow"

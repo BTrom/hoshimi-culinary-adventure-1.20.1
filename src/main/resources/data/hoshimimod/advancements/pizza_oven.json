@@ -2,7 +2,7 @@
   "parent": "hoshimimod:root",
   "display": {
     "icon": {
-      "item": "hoshimimod:oven"
+      "item": "hoshimimod:pizza_oven"
     },
     "title": {
       "translate": "advancements.hoshimimod.oven.title"

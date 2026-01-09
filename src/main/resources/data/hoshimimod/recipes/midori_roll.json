@@ -13,7 +13,7 @@
       "item": "farmersdelight:cooked_rice"
     },
     "?": {
-      "tag": "hoshimimod:avocados"
+      "tag": "forge:crops/avocado"
     },
     "!": {
       "tag": "hoshimimod:cucumbers"

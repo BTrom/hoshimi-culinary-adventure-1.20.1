@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cheese"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "farmersdelight:hamburger"
+          },
+          {
+            "tag": "forge:cheese"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:cheeseburger"
+        }
+      }
+    }
+  ]
+}

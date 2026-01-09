@@ -7,10 +7,10 @@
         "tag": "forge:milk"
       },
       {
-        "tag": "forge:potatoes"
+        "tag": "forge:crops/potato"
       },
       {
-        "tag": "forge:potatoes"
+        "tag": "forge:crops/potato"
       }
     ],
   "recipe_book_tab": "meals",

@@ -1,5 +1,5 @@
 {
-    "parent": "hoshimimod:block/crop/crop_cross",
+    "parent": "hoshimimod:block/crop_cross",
     "textures": {
         "crop_cross": "hoshimimod:block/broccoli_stage3"
     }

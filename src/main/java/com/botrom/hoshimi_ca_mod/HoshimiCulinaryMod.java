@@ -55,7 +55,7 @@ public class HoshimiCulinaryMod {
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ModNetwork.registerNetworkChannel();
-            ModAdvancements.register();
+//            ModAdvancements.register();
             ModVanillaCompat.setup();
             BasinContent.register();
         });

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:cut_ham",
+    "minecraft:porkchop",
+    "minecraft:cooked_porkchop",
+    "farmersdelight:bacon",
+    "farmersdelight:cooked_bacon"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:chicken_wing",
+    "minecraft:chicken",
+    "minecraft:cooked_chicken",
+    "farmersdelight:chicken_cuts",
+    "farmersdelight:cooked_chicken_cuts"
+  ]
+}

@@ -4,10 +4,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "roasted_acorn"
-        },
-        {
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",

@@ -4,10 +4,6 @@
     {
       "conditions": [
         {
-          "type": "hoshimimod:enabled",
-          "value": "lavender_tea"
-        },
-        {
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",

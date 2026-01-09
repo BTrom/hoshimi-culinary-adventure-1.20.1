@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "#hoshimimod:ingredients/fruits/olive_layer",
+    "#hoshimimod:ingredients/fruits/pineapple_layer",
+    "#hoshimimod:ingredients/meats/beef_layer",
+    "#hoshimimod:ingredients/meats/chicken_layer",
+    "#hoshimimod:ingredients/meats/ham_layer",
+    "#hoshimimod:ingredients/meats/fish_layer",
+    "#hoshimimod:ingredients/mushrooms/mushroom_layer",
+    "#hoshimimod:ingredients/sauces/tomato_sauce_layer",
+    "#hoshimimod:ingredients/sauces/hot_sauce_layer",
+    "#hoshimimod:ingredients/vegetables/broccoli_layer",
+    "#hoshimimod:ingredients/vegetables/corn_layer",
+    "#hoshimimod:ingredients/vegetables/cucumber_layer",
+    "#hoshimimod:ingredients/vegetables/onion_layer",
+    "#hoshimimod:ingredients/vegetables/pepper_layer",
+    "#hoshimimod:ingredients/vegetables/tomato_layer",
+    "#hoshimimod:ingredients/cheese_layer"
+  ]
+}

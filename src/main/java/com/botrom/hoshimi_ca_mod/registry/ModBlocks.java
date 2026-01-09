@@ -3,6 +3,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.*;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.*;
+import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.crops.SimpleCropBlock;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -105,6 +106,16 @@ public class ModBlocks {
 //            });
 //        }
 //    }
+
+    public static Block[] getBasins() {
+        return new Block[]{
+                GRANITE_BASIN.get(),
+                DIORITE_BASIN.get(),
+                ANDESITE_BASIN.get(),
+                BASALT_BASIN.get(),
+                BLACKSTONE_BASIN.get()
+        };
+    }
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

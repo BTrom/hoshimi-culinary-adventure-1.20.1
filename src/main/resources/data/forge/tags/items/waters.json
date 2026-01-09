@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:water_bucket",
-    "minecraft:potion{Potion:water}"
+    "minecraft:water_bucket"
   ]
 }

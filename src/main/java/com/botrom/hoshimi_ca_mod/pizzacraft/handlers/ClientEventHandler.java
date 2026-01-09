@@ -4,8 +4,6 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.DynamicPizzaSliceModel;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.PizzaBakedModel;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.BasinRenderer;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.ChefHatModel;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.PizzaDeliveryCapModel;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.tooltip.PizzaTooltipComponent;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.tooltip.ClientPizzaTooltipComponent;
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
@@ -21,65 +19,46 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = HoshimiCulinaryMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class ClientEventHandler
-{
+public class ClientEventHandler {
     @SubscribeEvent
-    public static void registerTooltipComponent(RegisterClientTooltipComponentFactoriesEvent event)
-    {
+    public static void registerTooltipComponent(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(PizzaTooltipComponent.class, ClientPizzaTooltipComponent::new);
     }
 
     @SubscribeEvent
-    public static void registerModels(ModelEvent.RegisterGeometryLoaders event)
-    {
+    public static void registerModels(ModelEvent.RegisterGeometryLoaders event) {
         event.register("pizza_slice_loader", DynamicPizzaSliceModel.Loader.INSTANCE);
     }
 
     @SubscribeEvent
-    public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event)
-    {
+    public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(BasinRenderer.ContentModel.CONTENT_LAYER, BasinRenderer.ContentModel::createModelData);
         event.registerLayerDefinition(BasinRenderer.SauceModel.SAUCE_LAYER, BasinRenderer.SauceModel::createModelData);
-        event.registerLayerDefinition(PizzaDeliveryCapModel.CAP, PizzaDeliveryCapModel::createModelData);
-        event.registerLayerDefinition(ChefHatModel.CHEF_HAT, ChefHatModel::createModelData);
     }
 
     @SubscribeEvent
-    public static void onModelBakeEvent(ModelEvent.ModifyBakingResult event)
-    {
-        for(BlockState blockState : ModBlocks.PIZZA.get().getStateDefinition().getPossibleStates())
-        {
+    public static void onModelBakeEvent(ModelEvent.ModifyBakingResult event) {
+        for (BlockState blockState : ModBlocks.PIZZA.get().getStateDefinition().getPossibleStates()) {
             ModelResourceLocation variantMRL = BlockModelShaper.stateToModelLocation(blockState);
             BakedModel existingModel = event.getModels().get(variantMRL);
-            if(existingModel == null)
-            {
+            if (existingModel == null) {
                 //LOGGER.warn("Did not find the expected vanilla baked model(s) for blockAltimeter in registry");
-            }
-            else if(existingModel instanceof PizzaBakedModel)
-            {
-               // LOGGER.warn("Tried to replace AltimeterBakedModel twice");
-            }
-            else
-            {
+            } else if (existingModel instanceof PizzaBakedModel) {
+                // LOGGER.warn("Tried to replace AltimeterBakedModel twice");
+            } else {
                 PizzaBakedModel customModel = new PizzaBakedModel(existingModel);
                 event.getModels().put(variantMRL, customModel);
             }
         }
 
-        for(BlockState blockState : ModBlocks.RAW_PIZZA.get().getStateDefinition().getPossibleStates())
-        {
+        for (BlockState blockState : ModBlocks.RAW_PIZZA.get().getStateDefinition().getPossibleStates()) {
             ModelResourceLocation variantMRL = BlockModelShaper.stateToModelLocation(blockState);
             BakedModel existingModel = event.getModels().get(variantMRL);
-            if(existingModel == null)
-            {
+            if (existingModel == null) {
                 //LOGGER.warn("Did not find the expected vanilla baked model(s) for blockAltimeter in registry");
-            }
-            else if(existingModel instanceof PizzaBakedModel)
-            {
+            } else if (existingModel instanceof PizzaBakedModel) {
                 // LOGGER.warn("Tried to replace AltimeterBakedModel twice");
-            }
-            else
-            {
+            } else {
                 PizzaBakedModel customModel = new PizzaBakedModel(existingModel);
                 event.getModels().put(variantMRL, customModel);
             }

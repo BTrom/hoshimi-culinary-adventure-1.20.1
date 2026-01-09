@@ -2,10 +2,6 @@
   "type": "hoshimimod:add_item",
   "conditions": [
     {
-      "condition": "hoshimimod:enabled",
-      "item": "green_tea_leaf"
-    },
-    {
       "chance": 0.8,
       "condition": "minecraft:random_chance"
     },

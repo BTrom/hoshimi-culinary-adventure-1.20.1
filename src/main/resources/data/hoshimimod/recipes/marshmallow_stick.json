@@ -1,0 +1,94 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:tag_empty",
+          "tag": "forge:marshmallow"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "hearthandharvest"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "neapolitan:dried_vanilla_pods"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "container": {
+          "item": "minecraft:stick"
+        },
+        "cookingtime": 200,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "tag": "forge:eggs"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "neapolitan:dried_vanilla_pods"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "count": 2,
+          "item": "hoshimimod:marshmallow_stick"
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:tag_empty",
+          "tag": "forge:marshmallow"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "hearthandharvest"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:item_exists",
+            "item": "neapolitan:dried_vanilla_pods"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "container": {
+          "item": "minecraft:stick"
+        },
+        "cookingtime": 200,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "tag": "forge:eggs"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "count": 2,
+          "item": "hoshimimod:marshmallow_stick"
+        }
+      }
+    }
+  ]
+}

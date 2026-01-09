@@ -135,6 +135,8 @@ public class LayerSelector
         if(tagKey == ModTags.HAM_LAYER) remove(RAW_HAM_UNIVERSAL_LAYER);
 
         if(tagKey == ModTags.CHICKEN_LAYER) remove(RAW_CHICKEN_UNIVERSAL_LAYER);
+
+        if(tagKey == ModTags.BEEF_LAYER) remove(RAW_BEEF_UNIVERSAL_LAYER);
     }
 
     public void processItemLayer(TagKey<Item> tagKey)
@@ -160,6 +162,8 @@ public class LayerSelector
         if(tagKey == ModTags.HAM_LAYER) remove(HAM_ITEM_UNIVERSAL_LAYER);
 
         if(tagKey == ModTags.CHICKEN_LAYER) remove(CHICKEN_ITEM_UNIVERSAL_LAYER);
+
+        if(tagKey == ModTags.BEEF_LAYER) remove(BEEF_ITEM_UNIVERSAL_LAYER);
     }
 
     public void remove(ResourceLocation location)

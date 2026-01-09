@@ -1,15 +1,17 @@
 {
   "type": "farmersdelight:cutting",
-  "tool":
-  {
+  "ingredients": [
+    {
+      "item": "hoshimimod:cucumber"
+    }
+  ],
+  "tool": {
     "tag": "forge:tools/knives"
   },
-  "input":
+  "result": [
     {
-      "tag": "hoshimimod:cucumbers"
-    },
-  "result": {
-    "item": "hoshimimod:cut_cucumber",
-    "count": 2
-  }
+      "item": "hoshimimod:cut_cucumber",
+      "count": 2
+    }
+  ]
 }

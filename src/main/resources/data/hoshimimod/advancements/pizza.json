@@ -1,5 +1,5 @@
 {
-  "parent": "hoshimimod:oven",
+  "parent": "hoshimimod:pizza_oven",
   "display": {
     "icon": {
       "item": "hoshimimod:pizza"

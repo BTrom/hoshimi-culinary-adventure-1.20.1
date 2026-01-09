@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "hoshimimod:olive",
-    "hoshimimod:pineapple"
+    "hoshimimod:pineapple",
+    "minecraft:apple",
+    "minecraft:melon_slice",
+    "minecraft:chorus_fruit"
   ]
 }
