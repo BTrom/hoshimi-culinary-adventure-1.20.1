@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:pomegranate"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "hoshimimod:pomegranate_slice"
+    },
+    {
+      "count": 2,
+      "item": "minecraft:red_dye"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hoshimimod:item/big_rice_ball"
+  }
+}

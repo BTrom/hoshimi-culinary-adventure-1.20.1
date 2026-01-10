@@ -1,0 +1,27 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+    "particle": "hoshimimod:block/panettone_top",
+    "bottom": "hoshimimod:block/panettone_bottom",
+    "inner": "hoshimimod:block/panettone_inner",
+    "side": "hoshimimod:block/panettone_side",
+    "top": "hoshimimod:block/panettone_top"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 3],
+			"to": [13, 10, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11, 0, 3]},
+			"faces": {
+				"north": {"uv": [3, 6, 13, 16], "texture": "#side"},
+				"east": {"uv": [8, 6, 13, 16], "texture": "#side"},
+				"south": {"uv": [3, 6, 13, 16], "texture": "#inner"},
+				"west": {"uv": [3, 6, 8, 16], "texture": "#side"},
+				"up": {"uv": [3, 3, 13, 8], "texture": "#top"},
+				"down": {"uv": [3, 8, 13, 13], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}

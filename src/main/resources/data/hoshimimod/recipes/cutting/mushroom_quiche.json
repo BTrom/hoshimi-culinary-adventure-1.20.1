@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:mushroom_quiche"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "hoshimimod:mushroom_quiche_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

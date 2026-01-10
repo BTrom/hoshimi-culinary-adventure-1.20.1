@@ -1,0 +1,9 @@
+{
+  "parent": "hoshimimod:block/lime_bush_upper",
+  "textures": {
+    "particle": "hoshimimod:block/lime_bush_plant_upper_stage3",
+    "plant": "hoshimimod:block/lime_bush_plant_upper_stage3",
+    "side": "hoshimimod:block/lime_bush_side_stage3",
+    "top": "hoshimimod:block/lime_bush_top_stage3"
+  }
+}

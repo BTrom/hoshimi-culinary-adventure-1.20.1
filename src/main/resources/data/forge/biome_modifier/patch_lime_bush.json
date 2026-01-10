@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:has_spawn/lime",
+  "features": "hoshimimod:patch_lime_bush",
+  "step": "vegetal_decoration"
+}

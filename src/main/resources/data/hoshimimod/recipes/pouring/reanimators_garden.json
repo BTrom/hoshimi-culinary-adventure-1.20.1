@@ -1,0 +1,27 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "brewinandchewin"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "reanimators_garden"
+        }
+      ],
+      "recipe": {
+        "type": "brewinandchewin:keg_pouring",
+        "amount": 250,
+        "filling": true,
+        "fluid": "hoshimimod:reanimators_garden",
+        "output": {
+          "item": "hoshimimod:reanimators_garden"
+        },
+        "strict": false
+      }
+    }
+  ]
+}

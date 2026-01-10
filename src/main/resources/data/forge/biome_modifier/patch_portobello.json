@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:has_spawn/portobello",
+  "features": "hoshimimod:patch_portobello",
+  "step": "vegetal_decoration"
+}

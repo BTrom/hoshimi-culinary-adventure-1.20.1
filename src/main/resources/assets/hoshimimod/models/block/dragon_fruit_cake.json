@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cake",
+  "textures": {
+    "bottom": "hoshimimod:block/dragon_fruit_cake_bottom",
+    "particle": "hoshimimod:block/dragon_fruit_cake_side",
+    "side": "hoshimimod:block/dragon_fruit_cake_side",
+    "top": "hoshimimod:block/dragon_fruit_cake_top"
+  }
+}

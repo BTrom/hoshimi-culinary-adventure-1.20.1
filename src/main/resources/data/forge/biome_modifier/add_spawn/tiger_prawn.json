@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#hoshimimod:has_spawn/tiger_prawn",
+  "spawners": {
+    "type": "hoshimimod:tiger_prawn",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 2
+  }
+}
