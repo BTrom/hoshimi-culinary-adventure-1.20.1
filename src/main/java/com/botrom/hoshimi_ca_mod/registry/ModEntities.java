@@ -81,7 +81,7 @@ public class ModEntities {
 		event.register(CHIEFTAIN_CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, ChieftainCrab::checkCrabSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
-	public static void create(IEventBus bus) {
+	public static void register(IEventBus bus) {
 		ENTITIES.register(bus);
 	}
 }

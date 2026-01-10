@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:tag_empty",
+                "tag": "forge:fruits/strawberry"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "item": "hoshimimod:dragon_fruit"
+          },
+          {
+            "tag": "forge:ice_cubes"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:tropical_shaved_ice"
+        }
+      }
+    }
+  ]
+}

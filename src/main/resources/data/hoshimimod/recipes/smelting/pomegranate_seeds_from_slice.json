@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "hoshimimod:enabled",
+              "value": "pomegranate"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "pomegranate_slice"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "pomegranate_seeds"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "hoshimimod:pomegranate_slice"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:pomegranate_seeds"
+        }
+      }
+    }
+  ]
+}

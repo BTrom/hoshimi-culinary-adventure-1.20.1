@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    },
+    {
+      "item": "hoshimimod:dragon_fruit_cake_slice"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:dragon_fruit_cake"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:limeade"
+    },
+    {
+      "tag": "forge:fruits/pomegranate"
+    },
+    {
+      "tag": "forge:fruits/pomegranate"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:pink_limeade"
+  }
+}

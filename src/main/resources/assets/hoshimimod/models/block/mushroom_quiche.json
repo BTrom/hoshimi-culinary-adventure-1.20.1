@@ -1,9 +1,9 @@
 {
   "parent": "farmersdelight:block/pie",
   "textures": {
-    "bottom": "hoshimimod:block/portobello_quiche_bottom",
-    "particle": "hoshimimod:block/portobello_quiche_top",
-    "side": "hoshimimod:block/portobello_quiche_side",
-    "top": "hoshimimod:block/portobello_quiche_top"
+    "bottom": "hoshimimod:block/mushroom_quiche_bottom",
+    "particle": "hoshimimod:block/mushroom_quiche_top",
+    "side": "hoshimimod:block/mushroom_quiche_side",
+    "top": "hoshimimod:block/mushroom_quiche_top"
   }
 }

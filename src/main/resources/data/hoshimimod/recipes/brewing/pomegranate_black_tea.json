@@ -1,0 +1,51 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "hoshimimod:enabled",
+              "value": "pomegranate_black_tea"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:tag_empty",
+                "tag": "forge:tea_leaves/black"
+              }
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersrespite"
+            },
+            {
+              "type": "forge:item_exists",
+              "item": "farmersrespite:black_tea"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:brewing",
+        "base": {
+          "count": 1000,
+          "fluid": "farmersrespite:black_tea"
+        },
+        "cookingtime": 1200,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "tag": "forge:fruits/pomegranate"
+          }
+        ],
+        "result": {
+          "count": 1000,
+          "fluid": "hoshimimod:pomegranate_black_tea"
+        }
+      }
+    }
+  ]
+}

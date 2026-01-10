@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "farmersdelight:pie_crust"
+    },
+    "l": {
+      "tag": "forge:fruits/lime"
+    },
+    "m": {
+      "tag": "forge:milk/milk_bottle"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "lll",
+    "mmm",
+    "scs"
+  ],
+  "result": {
+    "item": "hoshimimod:lime_pie"
+  },
+  "show_notification": true
+}

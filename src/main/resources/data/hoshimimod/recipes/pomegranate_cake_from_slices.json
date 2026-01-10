@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    },
+    {
+      "item": "hoshimimod:pomegranate_cake_slice"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:pomegranate_cake"
+  }
+}

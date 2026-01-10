@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "hoshimimod:chieftain_leg"
+    },
+    {
+      "item": "hoshimimod:chieftain_leg"
+    },
+    {
+      "item": "hoshimimod:chieftain_leg"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:buttered_legs"
+  }
+}

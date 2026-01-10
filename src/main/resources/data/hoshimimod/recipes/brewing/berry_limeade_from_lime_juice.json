@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "hoshimimod:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "lime_slice"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "limeade"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "berry_limeade"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersrespite"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:brewing",
+        "base": {
+          "count": 1000,
+          "fluid": "hoshimimod:lime_juice"
+        },
+        "cookingtime": 2400,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "tag": "forge:berries"
+          }
+        ],
+        "result": {
+          "count": 1000,
+          "fluid": "hoshimimod:berry_limeade"
+        }
+      }
+    }
+  ]
+}

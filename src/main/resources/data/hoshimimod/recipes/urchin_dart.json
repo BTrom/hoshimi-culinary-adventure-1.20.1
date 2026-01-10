@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:tag_empty",
+              "tag": "forge:nuggets/copper"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "equipment",
+        "key": {
+          "c": {
+            "tag": "forge:ingots/copper"
+          },
+          "f": {
+            "tag": "forge:feathers"
+          },
+          "n": {
+            "item": "hoshimimod:urchin_needle"
+          }
+        },
+        "pattern": [
+          "n",
+          "c",
+          "f"
+        ],
+        "result": {
+          "item": "hoshimimod:urchin_dart"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

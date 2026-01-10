@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:dragon_fruit"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:dragon_fruit_seeds"
+  }
+}

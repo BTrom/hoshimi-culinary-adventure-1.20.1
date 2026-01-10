@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:bread"
+    },
+    {
+      "item": "hoshimimod:chieftain_claw"
+    },
+    {
+      "tag": "forge:raw_clam"
+    },
+    {
+      "tag": "forge:cooked_prawn"
+    },
+    {
+      "item": "farmersdelight:cooked_cod_slice"
+    },
+    {
+      "item": "farmersdelight:cooked_salmon_slice"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "farmersdelight:cooked_rice"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:sea_wrap"
+  }
+}

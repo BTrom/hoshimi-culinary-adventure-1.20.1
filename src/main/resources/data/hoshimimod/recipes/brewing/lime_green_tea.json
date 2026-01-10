@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "hoshimimod:enabled",
+              "value": "lime"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "lime_slice"
+            },
+            {
+              "type": "hoshimimod:enabled",
+              "value": "lime_green_tea"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersrespite"
+            },
+            {
+              "type": "forge:item_exists",
+              "item": "farmersrespite:green_tea"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:brewing",
+        "base": {
+          "count": 1000,
+          "fluid": "farmersrespite:green_tea"
+        },
+        "cookingtime": 1200,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "item": "hoshimimod:lime_slice"
+          }
+        ],
+        "result": {
+          "count": 1000,
+          "fluid": "hoshimimod:lime_green_tea"
+        }
+      }
+    }
+  ]
+}

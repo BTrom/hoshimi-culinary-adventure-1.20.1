@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:mushroom_quiche_slice"
+    },
+    {
+      "item": "hoshimimod:mushroom_quiche_slice"
+    },
+    {
+      "item": "hoshimimod:mushroom_quiche_slice"
+    },
+    {
+      "item": "hoshimimod:mushroom_quiche_slice"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:mushroom_quiche"
+  }
+}

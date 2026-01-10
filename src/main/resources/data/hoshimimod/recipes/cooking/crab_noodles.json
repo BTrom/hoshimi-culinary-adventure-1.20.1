@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:cooked_crab_meat"
+    },
+    {
+      "tag": "forge:cooked_crab_meat"
+    },
+    {
+      "tag": "forge:pasta/raw_pasta"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:vegetables/tomato"
+    },
+    {
+      "tag": "forge:vegetables/onion"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:crab_noodles"
+  }
+}

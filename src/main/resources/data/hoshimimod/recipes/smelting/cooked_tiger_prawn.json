@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "hoshimimod:tiger_prawn"
+  },
+  "result": "hoshimimod:cooked_tiger_prawn"
+}

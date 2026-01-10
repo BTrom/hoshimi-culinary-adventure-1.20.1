@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:tag_empty",
+                "tag": "forge:cooked_nuts"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "hoshimimod:panettone_slice"
+          },
+          {
+            "item": "hoshimimod:panettone_slice"
+          },
+          {
+            "item": "hoshimimod:panettone_slice"
+          },
+          {
+            "item": "hoshimimod:panettone_slice"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:panettone"
+        }
+      }
+    }
+  ]
+}

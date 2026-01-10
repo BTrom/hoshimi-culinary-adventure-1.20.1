@@ -1,5 +1,6 @@
 package com.botrom.hoshimi_ca_mod.blocks;
 
+import com.botrom.hoshimi_ca_mod.utils.ModTags;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -188,29 +189,29 @@ public class PanettoneBlock extends Block {
 		return false;
 	}
 
-//	public static void addRandomBuff(@NotNull LivingEntity consumer) {
-//		if (!consumer.level().isClientSide()) {
-//			final int BUFF_LENGTH = 20; // Length in seconds
-//			if (BUFF_LENGTH > 0) {
-//				final IForgeRegistry<MobEffect> mobEffectRegistry = ForgeRegistries.MOB_EFFECTS;
-//				final ITagManager<MobEffect> mobEffectTags = mobEffectRegistry.tags();
-//				final List<MobEffect> buffs = mobEffectRegistry.getValues().stream()
-//					.filter(effect -> (
-//						!mobEffectTags.getTag(CRMobEffectTags.UNOBTAINABLE_FROM_PANETTONE).contains(effect) &&
-//						!consumer.hasEffect(effect) &&
-//						effect.isBeneficial() &&
-//						!effect.isInstantenous()
-//					)).toList();
-//				if (buffs.isEmpty()) {
-//					consumer.heal(1F);
-//				} else {
-//					consumer.addEffect(new MobEffectInstance(
-//						Util.getRandom(buffs, consumer.getRandom()),
-//						BUFF_LENGTH * 20,
-//						0
-//					));
-//				}
-//			}
-//		}
-//	}
+	public static void addRandomBuff(@NotNull LivingEntity consumer) {
+		if (!consumer.level().isClientSide()) {
+			final int BUFF_LENGTH = 20; // Length in seconds
+			if (BUFF_LENGTH > 0) {
+				final IForgeRegistry<MobEffect> mobEffectRegistry = ForgeRegistries.MOB_EFFECTS;
+				final ITagManager<MobEffect> mobEffectTags = mobEffectRegistry.tags();
+				final List<MobEffect> buffs = mobEffectRegistry.getValues().stream()
+					.filter(effect -> (
+						!mobEffectTags.getTag(ModTags.UNOBTAINABLE_FROM_PANETTONE).contains(effect) &&
+						!consumer.hasEffect(effect) &&
+						effect.isBeneficial() &&
+						!effect.isInstantenous()
+					)).toList();
+				if (buffs.isEmpty()) {
+					consumer.heal(1F);
+				} else {
+					consumer.addEffect(new MobEffectInstance(
+						Util.getRandom(buffs, consumer.getRandom()),
+						BUFF_LENGTH * 20,
+						0
+					));
+				}
+			}
+		}
+	}
 }

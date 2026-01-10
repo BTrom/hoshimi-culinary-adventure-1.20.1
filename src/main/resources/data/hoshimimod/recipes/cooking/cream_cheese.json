@@ -1,0 +1,43 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:mod_loaded",
+                "modid": "brewinandchewin"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "cookingtime": 12000,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "tag": "forge:fruits/lime"
+          },
+          {
+            "tag": "forge:fruits/lime"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:cream_cheese"
+        }
+      }
+    }
+  ]
+}

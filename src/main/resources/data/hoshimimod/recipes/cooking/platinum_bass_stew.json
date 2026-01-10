@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "hoshimimod:platinum_bass_head"
+    },
+    {
+      "item": "hoshimimod:platinum_bass_slice"
+    },
+    {
+      "tag": "forge:grain/rice"
+    },
+    {
+      "item": "hoshimimod:lime_slice"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:platinum_bass_stew"
+  }
+}
