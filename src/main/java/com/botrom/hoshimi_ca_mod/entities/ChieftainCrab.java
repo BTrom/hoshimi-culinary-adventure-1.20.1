@@ -1,0 +1,265 @@
+package com.botrom.hoshimi_ca_mod.entities;
+
+import com.botrom.hoshimi_ca_mod.entities.brains.CrabPathNavigation;
+import com.botrom.hoshimi_ca_mod.registry.ModEntities;
+import com.botrom.hoshimi_ca_mod.registry.ModItems;
+import com.botrom.hoshimi_ca_mod.utils.ModTags;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.TimeUtil;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Bucketable;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fluids.FluidType;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.UUID;
+
+public class ChieftainCrab extends Animal implements NeutralMob, Bucketable {
+	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ChieftainCrab.class, EntityDataSerializers.BOOLEAN);
+	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
+	private int remainingPersistentAngerTime;
+	@Nullable private UUID persistentAngerTarget;
+	public final AnimationState idleAnimationState = new AnimationState();
+	public final AnimationState movingAnimationState = new AnimationState();
+
+	public ChieftainCrab(EntityType<? extends ChieftainCrab> type, Level level) {
+		super(type, level);
+		this.setAirSupply(300);
+	}
+
+	public static @NotNull AttributeSupplier.Builder createAttributes() {
+		return (
+			Mob.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 25D)
+				.add(Attributes.MOVEMENT_SPEED, 0.3D)
+				.add(Attributes.ATTACK_DAMAGE, 2D)
+		);
+	}
+
+	public static boolean checkCrabSpawnRules(EntityType<ChieftainCrab> crab, ServerLevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource rand) {
+		return level.getBlockState(pos.below()).is(ModTags.CRAB_SPAWNABLE_ON);
+	}
+
+	@Override
+	protected @NotNull PathNavigation createNavigation(@NotNull Level pLevel) {
+		return new CrabPathNavigation(this, pLevel);
+	}
+
+	protected void registerGoals() {
+		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1D));
+		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6F));
+		this.goalSelector.addGoal(5, new AvoidEntityGoal<>(this, Player.class, 6F, 1.5D, 2D));
+		this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 0.75D, 50));
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+	}
+
+	@Override
+	public @NotNull MobType getMobType() {
+		return MobType.ARTHROPOD;
+	}
+
+	@Override
+	public float getStepHeight() {
+		return 1.15F;
+	}
+
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(FROM_BUCKET, false);
+	}
+
+	@Override
+	public boolean requiresCustomPersistence() {
+		return super.requiresCustomPersistence() || this.fromBucket();
+	}
+
+	@Override
+	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+		return !this.fromBucket() && !this.hasCustomName();
+	}
+
+	@Override
+	public @NotNull InteractionResult mobInteract(@NotNull Player pPlayer, @NotNull InteractionHand pHand) {
+		return Bucketable.bucketMobPickup(pPlayer, pHand, this).orElse(super.mobInteract(pPlayer, pHand));
+	}
+
+	@Override
+	public void addAdditionalSaveData(@NotNull CompoundTag compound) {
+		super.addAdditionalSaveData(compound);
+		compound.putBoolean("FromBucket", this.fromBucket());
+	}
+
+	@Override
+	public void readAdditionalSaveData(@NotNull CompoundTag compound) {
+		super.readAdditionalSaveData(compound);
+		this.setFromBucket(compound.getBoolean("FromBucket"));
+	}
+
+	@Override
+	public void saveToBucketTag(ItemStack bucket) {
+		CompoundTag nbt = bucket.getOrCreateTag();
+		nbt.putFloat("Health", this.getHealth());
+	}
+
+	@Override
+	public void loadFromBucketTag(CompoundTag nbt) {
+		if (nbt.contains("Health", 99)) {
+			this.setHealth(nbt.getFloat("Health"));
+		}
+	}
+
+	@Override
+	public boolean fromBucket() {
+		return this.entityData.get(FROM_BUCKET);
+	}
+
+	@Override
+	public void setFromBucket(boolean fromBucket) {
+		this.entityData.set(FROM_BUCKET, fromBucket);
+	}
+
+	@Override
+	public @NotNull ItemStack getBucketItemStack() {
+		return ModItems.CHIEFTAIN_CRAB_BUCKET.get().getDefaultInstance();
+	}
+
+	@Override
+	public @NotNull SoundEvent getPickupSound() {
+		return SoundEvents.BUCKET_FILL_AXOLOTL;
+	}
+
+	private boolean isMoving() {
+		return this.getDeltaMovement().horizontalDistanceSqr() > 5E-2D;
+	}
+
+	@Override
+	public void aiStep() {
+		if (this.isInWater() && !this.onGround()) {
+			this.sinkInFluid(ForgeMod.WATER_TYPE.get());
+		}
+		super.aiStep();
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+		if (this.level().isClientSide()) {
+			if (this.isMoving()) {
+				this.idleAnimationState.stop();
+				this.movingAnimationState.startIfStopped(this.tickCount);
+			} else {
+				this.movingAnimationState.stop();
+				this.idleAnimationState.startIfStopped(this.tickCount);
+			}
+		} else {
+			this.updatePersistentAnger((ServerLevel) this.level(), true);
+		}
+	}
+
+	@Override
+	public @NotNull SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor worldIn, @NotNull DifficultyInstance difficultyIn, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
+		if (dataTag != null && dataTag.contains("Health", 99)) {
+			this.setHealth(dataTag.getFloat("Health"));
+		}
+		return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+	}
+
+	@Override
+	public boolean isFood(ItemStack stack) {
+		return stack.is(ModTags.CHIEFTAIN_CRAB_FOOD);
+	}
+
+	@Override
+	public @Nullable AgeableMob getBreedOffspring(@NotNull ServerLevel level, @NotNull AgeableMob other) {
+		return ModEntities.CHIEFTAIN_CRAB.get().create(level);
+	}
+
+	@Override
+	protected float getStandingEyeHeight(@NotNull Pose pose, @NotNull EntityDimensions size) {
+		return this.getBbHeight() * 0.75F;
+	}
+
+	@Override
+	public boolean canBreatheUnderwater() {
+		return true;
+	}
+
+	@Override
+	public float getWaterSlowDown() {
+		return 0.9F;
+	}
+
+	@Override
+	public boolean canDrownInFluidType(FluidType type) {
+		return type != ForgeMod.WATER_TYPE.get();
+	}
+
+	@Override
+	protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
+		return SoundEvents.TROPICAL_FISH_HURT;
+	}
+
+	@Override
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.TROPICAL_FISH_DEATH;
+	}
+
+	@Override
+	protected void playStepSound(@NotNull BlockPos pPos, @NotNull BlockState pBlock) {
+		this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1F);
+	}
+
+	@Override
+	public int getRemainingPersistentAngerTime() {
+		return this.remainingPersistentAngerTime;
+	}
+
+	@Override
+	public void setRemainingPersistentAngerTime(int time) {
+		this.remainingPersistentAngerTime = time;
+	}
+
+	@Override
+	public @Nullable UUID getPersistentAngerTarget() {
+		return this.persistentAngerTarget;
+	}
+
+	@Override
+	public void setPersistentAngerTarget(@Nullable UUID target) {
+		this.persistentAngerTarget = target;
+	}
+
+	@Override
+	public void startPersistentAngerTimer() {
+		this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.getRandom()));
+	}
+}

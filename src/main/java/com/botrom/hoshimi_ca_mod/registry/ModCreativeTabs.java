@@ -100,25 +100,18 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.ANDESITE_BASIN.get());
                         output.accept(ModBlocks.BASALT_BASIN.get());
                         output.accept(ModBlocks.BLACKSTONE_BASIN.get());
-
                         output.accept(ModBlocks.PIZZA_DOUGH.get());
                         output.accept(ModBlocks.RAW_PIZZA.get());
                         output.accept(ModBlocks.PIZZA.get());
-
                         output.accept(ModItems.PIZZA_PEEL.get());
-
                         output.accept(ModItems.ROLLING_PIN.get());
-
                         output.accept(ModItems.PIZZA_SLICE.get());
-
                         output.accept(ModBlocks.CHEESE_BLOCK.get());
                         output.accept(ModItems.CHEESE.get());
-
                         output.accept(ModItems.PEPPER.get());
                         output.accept(ModItems.BROCCOLI.get());
                         output.accept(ModItems.PINEAPPLE.get());
                         output.accept(ModItems.OLIVE.get());
-
                         output.accept(ModItems.TOMATO_SLICE.get());
                         output.accept(ModItems.ONION_SLICE.get());
                         output.accept(ModItems.PEPPER_SLICE.get());
@@ -129,14 +122,92 @@ public class ModCreativeTabs {
                         output.accept(ModItems.COOKED_WING.get());
                         output.accept(ModItems.HOT_WING.get());
                         output.accept(ModItems.CORN_FLOUR.get());
-
                         output.accept(ModItems.TOMATO_SAUCE.get());
                         output.accept(ModItems.HOT_SAUCE.get());
                         output.accept(ModItems.OLIVE_OIL.get());
-
                         output.accept(ModItems.BROCCOLI_SEEDS.get());
                         output.accept(ModItems.PEPPER_SEEDS.get());
                         output.accept(ModItems.PINEAPPLE_SEEDS.get());
+
+                        // Collector's Reap
+                        output.accept(ModItems.POMEGRANATE.get());
+                        output.accept(ModItems.POMEGRANATE_SLICE.get());
+                        output.accept(ModItems.LIME.get());
+                        output.accept(ModItems.LIME_SLICE.get());
+                        output.accept(ModItems.DRAGON_FRUIT.get());
+                        output.accept(ModItems.CREAM_CHEESE.get());
+                        output.accept(ModItems.CLAM.get());
+                        output.accept(ModItems.CLAM_MEAT.get());
+                        output.accept(ModItems.TIGER_PRAWN.get());
+                        output.accept(ModItems.COOKED_TIGER_PRAWN.get());
+                        output.accept(ModItems.PLATINUM_BASS.get());
+                        output.accept(ModItems.COOKED_PLATINUM_BASS.get());
+                        output.accept(ModItems.PLATINUM_BASS_SLICE.get());
+                        output.accept(ModItems.COOKED_PLATINUM_BASS_SLICE.get());
+                        output.accept(ModItems.CHIEFTAIN_CRAB.get());
+                        output.accept(ModItems.CHIEFTAIN_CLAW.get());
+                        output.accept(ModItems.CHIEFTAIN_LEG.get());
+                        output.accept(ModItems.CHIEFTAIN_CRAB_MEAT.get());
+                        output.accept(ModItems.URCHIN.get());
+                        output.accept(ModItems.UNI.get());
+                        output.accept(ModItems.URCHIN_TEST.get());
+                        output.accept(ModItems.URCHIN_NEEDLE.get());
+                        output.accept(ModBlocks.PANETTONE.get());
+                        output.accept(ModItems.PANETTONE_SLICE.get());
+                        output.accept(ModBlocks.MUSHROOM_QUICHE.get());
+                        output.accept(ModItems.MUSHROOM_QUICHE_SLICE.get());
+                        output.accept(ModBlocks.LIME_PIE.get());
+                        output.accept(ModItems.LIME_PIE_SLICE.get());
+                        output.accept(ModBlocks.POMEGRANATE_CAKE.get());
+                        output.accept(ModItems.POMEGRANATE_CAKE_SLICE.get());
+                        output.accept(ModBlocks.DRAGON_FRUIT_CAKE.get());
+                        output.accept(ModItems.DRAGON_FRUIT_CAKE_SLICE.get());
+                        output.accept(ModItems.LIME_ICE_CREAM.get());
+                        output.accept(ModItems.SUNNY_ICE_CREAM.get());
+                        output.accept(ModItems.LIME_MILKSHAKE.get());
+                        output.accept(ModItems.DRAGON_FRUIT_MILKSHAKE.get());
+                        output.accept(ModItems.POMEGRANATE_SMOOTHIE.get());
+                        output.accept(ModItems.BERRY_LIMEADE.get());
+                        output.accept(ModItems.PINK_LIMEADE.get());
+                        output.accept(ModItems.DRAGONS_PASSION.get());
+                        output.accept(ModItems.CLAM_MEATBALL_STEW.get());
+                        output.accept(ModItems.CLAM_MEATBALL_STEW_CUP.get());
+                        output.accept(ModItems.PRAWN_STEW.get());
+                        output.accept(ModItems.PRAWN_STEW_CUP.get());
+                        output.accept(ModItems.PLATINUM_BASS_STEW.get());
+                        output.accept(ModItems.PLATINUM_BASS_STEW_CUP.get());
+                        output.accept(ModItems.POMEGRANATE_CHICKEN.get());
+                        output.accept(ModItems.DELUXE_SALAD.get());
+                        output.accept(ModItems.TROPICAL_SHAVED_ICE.get());
+                        output.accept(ModItems.PINK_NOODLES.get());
+                        output.accept(ModItems.LIME_POPSICLE.get());
+                        output.accept(ModItems.MEDITERRANEAN_SALMON.get());
+                        output.accept(ModItems.SALMON_TARTARE.get());
+                        output.accept(ModItems.COD_CEVICHE.get());
+                        output.accept(ModItems.CARBONARA_PASTA.get());
+                        output.accept(ModItems.CLAM_ROLL.get());
+                        output.accept(ModItems.SEA_WRAP.get());
+                        output.accept(ModItems.SALMON_WRAPPED_PRAWN.get());
+                        output.accept(ModItems.PRAWN_ROLL.get());
+                        output.accept(ModItems.FISH_MIX.get());
+                        output.accept(ModItems.CRAB_MISO.get());
+                        output.accept(ModItems.CRAB_NOODLES.get());
+                        output.accept(ModItems.BUTTERED_LEGS.get());
+                        output.accept(ModItems.BIG_RICE_BALL.get());
+                        output.accept(ModBlocks.LIME_BUSH.get());
+                        output.accept(ModBlocks.DRAGON_BUSH.get());
+                        output.accept(ModBlocks.BUDDING_DRAGON_FRUIT_CROP.get());
+                        output.accept(ModItems.STRAWBERRY_JAM_BUN.get());
+                        output.accept(ModItems.TIGER_PRAWN_SPAWN_EGG.get());
+                        output.accept(ModItems.PLATINUM_BASS_SPAWN_EGG.get());
+                        output.accept(ModItems.CHIEFTAIN_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.URCHIN_SPAWN_EGG.get());
+                        output.accept(ModItems.CLAM_SPAWN_EGG.get());
+                        output.accept(ModItems.TIGER_PRAWN_BUCKET.get());
+                        output.accept(ModItems.PLATINUM_BASS_BUCKET.get());
+                        output.accept(ModItems.CHIEFTAIN_CRAB_BUCKET.get());
+                        output.accept(ModItems.URCHIN_BUCKET.get());
+                        output.accept(ModItems.CLAM_BUCKET.get());
                     })
                     .build());
 

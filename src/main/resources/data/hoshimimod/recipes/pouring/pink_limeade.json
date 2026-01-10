@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "hoshimimod:enabled",
+          "value": "lime"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "lime_slice"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "limeade"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "pink_limeade"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersrespite"
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:kettle_pouring",
+        "amount": 250,
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "fluid": "hoshimimod:pink_limeade",
+        "output": {
+          "item": "hoshimimod:pink_limeade"
+        }
+      }
+    }
+  ]
+}

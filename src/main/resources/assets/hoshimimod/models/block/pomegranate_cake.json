@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cake",
+  "textures": {
+    "bottom": "hoshimimod:block/pomegranate_cake_bottom",
+    "particle": "hoshimimod:block/pomegranate_cake_side",
+    "side": "hoshimimod:block/pomegranate_cake_side",
+    "top": "hoshimimod:block/pomegranate_cake_top"
+  }
+}

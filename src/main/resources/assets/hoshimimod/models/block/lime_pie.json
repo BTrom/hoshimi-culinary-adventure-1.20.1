@@ -1,0 +1,9 @@
+{
+  "parent": "farmersdelight:block/pie",
+  "textures": {
+    "bottom": "hoshimimod:block/lime_pie_bottom",
+    "particle": "hoshimimod:block/lime_pie_top",
+    "side": "hoshimimod:block/lime_pie_side",
+    "top": "hoshimimod:block/lime_pie_top"
+  }
+}

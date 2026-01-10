@@ -1,0 +1,50 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "neapolitan"
+            },
+            {
+              "type": "forge:item_exists",
+              "item": "neapolitan:vanilla_ice_cream"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:tag_empty",
+                "tag": "forge:fruits/strawberry"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "neapolitan:vanilla_ice_cream"
+          },
+          {
+            "tag": "forge:fruits/lucuma"
+          },
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "item": "minecraft:bowl"
+          }
+        ],
+        "result": {
+          "item": "hoshimimod:sunny_ice_cream"
+        }
+      }
+    }
+  ]
+}

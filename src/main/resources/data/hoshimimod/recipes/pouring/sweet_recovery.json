@@ -1,0 +1,32 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersrespite"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "sweet_recovery"
+        },
+        {
+          "type": "hoshimimod:enabled",
+          "value": "lucuma"
+        }
+      ],
+      "recipe": {
+        "type": "farmersrespite:kettle_pouring",
+        "amount": 250,
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "fluid": "hoshimimod:sweet_recovery",
+        "output": {
+          "item": "hoshimimod:sweet_recovery"
+        }
+      }
+    }
+  ]
+}

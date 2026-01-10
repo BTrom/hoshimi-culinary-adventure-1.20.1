@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:pomegranate_cake"
+    }
+  ],
+  "result": [
+    {
+      "count": 7,
+      "item": "hoshimimod:pomegranate_cake_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

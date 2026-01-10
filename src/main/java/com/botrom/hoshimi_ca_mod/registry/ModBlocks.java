@@ -5,8 +5,6 @@ import com.botrom.hoshimi_ca_mod.blocks.*;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.*;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.crops.SimpleCropBlock;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +15,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
@@ -33,6 +31,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_CUCUMBERS = registerBlock("wild_cucumbers", () -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6, Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_CORN = registerBlock("wild_corn", () -> new WildCropBlock(MobEffects.HUNGER, 6, BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_EGGPLANTS = registerBlock("wild_eggplants", () -> new WildCropBlock(MobEffects.DAMAGE_BOOST, 6, BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> LIME_BUSH = registerBlockWithoutBlockItem("lime_bush", () -> new LimeBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).forceSolidOff().instabreak().sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> DRAGON_BUSH = registerBlock("dragon_bush", () -> new WildCropBlock(MobEffects.GLOWING, 6, BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
 
 
     // Crops
@@ -43,7 +43,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BROCCOLI = registerBlock("broccoli", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.BROCCOLI_SEEDS));
     public static final RegistryObject<Block> PEPPERS = registerBlock("peppers", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PEPPER_SEEDS));
     public static final RegistryObject<Block> PINEAPPLE = registerBlock("pineapple", () -> new SimpleCropBlock(Block.Properties.copy(Blocks.WHEAT), ModItems.PINEAPPLE_SEEDS));
-
+    public static final RegistryObject<Block> BUDDING_DRAGON_FRUIT_CROP = registerBlockWithoutBlockItem("budding_dragon_fruits", () -> new BuddingDragonFruitBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+    public static final RegistryObject<Block> DRAGON_FRUIT_CROP = registerBlockWithoutBlockItem("dragon_fruits", () -> new DragonFruitVineBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
     // Saplings
 //    public static final RegistryObject<Block> AVOCADO_SEED = registerBlock("avocado_pit",
@@ -69,6 +70,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> RAW_PIZZA = registerBlock("raw_pizza", () -> new RawPizzaBlock(Block.Properties.copy(Blocks.CAKE)));
     public static final RegistryObject<Block> PIZZA_DOUGH = registerBlock("pizza_dough", () -> new DoughBlock(Block.Properties.copy(Blocks.CAKE)));
     public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block", () -> new CheeseBlock(Block.Properties.copy(Blocks.CAKE).mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.FUNGUS)));
+    public static final RegistryObject<Block> PANETTONE = registerBlockWithoutBlockItem("panettone", () -> new PanettoneBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.APPLE_PIE.get()), ModItems.PANETTONE_SLICE));
+    public static final RegistryObject<Block> MUSHROOM_QUICHE = registerBlockWithoutBlockItem("mushroom_quiche", () -> new PieBlock(Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.APPLE_PIE.get()), ModItems.MUSHROOM_QUICHE_SLICE));
+    public static final RegistryObject<Block> LIME_PIE = registerBlockWithoutBlockItem("lime_pie", () -> new PieBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.APPLE_PIE.get()), ModItems.LIME_PIE_SLICE));
+    public static final RegistryObject<Block> POMEGRANATE_CAKE = registerBlockWithoutBlockItem("pomegranate_cake", () -> new EffectCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ModItems.POMEGRANATE_CAKE_SLICE));
+    public static final RegistryObject<Block> DRAGON_FRUIT_CAKE = registerBlockWithoutBlockItem("dragon_fruit_cake", () -> new EffectCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ModItems.DRAGON_FRUIT_CAKE_SLICE));
 
 
     // Registry

@@ -1,5 +1,6 @@
 package com.botrom.hoshimi_ca_mod;
 
+import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.gui.ScreenPizza;
@@ -40,10 +41,13 @@ public class HoshimiCulinaryMod {
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::onClientSetup);
         modEventBus.addListener(this::onFinish);
+        modEventBus.register(new ClientEvents());
 
+        ModEntities.ENTITIES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
+        ModParticleTypes.PARTICLE_TYPES.register(modEventBus);
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModRecipes.SERIALIZERS.register(modEventBus);
         ModRecipes.RECIPE_TYPES.register(modEventBus);

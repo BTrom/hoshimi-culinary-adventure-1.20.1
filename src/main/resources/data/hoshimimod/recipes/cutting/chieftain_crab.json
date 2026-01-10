@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:chieftain_crab"
+    }
+  ],
+  "result": [
+    {
+      "item": "hoshimimod:chieftain_claw"
+    },
+    {
+      "count": 4,
+      "item": "hoshimimod:chieftain_leg"
+    },
+    {
+      "count": 2,
+      "item": "hoshimimod:chieftain_crab_meat"
+    },
+    {
+      "item": "hoshimimod:crab_miso"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

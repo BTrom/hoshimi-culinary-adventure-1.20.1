@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hoshimimod:item/clam_meatball_stew_cup"
+  }
+}

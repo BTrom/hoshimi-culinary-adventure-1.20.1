@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:has_spawn/dragon_fruit",
+  "features": "hoshimimod:patch_dragon_fruit",
+  "step": "vegetal_decoration"
+}
