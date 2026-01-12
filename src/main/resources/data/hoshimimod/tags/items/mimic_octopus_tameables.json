@@ -1,0 +1,13 @@
+{
+  "__comment": "Tames and heals when given",
+  "replace": false,
+  "values": [
+    "hoshimimod:lobster_tail",
+    "hoshimimod:cooked_lobster_tail",
+    "hoshimimod:shrimp",
+    "hoshimimod:cooked_shrimp",
+    "hoshimimod:lobster",
+    "hoshimimod:cooked_lobster",
+    "hoshimimod:chieftain_leg"
+  ]
+}

@@ -23,11 +23,14 @@ public class CommonConfig {
     public final ForgeConfigSpec.IntValue seagullSpawnRolls;
     public final ForgeConfigSpec.BooleanValue seagullStealing;
     public final ForgeConfigSpec.ConfigValue<List<? extends String>> seagullStealingBlacklist;
+    public ForgeConfigSpec.IntValue pathfindingThreads;
+    public final ForgeConfigSpec.DoubleValue rainbowGlassFidelity;
 
     public CommonConfig(final ForgeConfigSpec.Builder builder) {
         builder.push("general");
         seagullStealing = buildBoolean(builder, "seagullStealing", "all", true, "Whether seagulls should steal food out of players' hotbar slots.");
         seagullStealingBlacklist = builder.comment("List of items that seagulls cannot take from players.").defineList("seagullStealingBlacklist", Lists.newArrayList(), o -> o instanceof String);
+        rainbowGlassFidelity = buildDouble(builder, "rainbowGlassFidelity", "all", 16.0F, 1.0F, 10000.0F, "The visual zoom of the rainbow pattern on the rainbow glass block. Higher number = bigger pattern.");
         builder.pop();
         builder.push("spawning");
         catfishSpawnWeight = buildInt(builder, "catfishSpawnWeight", "spawns", ModConfig.catfishSpawnWeight, 0, 1000, "Spawn Weight, added to a pool of other mobs for each biome. Higher number = higher chance of spawning. 0 = disable spawn");
@@ -44,6 +47,9 @@ public class CommonConfig {
         mimicOctopusSpawnRolls = buildInt(builder, "mimicOctopusSpawnRolls", "spawns", ModConfig.mimicOctopusSpawnRolls, 0, Integer.MAX_VALUE, "Random roll chance to enable mob spawning. Higher number = lower chance of spawning");
         seagullSpawnWeight = buildInt(builder, "seagullSpawnWeight", "spawns", ModConfig.seagullSpawnWeight, 0, 1000, "Spawn Weight, added to a pool of other mobs for each biome. Higher number = higher chance of spawning. 0 = disable spawn");
         seagullSpawnRolls = buildInt(builder, "seagullSpawnRolls", "spawns", ModConfig.seagullSpawnRolls, 0, Integer.MAX_VALUE, "Random roll chance to enable mob spawning. Higher number = lower chance of spawning");
+        builder.pop();
+        builder.push("dangerZone");
+        pathfindingThreads = buildInt(builder, "pathfindingThreads", "dangerZone", ModConfig.pathfindingThreads, 1, 100,"How many cpu cores some mobs(elephants, leafcutter ants, bison etc) should utilize when pathing. Bigger number = less impact on TPS");
         builder.pop();
     }
     

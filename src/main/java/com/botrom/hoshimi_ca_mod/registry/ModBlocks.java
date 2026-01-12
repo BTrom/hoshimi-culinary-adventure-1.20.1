@@ -53,7 +53,7 @@ public class ModBlocks {
 
     // Saplings
 //    public static final RegistryObject<Block> AVOCADO_SEED = registerBlock("avocado_pit", () -> new AvocadoSeedBlock(new AvocadoPitGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), false, 0);
-    public static final Supplier<Block> PALM_SAPLING = BLOCKS.register("palm_sapling", () -> new PalmSaplingBlock(new PalmTreeGrower(), Block.Properties.copy(Blocks.OAK_SAPLING), () -> Blocks.SAND));
+    public static final RegistryObject<Block> PALM_SAPLING = BLOCKS.register("palm_sapling", () -> new PalmSaplingBlock(new PalmTreeGrower(), Block.Properties.copy(Blocks.OAK_SAPLING), () -> Blocks.SAND));
 
 
     // Blocks
@@ -67,7 +67,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLACKSTONE_BASIN = registerBlock("blackstone_basin", () -> new BasinBlock(Block.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_BLACK).strength(1.5F, 6.0F)));
     public static final RegistryObject<Block> COCONUT = registerBlock("coconut", () -> new CoconutBlock(Block.Properties.copy(Blocks.COCOA)));
     public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new SeashellBlock(Block.Properties.copy(Blocks.HORN_CORAL).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final Supplier<Block> CRAB_TRAP = registerBlock("crab_trap", () -> new CrabTrapBlock(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CRAB_TRAP = registerBlock("crab_trap", () -> new CrabTrapBlock(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> RAINBOW_GLASS = registerBlock("rainbow_glass", BlockRainbowGlass::new);
 
 
     // Meal Blocks
@@ -85,11 +86,11 @@ public class ModBlocks {
 
 
     // Tree Blocks
-    public static final Supplier<Block> PALM_LOG = registerBlock("palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_LOG)));
-    public static final Supplier<Block> PALM_WOOD = registerBlock("palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_WOOD)));
-    public static final Supplier<Block> STRIPPED_PALM_LOG = registerBlock("stripped_palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_LOG)));
-    public static final Supplier<Block> STRIPPED_PALM_WOOD = registerBlock("stripped_palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD)));
-    public static final Supplier<Block> PALM_LEAVES = registerBlock("palm_leaves", () -> new PalmLeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> PALM_LOG = registerBlock("palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_LOG)));
+    public static final RegistryObject<Block> PALM_WOOD = registerBlock("palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_PALM_LOG = registerBlock("stripped_palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_LOG)));
+    public static final RegistryObject<Block> STRIPPED_PALM_WOOD = registerBlock("stripped_palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD)));
+    public static final RegistryObject<Block> PALM_LEAVES = registerBlock("palm_leaves", () -> new PalmLeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)));
     
     
     

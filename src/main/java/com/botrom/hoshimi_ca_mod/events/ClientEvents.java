@@ -24,6 +24,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class ClientEvents {
+
+	public static int renderStaticScreenFor = 0;
+
 //	private static final List<RegistryObject<Block>> FOLIAGE_COLOR_BLOCKS = Arrays.asList(ModBlocks.LUCUMA_LEAVES, ModBlocks.LUCUMA_LEAF_PILE);
 	private static final List<RegistryObject<Block>> GRASS_COLOR_BLOCKS = Collections.emptyList();
 
@@ -57,31 +60,31 @@ public class ClientEvents {
 
 	@SubscribeEvent
 	public void registerEntityRenders(EntityRenderersEvent.RegisterRenderers e) {
-		e.registerEntityRenderer(ModEntities.TIGER_PRAWN.get(), TigerPrawnRenderer::new);
-		e.registerEntityRenderer(ModEntities.URCHIN.get(), UrchinRenderer::new);
-		e.registerEntityRenderer(ModEntities.PLATINUM_BASS.get(), PlatinumBassRenderer::new);
-		e.registerEntityRenderer(ModEntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
-		e.registerEntityRenderer(ModEntities.CLAM.get(), ClamRenderer::new);
+//		e.registerEntityRenderer(ModEntities.TIGER_PRAWN.get(), TigerPrawnRenderer::new);
+//		e.registerEntityRenderer(ModEntities.URCHIN.get(), UrchinRenderer::new);
+//		e.registerEntityRenderer(ModEntities.PLATINUM_BASS.get(), PlatinumBassRenderer::new);
+//		e.registerEntityRenderer(ModEntities.CHIEFTAIN_CRAB.get(), ChieftainCrabRenderer::new);
+//		e.registerEntityRenderer(ModEntities.CLAM.get(), ClamRenderer::new);
 //		e.registerEntityRenderer(ModEntities.URCHIN_DART.get(), UrchinDartRenderer::new);
 //		e.registerEntityRenderer(ModEntities.SHIMMERING_PEARL.get(), ThrownItemRenderer::new);
-		e.registerEntityRenderer(ModEntities.FIDDLER_CRAB.get(), FiddlerCrabRenderer::new);
-		e.registerEntityRenderer(ModEntities.DUMBO_OCTOPUS.get(), context -> new GeoEntityRenderer<>(context, new DumboOctopusModel()));
-		e.registerEntityRenderer(ModEntities.KOI_FISH.get(), context -> new GeoEntityRenderer<>(context, new KoiFishModel()));
-		e.registerEntityRenderer(ModEntities.CATFISH.get(), RenderCatfish::new);
-		e.registerEntityRenderer(ModEntities.LOBSTER.get(), RenderLobster::new);
-		e.registerEntityRenderer(ModEntities.COMB_JELLY.get(), RenderCombJelly::new);
-		e.registerEntityRenderer(ModEntities.GIANT_SQUID.get(), RenderGiantSquid::new);
-		e.registerEntityRenderer(ModEntities.MIMIC_OCTOPUS.get(), RenderMimicOctopus::new);
-		e.registerEntityRenderer(ModEntities.SEAGULL.get(), RenderSeagull::new);
+//		e.registerEntityRenderer(ModEntities.FIDDLER_CRAB.get(), FiddlerCrabRenderer::new);
+//		e.registerEntityRenderer(ModEntities.DUMBO_OCTOPUS.get(), context -> new GeoEntityRenderer<>(context, new DumboOctopusModel()));
+//		e.registerEntityRenderer(ModEntities.KOI_FISH.get(), context -> new GeoEntityRenderer<>(context, new KoiFishModel()));
+//		e.registerEntityRenderer(ModEntities.CATFISH.get(), RenderCatfish::new);
+//		e.registerEntityRenderer(ModEntities.LOBSTER.get(), RenderLobster::new);
+//		e.registerEntityRenderer(ModEntities.COMB_JELLY.get(), RenderCombJelly::new);
+//		e.registerEntityRenderer(ModEntities.GIANT_SQUID.get(), RenderGiantSquid::new);
+//		e.registerEntityRenderer(ModEntities.MIMIC_OCTOPUS.get(), RenderMimicOctopus::new);
+//		e.registerEntityRenderer(ModEntities.SEAGULL.get(), RenderSeagull::new);
 	}
 
 
 	@SubscribeEvent
 	public void registerParticles(RegisterParticleProvidersEvent e) {
-		e.registerSpriteSet(ModParticleTypes.ACID.get(), AcidParticle.Provider::new);
-		e.registerSpriteSet(ModParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
-		e.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
-		e.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
+//		e.registerSpriteSet(ModParticleTypes.ACID.get(), AcidParticle.Provider::new);
+//		e.registerSpriteSet(ModParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
+//		e.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
+//		e.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
 	}
 
 

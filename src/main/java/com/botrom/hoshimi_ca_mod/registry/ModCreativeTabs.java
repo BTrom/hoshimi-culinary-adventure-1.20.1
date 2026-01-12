@@ -271,6 +271,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RAW_CATFISH.get());
                         output.accept(ModItems.COOKED_CATFISH.get());
                         output.accept(ModItems.RAINBOW_JELLY.get());
+                        output.accept(ModBlocks.RAINBOW_GLASS.get());
+                        output.accept(ModItems.RAW_CATFISH_SLICE.get());
+                        output.accept(ModItems.COOKED_CATFISH_SLICE.get());
+                        output.accept(ModItems.LOBSTER_PASTA.get());
                     })
                     .build());
 

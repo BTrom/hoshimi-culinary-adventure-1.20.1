@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityGiantSquid;
+import com.botrom.hoshimi_ca_mod.entities.GiantSquidEntity;
 import com.botrom.hoshimi_ca_mod.entities.ISemiAquatic;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.PathfinderMob;
@@ -40,8 +40,8 @@ public class AquaticMoveController extends MoveControl {
             double d3 = Mth.sqrt((float) (d0 * d0 + d1 * d1 + d2 * d2));
             d1 /= d3;
             float f = (float) (Mth.atan2(d2, d0) * 57.2957763671875D) - 90.0F;
-            if (entity instanceof EntityGiantSquid) {
-                ((EntityGiantSquid) entity).directPitch(d0, d1, d2, d3);
+            if (entity instanceof GiantSquidEntity) {
+                ((GiantSquidEntity) entity).directPitch(d0, d1, d2, d3);
             } else {
                 this.entity.setYRot(this.rotlerp(this.entity.getYRot(), f, yawLimit));
                 this.entity.yBodyRot = this.entity.getYRot();

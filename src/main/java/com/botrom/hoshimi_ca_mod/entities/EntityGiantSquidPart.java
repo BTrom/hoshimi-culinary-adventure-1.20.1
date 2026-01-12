@@ -20,19 +20,19 @@ import net.minecraftforge.entity.PartEntity;
 
 import javax.annotation.Nullable;
 
-public class EntityGiantSquidPart extends PartEntity<EntityGiantSquid> implements IHurtableMultipart {
+public class EntityGiantSquidPart extends PartEntity<GiantSquidEntity> implements IHurtableMultipart {
 
     private final EntityDimensions size;
     public float scale = 1;
     private boolean collisionOnly = false;
 
-    public EntityGiantSquidPart(EntityGiantSquid parent, float sizeX, float sizeY) {
+    public EntityGiantSquidPart(GiantSquidEntity parent, float sizeX, float sizeY) {
         super(parent);
         this.size = EntityDimensions.scalable(sizeX, sizeY);
         this.refreshDimensions();
     }
 
-    public EntityGiantSquidPart(EntityGiantSquid parent, float sizeX, float sizeY, boolean collisionOnly) {
+    public EntityGiantSquidPart(GiantSquidEntity parent, float sizeX, float sizeY, boolean collisionOnly) {
         this(parent, sizeX, sizeY);
         this.collisionOnly = collisionOnly;
     }

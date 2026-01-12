@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntitySeagull;
+import com.botrom.hoshimi_ca_mod.entities.SeagullEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
@@ -9,10 +9,10 @@ import java.util.EnumSet;
 
 public class SeagullAIRevealTreasure extends Goal {
 
-    private final EntitySeagull seagull;
+    private final SeagullEntity seagull;
     private BlockPos sitPos;
 
-    public SeagullAIRevealTreasure(EntitySeagull entitySeagull) {
+    public SeagullAIRevealTreasure(SeagullEntity entitySeagull) {
         this.seagull = entitySeagull;
         this.setFlags(EnumSet.of(Flag.MOVE, Flag.TARGET));
     }

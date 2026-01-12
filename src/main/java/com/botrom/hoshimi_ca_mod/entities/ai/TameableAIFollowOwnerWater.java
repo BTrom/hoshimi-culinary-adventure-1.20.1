@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMimicOctopus;
+import com.botrom.hoshimi_ca_mod.entities.MimicOctopusEntity;
 import com.botrom.hoshimi_ca_mod.entities.IFollower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
@@ -149,7 +149,7 @@ public class TameableAIFollowOwnerWater extends Goal {
     }
 
     public boolean avoidsLand() {
-        if(this.tameable instanceof EntityMimicOctopus mimicOctopus){
+        if(this.tameable instanceof MimicOctopusEntity mimicOctopus){
             return mimicOctopus.getMoistness() < 2000;
         }
         return false;

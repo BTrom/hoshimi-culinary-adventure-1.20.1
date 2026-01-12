@@ -3,13 +3,23 @@ package com.botrom.hoshimi_ca_mod.registry;
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.items.ChumItem;
 import com.botrom.hoshimi_ca_mod.items.IceCreamItem;
+import com.botrom.hoshimi_ca_mod.items.ItemModFishBucket;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.SauceType;
 import com.botrom.hoshimi_ca_mod.pizzacraft.items.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -63,6 +73,7 @@ public class ModItems {
     public static final RegistryObject<Item> STRIPPED_PALM_WOOD = ITEMS.register("stripped_palm_wood", () -> new BlockItem(ModBlocks.STRIPPED_PALM_WOOD.get(), basicItem()));
     public static final RegistryObject<Item> PALM_LEAVES = ITEMS.register("palm_leaves", () -> new BlockItem(ModBlocks.PALM_LEAVES.get(), basicItem()));
     public static final RegistryObject<Item> PALM_SAPLING = ITEMS.register("palm_sapling", () -> new BlockItem(ModBlocks.PALM_SAPLING.get(), basicItem()));
+    public static final RegistryObject<Item> RAINBOW_GLASS = ITEMS.register("rainbow_glass", () -> new BlockItem(ModBlocks.RAINBOW_GLASS.get(), basicItem()));
 
 
     //Seeds
@@ -160,6 +171,8 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_LOBSTER_TAIL = ITEMS.register("cooked_lobster_tail", () -> new Item(new Item.Properties().food(ModFoods.COOKED_LOBSTER_TAIL)));
     public static final RegistryObject<Item> RAW_CATFISH = ITEMS.register("raw_catfish", () -> new Item(new Item.Properties().food(ModFoods.RAW_CATFISH)));
     public static final RegistryObject<Item> COOKED_CATFISH = ITEMS.register("cooked_catfish", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH)));
+    public static final RegistryObject<Item> COOKED_CATFISH_SLICE = ITEMS.register("cooked_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH_SLICE)));
+    public static final RegistryObject<Item> RAW_CATFISH_SLICE = ITEMS.register("raw_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.RAW_CATFISH_SLICE)));
     public static final RegistryObject<Item> RAINBOW_JELLY = ITEMS.register("rainbow_jelly", () -> new Item(new Item.Properties().food(ModFoods.RAINBOW_JELLY)));
 
 
@@ -242,6 +255,7 @@ public class ModItems {
     public static final RegistryObject<Item> STUFFED_NAUTILUS_SHELL = ITEMS.register("stuffed_nautilus_shell", () -> new ConsumableItem(foodItem(ModFoods.STUFFED_NAUTILUS_SHELL).craftRemainder(Items.NAUTILUS_SHELL), true));
     public static final RegistryObject<Item> BISQUE = ITEMS.register("bisque", () -> new ConsumableItem(bowlFoodItem(ModFoods.BISQUE), true));
     public static final RegistryObject<Item> SHRIMP_FRIED_RICE = ITEMS.register("shrimp_fried_rice", () -> new ConsumableItem(bowlFoodItem(ModFoods.SHRIMP_FRIED_RICE), true));
+    public static final RegistryObject<Item> LOBSTER_PASTA = ITEMS.register("lobster_pasta", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.LOBSTER_PASTA)));
 
 
     //Tools
@@ -316,17 +330,17 @@ public class ModItems {
     public static final RegistryObject<Item> KOI_FISH_BUCKET = ITEMS.register("koi_fish_bucket",
             () -> new MobBucketItem(ModEntities.KOI_FISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
     public static final RegistryObject<Item> LOBSTER_BUCKET = ITEMS.register("lobster_bucket",
-            () -> new MobBucketItem(ModEntities.LOBSTER, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.LOBSTER, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> SMALL_CATFISH_BUCKET = ITEMS.register("small_catfish_bucket",
-            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.CATFISH, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> MEDIUM_CATFISH_BUCKET = ITEMS.register("medium_catfish_bucket",
-            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.CATFISH, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> LARGE_CATFISH_BUCKET = ITEMS.register("large_catfish_bucket",
-            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.CATFISH, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> COMB_JELLY_BUCKET = ITEMS.register("comb_jelly_bucket",
-            () -> new MobBucketItem(ModEntities.COMB_JELLY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.COMB_JELLY, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> MIMIC_OCTOPUS_BUCKET = ITEMS.register("mimic_octopus_bucket",
-            () -> new MobBucketItem(ModEntities.MIMIC_OCTOPUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+            () -> new ItemModFishBucket(ModEntities.MIMIC_OCTOPUS, Fluids.WATER, new Item.Properties()));
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_BUCKET = ITEMS.register("giant_mud_crab_bucket",
 //            () -> new MobBucketItem(ModEntities.GIANT_MUD_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
@@ -356,5 +370,32 @@ public class ModItems {
 
     public static Item.Properties pizzaProperties() {
         return new Item.Properties();
+    }
+
+    public static void initDispenser(){
+        DispenseItemBehavior bucketDispenseBehavior = new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
+
+            public ItemStack execute(BlockSource blockSource, ItemStack stack) {
+                DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)stack.getItem();
+                BlockPos blockpos = blockSource.getPos().relative(blockSource.getBlockState().getValue(DispenserBlock.FACING));
+                Level level = blockSource.getLevel();
+                if (dispensiblecontaineritem.emptyContents((Player)null, level, blockpos, (BlockHitResult)null)) {
+                    dispensiblecontaineritem.checkExtraContent((Player)null, level, stack, blockpos);
+                    return new ItemStack(Items.BUCKET);
+                } else {
+                    return this.defaultDispenseItemBehavior.dispense(blockSource, stack);
+                }
+            }
+        };
+        DispenserBlock.registerBehavior(LOBSTER_BUCKET.get(), bucketDispenseBehavior);
+        DispenserBlock.registerBehavior(MIMIC_OCTOPUS_BUCKET.get(), bucketDispenseBehavior);
+        DispenserBlock.registerBehavior(COMB_JELLY_BUCKET.get(), bucketDispenseBehavior);
+        DispenserBlock.registerBehavior(SMALL_CATFISH_BUCKET.get(), bucketDispenseBehavior);
+        DispenserBlock.registerBehavior(MEDIUM_CATFISH_BUCKET.get(), bucketDispenseBehavior);
+        DispenserBlock.registerBehavior(LARGE_CATFISH_BUCKET.get(), bucketDispenseBehavior);
+//        ComposterBlock.COMPOSTABLES.put(BANANA.get(), 0.65F);                                 TODO
+//        ComposterBlock.COMPOSTABLES.put(AMBlockRegistry.BANANA_PEEL.get().asItem(), 1F);
+
     }
 }

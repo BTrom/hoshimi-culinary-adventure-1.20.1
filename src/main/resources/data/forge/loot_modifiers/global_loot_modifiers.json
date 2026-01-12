@@ -2,6 +2,12 @@
   "replace": false,
   "entries": [
     "hoshimimod:olives_from_jungle_leaves",
+    "hoshimimod:seeds_from_tall_grass",
+    "hoshimimod:banana_drop",
+    "hoshimimod:acorn_from_knife",
+    "hoshimimod:acorn_rare",
+    "hoshimimod:green_tea_leaf",
+    "hoshimimod:green_tea_leaf_rare",
     "hoshimimod:seeds_from_tall_grass"
   ]
 }

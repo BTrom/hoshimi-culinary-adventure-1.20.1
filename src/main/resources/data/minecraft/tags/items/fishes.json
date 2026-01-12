@@ -1,5 +1,10 @@
 {
   "values": [
-    "hoshimimod:platinum_bass"
+    "hoshimimod:platinum_bass",
+    "alexsmobs:flying_fish",
+    "alexsmobs:raw_catfish",
+    "alexsmobs:cooked_catfish",
+    "alexsmobs:raw_catfish_slice",
+    "alexsmobs:cooked_catfish_slice"
   ]
 }

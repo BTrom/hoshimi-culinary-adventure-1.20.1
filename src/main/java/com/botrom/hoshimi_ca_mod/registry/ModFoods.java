@@ -70,6 +70,9 @@ public class ModFoods
     public static final FoodProperties PLATINUM_BASS_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).build();
     public static final FoodProperties COOKED_PLATINUM_BASS_SLICE = new FoodProperties.Builder().nutrition(4).saturationMod(0.85F).build();
     public static final FoodProperties COCONUT_HALF = new FoodProperties.Builder().nutrition(2).saturationMod(0.4f).build();
+    public static final FoodProperties RAW_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).meat().fast().build();
+    public static final FoodProperties COOKED_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).meat().fast().build();
+
 
     //Meats
     public static final FoodProperties CUT_HAM = new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build();
@@ -99,6 +102,7 @@ public class ModFoods
     public static final FoodProperties COOKED_LOBSTER_TAIL = new FoodProperties.Builder().nutrition(6).saturationMod(0.65F).meat().build();
     public static final FoodProperties RAW_CATFISH = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).meat().build();
     public static final FoodProperties COOKED_CATFISH = new FoodProperties.Builder().nutrition(5).saturationMod(0.5F).meat().build();
+
 
     //Smoked
     public static final FoodProperties SMOKED_TOMATO = new FoodProperties.Builder().nutrition(4).saturationMod(0.6F).build();
@@ -292,6 +296,8 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties SHRIMP_FRIED_RICE = new FoodProperties.Builder().nutrition(7).saturationMod(0.7f)
             .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 600, 0), 1.0F).build();
+    public static final FoodProperties LOBSTER_PASTA = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F).build();
 
 
 

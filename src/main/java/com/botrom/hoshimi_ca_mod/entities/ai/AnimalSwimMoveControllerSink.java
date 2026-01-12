@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMimicOctopus;
+import com.botrom.hoshimi_ca_mod.entities.MimicOctopusEntity;
 import com.botrom.hoshimi_ca_mod.entities.ISemiAquatic;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.PathfinderMob;
@@ -66,7 +66,7 @@ public class AnimalSwimMoveControllerSink extends MoveControl {
 
             }
         } else {
-            if(entity instanceof EntityMimicOctopus && !entity.onGround()){
+            if(entity instanceof MimicOctopusEntity && !entity.onGround()){
                 this.entity.setDeltaMovement(entity.getDeltaMovement().add(0, -0.02, 0));
             }
             this.entity.setSpeed(0.0F);

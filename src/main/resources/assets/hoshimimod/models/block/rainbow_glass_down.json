@@ -1,0 +1,14 @@
+{
+  "parent": "block/cube",
+  "render_type": "translucent",
+  "textures": {
+    "particle": "hoshimimod:block/rainbow_glass_all",
+    "down": "hoshimimod:block/rainbow_glass_blank",
+    "up": "hoshimimod:block/rainbow_glass_blank",
+    "north": "hoshimimod:block/rainbow_glass_down",
+    "east": "hoshimimod:block/rainbow_glass_down",
+    "south": "hoshimimod:block/rainbow_glass_down",
+    "west": "hoshimimod:block/rainbow_glass_down"
+  }
+}
+

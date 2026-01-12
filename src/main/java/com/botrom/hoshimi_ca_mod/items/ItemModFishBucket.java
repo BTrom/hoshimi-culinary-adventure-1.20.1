@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.items;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCatfish;
-import com.botrom.hoshimi_ca_mod.entities.EntityLobster;
+import com.botrom.hoshimi_ca_mod.entities.CatfishEntity;
+import com.botrom.hoshimi_ca_mod.entities.LobsterEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModEntities;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import net.minecraft.ChatFormatting;
@@ -10,7 +10,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
@@ -42,7 +41,7 @@ public class ItemModFishBucket extends MobBucketItem {
             CompoundTag compoundnbt = stack.getTag();
             if (compoundnbt != null && compoundnbt.contains("BucketVariantTag", 3)) {
                 int i = compoundnbt.getInt("BucketVariantTag");
-                String s = "entity.alexsmobs.lobster.variant_" + EntityLobster.getVariantName(i);
+                String s = "entity.hoshimimod.lobster.variant_" + LobsterEntity.getVariantName(i);
                 tooltip.add((Component.translatable(s)).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
             }
         }
@@ -57,7 +56,7 @@ public class ItemModFishBucket extends MobBucketItem {
             CompoundTag compoundnbt = stack.getTag();
             if (compoundnbt != null && compoundnbt.contains("BucketVariantTag", 3)) {
                 int i = compoundnbt.getInt("BucketVariantTag");
-                String s = "entity.alexsmobs.comb_jelly.variant_" + i;
+                String s = "entity.hoshimimod.comb_jelly.variant_" + i;
                 tooltip.add((Component.translatable(s)).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
             }
         }
@@ -82,7 +81,7 @@ public class ItemModFishBucket extends MobBucketItem {
     }
 
     private void addExtraAttributes(Entity entity, ItemStack stack) {
-        if(entity instanceof EntityCatfish catfish){
+        if(entity instanceof CatfishEntity catfish){
             if(stack.is(ModItems.SMALL_CATFISH_BUCKET.get())){
                 catfish.setCatfishSize(0);
             }else if(stack.is(ModItems.MEDIUM_CATFISH_BUCKET.get())){

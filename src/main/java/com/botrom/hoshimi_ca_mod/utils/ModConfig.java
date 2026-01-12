@@ -23,6 +23,8 @@ public class ModConfig {
     public static int seagullSpawnRolls = 0;
     public static boolean seagullStealing = true;
     public static List<? extends String> seagullStealingBlacklist = Lists.newArrayList();
+    public static int pathfindingThreads = 5;
+    public static double rainbowGlassFidelity = 16.0F;
 
     public static void bake(net.minecraftforge.fml.config.ModConfig config) {
         try {
@@ -42,6 +44,8 @@ public class ModConfig {
             seagullSpawnRolls = ConfigHolder.COMMON.seagullSpawnRolls.get();
             seagullStealing = ConfigHolder.COMMON.seagullStealing.get();
             seagullStealingBlacklist = (List<? extends String>) ConfigHolder.COMMON.seagullStealingBlacklist.get();
+            pathfindingThreads = ConfigHolder.COMMON.pathfindingThreads.get();
+            rainbowGlassFidelity = ConfigHolder.COMMON.rainbowGlassFidelity.get();
         } catch (Exception e) {
             HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");
             e.printStackTrace();

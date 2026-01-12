@@ -83,38 +83,38 @@ public class ModEntities {
 					.sized(0.6F, 0.3F)
 					.build("koi_fish"));
 
-	public static final RegistryObject<EntityType<EntityLobster>> LOBSTER = ENTITIES.register("lobster",
-			() -> EntityType.Builder.of(EntityLobster::new, MobCategory.WATER_AMBIENT)
+	public static final RegistryObject<EntityType<LobsterEntity>> LOBSTER = ENTITIES.register("lobster",
+			() -> EntityType.Builder.of(LobsterEntity::new, MobCategory.WATER_AMBIENT)
 					.sized(0.7F, 0.4F)
 					.setTrackingRange(5)
 					.build("lobster"));
 
-	public static final RegistryObject<EntityType<EntityCatfish>> CATFISH = ENTITIES.register("catfish",
-			() -> EntityType.Builder.of(EntityCatfish::new, MobCategory.WATER_AMBIENT)
+	public static final RegistryObject<EntityType<CatfishEntity>> CATFISH = ENTITIES.register("catfish",
+			() -> EntityType.Builder.of(CatfishEntity::new, MobCategory.WATER_AMBIENT)
 					.sized(0.9F, 0.6F)
 					.setTrackingRange(5)
 					.build("catfish"));
 
-	public static final RegistryObject<EntityType<EntityGiantSquid>> GIANT_SQUID = ENTITIES.register("giant_squid",
-			() -> EntityType.Builder.of(EntityGiantSquid::new, MobCategory.WATER_CREATURE)
+	public static final RegistryObject<EntityType<GiantSquidEntity>> GIANT_SQUID = ENTITIES.register("giant_squid",
+			() -> EntityType.Builder.of(GiantSquidEntity::new, MobCategory.WATER_CREATURE)
 					.sized(0.9F, 1.2F)
 					.setTrackingRange(10)
 					.build("giant_squid"));
 
-	public static final RegistryObject<EntityType<EntityCombJelly>> COMB_JELLY = ENTITIES.register("comb_jelly",
-			() -> EntityType.Builder.of(EntityCombJelly::new, MobCategory.WATER_AMBIENT)
+	public static final RegistryObject<EntityType<CombJellyEntity>> COMB_JELLY = ENTITIES.register("comb_jelly",
+			() -> EntityType.Builder.of(CombJellyEntity::new, MobCategory.WATER_AMBIENT)
 					.sized(0.65F, 0.8F)
 					.setTrackingRange(5)
 					.build("comb_jelly"));
 
-	public static final RegistryObject<EntityType<EntityMimicOctopus>> MIMIC_OCTOPUS = ENTITIES.register("mimic_octopus",
-			() -> EntityType.Builder.of(EntityMimicOctopus::new, MobCategory.WATER_CREATURE)
+	public static final RegistryObject<EntityType<MimicOctopusEntity>> MIMIC_OCTOPUS = ENTITIES.register("mimic_octopus",
+			() -> EntityType.Builder.of(MimicOctopusEntity::new, MobCategory.WATER_CREATURE)
 					.sized(0.9F, 0.6F)
 					.setTrackingRange(8)
 					.build("mimic_octopus"));
 
-	public static final RegistryObject<EntityType<EntitySeagull>> SEAGULL = ENTITIES.register("seagull",
-			() -> EntityType.Builder.of(EntitySeagull::new, MobCategory.CREATURE)
+	public static final RegistryObject<EntityType<SeagullEntity>> SEAGULL = ENTITIES.register("seagull",
+			() -> EntityType.Builder.of(com.botrom.hoshimi_ca_mod.entities.SeagullEntity::new, MobCategory.CREATURE)
 					.sized(0.45F, 0.45F)
 					.setTrackingRange(10)
 					.build("seagull"));
@@ -138,12 +138,12 @@ public class ModEntities {
 		event.put(FIDDLER_CRAB.get(), FiddlerCrab.createAttributes().build());
 		event.put(DUMBO_OCTOPUS.get(), DumboOctopusEntity.createAttributes().build());
 		event.put(KOI_FISH.get(), KoiFishEntity.createAttributes().build());
-		event.put(LOBSTER.get(), EntityLobster.bakeAttributes().build());
-		event.put(CATFISH.get(), EntityCatfish.bakeAttributes().build());
-		event.put(GIANT_SQUID.get(), EntityGiantSquid.bakeAttributes().build());
-		event.put(COMB_JELLY.get(), EntityCombJelly.bakeAttributes().build());
-		event.put(MIMIC_OCTOPUS.get(), EntityMimicOctopus.bakeAttributes().build());
-		event.put(SEAGULL.get(), EntitySeagull.bakeAttributes().build());
+		event.put(LOBSTER.get(), LobsterEntity.bakeAttributes().build());
+		event.put(CATFISH.get(), CatfishEntity.bakeAttributes().build());
+		event.put(GIANT_SQUID.get(), GiantSquidEntity.bakeAttributes().build());
+		event.put(COMB_JELLY.get(), CombJellyEntity.bakeAttributes().build());
+		event.put(MIMIC_OCTOPUS.get(), MimicOctopusEntity.bakeAttributes().build());
+		event.put(SEAGULL.get(), com.botrom.hoshimi_ca_mod.entities.SeagullEntity.bakeAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -156,12 +156,12 @@ public class ModEntities {
 		event.register(FIDDLER_CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, FiddlerCrab::checkCrabSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(DUMBO_OCTOPUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(KOI_FISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(LOBSTER.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityLobster::canLobsterSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(CATFISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityCatfish::canCatfishSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(GIANT_SQUID.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityGiantSquid::canGiantSquidSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(COMB_JELLY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityCombJelly::canCombJellySpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(MIMIC_OCTOPUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityMimicOctopus::canMimicOctopusSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(SEAGULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySeagull::canSeagullSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(LOBSTER.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, LobsterEntity::canLobsterSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(CATFISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CatfishEntity::canCatfishSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(GIANT_SQUID.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GiantSquidEntity::canGiantSquidSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(COMB_JELLY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CombJellyEntity::canCombJellySpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(MIMIC_OCTOPUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MimicOctopusEntity::canMimicOctopusSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(SEAGULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, com.botrom.hoshimi_ca_mod.entities.SeagullEntity::canSeagullSpawn, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static Predicate<LivingEntity> buildPredicateFromTag(TagKey<EntityType<?>> entityTag){

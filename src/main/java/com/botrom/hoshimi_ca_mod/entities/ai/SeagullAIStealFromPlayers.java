@@ -1,9 +1,8 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntitySeagull;
+import com.botrom.hoshimi_ca_mod.entities.SeagullEntity;
 import com.botrom.hoshimi_ca_mod.utils.ModConfig;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -18,12 +17,12 @@ import java.util.List;
 
 public class SeagullAIStealFromPlayers extends Goal {
 
-    private final EntitySeagull seagull;
+    private final SeagullEntity seagull;
     private Vec3 fleeVec = null;
     private Player target;
     private int fleeTime = 0;
 
-    public SeagullAIStealFromPlayers(EntitySeagull entitySeagull) {
+    public SeagullAIStealFromPlayers(SeagullEntity entitySeagull) {
         this.setFlags(EnumSet.of(Flag.MOVE, Flag.TARGET));
         this.seagull = entitySeagull;
     }

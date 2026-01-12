@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "hoshimimod:block/banana_peel" },
+      { "model": "hoshimimod:block/banana_peel", "y" : 90 },
+      { "model": "hoshimimod:block/banana_peel", "y" : 180 },
+      { "model": "hoshimimod:block/banana_peel", "y" : 270 }
+    ]
+  }
+}

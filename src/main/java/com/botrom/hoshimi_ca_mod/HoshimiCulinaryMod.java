@@ -10,11 +10,20 @@ import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.BasinRenderer;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.PizzaRenderer;
 import com.botrom.hoshimi_ca_mod.pizzacraft.init.PizzaLayers;
 import com.botrom.hoshimi_ca_mod.registry.*;
-import com.mojang.logging.LogUtils;
+import com.botrom.hoshimi_ca_mod.utils.CommonProxy;
+import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
+import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
+import com.botrom.hoshimi_ca_mod.utils.compat.MessageHurtMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.MessageInteractMultipart;
+import com.botrom.hoshimi_ca_mod.worldgen.AMMobSpawnBiomeModifier;
+import com.mojang.serialization.Codec;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,21 +31,28 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.simple.SimpleChannel;
-import org.slf4j.Logger;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(HoshimiCulinaryMod.MOD_ID)
 public class HoshimiCulinaryMod {
     public static final String MOD_ID = "hoshimimod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static SimpleChannel NETWORK;
-//    public static final CommonProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new); TODO
+    public static final CommonProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+    private static int packetsRegistered;
 
     public HoshimiCulinaryMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -44,8 +60,10 @@ public class HoshimiCulinaryMod {
 
         PizzaCraftConfig.register(ModLoadingContext.get());
         modEventBus.addListener(this::setup);
-        modEventBus.addListener(this::onClientSetup);
+        modEventBus.addListener(this::clientSetup);
+        modEventBus.addListener(this::onModConfigEvent);
         modEventBus.addListener(this::onFinish);
+
         modEventBus.register(new ClientEvents());
 
         ModEntities.ENTITIES.register(modEventBus);
@@ -63,42 +81,39 @@ public class HoshimiCulinaryMod {
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         ModStateProviders.PROVIDERS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+
+        final DeferredRegister<Codec<? extends BiomeModifier>> biomeModifiers = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MOD_ID);
+        biomeModifiers.register(modEventBus);
+        biomeModifiers.register("am_mob_spawns", AMMobSpawnBiomeModifier::makeCodec);
+
+        final ModLoadingContext modLoadingContext = ModLoadingContext.get();
+        modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHolder.COMMON_SPEC, "hoshimimod.toml");
+
+        PROXY.init();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ModNetwork.registerNetworkChannel();
-//            ModAdvancements.register();
+
+            NETWORK.registerMessage(packetsRegistered++, MessageHurtMultipart.class, MessageHurtMultipart::write, MessageHurtMultipart::read, MessageHurtMultipart.Handler::handle);
+            NETWORK.registerMessage(packetsRegistered++, MessageInteractMultipart.class, MessageInteractMultipart::write, MessageInteractMultipart::read, MessageInteractMultipart.Handler::handle);
+
+            event.enqueueWork(ModItems::initDispenser);
             ModVanillaCompat.setup();
             BasinContent.register();
+            PROXY.initPathfinding();
         });
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == vectorwing.farmersdelight.common.registry.ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey()) {
-
-        }
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-//        LOGGER.info("HELLO from server starting");
+
     }
 
-//    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-//    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-//    public static class ClientModEvents {
-//        @SubscribeEvent
-//    }
+    public void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(PROXY::clientInit);
 
-
-    public void onClientSetup(FMLClientSetupEvent event) {
-        // Some client setup code
-//            LOGGER.info("HELLO FROM CLIENT SETUP");
-//            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_CUCUMBERS.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_CORN.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_EGGPLANTS.get(), RenderType.cutoutMipped());
@@ -129,12 +144,27 @@ public class HoshimiCulinaryMod {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PINEAPPLE.get(), RenderType.cutout());
     }
 
+    @SubscribeEvent
+    public void onModConfigEvent(final ModConfigEvent event) {
+        final ModConfig config = event.getConfig();
+        // Rebake the configs when they change
+        if (config.getSpec() == ConfigHolder.COMMON_SPEC) {
+            com.botrom.hoshimi_ca_mod.utils.ModConfig.bake(config);
+        }
+    }
+
     private void onFinish(final FMLLoadCompleteEvent event) {
         PizzaLayers.setMaps();
     }
 
+    public static void loggerLog(Level level, String msg) {
+        LOGGER.log(level, msg);
+    }
     public static void loggerError(String msg) {
         LOGGER.error(msg);
+    }
+    public static void loggerError(String msg, Object p0, Object p1) {
+        LOGGER.error(msg, p0, p1);
     }
     public static void loggerWarn(String msg) {
         LOGGER.warn(msg);
