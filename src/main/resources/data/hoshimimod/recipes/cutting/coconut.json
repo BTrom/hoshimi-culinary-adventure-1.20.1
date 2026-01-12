@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:coconut"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "hoshimimod:coconut_halve"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

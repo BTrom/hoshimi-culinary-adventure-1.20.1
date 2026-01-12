@@ -140,6 +140,13 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url = uri("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
+        content {
+            includeGroup("software.bernie.geckolib")
+            includeGroup("com.eliotlash.mclib")
+        }
+    }
 }
 
 dependencies {
@@ -156,6 +163,10 @@ dependencies {
     implementation fg.deobf("mezz.jei:${jei_version}")
     // Appleskin
     implementation fg.deobf("curse.maven:appleskin-248787:4770828")
+    // Geckolib
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+    // Citadel
+    implementation fg.deobf("curse.maven:citadel-331936:5633260")
     // implementation fg.deobf(files("libs/FarmersDelight-1.20.1-1.2.4.jar"))
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

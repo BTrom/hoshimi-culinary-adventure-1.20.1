@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "hoshimimod:cooked_clam_meat"
+    },
+    {
+      "item": "hoshimimod:cooked_lobster"
+    },
+    {
+      "item": "hoshimimod:cooked_shrimp"
+    },
+    {
+      "item": "minecraft:seagrass"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "farmersdelight:onion"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "hoshimimod:clam_bake"
+  }
+}

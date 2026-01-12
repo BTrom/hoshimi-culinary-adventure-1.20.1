@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "hoshimimod:item/crab_claw_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "hoshimimod:item/crab_claw_2d"
+    },
+    "ground": {
+      "parent": "hoshimimod:item/crab_claw_2d"
+    },
+    "fixed": {
+      "parent": "hoshimimod:item/crab_claw_2d"
+    }
+  }
+}

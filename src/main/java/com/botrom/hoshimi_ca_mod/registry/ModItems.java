@@ -1,10 +1,12 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.items.ChumItem;
 import com.botrom.hoshimi_ca_mod.items.IceCreamItem;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.SauceType;
 import com.botrom.hoshimi_ca_mod.pizzacraft.items.*;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluids;
@@ -15,6 +17,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
+import vectorwing.farmersdelight.common.item.MilkBottleItem;
+
+import java.util.function.Supplier;
 
 import static vectorwing.farmersdelight.common.registry.ModItems.*;
 import static vectorwing.farmersdelight.common.registry.ModItems.bowlFoodItem;
@@ -49,6 +54,15 @@ public class ModItems {
     public static final RegistryObject<Item> LIME_PIE = registerBlockItem("lime_pie", ModBlocks.LIME_PIE, new Item.Properties());
     public static final RegistryObject<Item> POMEGRANATE_CAKE = registerBlockItem("pomegranate_cake", ModBlocks.POMEGRANATE_CAKE, new Item.Properties().stacksTo(1));
     public static final RegistryObject<Item> DRAGON_FRUIT_CAKE = registerBlockItem("dragon_fruit_cake", ModBlocks.DRAGON_FRUIT_CAKE, new Item.Properties().stacksTo(1));
+    public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut", () -> new BlockItem(ModBlocks.COCONUT.get(), basicItem()));
+    public static final RegistryObject<Item> SEASHELLS = ITEMS.register("seashells", () -> new BlockItem(ModBlocks.SEASHELLS.get(), basicItem()));
+    public static final RegistryObject<Item> CRAB_TRAP = ITEMS.register("crab_trap", () -> new BlockItem(ModBlocks.CRAB_TRAP.get(), basicItem()));
+    public static final RegistryObject<Item> PALM_LOG = ITEMS.register("palm_log", () -> new BlockItem(ModBlocks.PALM_LOG.get(), basicItem()));
+    public static final RegistryObject<Item> PALM_WOOD = ITEMS.register("palm_wood", () -> new BlockItem(ModBlocks.PALM_WOOD.get(), basicItem()));
+    public static final RegistryObject<Item> STRIPPED_PALM_LOG = ITEMS.register("stripped_palm_log", () -> new BlockItem(ModBlocks.STRIPPED_PALM_LOG.get(), basicItem()));
+    public static final RegistryObject<Item> STRIPPED_PALM_WOOD = ITEMS.register("stripped_palm_wood", () -> new BlockItem(ModBlocks.STRIPPED_PALM_WOOD.get(), basicItem()));
+    public static final RegistryObject<Item> PALM_LEAVES = ITEMS.register("palm_leaves", () -> new BlockItem(ModBlocks.PALM_LEAVES.get(), basicItem()));
+    public static final RegistryObject<Item> PALM_SAPLING = ITEMS.register("palm_sapling", () -> new BlockItem(ModBlocks.PALM_SAPLING.get(), basicItem()));
 
 
     //Seeds
@@ -60,7 +74,7 @@ public class ModItems {
     public static final RegistryObject<Item> PEPPER_SEEDS = ITEMS.register("pepper_seeds", () -> new ItemNameBlockItem(ModBlocks.PEPPERS.get(), pizzaProperties()));
     public static final RegistryObject<Item> PINEAPPLE_SEEDS = ITEMS.register("pineapple_seeds", () -> new ItemNameBlockItem(ModBlocks.PINEAPPLE.get(), pizzaProperties()));
 //    public static final RegistryObject<Item> POMEGRANATE_SEEDS = ITEMS.register("pomegranate_seeds", () -> new ItemNameBlockItem(ModBlocks.POMEGRANATE_BUSH.get(), (new Item.Properties()).food(ModFoods.POMEGRANATE_SEEDS)));
-    public static final RegistryObject<Item> LIME_SEEDS = ITEMS.register("lime_seeds", () -> new ItemNameBlockItem(ModBlocks.LIME_BUSH.get(), (new Item.Properties())));
+    public static final RegistryObject<Item> LIME_SEEDS = ITEMS.register("lime_seeds", () -> new ItemNameBlockItem(ModBlocks.LIME_BUSH.get(), new Item.Properties()));
     public static final RegistryObject<Item> DRAGON_FRUIT_SEEDS = ITEMS.register("dragon_fruit_seeds", () -> new ItemNameBlockItem(ModBlocks.BUDDING_DRAGON_FRUIT_CROP.get(), basicItem()));
     public static final RegistryObject<Item> DRAGON_FRUIT_CROP = ITEMS.register("dragon_fruits", () -> new ItemNameBlockItem(ModBlocks.DRAGON_FRUIT_CROP.get(), basicItem()));
 
@@ -88,7 +102,7 @@ public class ModItems {
     public static final RegistryObject<Item> ROASTED_ACORN = ITEMS.register("roasted_acorn", () -> new Item(new Item.Properties().food(ModFoods.ROASTED_ACORN)));
     public static final RegistryObject<Item> CACTUS_FLESH = ITEMS.register("cactus_flesh", () -> new Item(new Item.Properties().food(ModFoods.CACTUS_FLESH)));
     public static final RegistryObject<Item> CACTUS_STEAK = ITEMS.register("cactus_steak", () -> new Item(new Item.Properties().food(ModFoods.CACTUS_STEAK)));
-    public static final RegistryObject<Item> JAM_JAR = ITEMS.register("jam_jar", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.JAM_JAR).craftRemainder(Items.GLASS_BOTTLE), false, false));
+    public static final RegistryObject<Item> JAM_JAR = ITEMS.register("jam_jar", () -> new ConsumableItem(new Item.Properties().food(ModFoods.JAM_JAR).craftRemainder(Items.GLASS_BOTTLE), false, false));
     public static final RegistryObject<Item> BROCCOLI = ITEMS.register("broccoli", () -> new Item(pizzaProperties().food(ModFoods.BROCCOLI)));
     public static final RegistryObject<Item> PEPPER = ITEMS.register("pepper", () -> new Item(pizzaProperties().food(ModFoods.PEPPER)));
     public static final RegistryObject<Item> PINEAPPLE = ITEMS.register("pineapple", () -> new Item(pizzaProperties().food(ModFoods.PINEAPPLE)));
@@ -106,8 +120,8 @@ public class ModItems {
     public static final RegistryObject<Item> OLIVE_OIL = ITEMS.register("olive_oil", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.OLIVE_OIL), SauceType.NONE));
     public static final RegistryObject<Item> TOMATO_SAUCE = ITEMS.register("tomato_sauce", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.TOMATO_SAUCE), SauceType.TOMATO));
     public static final RegistryObject<Item> HOT_SAUCE = ITEMS.register("hot_sauce", () -> new SauceItem(pizzaProperties().stacksTo(1).food(ModFoods.HOT_SAUCE), SauceType.HOT));
-    public static final RegistryObject<Item> POMEGRANATE = ITEMS.register("pomegranate", () -> new Item((new Item.Properties())));
-    public static final RegistryObject<Item> POMEGRANATE_SLICE = ITEMS.register("pomegranate_slice", () -> new Item((new Item.Properties()).food(ModFoods.POMEGRANATE_SLICE)));
+    public static final RegistryObject<Item> POMEGRANATE = ITEMS.register("pomegranate", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> POMEGRANATE_SLICE = ITEMS.register("pomegranate_slice", () -> new Item(new Item.Properties().food(ModFoods.POMEGRANATE_SLICE)));
     public static final RegistryObject<Item> LIME = ITEMS.register("lime", () -> new Item(new Item.Properties().food(ModFoods.LIME)));
     public static final RegistryObject<Item> LIME_SLICE = ITEMS.register("lime_slice", () -> new Item(new Item.Properties().food(ModFoods.LIME_SLICE)));
     public static final RegistryObject<Item> DRAGON_FRUIT = ITEMS.register("dragon_fruit", () -> new Item(new Item.Properties().food(ModFoods.DRAGON_FRUIT)));
@@ -120,14 +134,33 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_PLATINUM_BASS = ITEMS.register("cooked_platinum_bass", () -> new ConsumableItem(new Item.Properties().food(ModFoods.COOKED_PLATINUM_BASS)));
     public static final RegistryObject<Item> PLATINUM_BASS_SLICE = ITEMS.register("platinum_bass_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PLATINUM_BASS_SLICE)));
     public static final RegistryObject<Item> COOKED_PLATINUM_BASS_SLICE = ITEMS.register("cooked_platinum_bass_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.COOKED_PLATINUM_BASS_SLICE)));
-    public static final RegistryObject<Item> CHIEFTAIN_CRAB = ITEMS.register("chieftain_crab", () -> new Item((new Item.Properties()).stacksTo(1).craftRemainder(Items.BOWL)));
+    public static final RegistryObject<Item> CHIEFTAIN_CRAB = ITEMS.register("chieftain_crab", () -> new Item(new Item.Properties().stacksTo(1).craftRemainder(Items.BOWL)));
     public static final RegistryObject<Item> CHIEFTAIN_CLAW = ITEMS.register("chieftain_claw", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CHIEFTAIN_CLAW)));
     public static final RegistryObject<Item> CHIEFTAIN_LEG = ITEMS.register("chieftain_leg", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CHIEFTAIN_LEG)));
     public static final RegistryObject<Item> CHIEFTAIN_CRAB_MEAT = ITEMS.register("chieftain_crab_meat", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CHIEFTAIN_CRAB_MEAT)));
     public static final RegistryObject<Item> URCHIN = ITEMS.register("urchin", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> UNI = ITEMS.register("uni", () -> new ConsumableItem(new Item.Properties().food(ModFoods.UNI)));
     public static final RegistryObject<Item> URCHIN_TEST = ITEMS.register("urchin_test", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> URCHIN_NEEDLE = ITEMS.register("urchin_needle", () -> new Item((new Item.Properties())));
+    public static final RegistryObject<Item> URCHIN_NEEDLE = ITEMS.register("urchin_needle", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PEARL = ITEMS.register("pearl", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> CAN = ITEMS.register("can", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> FISH_BONES = ITEMS.register("fish_bones", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> COCONUT_HALF = ITEMS.register("coconut_half", () -> new ConsumableItem(foodItem(ModFoods.COCONUT_HALF)));
+    public static final RegistryObject<Item> COCONUT_MILK = ITEMS.register("coconut_milk", () -> new MilkBottleItem(foodItem(ModFoods.COCONUT_MILK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
+    public static final RegistryObject<Item> RAW_FIDDLER_CRAB = ITEMS.register("fiddler_crab", () -> new ConsumableItem(foodItem(ModFoods.RAW_FIDDLER_CRAB)));
+    public static final RegistryObject<Item> COOKED_FIDDLER_CRAB = ITEMS.register("cooked_fiddler_crab", () -> new ConsumableItem(foodItem(ModFoods.COOKED_FIDDLER_CRAB)));
+    public static final RegistryObject<Item> RAW_LOBSTER = ITEMS.register("lobster", () -> new ConsumableItem(foodItem(ModFoods.RAW_LOBSTER)));
+    public static final RegistryObject<Item> COOKED_LOBSTER = ITEMS.register("cooked_lobster", () -> new ConsumableItem(foodItem(ModFoods.COOKED_LOBSTER)));
+    public static final RegistryObject<Item> RAW_SHRIMP = ITEMS.register("shrimp", () -> new ConsumableItem(foodItem(ModFoods.RAW_SHRIMP), true));
+    public static final RegistryObject<Item> COOKED_SHRIMP = ITEMS.register("cooked_shrimp", () -> new ConsumableItem(foodItem(ModFoods.COOKED_SHRIMP)));
+    public static final RegistryObject<Item> FIDDLER_CRAB_LEGS = ITEMS.register("fiddler_crab_legs", () -> new ConsumableItem(foodItem(ModFoods.FIDDLER_CRAB_LEGS)));
+    public static final RegistryObject<Item> FIDDLER_CRAB_CLAW = ITEMS.register("fiddler_crab_claw", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> COOKED_CLAM_MEAT = ITEMS.register("cooked_clam_meat", () -> new ConsumableItem(foodItem(ModFoods.COOKED_CLAM_MEAT)));
+    public static final RegistryObject<Item> LOBSTER_TAIL = ITEMS.register("lobster_tail", () -> new Item(new Item.Properties().food(ModFoods.LOBSTER_TAIL)));
+    public static final RegistryObject<Item> COOKED_LOBSTER_TAIL = ITEMS.register("cooked_lobster_tail", () -> new Item(new Item.Properties().food(ModFoods.COOKED_LOBSTER_TAIL)));
+    public static final RegistryObject<Item> RAW_CATFISH = ITEMS.register("raw_catfish", () -> new Item(new Item.Properties().food(ModFoods.RAW_CATFISH)));
+    public static final RegistryObject<Item> COOKED_CATFISH = ITEMS.register("cooked_catfish", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH)));
+    public static final RegistryObject<Item> RAINBOW_JELLY = ITEMS.register("rainbow_jelly", () -> new Item(new Item.Properties().food(ModFoods.RAINBOW_JELLY)));
 
 
     //Meals
@@ -155,35 +188,35 @@ public class ModItems {
     public static final RegistryObject<Item> TOAST_WITH_CHOCOLATE = ITEMS.register("toast_with_chocolate", () -> new Item(new Item.Properties().food(ModFoods.TOAST_WITH_CHOCOLATE)));
     public static final RegistryObject<Item> MATCHA_ICE_CREAM = ITEMS.register("matcha_ice_cream", () -> new IceCreamItem(new Item.Properties().food(ModFoods.MATCHA_ICE_CREAM)));
     public static final RegistryObject<Item> MATCHA_MILKSHAKE = ITEMS.register("matcha_milkshake", () -> new Item(new Item.Properties().food(ModFoods.MATCHA_MILKSHAKE)));
-    public static final RegistryObject<Item> MATCHA_LATTE = ITEMS.register("matcha_latte", () -> new DrinkableItem((new Item.Properties()).food(ModFoods.MATCHA_LATTE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), true, false));
-    public static final RegistryObject<Item> CACTUS_CHILI = ITEMS.register("cactus_chili", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.CACTUS_CHILI).stacksTo(16).craftRemainder(Items.BOWL), true, false));
-    public static final RegistryObject<Item> CACTUS_SOUP = ITEMS.register("cactus_soup", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.CACTUS_SOUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
-    public static final RegistryObject<Item> FIELD_SALAD = ITEMS.register("field_salad", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.FIELD_SALAD).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> MATCHA_LATTE = ITEMS.register("matcha_latte", () -> new DrinkableItem(new Item.Properties().food(ModFoods.MATCHA_LATTE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), true, false));
+    public static final RegistryObject<Item> CACTUS_CHILI = ITEMS.register("cactus_chili", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CACTUS_CHILI).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> CACTUS_SOUP = ITEMS.register("cactus_soup", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CACTUS_SOUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> FIELD_SALAD = ITEMS.register("field_salad", () -> new ConsumableItem(new Item.Properties().food(ModFoods.FIELD_SALAD).stacksTo(16).craftRemainder(Items.BOWL), true, false));
     public static final RegistryObject<Item> CHEESEBURGER = ITEMS.register("cheeseburger", () -> new Item(new Item.Properties().food(ModFoods.CHEESEBURGER)));
-    public static final RegistryObject<Item> MARSHMALLOW_STICK = ITEMS.register("marshmallow_stick", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.MARSHMALLOW_STICK).stacksTo(16).craftRemainder(Items.STICK), true));
-    public static final RegistryObject<Item> COOKED_MARSHMALLOW_STICK = ITEMS.register("cooked_marshmallow_stick", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.COOKED_MARSHMALLOW_STICK).stacksTo(16).craftRemainder(Items.STICK), true));
+    public static final RegistryObject<Item> MARSHMALLOW_STICK = ITEMS.register("marshmallow_stick", () -> new ConsumableItem(new Item.Properties().food(ModFoods.MARSHMALLOW_STICK).stacksTo(16).craftRemainder(Items.STICK), true));
+    public static final RegistryObject<Item> COOKED_MARSHMALLOW_STICK = ITEMS.register("cooked_marshmallow_stick", () -> new ConsumableItem(new Item.Properties().food(ModFoods.COOKED_MARSHMALLOW_STICK).stacksTo(16).craftRemainder(Items.STICK), true));
     public static final RegistryObject<Item> SMORE = ITEMS.register("smore", () -> new Item(new Item.Properties().food(ModFoods.SMORE)));
-    public static final RegistryObject<Item> PAELLA_BOWL = ITEMS.register("paella_bowl", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.PAELLA_BOWL).stacksTo(16).craftRemainder(Items.BOWL), true));
+    public static final RegistryObject<Item> PAELLA_BOWL = ITEMS.register("paella_bowl", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PAELLA_BOWL).stacksTo(16).craftRemainder(Items.BOWL), true));
     public static final RegistryObject<Item> PIZZA_SLICE = ITEMS.register("pizza_slice", () -> new PizzaSliceItem(pizzaProperties()));
-    public static final RegistryObject<Item> PANETTONE_SLICE = ITEMS.register("panettone_slice", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.PANETTONE_SLICE), false, true));
+    public static final RegistryObject<Item> PANETTONE_SLICE = ITEMS.register("panettone_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PANETTONE_SLICE), false, true));
     public static final RegistryObject<Item> MUSHROOM_QUICHE_SLICE = ITEMS.register("mushroom_quiche_slice", () -> new Item(new Item.Properties().food(ModFoods.MUSHROOM_QUICHE_SLICE)));
-    public static final RegistryObject<Item> LIME_PIE_SLICE = ITEMS.register("lime_pie_slice", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.LIME_PIE_SLICE)));
-    public static final RegistryObject<Item> POMEGRANATE_CAKE_SLICE = ITEMS.register("pomegranate_cake_slice", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.POMEGRANATE_CAKE_SLICE)));
-    public static final RegistryObject<Item> DRAGON_FRUIT_CAKE_SLICE = ITEMS.register("dragon_fruit_cake_slice", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.DRAGON_FRUIT_CAKE_SLICE)));
-    public static final RegistryObject<Item> LIME_ICE_CREAM = ITEMS.register("lime_ice_cream", () -> new IceCreamItem((new Item.Properties()).food(ModFoods.LIME_ICE_CREAM)));
-    public static final RegistryObject<Item> SUNNY_ICE_CREAM = ITEMS.register("sunny_ice_cream", () -> new IceCreamItem((new Item.Properties()).food(ModFoods.SUNNY_ICE_CREAM)));
+    public static final RegistryObject<Item> LIME_PIE_SLICE = ITEMS.register("lime_pie_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.LIME_PIE_SLICE)));
+    public static final RegistryObject<Item> POMEGRANATE_CAKE_SLICE = ITEMS.register("pomegranate_cake_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.POMEGRANATE_CAKE_SLICE)));
+    public static final RegistryObject<Item> DRAGON_FRUIT_CAKE_SLICE = ITEMS.register("dragon_fruit_cake_slice", () -> new ConsumableItem(new Item.Properties().food(ModFoods.DRAGON_FRUIT_CAKE_SLICE)));
+    public static final RegistryObject<Item> LIME_ICE_CREAM = ITEMS.register("lime_ice_cream", () -> new IceCreamItem(new Item.Properties().food(ModFoods.LIME_ICE_CREAM)));
+    public static final RegistryObject<Item> SUNNY_ICE_CREAM = ITEMS.register("sunny_ice_cream", () -> new IceCreamItem(new Item.Properties().food(ModFoods.SUNNY_ICE_CREAM)));
     public static final RegistryObject<Item> LIME_MILKSHAKE = ITEMS.register("lime_milkshake", () -> new DrinkableItem(new Item.Properties().food(ModFoods.LIME_MILKSHAKE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> DRAGON_FRUIT_MILKSHAKE = ITEMS.register("dragon_fruit_milkshake", () -> new DrinkableItem(new Item.Properties().food(ModFoods.DRAGON_FRUIT_MILKSHAKE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
-    public static final RegistryObject<Item> POMEGRANATE_SMOOTHIE = ITEMS.register("pomegranate_smoothie", () -> new DrinkableItem((new Item.Properties()).food(ModFoods.POMEGRANATE_SMOOTHIE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> POMEGRANATE_SMOOTHIE = ITEMS.register("pomegranate_smoothie", () -> new DrinkableItem(new Item.Properties().food(ModFoods.POMEGRANATE_SMOOTHIE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> BERRY_LIMEADE = ITEMS.register("berry_limeade", () -> new ConsumableItem((drinkItem()).food(ModFoods.BERRY_LIMEADE), true, false));
     public static final RegistryObject<Item> PINK_LIMEADE = ITEMS.register("pink_limeade", () -> new ConsumableItem((drinkItem()).food(ModFoods.PINK_LIMEADE), true, false));
     public static final RegistryObject<Item> DRAGONS_PASSION = ITEMS.register("dragons_passion", () -> new ConsumableItem((drinkItem()).food(ModFoods.DRAGONS_PASSION), true, false));
     public static final RegistryObject<Item> CLAM_MEATBALL_STEW = ITEMS.register("clam_meatball_stew", () -> new ConsumableItem(bowlFoodItem(ModFoods.CLAM_MEATBALL_STEW)));
-    public static final RegistryObject<Item> CLAM_MEATBALL_STEW_CUP = ITEMS.register("clam_meatball_stew_cup", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.CLAM_MEATBALL_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> CLAM_MEATBALL_STEW_CUP = ITEMS.register("clam_meatball_stew_cup", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CLAM_MEATBALL_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
     public static final RegistryObject<Item> PRAWN_STEW = ITEMS.register("prawn_stew", () -> new ConsumableItem(bowlFoodItem(ModFoods.PRAWN_STEW)));
-    public static final RegistryObject<Item> PRAWN_STEW_CUP = ITEMS.register("prawn_stew_cup", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.PRAWN_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> PRAWN_STEW_CUP = ITEMS.register("prawn_stew_cup", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PRAWN_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
     public static final RegistryObject<Item> PLATINUM_BASS_STEW = ITEMS.register("platinum_bass_stew", () -> new ConsumableItem(bowlFoodItem(ModFoods.PLATINUM_BASS_STEW)));
-    public static final RegistryObject<Item> PLATINUM_BASS_STEW_CUP = ITEMS.register("platinum_bass_stew_cup", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.PLATINUM_BASS_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
+    public static final RegistryObject<Item> PLATINUM_BASS_STEW_CUP = ITEMS.register("platinum_bass_stew_cup", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PLATINUM_BASS_STEW_CUP).stacksTo(16).craftRemainder(Items.BOWL), true, false));
     public static final RegistryObject<Item> POMEGRANATE_CHICKEN = ITEMS.register("pomegranate_chicken", () -> new ConsumableItem(bowlFoodItem(ModFoods.POMEGRANATE_CHICKEN), true, false));
     public static final RegistryObject<Item> DELUXE_SALAD = ITEMS.register("deluxe_salad", () -> new ConsumableItem(bowlFoodItem(ModFoods.DELUXE_SALAD), true, false));
     public static final RegistryObject<Item> TROPICAL_SHAVED_ICE = ITEMS.register("tropical_shaved_ice", () -> new ConsumableItem(bowlFoodItem(ModFoods.TROPICAL_SHAVED_ICE), true, false));
@@ -202,12 +235,22 @@ public class ModItems {
     public static final RegistryObject<Item> CRAB_NOODLES = ITEMS.register("crab_noodles", () -> new ConsumableItem(bowlFoodItem(ModFoods.CRAB_NOODLES), true, false));
     public static final RegistryObject<Item> BUTTERED_LEGS = ITEMS.register("buttered_legs", () -> new ConsumableItem(bowlFoodItem(ModFoods.BUTTERED_LEGS), false, false));
     public static final RegistryObject<Item> BIG_RICE_BALL = ITEMS.register("big_rice_ball", () -> new ConsumableItem(new Item.Properties().food(ModFoods.BIG_RICE_BALL)));
-    public static final RegistryObject<Item> STRAWBERRY_JAM_BUN = ITEMS.register("strawberry_jam_bun", () -> new ConsumableItem((new Item.Properties()).food(ModFoods.STRAWBERRY_JAM_BUN), true, false));
+    public static final RegistryObject<Item> STRAWBERRY_JAM_BUN = ITEMS.register("strawberry_jam_bun", () -> new ConsumableItem(new Item.Properties().food(ModFoods.STRAWBERRY_JAM_BUN), true, false));
+    public static final RegistryObject<Item> COCONUT_PUDDING = ITEMS.register("coconut_pudding", () -> new ConsumableItem(foodItem(ModFoods.COCONUT_PUDDING).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> SURF_AND_TURF = ITEMS.register("surf_and_turf", () -> new ConsumableItem(foodItem(ModFoods.SURF_AND_TURF), true));
+    public static final RegistryObject<Item> CLAM_BAKE = ITEMS.register("clam_bake", () -> new ConsumableItem(foodItem(ModFoods.CLAM_BAKE), true));
+    public static final RegistryObject<Item> STUFFED_NAUTILUS_SHELL = ITEMS.register("stuffed_nautilus_shell", () -> new ConsumableItem(foodItem(ModFoods.STUFFED_NAUTILUS_SHELL).craftRemainder(Items.NAUTILUS_SHELL), true));
+    public static final RegistryObject<Item> BISQUE = ITEMS.register("bisque", () -> new ConsumableItem(bowlFoodItem(ModFoods.BISQUE), true));
+    public static final RegistryObject<Item> SHRIMP_FRIED_RICE = ITEMS.register("shrimp_fried_rice", () -> new ConsumableItem(bowlFoodItem(ModFoods.SHRIMP_FRIED_RICE), true));
 
 
     //Tools
     public static final RegistryObject<Item> ROLLING_PIN = ITEMS.register("rolling_pin", () -> new Item(pizzaProperties().stacksTo(1).durability(60)));
     public static final RegistryObject<Item> PIZZA_PEEL = ITEMS.register("pizza_peel", () -> new PizzaPeelItem(Tiers.IRON, 1.5F, -3.0F, pizzaProperties().stacksTo(1)));
+    public static final RegistryObject<Item> BUCKET_OF_CRAB_CHUM = ITEMS.register("bucket_of_crab_chum", () -> new ChumItem(basicItem())); // TODO: Replace for the source function if checks are not by instance
+    public static final RegistryObject<Item> BUCKET_OF_LOBSTER_CHUM = ITEMS.register("bucket_of_lobster_chum", () -> new ChumItem(basicItem()));
+    public static final RegistryObject<Item> BUCKET_OF_CLAM_CHUM = ITEMS.register("bucket_of_clam_chum", () -> new ChumItem(basicItem()));
+    public static final RegistryObject<Item> BUCKET_OF_SHRIMP_CHUM = ITEMS.register("bucket_of_shrimp_chum", () -> new ChumItem(basicItem()));
 
 
     // Farmer's Respite Drinks #TODO
@@ -233,23 +276,73 @@ public class ModItems {
 //            drinkItem().food(ModFoods.STRONG_SWEET_RECOVERY), true, false, Modid.FR);
 
 
-    //Spawn Eggs
-    public static final RegistryObject<Item> TIGER_PRAWN_SPAWN_EGG = ITEMS.register("tiger_prawn_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TIGER_PRAWN, 0x7c7248, 0x613432, new Item.Properties()));
+    public static final RegistryObject<Item> TIGER_PRAWN_SPAWN_EGG = ITEMS.register("tiger_prawn_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TIGER_PRAWN, 0x091442, 0x7B8698, new Item.Properties()));
     public static final RegistryObject<Item> PLATINUM_BASS_SPAWN_EGG = ITEMS.register("platinum_bass_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.PLATINUM_BASS, 0x091442, 0x7B8698, new Item.Properties()));
     public static final RegistryObject<Item> CHIEFTAIN_CRAB_SPAWN_EGG = ITEMS.register("chieftain_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CHIEFTAIN_CRAB, 0xB13125, 0xE1B865, new Item.Properties()));
     public static final RegistryObject<Item> URCHIN_SPAWN_EGG = ITEMS.register("urchin_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.URCHIN, 0x9990d7, 0x21132d, new Item.Properties()));
     public static final RegistryObject<Item> CLAM_SPAWN_EGG = ITEMS.register("clam_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CLAM, 0x775745, 0xC5A877, new Item.Properties()));
+    public static final RegistryObject<Item> FIDDLER_CRAB_SPAWN_EGG = ITEMS.register("fiddler_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.FIDDLER_CRAB, 0x2f437c, 0xf48b45, new Item.Properties()));
+    public static final RegistryObject<Item> DUMBO_OCTOPUS_SPAWN_EGG = ITEMS.register("dumbo_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DUMBO_OCTOPUS, 0xFCDC4C, 0x162630, new Item.Properties()));
+    public static final RegistryObject<Item> KOI_FISH_SPAWN_EGG = ITEMS.register("koi_fish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.KOI_FISH, 0xF3ECED, 0xFB5321, new Item.Properties()));
+    public static final RegistryObject<Item> LOBSTER_SPAWN_EGG = ITEMS.register("lobster_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.LOBSTER, 0XC43123,0XDD5F38, new Item.Properties()));
+    public static final RegistryObject<Item> CATFISH_SPAWN_EGG = ITEMS.register("catfish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CATFISH, 0X807757, 0X8A7466, new Item.Properties()));
+    public static final RegistryObject<Item> GIANT_SQUID_SPAWN_EGG = ITEMS.register("giant_squid_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GIANT_SQUID, 0XAB4B4D, 0XD67D6B, new Item.Properties()));
+    public static final RegistryObject<Item> COMB_JELLY_SPAWN_EGG = ITEMS.register("comb_jelly_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.COMB_JELLY, 0XCFE9FE, 0X6EFF8B, new Item.Properties()));
+    public static final RegistryObject<Item> MIMIC_OCTOPUS_SPAWN_EGG = ITEMS.register("mimic_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MIMIC_OCTOPUS, 0XFFEBDC,0X1D1C1F, new Item.Properties()));
+    public static final RegistryObject<Item> SEAGULL_SPAWN_EGG = ITEMS.register("seagull_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SEAGULL, 0XC9D2DC,0XFFD850, new Item.Properties()));
 
-    public static final RegistryObject<Item> TIGER_PRAWN_BUCKET = ITEMS.register("tiger_prawn_bucket", () ->
-            new MobBucketItem(ModEntities.TIGER_PRAWN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1).craftRemainder(Items.BUCKET)));
-    public static final RegistryObject<Item> PLATINUM_BASS_BUCKET = ITEMS.register("platinum_bass_bucket", () ->
-            new MobBucketItem(ModEntities.PLATINUM_BASS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1).craftRemainder(Items.BUCKET)));
-    public static final RegistryObject<Item> CHIEFTAIN_CRAB_BUCKET = ITEMS.register("chieftain_crab_bucket", () ->
-            new MobBucketItem(ModEntities.CHIEFTAIN_CRAB, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_AXOLOTL, (new Item.Properties()).stacksTo(1).craftRemainder(Items.BUCKET)));
-    public static final RegistryObject<Item> URCHIN_BUCKET = ITEMS.register("urchin_bucket", () ->
-            new MobBucketItem(ModEntities.URCHIN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1).craftRemainder(Items.BUCKET)));
-    public static final RegistryObject<Item> CLAM_BUCKET = ITEMS.register("clam_bucket", () ->
-            new MobBucketItem(ModEntities.CLAM, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, (new Item.Properties()).stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
+//    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9, new Item.Properties()));
+//    public static final RegistryObject<Item> SAND_CRAB_SPAWN_EGG = ITEMS.register("sand_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.SAND_CRAB,0xc6d2cb,0x291616, new Item.Properties()));
+//    public static final RegistryObject<Item> LAND_CRAB_SPAWN_EGG = ITEMS.register("land_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.LAND_CRAB,0x3f5589,0xf3e8e9, new Item.Properties()));
+//    public static final RegistryObject<Item> CLAWSTER_SPAWN_EGG = ITEMS.register("clawster_spawn_egg", new ForgeSpawnEggItem(ModEntities.CLAWSTER,0x9a4e26,0x583726, new Item.Properties()));
+//    public static final RegistryObject<Item> LOBSTER_SPAWN_EGG = ITEMS.register("lobster_spawn_egg", new ForgeSpawnEggItem(ModEntities.LOBSTER,0x6d3307,0x3c030f, new Item.Properties()));
+//    public static final RegistryObject<Item> CRAYFISH_SPAWN_EGG = ITEMS.register("crayfish_spawn_egg", new ForgeSpawnEggItem(ModEntities.CRAYFISH,0x671620,0x2e181b, new Item.Properties()));
+
+    public static final RegistryObject<Item> TIGER_PRAWN_BUCKET = ITEMS.register("tiger_prawn_bucket",
+            () -> new MobBucketItem(ModEntities.TIGER_PRAWN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> PLATINUM_BASS_BUCKET = ITEMS.register("platinum_bass_bucket",
+            () -> new MobBucketItem(ModEntities.PLATINUM_BASS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> CHIEFTAIN_CRAB_BUCKET = ITEMS.register("chieftain_crab_bucket",
+            () -> new MobBucketItem(ModEntities.CHIEFTAIN_CRAB, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_AXOLOTL, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> URCHIN_BUCKET = ITEMS.register("urchin_bucket",
+            () -> new MobBucketItem(ModEntities.URCHIN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> CLAM_BUCKET = ITEMS.register("clam_bucket",
+            () -> new MobBucketItem(ModEntities.CLAM, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> FIDDLER_CRAB_BUCKET = ITEMS.register("fiddler_crab_bucket",
+            () -> new MobBucketItem(ModEntities.FIDDLER_CRAB, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> DUMBO_OCTOPUS_BUCKET = ITEMS.register("dumbo_octopus_bucket",
+            () -> new MobBucketItem(ModEntities.DUMBO_OCTOPUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> KOI_FISH_BUCKET = ITEMS.register("koi_fish_bucket",
+            () -> new MobBucketItem(ModEntities.KOI_FISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> LOBSTER_BUCKET = ITEMS.register("lobster_bucket",
+            () -> new MobBucketItem(ModEntities.LOBSTER, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> SMALL_CATFISH_BUCKET = ITEMS.register("small_catfish_bucket",
+            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> MEDIUM_CATFISH_BUCKET = ITEMS.register("medium_catfish_bucket",
+            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> LARGE_CATFISH_BUCKET = ITEMS.register("large_catfish_bucket",
+            () -> new MobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> COMB_JELLY_BUCKET = ITEMS.register("comb_jelly_bucket",
+            () -> new MobBucketItem(ModEntities.COMB_JELLY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> MIMIC_OCTOPUS_BUCKET = ITEMS.register("mimic_octopus_bucket",
+            () -> new MobBucketItem(ModEntities.MIMIC_OCTOPUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
+//    public static final RegistryObject<Item> GIANT_MUD_CRAB_BUCKET = ITEMS.register("giant_mud_crab_bucket",
+//            () -> new MobBucketItem(ModEntities.GIANT_MUD_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> KING_CRAB_BUCKET = ITEMS.register("king_crab_bucket",
+//            () -> new MobBucketItem(ModEntities.KING_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> SAND_CRAB_BUCKET = ITEMS.register("sand_crab_bucket",
+//            () -> new MobBucketItem(ModEntities.SAND_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> LAND_CRAB_BUCKET = ITEMS.register("land_crab_bucket",
+//            () -> new MobBucketItem(ModEntities.LAND_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> CLAWSTER_BUCKET = ITEMS.register("clawster_bucket",
+//            () -> new MobBucketItem(ModEntities.CLAWSTER, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> LOBSTER_BUCKET = ITEMS.register("lobster_bucket",
+//            () -> new MobBucketItem(ModEntities.LOBSTER, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+//    public static final RegistryObject<Item> CRAYFISH_BUCKET = ITEMS.register("crayfish_bucket",
+//            () -> new MobBucketItem(ModEntities.CRAYFISH, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
 
 
     // Registry
@@ -264,5 +357,4 @@ public class ModItems {
     public static Item.Properties pizzaProperties() {
         return new Item.Properties();
     }
-
 }

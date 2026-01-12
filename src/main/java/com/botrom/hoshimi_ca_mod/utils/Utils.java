@@ -17,8 +17,8 @@ import java.util.function.Supplier;
 public class Utils {
 
 
-    public static ResourceLocation createResourceLocation(String tagName) {
-        return new ResourceLocation(HoshimiCulinaryMod.MOD_ID, tagName);
+    public static ResourceLocation createResourceLocation(String path) {
+        return new ResourceLocation(HoshimiCulinaryMod.MOD_ID, path);
     }
 
     public static ItemStack getStack(@Nullable Supplier<? extends ItemLike> r, int... count) { // Only considers first vararg entry

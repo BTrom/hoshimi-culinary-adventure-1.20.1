@@ -208,6 +208,69 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CHIEFTAIN_CRAB_BUCKET.get());
                         output.accept(ModItems.URCHIN_BUCKET.get());
                         output.accept(ModItems.CLAM_BUCKET.get());
+
+                        // Crabber's Delight
+                        output.accept(ModItems.PEARL.get());
+                        output.accept(ModItems.CAN.get());
+                        output.accept(ModItems.FISH_BONES.get());
+                        output.accept(ModBlocks.COCONUT.get());
+                        output.accept(ModItems.COCONUT_HALF.get());
+                        output.accept(ModItems.COCONUT_MILK.get());
+                        output.accept(ModItems.RAW_FIDDLER_CRAB.get());
+                        output.accept(ModItems.COOKED_FIDDLER_CRAB.get());
+                        output.accept(ModItems.RAW_LOBSTER.get());
+                        output.accept(ModItems.COOKED_LOBSTER.get());
+                        output.accept(ModItems.RAW_SHRIMP.get());
+                        output.accept(ModItems.COOKED_SHRIMP.get());
+                        output.accept(ModItems.FIDDLER_CRAB_LEGS.get());
+                        output.accept(ModItems.COCONUT_PUDDING.get());
+                        output.accept(ModItems.SURF_AND_TURF.get());
+                        output.accept(ModItems.CLAM_BAKE.get());
+                        output.accept(ModItems.STUFFED_NAUTILUS_SHELL.get());
+                        output.accept(ModItems.BISQUE.get());
+                        output.accept(ModItems.SHRIMP_FRIED_RICE.get());
+                        output.accept(ModItems.BUCKET_OF_CRAB_CHUM.get());
+                        output.accept(ModItems.BUCKET_OF_LOBSTER_CHUM.get());
+                        output.accept(ModItems.BUCKET_OF_CLAM_CHUM.get());
+                        output.accept(ModItems.BUCKET_OF_SHRIMP_CHUM.get());
+                        output.accept(ModItems.FIDDLER_CRAB_CLAW.get());
+                        output.accept(ModItems.COOKED_CLAM_MEAT.get());
+                        output.accept(ModItems.FIDDLER_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.FIDDLER_CRAB_BUCKET.get());
+                        output.accept(ModItems.CLAM_BUCKET.get());
+                        output.accept(ModBlocks.PALM_SAPLING.get());
+                        output.accept(ModBlocks.PALM_LOG.get());
+                        output.accept(ModBlocks.PALM_WOOD.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_LOG.get());
+                        output.accept(ModBlocks.STRIPPED_PALM_WOOD.get());
+                        output.accept(ModBlocks.PALM_LEAVES.get());
+                        output.accept(ModBlocks.CRAB_TRAP.get());
+                        output.accept(ModBlocks.SEASHELLS.get());
+
+                        // Critters and Companions
+                        output.accept(ModItems.DUMBO_OCTOPUS_SPAWN_EGG.get());
+                        output.accept(ModItems.KOI_FISH_SPAWN_EGG.get());
+                        output.accept(ModItems.DUMBO_OCTOPUS_BUCKET.get());
+                        output.accept(ModItems.KOI_FISH_BUCKET.get());
+
+                        // Alex's Mobs
+                        output.accept(ModItems.LOBSTER_SPAWN_EGG.get());
+                        output.accept(ModItems.CATFISH_SPAWN_EGG.get());
+                        output.accept(ModItems.GIANT_SQUID_SPAWN_EGG.get());
+                        output.accept(ModItems.COMB_JELLY_SPAWN_EGG.get());
+                        output.accept(ModItems.MIMIC_OCTOPUS_SPAWN_EGG.get());
+                        output.accept(ModItems.SEAGULL_SPAWN_EGG.get());
+                        output.accept(ModItems.LOBSTER_BUCKET.get());
+                        output.accept(ModItems.SMALL_CATFISH_BUCKET.get());
+                        output.accept(ModItems.MEDIUM_CATFISH_BUCKET.get());
+                        output.accept(ModItems.LARGE_CATFISH_BUCKET.get());
+                        output.accept(ModItems.COMB_JELLY_BUCKET.get());
+                        output.accept(ModItems.MIMIC_OCTOPUS_BUCKET.get());
+                        output.accept(ModItems.LOBSTER_TAIL.get());
+                        output.accept(ModItems.COOKED_LOBSTER_TAIL.get());
+                        output.accept(ModItems.RAW_CATFISH.get());
+                        output.accept(ModItems.COOKED_CATFISH.get());
+                        output.accept(ModItems.RAINBOW_JELLY.get());
                     })
                     .build());
 

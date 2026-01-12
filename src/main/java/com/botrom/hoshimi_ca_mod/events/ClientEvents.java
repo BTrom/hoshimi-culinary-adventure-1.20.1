@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod.events;
 
 import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
+import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
 import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.SurgeParticle;
 import com.botrom.hoshimi_ca_mod.entities.models.*;
@@ -16,6 +17,7 @@ import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegistryObject;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -49,6 +51,7 @@ public class ClientEvents {
 		e.registerLayerDefinition(PlatinumBassRenderer.LAYER_LOCATION, PlatinumBassModel::createBodyLayer);
 		e.registerLayerDefinition(ChieftainCrabRenderer.LAYER_LOCATION, ChieftainCrabModel::createBodyLayer);
 		e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
+		e.registerLayerDefinition(FiddlerCrabModel.LAYER_LOCATION, FiddlerCrabModel::createBodyLayer);
 	}
 
 
@@ -61,14 +64,26 @@ public class ClientEvents {
 		e.registerEntityRenderer(ModEntities.CLAM.get(), ClamRenderer::new);
 //		e.registerEntityRenderer(ModEntities.URCHIN_DART.get(), UrchinDartRenderer::new);
 //		e.registerEntityRenderer(ModEntities.SHIMMERING_PEARL.get(), ThrownItemRenderer::new);
+		e.registerEntityRenderer(ModEntities.FIDDLER_CRAB.get(), FiddlerCrabRenderer::new);
+		e.registerEntityRenderer(ModEntities.DUMBO_OCTOPUS.get(), context -> new GeoEntityRenderer<>(context, new DumboOctopusModel()));
+		e.registerEntityRenderer(ModEntities.KOI_FISH.get(), context -> new GeoEntityRenderer<>(context, new KoiFishModel()));
+		e.registerEntityRenderer(ModEntities.CATFISH.get(), RenderCatfish::new);
+		e.registerEntityRenderer(ModEntities.LOBSTER.get(), RenderLobster::new);
+		e.registerEntityRenderer(ModEntities.COMB_JELLY.get(), RenderCombJelly::new);
+		e.registerEntityRenderer(ModEntities.GIANT_SQUID.get(), RenderGiantSquid::new);
+		e.registerEntityRenderer(ModEntities.MIMIC_OCTOPUS.get(), RenderMimicOctopus::new);
+		e.registerEntityRenderer(ModEntities.SEAGULL.get(), RenderSeagull::new);
 	}
+
 
 	@SubscribeEvent
 	public void registerParticles(RegisterParticleProvidersEvent e) {
 		e.registerSpriteSet(ModParticleTypes.ACID.get(), AcidParticle.Provider::new);
 		e.registerSpriteSet(ModParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
 		e.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
+		e.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
 	}
+
 
 	/*
 	@SubscribeEvent

@@ -1,0 +1,50 @@
+package com.botrom.hoshimi_ca_mod.utils;
+
+import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.google.common.collect.Lists;
+
+import java.util.List;
+
+public class ModConfig {
+
+    public static int catfishSpawnWeight = 4;
+    public static int catfishSpawnRolls = 2;
+    public static int lobsterSpawnWeight = 7;
+    public static int lobsterSpawnRolls = 0;
+    public static int giantSquidSpawnWeight = 3;
+    public static int giantSquidSpawnRolls = 0;
+    public static int combJellySpawnWeight = 5;
+    public static int combJellySpawnRolls = 1;
+    public static int terrapinSpawnWeight = 4;
+    public static int terrapinSpawnRolls = 0;
+    public static int mimicOctopusSpawnWeight = 9;
+    public static int mimicOctopusSpawnRolls = 0;
+    public static int seagullSpawnWeight = 21;
+    public static int seagullSpawnRolls = 0;
+    public static boolean seagullStealing = true;
+    public static List<? extends String> seagullStealingBlacklist = Lists.newArrayList();
+
+    public static void bake(net.minecraftforge.fml.config.ModConfig config) {
+        try {
+            catfishSpawnWeight = ConfigHolder.COMMON.catfishSpawnWeight.get();
+            catfishSpawnRolls = ConfigHolder.COMMON.catfishSpawnRolls.get();
+            lobsterSpawnWeight = ConfigHolder.COMMON.lobsterSpawnWeight.get();
+            lobsterSpawnRolls = ConfigHolder.COMMON.lobsterSpawnRolls.get();
+            giantSquidSpawnWeight = ConfigHolder.COMMON.giantSquidSpawnWeight.get();
+            giantSquidSpawnRolls = ConfigHolder.COMMON.giantSquidSpawnRolls.get();
+            terrapinSpawnWeight = ConfigHolder.COMMON.terrapinSpawnWeight.get();
+            terrapinSpawnRolls = ConfigHolder.COMMON.terrapinSpawnRolls.get();
+            combJellySpawnWeight = ConfigHolder.COMMON.combJellySpawnWeight.get();
+            combJellySpawnRolls = ConfigHolder.COMMON.combJellySpawnRolls.get();
+            mimicOctopusSpawnWeight = ConfigHolder.COMMON.mimicOctopusSpawnWeight.get();
+            mimicOctopusSpawnRolls = ConfigHolder.COMMON.mimicOctopusSpawnRolls.get();
+            seagullSpawnWeight = ConfigHolder.COMMON.seagullSpawnWeight.get();
+            seagullSpawnRolls = ConfigHolder.COMMON.seagullSpawnRolls.get();
+            seagullStealing = ConfigHolder.COMMON.seagullStealing.get();
+            seagullStealingBlacklist = (List<? extends String>) ConfigHolder.COMMON.seagullStealingBlacklist.get();
+        } catch (Exception e) {
+            HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");
+            e.printStackTrace();
+        }
+    }
+}

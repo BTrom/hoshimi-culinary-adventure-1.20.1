@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "hoshimimod:lobster"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "hoshimimod:cooked_lobster"
+  }
+}

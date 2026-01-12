@@ -1,9 +1,9 @@
 package com.botrom.hoshimi_ca_mod.entities;
 
-import com.botrom.hoshimi_ca_mod.entities.brains.CrabPathNavigation;
+import com.botrom.hoshimi_ca_mod.entities.ai.CrabPathNavigation;
 import com.botrom.hoshimi_ca_mod.registry.ModEntities;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
-import com.botrom.hoshimi_ca_mod.utils.ModTags;
+import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;

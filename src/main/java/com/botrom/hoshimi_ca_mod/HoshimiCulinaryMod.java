@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod;
 
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
+import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.gui.ScreenPizza;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -26,6 +28,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(HoshimiCulinaryMod.MOD_ID)
@@ -33,9 +36,11 @@ public class HoshimiCulinaryMod {
     public static final String MOD_ID = "hoshimimod";
     private static final Logger LOGGER = LogUtils.getLogger();
     public static SimpleChannel NETWORK;
+//    public static final CommonProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new); TODO
 
     public HoshimiCulinaryMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        GeckoLib.initialize();
 
         PizzaCraftConfig.register(ModLoadingContext.get());
         modEventBus.addListener(this::setup);
@@ -52,8 +57,11 @@ public class HoshimiCulinaryMod {
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModRecipes.SERIALIZERS.register(modEventBus);
         ModRecipes.RECIPE_TYPES.register(modEventBus);
+        ModTreePlacerTypes.FOLIAGE_PLACERS.register(modEventBus);
+        ModTreePlacerTypes.TRUNK_PLACERS.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
+        ModStateProviders.PROVIDERS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
     }
 
@@ -103,6 +111,7 @@ public class HoshimiCulinaryMod {
         //Screens
         MenuScreens.register(ModMenuTypes.PIZZA.get(), ScreenPizza::new);
         MenuScreens.register(ModMenuTypes.PIZZA_STATION.get(), ScreenPizzaStation::new);
+        event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CRAB_TRAP_MENU.get(), CrabTrapGUI::new));
 
         //BlockEntityRenderers
         BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);
@@ -122,5 +131,16 @@ public class HoshimiCulinaryMod {
 
     private void onFinish(final FMLLoadCompleteEvent event) {
         PizzaLayers.setMaps();
+    }
+
+    public static void loggerError(String msg) {
+        LOGGER.error(msg);
+    }
+    public static void loggerWarn(String msg) {
+        LOGGER.warn(msg);
+    }
+
+    public static <MSG> void sendMSGToServer(MSG message) {
+        NETWORK.sendToServer(message);
     }
 }

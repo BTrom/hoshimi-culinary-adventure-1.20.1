@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "hoshimimod:clam"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 35,
+          "name": "hoshimimod:fiddler_crab"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 25,
+          "name": "hoshimimod:shrimp"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 25,
+          "name": "hoshimimod:lobster"
+        }
+      ]
+    }
+  ]
+}

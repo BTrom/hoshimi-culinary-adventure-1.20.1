@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:cod"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "farmersdelight:cod_slice"
+    },
+    {
+      "item": "hoshimimod:fish_bones"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

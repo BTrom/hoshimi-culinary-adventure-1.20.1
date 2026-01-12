@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "hanging=true": { "model": "hoshimimod:block/hanging_coconut"},
+    "hanging=false": { "model": "hoshimimod:block/coconut"}
+  }
+}
