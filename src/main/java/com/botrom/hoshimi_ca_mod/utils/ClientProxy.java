@@ -9,11 +9,14 @@ import com.botrom.hoshimi_ca_mod.entities.models.DumboOctopusModel;
 import com.botrom.hoshimi_ca_mod.entities.models.KoiFishModel;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
+import com.botrom.hoshimi_ca_mod.gui.StoveGui;
 import com.botrom.hoshimi_ca_mod.registry.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.AMItemRenderProperties;
+import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.util.Mth;
@@ -83,6 +86,9 @@ public class ClientProxy extends CommonProxy {
         bus.addListener(ClientProxy::onBlockColors);
         bus.addListener(ClientLayerRegistry::onAddLayers);
         bus.addListener(ClientProxy::setupParticles);
+
+        StorageBlockEntityRenderer.registerStorageType(StorageTypeRegistry.CHICKEN_NEST, new ChickenNestRenderer());
+//        ModMenuTypes.registerScreenFactory(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new);
     }
 
     public void clientInit() {
@@ -104,6 +110,10 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.GIANT_SQUID.get(), GiantSquidRenderer::new);
         EntityRenderers.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
         EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
+
+        BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
+        BlockEntityRenderers.register(ModBlockEntityTypes.STORAGE_ENTITY.get(), context -> new StorageBlockEntityRenderer());
     }
 
     private void initRainbowBuffers() {

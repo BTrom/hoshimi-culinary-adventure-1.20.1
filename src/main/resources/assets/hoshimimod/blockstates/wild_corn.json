@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "hoshimimod:block/wild_corn" }
+    "half=lower": {
+      "model": "hoshimimod:block/wild_corn_bottom"
+    },
+    "half=upper": {
+      "model": "hoshimimod:block/wild_corn_top"
+    }
   }
 }

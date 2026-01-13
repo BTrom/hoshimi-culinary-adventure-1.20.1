@@ -1,0 +1,7 @@
+{
+  "parent": "hoshimimod:block/template_tall_crop",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "crop": "hoshimimod:block/oat_stage5_4"
+  }
+}

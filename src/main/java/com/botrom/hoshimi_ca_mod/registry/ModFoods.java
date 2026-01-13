@@ -27,6 +27,7 @@ public class ModFoods
     public static final FoodProperties ROASTED_ACORN = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties CACTUS_FLESH = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
     public static final FoodProperties CACTUS_STEAK = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
+    public static final FoodProperties GREEN_ONION = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
 
     //Fruits
     public static final FoodProperties PINEAPPLE = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
@@ -301,6 +302,39 @@ public class ModFoods
     public static final FoodProperties CRAB_BARS = new FoodProperties.Builder().nutrition(4).saturationMod(0.7f).build();
     public static final FoodProperties COOKED_WHOLE_CRAB = new FoodProperties.Builder().nutrition(15).saturationMod(0.6f).build();
     public static final FoodProperties MISO_WITH_BAMBOO_SPROUTS = new FoodProperties.Builder().nutrition(10).saturationMod(0.7f).build();
+    public static final FoodProperties GREEN_TEA = new FoodProperties.Builder().alwaysEat()
+            .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 3600, 0), 1.0F).build();
+    public static final FoodProperties YELLOW_TEA = new FoodProperties.Builder().alwaysEat()
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 0), 1.0F).build();
+    public static final FoodProperties BLACK_TEA = new FoodProperties.Builder().alwaysEat()
+            .effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F)
+            .effect(new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CAFFEINATED.get(), 200, 0), 1.0F).build();
+    public static final FoodProperties DANDELION_TEA = new FoodProperties.Builder().alwaysEat()
+            .effect(new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1.0F).build();
+    public static final FoodProperties OATMEAL_WITH_STRAWBERRIES = new FoodProperties.Builder().nutrition(4).saturationMod(0.8f)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.FARMERS_BLESSING.get(), 600, 0), 1F).build();
+    public static final FoodProperties COOKED_SALMON = new FoodProperties.Builder().nutrition(7).saturationMod(0.9f)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 4800, 0), 1F).meat().build();
+    public static final FoodProperties FARMERS_BREAKFAST_ITEM = new FoodProperties.Builder().nutrition(12).saturationMod(1.2f)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.FARMERS_BLESSING.get(), 9600, 0), 1F).meat().build();
+    public static final FoodProperties OAT_PANCAKE = new FoodProperties.Builder().nutrition(5).saturationMod(0.6f)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 2400, 0), 1F).build();
+    public static final FoodProperties POTATO_WITH_ROAST_MEAT_ITEM = new FoodProperties.Builder().nutrition(7).saturationMod(0.7f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1F).meat().build();
+    public static final FoodProperties ROASTED_CORN = new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
+    public static final FoodProperties FARMERS_BREAD = new FoodProperties.Builder().nutrition(6).saturationMod(0.8f)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.FARMERS_BLESSING.get(), 3600, 0), 1F).build();
+    public static final FoodProperties COFFEE = new FoodProperties.Builder().alwaysEat().fast()
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1800, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1800, 0), 1.0f).build();
+    public static final FoodProperties MILK_COFFEE = new FoodProperties.Builder().alwaysEat().fast()
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0f).build();
+    public static final FoodProperties PANCAKE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).build();
+    public static final FoodProperties CHOCOLATE_PANCAKE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 900, 0, false, false), 1.0F).build();
+    public static final FoodProperties SPRING_ROLLS = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).build();
 
 
 

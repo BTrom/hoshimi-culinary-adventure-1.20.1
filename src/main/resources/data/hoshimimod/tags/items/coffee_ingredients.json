@@ -1,0 +1,14 @@
+{
+  "remove": [
+    "hoshimimod:coffee_beans"
+  ],
+  "values": [
+    "#forge:crops/coffee",
+    "#forge:crops/coffee_beans",
+    "hoshimimod:roasted_coffee_beans",
+    {
+      "id": "farmersrespite:coffee_beans",
+      "required": false
+    }
+  ]
+}

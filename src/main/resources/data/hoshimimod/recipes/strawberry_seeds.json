@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:strawberry"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:strawberry_seeds",
+    "count": 1
+  }
+}

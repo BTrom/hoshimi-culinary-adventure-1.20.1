@@ -1,0 +1,10 @@
+{
+  "values": [
+    "hoshimimod:coffee",
+    "hoshimimod:dark_coffee",
+    {
+      "id": "farmersrespite:coffee",
+      "required": false
+    }
+  ]
+}

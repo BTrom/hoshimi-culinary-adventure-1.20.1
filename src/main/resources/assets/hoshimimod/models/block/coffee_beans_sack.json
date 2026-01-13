@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "hoshimimod:block/coffee_sack_bottom",
+    "east": "hoshimimod:block/coffee_sack_side",
+    "north": "hoshimimod:block/coffee_sack_side_tied",
+    "particle": "hoshimimod:block/coffee_sack_side",
+    "south": "hoshimimod:block/coffee_sack_side_tied",
+    "up": "hoshimimod:block/coffee_sack_top",
+    "west": "hoshimimod:block/coffee_sack_side"
+  }
+}

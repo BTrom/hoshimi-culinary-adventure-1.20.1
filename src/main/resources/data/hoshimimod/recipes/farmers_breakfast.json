@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:bread"
+    },
+    {
+      "item": "hoshimimod:bacon_with_eggs"
+    },
+    {
+      "item": "hoshimimod:roasted_corn"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:farmers_breakfast",
+    "count": 1
+  }
+}

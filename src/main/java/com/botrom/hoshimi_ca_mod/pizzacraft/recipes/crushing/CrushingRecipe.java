@@ -10,16 +10,14 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class CrushingRecipe implements Recipe<RecipeWrapper>
-{
+public class CrushingRecipe implements Recipe<RecipeWrapper> {
     public final Ingredient input;
     public final int inputCount;
     public final String contentOutput;
     public final ItemStack stackOutput;
     public final ResourceLocation id;
 
-    public CrushingRecipe(Ingredient input, int inputCount, String contentOutput, ItemStack stackOutput, ResourceLocation id)
-    {
+    public CrushingRecipe(Ingredient input, int inputCount, String contentOutput, ItemStack stackOutput, ResourceLocation id) {
         this.input = input;
         this.inputCount = inputCount;
         this.contentOutput = contentOutput;
@@ -28,50 +26,44 @@ public class CrushingRecipe implements Recipe<RecipeWrapper>
     }
 
     @Override
-    public boolean matches(RecipeWrapper inv, Level level)
-    {
+    public boolean matches(RecipeWrapper inv, Level level) {
         return input.test(inv.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(RecipeWrapper inv, RegistryAccess access)
-    {
+    public ItemStack assemble(RecipeWrapper inv, RegistryAccess access) {
         return this.stackOutput;
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height)
-    {
+    public boolean canCraftInDimensions(int width, int height) {
         return false;
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess access)
-    {
+    public ItemStack getResultItem(RegistryAccess access) {
         return this.stackOutput;
     }
 
     @Override
-    public ResourceLocation getId()
-    {
+    public ResourceLocation getId() {
         return this.id;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer()
-    {
+    public RecipeSerializer<?> getSerializer() {
         return CrushingRecipeSerializer.INSTANCE;
     }
 
     @Override
-    public RecipeType<?> getType()
-    {
+    public RecipeType<?> getType() {
         return Type.CRUSHING_RECIPE_TYPE;
     }
 
-    public static class Type implements RecipeType<CrushingRecipe>
-    {
-        private Type() {}
+    public static class Type implements RecipeType<CrushingRecipe> {
+        private Type() {
+        }
+
         public static final Type CRUSHING_RECIPE_TYPE = new Type();
 
         public static final String ID = "crushing_recipe";

@@ -1,0 +1,8 @@
+{
+	"parent": "hoshimimod:block/tea_bush_lower",
+	"textures": {
+		"particle": "hoshimimod:block/tea_bush_plant_lower_brown",
+		"plant": "hoshimimod:block/tea_bush_plant_lower_brown",
+		"side": "hoshimimod:block/tea_bush_side_brown"
+	}
+}

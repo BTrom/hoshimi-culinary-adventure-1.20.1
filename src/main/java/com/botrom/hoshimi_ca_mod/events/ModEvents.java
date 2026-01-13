@@ -36,7 +36,6 @@ public class ModEvents {
                     new ItemStack(ModItems.EGGPLANT.get(), 15),
                     stack,10,2,0.02F));
 
-
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.CORN.get(), 15),
                     stack,10,2,0.02F));

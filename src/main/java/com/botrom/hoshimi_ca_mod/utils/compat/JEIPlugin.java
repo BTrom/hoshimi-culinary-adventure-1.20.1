@@ -28,6 +28,7 @@ public class JEIPlugin implements IModPlugin {
     private static final ResourceLocation PLUGIN_ID = Utils.createResourceLocation("jei_plugin");
     public static final RecipeType<CrabTrapRecipeWrapper> CRAB_TRAP_RECIPE = RecipeType.create(HoshimiCulinaryMod.MOD_ID, "crab_trap_loot", CrabTrapRecipeWrapper.class);
 
+
     @Override
     public ResourceLocation getPluginUid() {
         return PLUGIN_ID;

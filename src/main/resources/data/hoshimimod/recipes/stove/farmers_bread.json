@@ -1,0 +1,17 @@
+{
+  "type": "hoshimimod:stove",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:dough"
+    },
+    {
+      "tag": "hoshimimod:water_bottles"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:farmers_bread",
+    "count": 3
+  },
+  "experience": 0.3,
+  "requiresLearning": false
+}

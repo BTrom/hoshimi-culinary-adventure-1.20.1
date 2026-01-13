@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "animal_food_bag",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hoshimimod:cat_food"
+    }
+  },
+  "result": {
+    "item": "hoshimimod:cat_food_bag"
+  }
+}

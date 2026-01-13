@@ -1,0 +1,21 @@
+{
+  "type": "hoshimimod:brewing",
+  "base": {
+    "count": 1000,
+    "fluid": "minecraft:water"
+  },
+  "cookingtime": 2400,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "minecraft:dandelion"
+    },
+    {
+      "tag": "hoshimimod:tea_leaves"
+    }
+  ],
+  "result": {
+    "count": 1000,
+    "fluid": "hoshimimod:dandelion_tea"
+  }
+}

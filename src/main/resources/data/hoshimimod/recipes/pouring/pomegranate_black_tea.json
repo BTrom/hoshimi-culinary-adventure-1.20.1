@@ -12,13 +12,13 @@
             },
             {
               "type": "forge:mod_loaded",
-              "modid": "farmersrespite"
+              "modid": "hoshimimod"
             }
           ]
         }
       ],
       "recipe": {
-        "type": "farmersrespite:kettle_pouring",
+        "type": "hoshimimod:kettle_pouring",
         "amount": 250,
         "container": {
           "item": "minecraft:glass_bottle"

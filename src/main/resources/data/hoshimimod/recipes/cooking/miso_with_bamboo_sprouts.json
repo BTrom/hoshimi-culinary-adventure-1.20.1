@@ -6,7 +6,7 @@
     },
 	{
       "type": "forge:mod_loaded",
-      "modid": "quark"
+      "modid": "hoshimimod"
     }
   ],
   "type": "farmersdelight:cooking",
@@ -23,7 +23,7 @@
       "tag": "forge:crops/onion"
     },
     {
-      "item": "quark:moss_paste"
+      "item": "hoshimimod:moss_paste"
     },
     {
       "item": "minecraft:dried_kelp"

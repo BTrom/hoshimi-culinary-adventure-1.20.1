@@ -53,10 +53,6 @@ public class Shiba extends TamableAnimal {
 	public Shiba(EntityType<? extends Shiba> type, Level worldIn) {
 		super(type, worldIn);
 		setTame(false);
-
-		HoshimiCulinaryMod.LOGGER.info("Shiba dimensions: width={}, height={}", this.getDimensions(this.getPose()).width, this.getDimensions(this.getPose()).height);
-		HoshimiCulinaryMod.LOGGER.info("Shiba bounding box: {}", this.getBoundingBox());
-		HoshimiCulinaryMod.LOGGER.info("Shiba isInvisible(): {}", this.isInvisible());
 	}
 
 	@Override

@@ -6,6 +6,11 @@
     "hoshimimod:avocado_seed",
     "hoshimimod:broccoli_seeds",
     "hoshimimod:pepper_seeds",
-    "hoshimimod:pineapple_seeds"
+    "hoshimimod:pineapple_seeds",
+    "hoshimimod:oat_seeds",
+    "hoshimimod:strawberry_seeds",
+    "#forge:seeds/cotton",
+    "#forge:seeds/coffee_beans",
+    "#forge:seeds/coffee"
   ]
 }

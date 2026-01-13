@@ -1,10 +1,15 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.blocks.entities.StoveBlockEntity;
 import com.botrom.hoshimi_ca_mod.blocks.entities.CrabTrapBlockEntity;
+import com.botrom.hoshimi_ca_mod.blocks.entities.FeedingTroughBlockEntity;
+import com.botrom.hoshimi_ca_mod.blocks.entities.PetBowlBlockEntity;
+import com.botrom.hoshimi_ca_mod.blocks.entities.StorageBlockEntity;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.BasinBlockEntity;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.PizzaBlockEntity;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.PizzaStationBlockEntity;
+import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,6 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.HashSet;
 import java.util.function.Supplier;
 
 public class ModBlockEntityTypes {
@@ -34,6 +40,19 @@ public class ModBlockEntityTypes {
 
     public static final Supplier<BlockEntityType<CrabTrapBlockEntity>> CRAB_TRAP = BLOCK_ENTITY_TYPES.register("crab_trap",
             () -> BlockEntityType.Builder.of(CrabTrapBlockEntity::new, new Block[]{ModBlocks.CRAB_TRAP.get()}).build(null));
+
+    public static final Supplier<BlockEntityType<StorageBlockEntity>> STORAGE_ENTITY = BLOCK_ENTITY_TYPES.register("storage",
+            () -> BlockEntityType.Builder.of(StorageBlockEntity::new, StorageTypeRegistry.registerBlocks(new HashSet<>()).toArray(new Block[0])).build(null));
+
+    public static final Supplier<BlockEntityType<FeedingTroughBlockEntity>> FEEDING_TROUGH_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("feeding_trough",
+            () -> BlockEntityType.Builder.of(FeedingTroughBlockEntity::new, ModBlocks.FEEDING_TROUGH.get()).build(null));
+
+    public static final Supplier<BlockEntityType<PetBowlBlockEntity>> PET_BOWL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("pet_bowl",
+            () -> BlockEntityType.Builder.of(PetBowlBlockEntity::new, ModBlocks.PET_BOWL.get()).build(null));
+
+    public static final Supplier<BlockEntityType<StoveBlockEntity>> STOVE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("stove_block",
+            () -> BlockEntityType.Builder.of(StoveBlockEntity::new, ModBlocks.STOVE.get()).build(null));
+
 
 //    public static void register(IEventBus eventBus) {
 //        BLOCK_ENTITY_TYPES.register(eventBus);

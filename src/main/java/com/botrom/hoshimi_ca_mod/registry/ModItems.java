@@ -1,9 +1,7 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.items.ChumItem;
-import com.botrom.hoshimi_ca_mod.items.IceCreamItem;
-import com.botrom.hoshimi_ca_mod.items.ItemModFishBucket;
+import com.botrom.hoshimi_ca_mod.items.*;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.SauceType;
 import com.botrom.hoshimi_ca_mod.pizzacraft.items.*;
 import net.minecraft.core.BlockPos;
@@ -27,7 +25,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
+import vectorwing.farmersdelight.common.item.FuelItem;
 import vectorwing.farmersdelight.common.item.MilkBottleItem;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.function.Supplier;
 
@@ -41,7 +41,6 @@ public class ModItems {
 
     //Block Items
     public static final RegistryObject<Item> WILD_CUCUMBERS = ITEMS.register("wild_cucumbers", () -> new BlockItem(ModBlocks.WILD_CUCUMBERS.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WILD_CORN = ITEMS.register("wild_corn", () -> new BlockItem(ModBlocks.WILD_CORN.get(), new Item.Properties()));
     public static final RegistryObject<Item> WILD_EGGPLANTS = ITEMS.register("wild_eggplants", () -> new BlockItem(ModBlocks.WILD_EGGPLANTS.get(), new Item.Properties()));
     public static final RegistryObject<Item> LIME_BUSH = ITEMS.register("lime_bush", () -> new BlockItem(ModBlocks.LIME_BUSH.get(), new Item.Properties()));
     public static final RegistryObject<Item> DRAGON_BUSH = ITEMS.register("dragon_bush", () -> new BlockItem(ModBlocks.DRAGON_BUSH.get(), new Item.Properties()));
@@ -74,6 +73,34 @@ public class ModItems {
     public static final RegistryObject<Item> PALM_LEAVES = ITEMS.register("palm_leaves", () -> new BlockItem(ModBlocks.PALM_LEAVES.get(), basicItem()));
     public static final RegistryObject<Item> PALM_SAPLING = ITEMS.register("palm_sapling", () -> new BlockItem(ModBlocks.PALM_SAPLING.get(), basicItem()));
     public static final RegistryObject<Item> RAINBOW_GLASS = ITEMS.register("rainbow_glass", () -> new BlockItem(ModBlocks.RAINBOW_GLASS.get(), basicItem()));
+    public static final RegistryObject<Item> ANEMONE_ROSE_BULB = ITEMS.register("anemone_rose_bulb", () -> new BlockItem(ModBlocks.ANEMONE_ROSE_BULB.get(), basicItem()));
+    public static final RegistryObject<Item> ANEMONE_SAND = ITEMS.register("anemone_sand", () -> new BlockItem(ModBlocks.ANEMONE_SAND.get(), basicItem()));
+    public static final RegistryObject<Item> ANEMONE_SEBAE = ITEMS.register("anemone_sebae", () -> new BlockItem(ModBlocks.ANEMONE_SEBAE.get(), basicItem()));
+//    public static final RegistryObject<Item> GREEN_ONIONS = ITEMS.register("green_onions", () -> new BlockItem(ModBlocks.GREEN_ONIONS.get(), basicItem()));
+//    public static final RegistryObject<Item> GARLICS = ITEMS.register("garlics", () -> new BlockItem(ModBlocks.GARLICS.get(), basicItem()));
+//    public static final RegistryObject<Item> PEANUT_PLANT = ITEMS.register("peanuts", () -> new BlockItem(ModBlocks.PEANUT_PLANT.get(), basicItem()));
+//    public static final RegistryObject<Item> SQUASHES = ITEMS.register("squashes", () -> new BlockItem(ModBlocks.SQUASHES.get(), basicItem()));
+    public static final RegistryObject<Item> WILD_TEA_BUSH = ITEMS.register("wild_tea_bush", () -> new BlockItem(ModBlocks.WILD_TEA_BUSH.get(), new Item.Properties()));
+    public static final RegistryObject<Item> COFFEE_BEANS_SACK = ITEMS.register("coffee_beans_sack", () -> new BlockItem(ModBlocks.COFFEE_BEANS_SACK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FEEDING_TROUGH = ITEMS.register("feeding_trough", () -> new BlockItem(ModBlocks.FEEDING_TROUGH.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PET_BOWL = ITEMS.register("pet_bowl", () -> new BlockItem(ModBlocks.PET_BOWL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CHICKEN_NEST = ITEMS.register("chicken_nest", () -> new BlockItem(ModBlocks.CHICKEN_NEST.get(), new Item.Properties()));
+    public static final RegistryObject<Item> STOVE = ITEMS.register("stove", () -> new BlockItem(ModBlocks.STOVE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_CORN = ITEMS.register("wild_corn", () -> new BlockItem(ModBlocks.WILD_CORN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_STRAWBERRIES = ITEMS.register("wild_strawberries", () -> new BlockItem(ModBlocks.WILD_STRAWBERRIES.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DOG_FOOD_BAG = ITEMS.register("dog_food_bag", () -> new BlockItem(ModBlocks.DOG_FOOD_BAG.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CAT_FOOD_BAG = ITEMS.register("cat_food_bag", () -> new BlockItem(ModBlocks.CAT_FOOD_BAG.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FARMERS_BREAKFAST_ITEM = ITEMS.register("farmers_breakfast", () -> new EffectBlockItem(ModBlocks.FARMERS_BREAKFAST.get(), new Item.Properties().stacksTo(16).food(ModFoods.FARMERS_BREAKFAST_ITEM)));
+    public static final RegistryObject<Item> OAT_PANCAKE = ITEMS.register("oat_pancake", () -> new EffectBlockItem(ModBlocks.OAT_PANCAKE_BLOCK.get(), new Item.Properties().stacksTo(16).food(ModFoods.OAT_PANCAKE)));
+    public static final RegistryObject<Item> POTATO_WITH_ROAST_MEAT_ITEM = ITEMS.register("potato_with_roast_meat", () -> new EffectBlockItem(ModBlocks.POTATO_WITH_ROAST_MEAT.get(), new Item.Properties().stacksTo(16).food(ModFoods.POTATO_WITH_ROAST_MEAT_ITEM)));
+    public static final RegistryObject<Item> ROASTED_CORN = ITEMS.register("roasted_corn", () -> new EffectBlockItem(ModBlocks.ROASTED_CORN_BLOCK.get(), new Item.Properties().stacksTo(16).food(ModFoods.ROASTED_CORN)));
+    public static final RegistryObject<Item> FARMERS_BREAD_ITEM = ITEMS.register("farmers_bread", () -> new EffectBlockItem(ModBlocks.FARMERS_BREAD.get(), new Item.Properties().stacksTo(16).food(ModFoods.FARMERS_BREAD)));
+    public static final RegistryObject<Item> COTTON_BOLL_CRATE = ITEMS.register("cotton_boll_crate", () -> new BlockItem(ModBlocks.COTTON_BOLL_CRATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_COTTON = ITEMS.register("wild_cotton", () -> new BlockItem(ModBlocks.WILD_COTTON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WILD_COFFEE = ITEMS.register("wild_coffee", () -> new BlockItem(ModBlocks.WILD_COFFEE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CHERRY_BLOSSOM_CHEESECAKE = ITEMS.register("cherry_blossom_cheesecake", () -> new BlockItem(ModBlocks.CHERRY_BLOSSOM_CHEESECAKE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PANCAKES = ITEMS.register("pancakes", () -> new BlockItem(ModBlocks.PANCAKES.get(), new Item.Properties().craftRemainder(Items.BOWL).stacksTo(16)));
+    public static final RegistryObject<Item> CHOCOLATE_PANCAKES = ITEMS.register("chocolate_pancakes", () -> new BlockItem(ModBlocks.CHOCOLATE_PANCAKES.get(), new Item.Properties().craftRemainder(Items.BOWL).stacksTo(16)));
 
 
     //Seeds
@@ -88,6 +115,11 @@ public class ModItems {
     public static final RegistryObject<Item> LIME_SEEDS = ITEMS.register("lime_seeds", () -> new ItemNameBlockItem(ModBlocks.LIME_BUSH.get(), new Item.Properties()));
     public static final RegistryObject<Item> DRAGON_FRUIT_SEEDS = ITEMS.register("dragon_fruit_seeds", () -> new ItemNameBlockItem(ModBlocks.BUDDING_DRAGON_FRUIT_CROP.get(), basicItem()));
     public static final RegistryObject<Item> DRAGON_FRUIT_CROP = ITEMS.register("dragon_fruits", () -> new ItemNameBlockItem(ModBlocks.DRAGON_FRUIT_CROP.get(), basicItem()));
+    public static final RegistryObject<Item> TEA_SEEDS = ITEMS.register("tea_seeds", () -> new BlockItem(ModBlocks.SMALL_TEA_BUSH.get(), new Item.Properties()));
+    public static final RegistryObject<Item> OAT_SEEDS = ITEMS.register("oat_seeds", () -> new ItemNameBlockItem(ModBlocks.OAT_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> COTTON_SEEDS = registerWithTab("cotton_seeds", () -> new ItemNameBlockItem(ModBlocks.COTTON_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> COFFEE_BEANS = registerWithTab("coffee_beans", () -> new ItemNameBlockItem(ModBlocks.COFFEE_CROP.get(), new Item.Properties()));
 
 
     //Ingredients
@@ -174,6 +206,12 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_CATFISH_SLICE = ITEMS.register("cooked_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH_SLICE)));
     public static final RegistryObject<Item> RAW_CATFISH_SLICE = ITEMS.register("raw_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.RAW_CATFISH_SLICE)));
     public static final RegistryObject<Item> RAINBOW_JELLY = ITEMS.register("rainbow_jelly", () -> new Item(new Item.Properties().food(ModFoods.RAINBOW_JELLY)));
+    public static final RegistryObject<Item> GREEN_ONION = ITEMS.register("green_onion", () -> new Item(pizzaProperties().food(ModFoods.GREEN_ONION)));
+    public static final RegistryObject<Item> GREEN_TEA_LEAVES = ITEMS.register("green_tea_leaves", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> YELLOW_TEA_LEAVES = ITEMS.register("yellow_tea_leaves", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BLACK_TEA_LEAVES = ITEMS.register("black_tea_leaves", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry", () -> new Item(new Item.Properties())); // TODO
+    public static final RegistryObject<Item> COTTON_BOLL = ITEMS.register("cotton_boll", () -> new FuelItem(new Item.Properties(), 100));
 
 
     //Meals
@@ -259,6 +297,18 @@ public class ModItems {
     public static final RegistryObject<Item> CRAB_BARS = ITEMS.register("crab_bars", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CRAB_BARS)));
     public static final RegistryObject<Item> COOKED_WHOLE_CRAB = ITEMS.register("cooked_whole_crab", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.COOKED_WHOLE_CRAB)));
     public static final RegistryObject<Item> MISO_WITH_BAMBOO_SPROUTS = ITEMS.register("miso_with_bamboo_sprouts", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.MISO_WITH_BAMBOO_SPROUTS)));
+    public static final RegistryObject<Item> GREEN_TEA = ITEMS.register("green_tea", () -> new DrinkableItem(new Item.Properties().food(ModFoods.GREEN_TEA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
+    public static final RegistryObject<Item> YELLOW_TEA = ITEMS.register("yellow_tea", () -> new DrinkableItem(new Item.Properties().food(ModFoods.YELLOW_TEA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
+    public static final RegistryObject<Item> BLACK_TEA = ITEMS.register("black_tea", () -> new DrinkableItem(new Item.Properties().food(ModFoods.BLACK_TEA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
+    public static final RegistryObject<Item> DANDELION_TEA = ITEMS.register("dandelion_tea", () -> new DrinkableItem(new Item.Properties().food(ModFoods.DANDELION_TEA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
+    public static final RegistryObject<Item> OATMEAL_WITH_STRAWBERRIES = ITEMS.register("oatmeal_with_strawberries", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.OATMEAL_WITH_STRAWBERRIES)));
+    public static final RegistryObject<Item> COOKED_SALMON = ITEMS.register("cooked_salmon", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.COOKED_SALMON)));
+    public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new DrinkableItem(new Item.Properties().stacksTo(16).food(ModFoods.COFFEE).craftRemainder(Items.GLASS_BOTTLE), true));
+    public static final RegistryObject<Item> MILK_COFFEE = ITEMS.register("milk_coffee", () -> new MilkCoffeeItem(new Item.Properties().stacksTo(16).food(ModFoods.MILK_COFFEE).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> CHERRY_BLOSSOM_CHEESECAKE_SLICE = ITEMS.register("cherry_blossom_cheesecake_slice", () -> new Item(new Item.Properties().food(vectorwing.farmersdelight.common.FoodValues.PIE_SLICE)));
+    public static final RegistryObject<Item> PANCAKE = registerWithTab("pancake", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PANCAKE)));
+    public static final RegistryObject<Item> CHOCOLATE_PANCAKE = registerWithTab("chocolate_pancake", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CHOCOLATE_PANCAKE), true));
+    public static final RegistryObject<Item> SPRING_ROLLS = registerWithTab("spring_rolls", () -> new ConsumableItem(new Item.Properties().food(ModFoods.SPRING_ROLLS)));
 
 
     //Tools
@@ -268,6 +318,8 @@ public class ModItems {
     public static final RegistryObject<Item> BUCKET_OF_LOBSTER_CHUM = ITEMS.register("bucket_of_lobster_chum", () -> new ChumItem(basicItem()));
     public static final RegistryObject<Item> BUCKET_OF_CLAM_CHUM = ITEMS.register("bucket_of_clam_chum", () -> new ChumItem(basicItem()));
     public static final RegistryObject<Item> BUCKET_OF_SHRIMP_CHUM = ITEMS.register("bucket_of_shrimp_chum", () -> new ChumItem(basicItem()));
+    public static final RegistryObject<Item> CAT_FOOD = ITEMS.register("cat_food", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> DOG_FOOD = ITEMS.register("dog_food", () -> new DogFoodItem(new Item.Properties()));
 
 
     // Farmer's Respite Drinks #TODO

@@ -43,6 +43,7 @@ public class ModTags {
     public static final TagKey<Item> MIMIC_OCTOPUS_MOISTURIZES = bindItemTagAlex("mimic_octopus_moisturizes");
     public static final TagKey<Item> SEAGULL_BREEDABLES = bindItemTagAlex("seagull_breedables");
     public static final TagKey<Item> SEAGULL_OFFERINGS = bindItemTagAlex("seagull_offerings");
+    public static final TagKey<Item> FEEDING_TROUGH_FODDER = bindItemTagAlex("feeding_trough_fodder");
 
     // Block Tags
     public static final TagKey<Block> CROPS_PLANTABLE_ON = bindBlockTag("crops_plantable_on");
@@ -50,7 +51,10 @@ public class ModTags {
     public static final TagKey<Block> CATFISH_BLOCK_FASCINATIONS = bindBlockTagAlex("catfish_block_fascinations");
     public static final TagKey<Block> LOBSTER_SPAWNS = bindBlockTagAlex("lobster_spawns");
     public static final TagKey<Block> MIMIC_OCTOPUS_SPAWNS = bindBlockTagAlex("mimic_octopus_spawns");
-    
+    public static final TagKey<Block> COOKING_POTS = bindBlockTagAlex("cooking_pots");
+    public static final TagKey<Block> ALLOWS_COOKING = bindBlockTagAlex("allows_cooking");
+    public static final TagKey<Block> WILD_CROPS = bindBlockTagAlex("wild_crops");
+
     // Mob Effects
     public static final TagKey<MobEffect> UNOBTAINABLE_FROM_PANETTONE = bindEffectTag("unobtainable_from_panettone");
 
@@ -67,6 +71,7 @@ public class ModTags {
     public static final TagKey<EntityType<?>> MIMIC_OCTOPUS_FEARS = bindEntityTag("mimic_octopus_fears");
     public static final TagKey<EntityType<?>> CATFISH_IGNORE_EATING = bindEntityTag("catfish_ignore_eating");
     public static final TagKey<EntityType<?>> SCATTERS_CROWS = bindEntityTag("scatters_crows");
+    public static final TagKey<EntityType<?>> IS_WOLF = bindEntityTag("is_wolf");
 
     // Biome Tags
     public static final TagKey<Biome> SPAWNS_HUGE_CATFISH = bindBiomeTag("spawns_huge_catfish");

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:cotton_boll"
+    }
+  ],
+  "result": {
+    "item": "minecraft:string"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wheat",
+    "hoshimimod:oat",
+    "hoshimimod:barley",
+    "hoshimimod:corn"
+  ]
+}

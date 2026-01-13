@@ -6,13 +6,13 @@
     },
 	{
       "type": "forge:mod_loaded",
-      "modid": "quark"
+      "modid": "hoshimimod"
     }
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "0": {
-      "item": "quark:crab_leg"
+      "item": "hoshimimod:crab_leg"
     },
 	"1": {
       "tag": "forge:raw_fishes"

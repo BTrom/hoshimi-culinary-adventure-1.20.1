@@ -52,7 +52,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RICE_BALL.get());
 
                         output.accept(ModBlocks.WILD_CUCUMBERS.get());
-                        output.accept(ModBlocks.WILD_CORN.get());
                         output.accept(ModBlocks.WILD_EGGPLANTS.get());
 //                      output.accept(ModBlocks.AVOCADO_SEED);
                         output.accept(ModBlocks.CORN_COB_CRATE.get());
@@ -281,6 +280,61 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CRAB_BARS.get());
                         output.accept(ModItems.COOKED_WHOLE_CRAB.get());
                         output.accept(ModItems.MISO_WITH_BAMBOO_SPROUTS.get());
+
+                        // Untamed Wilds
+                        output.accept(ModBlocks.ANEMONE_ROSE_BULB.get());
+                        output.accept(ModBlocks.ANEMONE_SAND.get());
+                        output.accept(ModBlocks.ANEMONE_SEBAE.get());
+
+                        // HarvestCraft 2
+                        output.accept(ModItems.GREEN_ONION.get());
+
+                        // Farmer's Respite
+                        output.accept(ModItems.TEA_SEEDS.get());
+                        output.accept(ModItems.GREEN_TEA_LEAVES.get());
+                        output.accept(ModItems.YELLOW_TEA_LEAVES.get());
+                        output.accept(ModItems.BLACK_TEA_LEAVES.get());
+                        output.accept(ModItems.GREEN_TEA.get());
+                        output.accept(ModItems.YELLOW_TEA.get());
+                        output.accept(ModItems.BLACK_TEA.get());
+                        output.accept(ModItems.DANDELION_TEA.get());
+                        output.accept(ModBlocks.WILD_TEA_BUSH.get());
+                        output.accept(ModBlocks.COFFEE_BEANS_SACK.get());
+
+                        // Farm & Charm
+                        output.accept(ModItems.OAT_SEEDS.get());
+                        output.accept(ModItems.STRAWBERRY_SEEDS.get());
+                        output.accept(ModItems.OATMEAL_WITH_STRAWBERRIES.get());
+                        output.accept(ModItems.COOKED_SALMON.get());
+                        output.accept(ModBlocks.FARMERS_BREAKFAST.get());
+                        output.accept(ModBlocks.OAT_PANCAKE_BLOCK.get());
+                        output.accept(ModBlocks.POTATO_WITH_ROAST_MEAT.get());
+                        output.accept(ModBlocks.ROASTED_CORN_BLOCK.get());
+                        output.accept(ModBlocks.FARMERS_BREAD.get());
+                        output.accept(ModItems.CAT_FOOD.get());
+                        output.accept(ModItems.DOG_FOOD.get());
+                        output.accept(ModBlocks.PET_BOWL.get());
+                        output.accept(ModBlocks.FEEDING_TROUGH.get());
+                        output.accept(ModBlocks.CHICKEN_NEST.get());
+                        output.accept(ModBlocks.STOVE.get());
+                        output.accept(ModBlocks.WILD_STRAWBERRIES.get());
+                        output.accept(ModBlocks.WILD_CORN.get());
+                        output.accept(ModBlocks.CAT_FOOD_BAG.get());
+                        output.accept(ModBlocks.DOG_FOOD_BAG.get());
+
+                        // Rustic Delight
+                        output.accept(ModBlocks.COTTON_BOLL_CRATE.get());
+                        output.accept(ModItems.COTTON_SEEDS.get());
+                        output.accept(ModItems.COFFEE_BEANS.get());
+                        output.accept(ModItems.COFFEE.get());
+                        output.accept(ModItems.MILK_COFFEE.get());
+                        output.accept(ModItems.COTTON_BOLL.get());
+                        output.accept(ModItems.SPRING_ROLLS.get());
+                        output.accept(ModBlocks.CHERRY_BLOSSOM_CHEESECAKE.get());
+                        output.accept(ModBlocks.CHOCOLATE_PANCAKES.get());
+                        output.accept(ModBlocks.PANCAKES.get());
+                        output.accept(ModBlocks.WILD_COFFEE.get());
+                        output.accept(ModBlocks.WILD_COTTON.get());
                     })
                     .build());
 

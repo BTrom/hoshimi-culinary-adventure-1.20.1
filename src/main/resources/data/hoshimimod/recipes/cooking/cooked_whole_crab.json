@@ -6,7 +6,7 @@
     },
 	{
       "type": "forge:mod_loaded",
-      "modid": "quark"
+      "modid": "hoshimimod"
     }
   ],
   "type": "farmersdelight:cooking",
@@ -14,13 +14,13 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "quark:crab_shell"
+      "item": "hoshimimod:crab_shell"
     },
     {
-      "item": "quark:crab_leg"
+      "item": "hoshimimod:crab_leg"
     },
     {
-      "item": "quark:crab_leg"
+      "item": "hoshimimod:crab_leg"
     },
     {
       "item": "farmersdelight:rice"

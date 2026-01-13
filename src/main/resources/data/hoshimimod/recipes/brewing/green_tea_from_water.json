@@ -1,0 +1,21 @@
+{
+  "type": "hoshimimod:brewing",
+  "base": {
+    "count": 1000,
+    "fluid": "minecraft:water"
+  },
+  "cookingtime": 2400,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "hoshimimod:green_tea_leaves"
+    },
+    {
+      "item": "hoshimimod:green_tea_leaves"
+    }
+  ],
+  "result": {
+    "count": 1000,
+    "fluid": "hoshimimod:green_tea"
+  }
+}

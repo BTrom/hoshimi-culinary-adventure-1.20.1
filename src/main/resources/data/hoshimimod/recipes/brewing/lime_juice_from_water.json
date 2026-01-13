@@ -16,13 +16,13 @@
             },
             {
               "type": "forge:mod_loaded",
-              "modid": "farmersrespite"
+              "modid": "hoshimimod"
             }
           ]
         }
       ],
       "recipe": {
-        "type": "farmersrespite:brewing",
+        "type": "hoshimimod:brewing",
         "base": {
           "count": 1000,
           "fluid": "minecraft:water"

@@ -1,0 +1,8 @@
+{
+	"parent": "hoshimimod:block/template_pet_bowl_named",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"1": "hoshimimod:block/pet_bowl_filled",
+		"particle": "hoshimimod:block/pet_bowl_filled"
+	}
+}

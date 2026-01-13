@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "hoshimimod:chocolate_pancake"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:chocolate_pancakes"
+  }
+}

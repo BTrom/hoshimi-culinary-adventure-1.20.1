@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cooked_beef",
+    "hoshimimod:beef_patty_with_vegetables",
+    "hoshimimod:potato_with_roast_meat",
+    "hoshimimod:sausage_with_oat_patty"
+  ]
+}

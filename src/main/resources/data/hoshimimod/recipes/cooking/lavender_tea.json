@@ -14,7 +14,7 @@
           "type": "forge:not",
           "value": {
             "type": "forge:mod_loaded",
-            "modid": "farmersrespite"
+            "modid": "hoshimimod"
           }
         },
         {
@@ -69,7 +69,7 @@
           "type": "forge:not",
           "value": {
             "type": "forge:mod_loaded",
-            "modid": "farmersrespite"
+            "modid": "hoshimimod"
           }
         },
         {

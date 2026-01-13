@@ -2,33 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "pool1",
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            },
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "tag": "forge:shears"
-                }
-              }
-            }
-          ],
-          "name": "minecraft:wheat_seeds"
-        }
-      ]
-    },
-    {
-      "name": "pool2",
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -39,7 +13,9 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "tag": "forge:shears"
+                    "items": [
+                      "minecraft:shears"
+                    ]
                   }
                 }
               ],
@@ -49,15 +25,15 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.2
+                  "chance": 0.125,
+                  "condition": "minecraft:random_chance"
                 }
               ],
               "functions": [
                 {
-                  "function": "minecraft:apply_bonus",
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
                   "parameters": {
                     "bonusMultiplier": 2
                   }
@@ -66,11 +42,32 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "hoshimimod:corn_kernels"
+              "name": "hoshimimod:kernels"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 1.0,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 2,
+                    "max": 5
+                  }
+                }
+              ],
+              "name": "hoshimimod:corn"
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }
+

@@ -20,20 +20,20 @@
             },
             {
               "type": "forge:mod_loaded",
-              "modid": "farmersrespite"
+              "modid": "hoshimimod"
             },
             {
               "type": "forge:item_exists",
-              "item": "farmersrespite:green_tea"
+              "item": "hoshimimod:green_tea"
             }
           ]
         }
       ],
       "recipe": {
-        "type": "farmersrespite:brewing",
+        "type": "hoshimimod:brewing",
         "base": {
           "count": 1000,
-          "fluid": "farmersrespite:green_tea"
+          "fluid": "hoshimimod:green_tea"
         },
         "cookingtime": 1200,
         "experience": 0.35,

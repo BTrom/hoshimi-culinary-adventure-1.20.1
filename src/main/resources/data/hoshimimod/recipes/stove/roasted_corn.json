@@ -1,0 +1,20 @@
+{
+  "type": "hoshimimod:stove",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:corn"
+    },
+    {
+      "tag": "hoshimimod:corn"
+    },
+    {
+      "tag": "hoshimimod:butter"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:roasted_corn",
+    "count": 1
+  },
+  "experience": 0.2,
+  "requiresLearning": false
+}

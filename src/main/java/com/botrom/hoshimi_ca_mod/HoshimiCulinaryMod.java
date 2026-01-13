@@ -1,9 +1,12 @@
 package com.botrom.hoshimi_ca_mod;
 
 import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
+import com.botrom.hoshimi_ca_mod.entities.renderers.ChickenNestRenderer;
 import com.botrom.hoshimi_ca_mod.entities.renderers.ShibaRenderer;
+import com.botrom.hoshimi_ca_mod.entities.renderers.StorageBlockEntityRenderer;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
+import com.botrom.hoshimi_ca_mod.gui.StoveGui;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.pizzacraft.client.gui.ScreenPizza;
@@ -18,6 +21,7 @@ import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
 import com.botrom.hoshimi_ca_mod.utils.compat.MessageHurtMultipart;
 import com.botrom.hoshimi_ca_mod.utils.compat.MessageInteractMultipart;
 import com.botrom.hoshimi_ca_mod.utils.compat.QuarkModelHandler;
+import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
 import com.botrom.hoshimi_ca_mod.worldgen.AMMobSpawnBiomeModifier;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -26,9 +30,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -77,15 +79,14 @@ public class HoshimiCulinaryMod {
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus);
         ModEffects.EFFECTS.register(modEventBus);
+        ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModMenuTypes.MENU_TYPES.register(modEventBus);
-        ModRecipes.SERIALIZERS.register(modEventBus);
-        ModRecipes.RECIPE_TYPES.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModRecipes.register(modEventBus);
         ModTreePlacerTypes.FOLIAGE_PLACERS.register(modEventBus);
         ModTreePlacerTypes.TRUNK_PLACERS.register(modEventBus);
-        ModSounds.SOUND_EVENTS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         ModStateProviders.PROVIDERS.register(modEventBus);
-        ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
         final DeferredRegister<Codec<? extends BiomeModifier>> biomeModifiers = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MOD_ID);
         biomeModifiers.register(modEventBus);
@@ -93,8 +94,6 @@ public class HoshimiCulinaryMod {
 
         final ModLoadingContext modLoadingContext = ModLoadingContext.get();
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHolder.COMMON_SPEC, "hoshimimod.toml");
-
-        PROXY.init();
 
         if (FMLEnvironment.dist == Dist.CLIENT) {
             modEventBus.addListener(this::onRegisterLayerDefinitions);
@@ -112,6 +111,8 @@ public class HoshimiCulinaryMod {
             event.enqueueWork(ModItems::initDispenser);
             ModVanillaCompat.setup();
             BasinContent.register();
+
+            PROXY.init();
             PROXY.initPathfinding();
         });
     }
@@ -137,6 +138,7 @@ public class HoshimiCulinaryMod {
         MenuScreens.register(ModMenuTypes.PIZZA.get(), ScreenPizza::new);
         MenuScreens.register(ModMenuTypes.PIZZA_STATION.get(), ScreenPizzaStation::new);
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CRAB_TRAP_MENU.get(), CrabTrapGUI::new));
+        event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new));
 
         //BlockEntityRenderers
         BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);

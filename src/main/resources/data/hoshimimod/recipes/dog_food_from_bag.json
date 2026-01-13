@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:dog_food_bag"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:dog_food",
+    "count": 9
+  }
+}
