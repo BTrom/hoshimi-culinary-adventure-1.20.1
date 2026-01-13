@@ -1,23 +1,23 @@
 {
     "display": {
         "icon": {
-            "item": "alexsmobs:echolocator"
+            "item": "hoshimimod:echolocator"
         },
         "title": {
-            "translate": "advancements.alexsmobs.echolocator.title"
+            "translate": "advancements.hoshimimod.echolocator.title"
         },
         "description": {
-            "translate": "advancements.alexsmobs.echolocator.desc"
+            "translate": "advancements.hoshimimod.echolocator.desc"
         }
     },
-    "parent": "alexsmobs:alexsmobs/save_cachalot_whale",
+    "parent": "hoshimimod:hoshimimod/save_cachalot_whale",
     "criteria": {
         "echolocator": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "items": ["alexsmobs:echolocator"]
+                        "items": ["hoshimimod:echolocator"]
                     }
                 ]
             }

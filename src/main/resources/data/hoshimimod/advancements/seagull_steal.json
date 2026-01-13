@@ -1,20 +1,20 @@
 {
   "display": {
     "icon": {
-      "item": "alexsmobs:tab_icon",
-      "nbt": "{DisplayEntityType:\"alexsmobs:seagull\"}"
+      "item": "hoshimimod:tab_icon",
+      "nbt": "{DisplayEntityType:\"hoshimimod:seagull\"}"
     },
     "title": {
-      "translate": "advancements.alexsmobs.seagull_steal.title"
+      "translate": "advancements.hoshimimod.seagull_steal.title"
     },
     "description": {
-      "translate": "advancements.alexsmobs.seagull_steal.desc"
+      "translate": "advancements.hoshimimod.seagull_steal.desc"
     }
   },
-  "parent": "alexsmobs:alexsmobs/root",
+  "parent": "hoshimimod:hoshimimod/root",
   "criteria": {
     "ex": {
-      "trigger": "alexsmobs:seagull_steal"
+      "trigger": "hoshimimod:seagull_steal"
     }
   },
   "requirements": [

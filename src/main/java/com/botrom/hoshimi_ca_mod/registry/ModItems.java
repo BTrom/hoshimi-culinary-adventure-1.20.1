@@ -256,6 +256,9 @@ public class ModItems {
     public static final RegistryObject<Item> BISQUE = ITEMS.register("bisque", () -> new ConsumableItem(bowlFoodItem(ModFoods.BISQUE), true));
     public static final RegistryObject<Item> SHRIMP_FRIED_RICE = ITEMS.register("shrimp_fried_rice", () -> new ConsumableItem(bowlFoodItem(ModFoods.SHRIMP_FRIED_RICE), true));
     public static final RegistryObject<Item> LOBSTER_PASTA = ITEMS.register("lobster_pasta", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.LOBSTER_PASTA)));
+    public static final RegistryObject<Item> CRAB_BARS = ITEMS.register("crab_bars", () -> new ConsumableItem(new Item.Properties().food(ModFoods.CRAB_BARS)));
+    public static final RegistryObject<Item> COOKED_WHOLE_CRAB = ITEMS.register("cooked_whole_crab", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.COOKED_WHOLE_CRAB)));
+    public static final RegistryObject<Item> MISO_WITH_BAMBOO_SPROUTS = ITEMS.register("miso_with_bamboo_sprouts", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(ModFoods.MISO_WITH_BAMBOO_SPROUTS)));
 
 
     //Tools
@@ -304,6 +307,7 @@ public class ModItems {
     public static final RegistryObject<Item> COMB_JELLY_SPAWN_EGG = ITEMS.register("comb_jelly_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.COMB_JELLY, 0XCFE9FE, 0X6EFF8B, new Item.Properties()));
     public static final RegistryObject<Item> MIMIC_OCTOPUS_SPAWN_EGG = ITEMS.register("mimic_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MIMIC_OCTOPUS, 0XFFEBDC,0X1D1C1F, new Item.Properties()));
     public static final RegistryObject<Item> SEAGULL_SPAWN_EGG = ITEMS.register("seagull_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SEAGULL, 0XC9D2DC,0XFFD850, new Item.Properties()));
+    public static final RegistryObject<Item> SHIBA_SPAWN_EGG = ITEMS.register("shiba_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIBA, 0xa86741, 0xe8d5b6, new Item.Properties()));
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
 //    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9, new Item.Properties()));

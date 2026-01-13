@@ -4,10 +4,10 @@
   "values": [
     "minecraft:drowned",
     "minecraft:dolphin",
-    "alexsmobs:orca",
-    "alexsmobs:hammerhead_shark",
-    "alexsmobs:mantis_shrimp",
-    "alexsmobs:cachalot_whale",
-    "alexsmobs:catfish"
+    "hoshimimod:orca",
+    "hoshimimod:hammerhead_shark",
+    "hoshimimod:mantis_shrimp",
+    "hoshimimod:cachalot_whale",
+    "hoshimimod:catfish"
   ]
 }

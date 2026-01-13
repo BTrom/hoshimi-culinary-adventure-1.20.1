@@ -222,6 +222,10 @@
   "item.hoshimimod.raw_catfish_slice": "Raw Catfish Slice",
   "item.hoshimimod.cooked_catfish_slice": "Cooked Catfish Slice",
   "item.hoshimimod.lobster_pasta": "Lobster Pasta",
+  "item.hoshimimod.shiba_spawn_egg": "Shiba Spawn Egg",
+  "item.hoshimimod.crab_bars": "Crab Bars",
+  "item.hoshimimod.cooked_whole_crab": "Cooked Whole Crab",
+  "item.hoshimimod.miso_with_bamboo_sprouts": "Miso with Bamboo Sprouts",
 
   "block.hoshimimod.wild_cucumbers": "Wild Cucumbers",
   "block.hoshimimod.wild_corn": "Wild Corn",
@@ -303,6 +307,10 @@
   "entity.hoshimimod.comb_jelly.variant_1": "Green Comb Jelly",
   "entity.hoshimimod.comb_jelly.variant_2": "Red Comb Jelly",
   "entity.hoshimimod.mimic_octopus": "Mimic Octopus",
+  "entity.hoshimimod.shiba": "Shiba",
+  "entity.hoshimimod.all.command_0": "%s is wandering",
+  "entity.hoshimimod.all.command_1": "%s is following",
+  "entity.hoshimimod.all.command_2": "%s is staying",
   
   "information.hoshimimod.view_ingredients": "§6Hold <Shift> to View Ingredients",
   "information.hoshimimod.taste": "§6The Taste of This Pizza is %s",
@@ -338,6 +346,10 @@
   "hoshimimod.sound.subtitle.comb_jelly_hurt": "Comb Jelly squishes",
   "hoshimimod.sound.subtitle.mimic_octopus_idle": "Mimic Octopus squeaks",
   "hoshimimod.sound.subtitle.mimic_octopus_hurt": "Mimic Octopus squishes",
+  "hoshimimod.sound.subtitle.shiba_eat_arrow": "Shiba... eats an arrow?",
+  "hoshimimod.sound.subtitle.shiba_ambient": "Shiba pants",
+  "hoshimimod.sound.subtitle.shiba_hurt": "Shiba hurts",
+  "hoshimimod.sound.subtitle.shiba_dead": "Shiba dies",
 
   "advancements.hoshimimod.get_creamy_pasta_with_ham": "Creamy Ham",
   "advancements.hoshimimod.get_creamy_pasta_with_ham.desc": "Make a creamy pasta dish by mixing pasta with milk, ham, and onion",

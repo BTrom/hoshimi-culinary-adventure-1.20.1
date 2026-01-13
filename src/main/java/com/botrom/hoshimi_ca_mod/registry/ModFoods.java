@@ -296,8 +296,11 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties SHRIMP_FRIED_RICE = new FoodProperties.Builder().nutrition(7).saturationMod(0.7f)
             .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 600, 0), 1.0F).build();
-    public static final FoodProperties LOBSTER_PASTA = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.8F)
+    public static final FoodProperties LOBSTER_PASTA = new FoodProperties.Builder().nutrition(10).saturationMod(0.8F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F).build();
+    public static final FoodProperties CRAB_BARS = new FoodProperties.Builder().nutrition(4).saturationMod(0.7f).build();
+    public static final FoodProperties COOKED_WHOLE_CRAB = new FoodProperties.Builder().nutrition(15).saturationMod(0.6f).build();
+    public static final FoodProperties MISO_WITH_BAMBOO_SPROUTS = new FoodProperties.Builder().nutrition(10).saturationMod(0.7f).build();
 
 
 

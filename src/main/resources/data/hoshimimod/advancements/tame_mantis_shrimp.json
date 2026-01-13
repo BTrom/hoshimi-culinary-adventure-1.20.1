@@ -1,23 +1,23 @@
 {
   "display": {
     "icon": {
-      "item": "alexsmobs:tab_icon",
-      "nbt": "{DisplayEntityType:\"alexsmobs:mantis_shrimp\"}"
+      "item": "hoshimimod:tab_icon",
+      "nbt": "{DisplayEntityType:\"hoshimimod:mantis_shrimp\"}"
     },
     "title": {
-      "translate": "advancements.alexsmobs.tame_mantis_shrimp.title"
+      "translate": "advancements.hoshimimod.tame_mantis_shrimp.title"
     },
     "description": {
-      "translate": "advancements.alexsmobs.tame_mantis_shrimp.desc"
+      "translate": "advancements.hoshimimod.tame_mantis_shrimp.desc"
     }
   },
-  "parent": "alexsmobs:alexsmobs/root",
+  "parent": "hoshimimod:hoshimimod/root",
   "criteria": {
     "tame": {
       "trigger": "minecraft:tame_animal",
       "conditions": {
         "entity": {
-          "type": "alexsmobs:mantis_shrimp"
+          "type": "hoshimimod:mantis_shrimp"
         }
       }
     }

@@ -23,6 +23,14 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> MIMIC_OCTOPUS_HURT = createSoundEvent("entity/mimic_octopus_hurt");
     public static final RegistryObject<SoundEvent> SEAGULL_IDLE = createSoundEvent("entity/seagull_idle");
     public static final RegistryObject<SoundEvent> SEAGULL_HURT = createSoundEvent("entity/seagull_hurt");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_EAT_ARROW = createSoundEvent("entity/shiba_eat_arrow");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_WHINE = createSoundEvent("entity/shiba_whine");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_STEP = createSoundEvent("entity/shiba_step");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_AMBIENT = createSoundEvent("entity/shiba_ambient");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_PANT = createSoundEvent("entity/shiba_pant");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_HURT = createSoundEvent("entity/shiba_hurt");
+    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_DEATH = createSoundEvent("entity/shiba_death");
+
 
 //    public static final RegistryObject<SoundEvent> BLOCK_PIZZA_SIZZLING = SOUND_EVENTS.register("block.pizza.sizzling", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "block.pizza.sizzling")));
 
@@ -31,4 +39,5 @@ public class ModSounds
     private static RegistryObject<SoundEvent> createSoundEvent(final String soundName) {
         return SOUND_EVENTS.register(soundName, () -> SoundEvent.createVariableRangeEvent(Utils.createResourceLocation(soundName)));
     }
+
 }

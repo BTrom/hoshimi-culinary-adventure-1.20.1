@@ -5,7 +5,7 @@
     "minecraft:water",
     "minecraft:clay",
     {
-      "id": "#quark:crab_spawnable",
+      "id": "#hoshimimod:crab_spawnable",
       "required": false
     },
     {

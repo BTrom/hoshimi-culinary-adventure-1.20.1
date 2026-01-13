@@ -1,5 +1,5 @@
 {
-  "type": "alexsmobs:banana_drop",
+  "type": "hoshimimod:banana_drop",
   "conditions": [
     {
       "condition": "forge:loot_table_id",

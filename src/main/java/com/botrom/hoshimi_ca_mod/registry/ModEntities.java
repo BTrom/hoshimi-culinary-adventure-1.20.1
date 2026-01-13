@@ -3,10 +3,14 @@ package com.botrom.hoshimi_ca_mod.registry;
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.entities.*;
 import com.google.common.base.Predicates;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -119,6 +123,12 @@ public class ModEntities {
 					.setTrackingRange(10)
 					.build("seagull"));
 
+	public static final RegistryObject<EntityType<Shiba>> SHIBA = ENTITIES.register("shiba",
+			() -> EntityType.Builder.of(Shiba::new, MobCategory.CREATURE)
+			.sized(0.8F, 0.8F)
+			.clientTrackingRange(8)
+			.build("shiba"));
+
 //	public static final EntityType<GiantMudCrabEntity> GIANT_MUD_CRAB =Registry.register(Registries.ENTITY_TYPE,
 //			new Identifier(MoreCrustacean.MOD_ID,"giant_mud_crab"),
 //			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE,GiantMudCrabEntity::new).dimensions(EntityDimensions.fixed(0.9f,0.6f)).build());
@@ -126,6 +136,15 @@ public class ModEntities {
 //	public static final EntityType<KingCrabEntity> KING_CRAB =Registry.register(Registries.ENTITY_TYPE,
 //			new Identifier(MoreCrustacean.MOD_ID,"king_crab"),
 //			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, KingCrabEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.8f)).build());
+
+//	public static RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
+//			() -> EntityType.Builder.of(EntityBaleenWhale::new, MobCategory.CREATURE)
+//					.sized(2.6F, 1.6F)
+//					.clientTrackingRange(64)
+//					.setUpdateInterval(1)
+//					.setShouldReceiveVelocityUpdates(true)
+//					.build("baleen_whale"));
+
 
 
 	@SubscribeEvent
@@ -143,7 +162,8 @@ public class ModEntities {
 		event.put(GIANT_SQUID.get(), GiantSquidEntity.bakeAttributes().build());
 		event.put(COMB_JELLY.get(), CombJellyEntity.bakeAttributes().build());
 		event.put(MIMIC_OCTOPUS.get(), MimicOctopusEntity.bakeAttributes().build());
-		event.put(SEAGULL.get(), com.botrom.hoshimi_ca_mod.entities.SeagullEntity.bakeAttributes().build());
+		event.put(SEAGULL.get(), SeagullEntity.bakeAttributes().build());
+		event.put(SHIBA.get(), Shiba.bakeAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -161,7 +181,8 @@ public class ModEntities {
 		event.register(GIANT_SQUID.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GiantSquidEntity::canGiantSquidSpawn, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(COMB_JELLY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CombJellyEntity::canCombJellySpawn, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(MIMIC_OCTOPUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, MimicOctopusEntity::canMimicOctopusSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-		event.register(SEAGULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, com.botrom.hoshimi_ca_mod.entities.SeagullEntity::canSeagullSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(SEAGULL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeagullEntity::canSeagullSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(SHIBA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static Predicate<LivingEntity> buildPredicateFromTag(TagKey<EntityType<?>> entityTag){

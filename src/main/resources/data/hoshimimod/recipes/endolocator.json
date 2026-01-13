@@ -7,14 +7,14 @@
   ],
   "key": {
     "A": {
-      "item": "alexsmobs:echolocator"
+      "item": "hoshimimod:echolocator"
     },
     "P": {
       "item": "minecraft:ender_pearl"
     }
   },
   "result": {
-    "item": "alexsmobs:endolocator",
+    "item": "hoshimimod:endolocator",
     "count": 1
   }
 }

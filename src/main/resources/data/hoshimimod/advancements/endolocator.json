@@ -1,23 +1,23 @@
 {
     "display": {
         "icon": {
-            "item": "alexsmobs:endolocator"
+            "item": "hoshimimod:endolocator"
         },
         "title": {
-            "translate": "advancements.alexsmobs.endolocator.title"
+            "translate": "advancements.hoshimimod.endolocator.title"
         },
         "description": {
-            "translate": "advancements.alexsmobs.endolocator.desc"
+            "translate": "advancements.hoshimimod.endolocator.desc"
         }
     },
-    "parent": "alexsmobs:alexsmobs/echolocator",
+    "parent": "hoshimimod:hoshimimod/echolocator",
     "criteria": {
         "endolocator": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "items": ["alexsmobs:endolocator"]
+                        "items": ["hoshimimod:endolocator"]
                     }
                 ]
             }

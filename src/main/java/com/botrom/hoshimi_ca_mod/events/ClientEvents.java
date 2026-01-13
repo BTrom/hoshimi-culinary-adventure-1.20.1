@@ -1,5 +1,6 @@
 package com.botrom.hoshimi_ca_mod.events;
 
+import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
 import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
@@ -9,7 +10,10 @@ import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.registry.ModEntities;
 import com.botrom.hoshimi_ca_mod.registry.ModParticleTypes;
 import com.botrom.hoshimi_ca_mod.utils.BlueprintDataUtils;
+import com.botrom.hoshimi_ca_mod.utils.Utils;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -55,6 +59,7 @@ public class ClientEvents {
 		e.registerLayerDefinition(ChieftainCrabRenderer.LAYER_LOCATION, ChieftainCrabModel::createBodyLayer);
 		e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
 		e.registerLayerDefinition(FiddlerCrabModel.LAYER_LOCATION, FiddlerCrabModel::createBodyLayer);
+		e.registerLayerDefinition(new ModelLayerLocation(Utils.createResourceLocation("shiba"), "main"), ShibaModel::createBodyLayer);
 	}
 
 

@@ -4,13 +4,13 @@
       "item": "minecraft:water_bucket"
     },
     "title": {
-      "translate": "advancements.alexsmobs.mantis_shrimp_bucket.title"
+      "translate": "advancements.hoshimimod.mantis_shrimp_bucket.title"
     },
     "description": {
-      "translate": "advancements.alexsmobs.mantis_shrimp_bucket.desc"
+      "translate": "advancements.hoshimimod.mantis_shrimp_bucket.desc"
     }
   },
-  "parent": "alexsmobs:alexsmobs/tame_mantis_shrimp",
+  "parent": "hoshimimod:hoshimimod/tame_mantis_shrimp",
   "criteria": {
     "tame": {
       "trigger": "minecraft:player_interacted_with_entity",
@@ -19,7 +19,7 @@
           "item": "minecraft:water_bucket"
         },
         "entity": {
-          "type": "alexsmobs:mantis_shrimp"
+          "type": "hoshimimod:mantis_shrimp"
         },
         "player": {
           "flags":{

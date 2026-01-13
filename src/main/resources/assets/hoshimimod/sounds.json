@@ -136,5 +136,57 @@
       }
     ],
     "subtitle": "hoshimimod.sound.subtitle.seagull_hurt"
+  },
+  "entity/shiba_eat_arrow": {
+  "subtitle": "hoshimimod.sound.subtitle.shiba_eat_arrow",
+  "sounds": [
+    "minecraft:random/eat1",
+    "minecraft:random/eat2",
+    "minecraft:random/eat3"
+  ]
+},
+  "entity/shiba_whine": {
+    "subtitle": "hoshimimod.sound.subtitle.shiba_ambient",
+    "sounds": [
+      "minecraft:mob/wolf/whine"
+    ]
+  },
+  "entity/shiba_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "minecraft:mob/wolf/step1",
+      "minecraft:mob/wolf/step2",
+      "minecraft:mob/wolf/step3",
+      "minecraft:mob/wolf/step4",
+      "minecraft:mob/wolf/step5"
+    ]
+  },
+  "entity/shiba_ambient": {
+    "subtitle": "hoshimimod.sound.subtitle.shiba_ambient",
+    "sounds": [
+      "minecraft:mob/wolf/bark1",
+      "minecraft:mob/wolf/bark2",
+      "minecraft:mob/wolf/bark3"
+    ]
+  },
+  "entity/shiba_pant": {
+    "subtitle": "hoshimimod.sound.subtitle.shiba_ambient",
+    "sounds": [
+      "minecraft:mob/wolf/panting"
+    ]
+  },
+  "entity/shiba_hurt": {
+    "subtitle": "hoshimimod.sound.subtitle.shiba_hurt",
+    "sounds": [
+      "minecraft:mob/wolf/hurt1",
+      "minecraft:mob/wolf/hurt2",
+      "minecraft:mob/wolf/hurt3"
+    ]
+  },
+  "entity/shiba_death": {
+    "subtitle": "hoshimimod.sound.subtitle.shiba_dead",
+    "sounds": [
+      "minecraft:mob/wolf/death"
+    ]
   }
 }

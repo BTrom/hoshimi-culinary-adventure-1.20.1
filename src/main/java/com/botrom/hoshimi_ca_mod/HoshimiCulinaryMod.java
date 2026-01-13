@@ -1,5 +1,7 @@
 package com.botrom.hoshimi_ca_mod;
 
+import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
+import com.botrom.hoshimi_ca_mod.entities.renderers.ShibaRenderer;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
 import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.BasinContent;
@@ -15,12 +17,14 @@ import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
 import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
 import com.botrom.hoshimi_ca_mod.utils.compat.MessageHurtMultipart;
 import com.botrom.hoshimi_ca_mod.utils.compat.MessageInteractMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.QuarkModelHandler;
 import com.botrom.hoshimi_ca_mod.worldgen.AMMobSpawnBiomeModifier;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.BiomeModifier;
@@ -37,6 +41,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -90,6 +95,11 @@ public class HoshimiCulinaryMod {
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHolder.COMMON_SPEC, "hoshimimod.toml");
 
         PROXY.init();
+
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            modEventBus.addListener(this::onRegisterLayerDefinitions);
+            modEventBus.addListener(this::onRegisterRenderers);
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -172,5 +182,17 @@ public class HoshimiCulinaryMod {
 
     public static <MSG> void sendMSGToServer(MSG message) {
         NETWORK.sendToServer(message);
+    }
+
+    private void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        // register your model layer -> LayerDefinition supplier
+        event.registerLayerDefinition(QuarkModelHandler.getShiba(), ShibaModel::createBodyLayer);
+        LOGGER.info("Registered Shiba layer definition");
+    }
+
+    private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        // register entity renderer
+        event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
+        LOGGER.info("Registered Shiba entity renderer");
     }
 }

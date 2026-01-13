@@ -1,23 +1,23 @@
 {
     "display": {
         "icon": {
-            "item": "alexsmobs:lost_tentacle"
+            "item": "hoshimimod:lost_tentacle"
         },
         "title": {
-            "translate": "advancements.alexsmobs.lost_tentacle.title"
+            "translate": "advancements.hoshimimod.lost_tentacle.title"
         },
         "description": {
-            "translate": "advancements.alexsmobs.lost_tentacle.desc"
+            "translate": "advancements.hoshimimod.lost_tentacle.desc"
         }
     },
-    "parent": "alexsmobs:alexsmobs/root",
+    "parent": "hoshimimod:hoshimimod/root",
     "criteria": {
         "capsid": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "items": ["alexsmobs:lost_tentacle"]
+                        "items": ["hoshimimod:lost_tentacle"]
                     }
                 ]
             }

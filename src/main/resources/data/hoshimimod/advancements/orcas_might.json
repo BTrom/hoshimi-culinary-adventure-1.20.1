@@ -1,24 +1,24 @@
 {
   "display": {
     "icon": {
-      "item": "alexsmobs:tab_icon",
-      "nbt": "{DisplayEntityType:\"alexsmobs:orca\"}"
+      "item": "hoshimimod:tab_icon",
+      "nbt": "{DisplayEntityType:\"hoshimimod:orca\"}"
     },
     "title": {
-      "translate": "advancements.alexsmobs.orcas_might.title"
+      "translate": "advancements.hoshimimod.orcas_might.title"
     },
     "description": {
-      "translate": "advancements.alexsmobs.orcas_might.desc"
+      "translate": "advancements.hoshimimod.orcas_might.desc"
     },
     "frame": "challenge"
   },
-  "parent": "alexsmobs:alexsmobs/root",
+  "parent": "hoshimimod:hoshimimod/root",
   "criteria": {
     "all_effects": {
       "trigger": "minecraft:effects_changed",
       "conditions": {
         "effects": {
-          "alexsmobs:orcas_might": {}
+          "hoshimimod:orcas_might": {}
         }
       }
     }

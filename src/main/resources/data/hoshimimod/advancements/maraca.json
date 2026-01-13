@@ -1,23 +1,23 @@
 {
     "display": {
         "icon": {
-            "item": "alexsmobs:maraca"
+            "item": "hoshimimod:maraca"
         },
         "title": {
-            "translate": "advancements.alexsmobs.maraca.title"
+            "translate": "advancements.hoshimimod.maraca.title"
         },
         "description": {
-            "translate": "advancements.alexsmobs.maraca.desc"
+            "translate": "advancements.hoshimimod.maraca.desc"
         }
     },
-    "parent": "alexsmobs:alexsmobs/rattlesnake",
+    "parent": "hoshimimod:hoshimimod/rattlesnake",
     "criteria": {
         "maraca": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "items": ["alexsmobs:maraca"]
+                        "items": ["hoshimimod:maraca"]
                     }
                 ]
             }

@@ -275,6 +275,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.RAW_CATFISH_SLICE.get());
                         output.accept(ModItems.COOKED_CATFISH_SLICE.get());
                         output.accept(ModItems.LOBSTER_PASTA.get());
+
+                        // Quark
+                        output.accept(ModItems.SHIBA_SPAWN_EGG.get());
+                        output.accept(ModItems.CRAB_BARS.get());
+                        output.accept(ModItems.COOKED_WHOLE_CRAB.get());
+                        output.accept(ModItems.MISO_WITH_BAMBOO_SPROUTS.get());
                     })
                     .build());
 

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "alexsmobs:lobster_tail"
+    "item": "hoshimimod:lobster_tail"
   },
-  "result": "alexsmobs:cooked_lobster_tail",
+  "result": "hoshimimod:cooked_lobster_tail",
   "experience": 0.15,
   "cookingtime": 100
 }

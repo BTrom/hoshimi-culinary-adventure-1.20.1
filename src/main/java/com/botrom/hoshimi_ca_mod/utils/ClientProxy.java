@@ -103,6 +103,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.COMB_JELLY.get(), CombJellyRenderer::new);
         EntityRenderers.register(ModEntities.GIANT_SQUID.get(), GiantSquidRenderer::new);
         EntityRenderers.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
+        EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
     }
 
     private void initRainbowBuffers() {
@@ -122,14 +123,6 @@ public class ClientProxy extends CommonProxy {
 //            }
 //        }
     }
-
-//    public void openBookGUI(ItemStack itemStackIn) {
-//        Minecraft.getInstance().setScreen(new GUIAnimalDictionary(itemStackIn));
-//    }
-
-//    public void openBookGUI(ItemStack itemStackIn, String page) {
-//        Minecraft.getInstance().setScreen(new GUIAnimalDictionary(itemStackIn, page));
-//    }
 
     public Player getClientSidePlayer() {
         return Minecraft.getInstance().player;
@@ -219,28 +212,7 @@ public class ClientProxy extends CommonProxy {
         registry.registerSpriteSet(ModParticleTypes.ACID.get(), AcidParticle.Provider::new);
         registry.registerSpriteSet(ModParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
         registry.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SPIN.get(), ParticleGusterSandSpin.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SHOT.get(), ParticleGusterSandShot.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SPIN_RED.get(), ParticleGusterSandSpin.FactoryRed::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SHOT_RED.get(), ParticleGusterSandShot.FactoryRed::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SPIN_SOUL.get(), ParticleGusterSandSpin.FactorySoul::new);
-//        registry.registerSpriteSet(AMParticleRegistry.GUSTER_SAND_SHOT_SOUL.get(), ParticleGusterSandShot.FactorySoul::new);
-//        registry.registerSpriteSet(AMParticleRegistry.HEMOLYMPH.get(), ParticleHemolymph.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.PLATYPUS_SENSE.get(), ParticlePlatypus.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.WHALE_SPLASH.get(), ParticleWhaleSplash.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.DNA.get(), ParticleDna.Factory::new);
         registry.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.WORM_PORTAL.get(), ParticleWormPortal.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.INVERT_DIG.get(), ParticleInvertDig.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.TEETH_GLINT.get(), ParticleTeethGlint.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.SMELLY.get(), ParticleSmelly.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.BUNFUNGUS_TRANSFORMATION.get(), ParticleBunfungusTransformation.Factory::new);
-//        registry.registerSpriteSet(AMParticleRegistry.FUNGUS_BUBBLE.get(), ParticleFungusBubble.Factory::new);
-//        registry.registerSpecial(AMParticleRegistry.BEAR_FREDDY.get(), new ParticleBearFreddy.Factory());
-//        registry.registerSpriteSet(AMParticleRegistry.SUNBIRD_FEATHER.get(), ParticleSunbirdFeather.Factory::new);
-//        registry.registerSpecial(AMParticleRegistry.STATIC_SPARK.get(), new ParticleStaticSpark.Factory());
-//        registry.registerSpecial(AMParticleRegistry.SKULK_BOOM.get(), new ParticleSkulkBoom.Factory());
-//        registry.registerSpriteSet(AMParticleRegistry.BIRD_SONG.get(), ParticleBirdSong.Factory::new);
     }
 
 
