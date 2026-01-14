@@ -5,6 +5,7 @@ import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
 import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.SurgeParticle;
+import com.botrom.hoshimi_ca_mod.entities.models.ChesterModel;
 import com.botrom.hoshimi_ca_mod.entities.models.DumboOctopusModel;
 import com.botrom.hoshimi_ca_mod.entities.models.KoiFishModel;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
@@ -109,6 +110,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.GIANT_SQUID.get(), GiantSquidRenderer::new);
         EntityRenderers.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
         EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
+        EntityRenderers.register(ModEntities.CHESTER.get(), context -> new GeoEntityRenderer<>(context, new ChesterModel()));
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());

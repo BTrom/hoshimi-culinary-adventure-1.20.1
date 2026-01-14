@@ -174,7 +174,7 @@ dependencies {
     // implementation fg.deobf(files("libs/FarmersDelight-1.20.1-1.2.4.jar"))
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-//    implementation fg.deobf(files("libs/livingchest-1.16.5-1.0.0.1.jar"))
+    implementation fg.deobf(files("libs/livingchest-1.16.5-1.0.0.1.jar"))
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

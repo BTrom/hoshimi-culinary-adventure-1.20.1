@@ -163,6 +163,8 @@ public class ModItems {
     public static final RegistryObject<Item> UNKNOWN_SEEDS = ITEMS.register("unknown_seeds", () -> new CrockPotSeedsItem(ModBlocks.UNKNOWN_CROPS.get()));
     public static final RegistryObject<Item> ASPARAGUS_SEEDS = ITEMS.register("asparagus_seeds", () -> new CrockPotSeedsItem(ModBlocks.ASPARAGUS.get()));
     public static final RegistryObject<Item> GARLIC_SEEDS = ITEMS.register("garlic_seeds", () -> new CrockPotSeedsItem(ModBlocks.GARLICS.get()));
+    public static final RegistryObject<Item> PEANUT_SEEDS = ITEMS.register("peanut_seeds", () -> new ItemNameBlockItem(ModBlocks.PEANUT_PLANT.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds", () -> new ItemNameBlockItem(ModBlocks.SQUASHES.get(), new Item.Properties()));
 
 
     //Ingredients

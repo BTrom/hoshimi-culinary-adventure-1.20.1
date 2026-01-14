@@ -127,9 +127,9 @@ public class ModEntities {
 
 	public static final RegistryObject<EntityType<Shiba>> SHIBA = ENTITIES.register("shiba",
 			() -> EntityType.Builder.of(Shiba::new, MobCategory.CREATURE)
-			.sized(0.8F, 0.8F)
-			.clientTrackingRange(8)
-			.build("shiba"));
+					.sized(0.8F, 0.8F)
+					.clientTrackingRange(8)
+					.build("shiba"));
 
 //	public static final EntityType<GiantMudCrabEntity> GIANT_MUD_CRAB =Registry.register(Registries.ENTITY_TYPE,
 //			new Identifier(MoreCrustacean.MOD_ID,"giant_mud_crab"),
@@ -160,6 +160,12 @@ public class ModEntities {
 					.updateInterval(10)
 					.clientTrackingRange(4)
 					.build(Utils.createResourceLocation("parrot_egg").toString()));
+
+	public static final RegistryObject<EntityType<Chester>> CHESTER = ENTITIES.register("chester",
+			() -> EntityType.Builder.of(Chester::new, MobCategory.MISC)
+					.sized(0.6F, 0.6F)
+					.clientTrackingRange(6)
+					.build("chester"));
 
 
 

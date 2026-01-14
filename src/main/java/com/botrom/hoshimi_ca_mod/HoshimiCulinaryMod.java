@@ -198,6 +198,7 @@ public class HoshimiCulinaryMod {
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
+//        event.registerEntityRenderer(ModEntities.CHESTER.get(), ChesterRenderer::new);
         LOGGER.info("Registered Shiba entity renderer");
     }
 }

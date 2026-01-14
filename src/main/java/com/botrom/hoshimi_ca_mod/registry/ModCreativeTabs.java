@@ -289,6 +289,9 @@ public class ModCreativeTabs {
 
                         // HarvestCraft 2
                         output.accept(ModItems.GREEN_ONION.get());
+                        output.accept(ModItems.GREEN_ONION_SEEDS.get());
+                        output.accept(ModItems.PEANUT_SEEDS.get());
+                        output.accept(ModItems.SQUASH_SEEDS.get());
 
                         // Farmer's Respite
                         output.accept(ModItems.TEA_SEEDS.get());
