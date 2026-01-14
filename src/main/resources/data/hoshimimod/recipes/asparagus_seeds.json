@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:asparagus"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:asparagus_seeds"
+  }
+}

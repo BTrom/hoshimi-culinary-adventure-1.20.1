@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "forge:storage_blocks/copper"
+  },
+  "base": {
+    "item": "hoshimimod:crock_pot"
+  },
+  "result": {
+    "item": "hoshimimod:portable_crock_pot"
+  },
+  "template": {
+    "item": "hoshimimod:pot_upgrade_smithing_template"
+  }
+}

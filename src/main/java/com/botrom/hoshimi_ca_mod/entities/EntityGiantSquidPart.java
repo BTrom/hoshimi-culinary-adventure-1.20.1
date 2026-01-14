@@ -1,8 +1,8 @@
 package com.botrom.hoshimi_ca_mod.entities;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.utils.compat.MessageHurtMultipart;
-import com.botrom.hoshimi_ca_mod.utils.compat.MessageInteractMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageHurtMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageInteractMultipart;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;

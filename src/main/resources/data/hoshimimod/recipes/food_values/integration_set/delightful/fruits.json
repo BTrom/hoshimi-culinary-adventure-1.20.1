@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "delightful"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "delightful:cantaloupe",
+          "delightful:mini_melon"
+        ],
+        "values": {
+          "FRUIT": 1
+        }
+      }
+    }
+  ]
+}

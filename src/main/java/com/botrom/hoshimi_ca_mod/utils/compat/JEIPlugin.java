@@ -12,6 +12,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -22,12 +23,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
     private static final ResourceLocation PLUGIN_ID = Utils.createResourceLocation("jei_plugin");
     public static final RecipeType<CrabTrapRecipeWrapper> CRAB_TRAP_RECIPE = RecipeType.create(HoshimiCulinaryMod.MOD_ID, "crab_trap_loot", CrabTrapRecipeWrapper.class);
-
+    public static final RecipeType<DeepFryingRecipe> INFUSION_TYPE = new RecipeType<>(DeepFryingCategory.UID,DeepFryingRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -37,11 +39,13 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new CrabTrapCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new DeepFryingCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(CRAB_TRAP_RECIPE, addWrappers());
+        registration.addRecipes(INFUSION_TYPE, Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager().getAllRecipesFor(DeepFryingRecipe.Type.DeepFrying));
     }
 
     @Override
@@ -58,7 +62,6 @@ public class JEIPlugin implements IModPlugin {
                 if (ForgeRegistries.ITEMS.tags().isKnownTagName(outputTag)) {
                     list.add(new CrabTrapRecipeWrapper(item, Ingredient.of(outputTag)));
                 }
-
             }
         }
         return list;

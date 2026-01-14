@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "dropthemeat"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "dropthemeat:cooked_axolotl",
+          "dropthemeat:cooked_squid",
+          "dropthemeat:raw_axolotl",
+          "dropthemeat:raw_squid"
+        ],
+        "values": {
+          "FISH": 1
+        }
+      }
+    }
+  ]
+}

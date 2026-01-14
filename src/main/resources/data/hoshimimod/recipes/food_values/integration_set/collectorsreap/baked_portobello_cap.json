@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "collectorsreap"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "collectorsreap:baked_portobello_cap"
+        ],
+        "values": {
+          "VEGGIE": 0.5
+        }
+      }
+    }
+  ]
+}

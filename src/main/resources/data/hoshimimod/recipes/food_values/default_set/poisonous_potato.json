@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:poisonous_potato"
+  ],
+  "values": {
+    "VEGGIE": 0.5
+  }
+}

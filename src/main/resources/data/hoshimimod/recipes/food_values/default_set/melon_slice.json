@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:melon_slice"
+  ],
+  "values": {
+    "FRUIT": 0.5
+  }
+}

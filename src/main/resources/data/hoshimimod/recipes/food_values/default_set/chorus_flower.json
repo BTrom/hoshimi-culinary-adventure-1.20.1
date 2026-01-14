@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:chorus_flower"
+  ],
+  "values": {
+    "VEGGIE": 0.5
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:crimson_fungus"
+  ],
+  "values": {
+    "VEGGIE": 0.5,
+    "MONSTER": 1
+  }
+}

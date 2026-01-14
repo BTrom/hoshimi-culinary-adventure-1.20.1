@@ -1,0 +1,29 @@
+{
+  "type": "hoshimimod:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:grass",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "items": [
+            "minecraft:shears"
+          ]
+        }
+      }
+    },
+    {
+      "condition": "minecraft:survives_explosion"
+    },
+    {
+      "chance": 0.001,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "count": 1,
+  "item": "hoshimimod:unknown_seeds"
+}

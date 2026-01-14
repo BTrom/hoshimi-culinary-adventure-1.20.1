@@ -37,6 +37,10 @@ public class Utils {
         return new ResourceLocation(HoshimiCulinaryMod.MOD_ID, path);
     }
 
+    public static ResourceLocation createForgeResourceLocation(String path) {
+        return new ResourceLocation("forge", path);
+    }
+
     public static ItemStack getStack(@Nullable Supplier<? extends ItemLike> r, int... count) { // Only considers first vararg entry
         if (r == null || r.get() == null) return ItemStack.EMPTY;
         return new ItemStack(Objects.requireNonNull(r.get()), count.length > 0 ? count[0] : 1);

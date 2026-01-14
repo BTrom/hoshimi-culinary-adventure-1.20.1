@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "alexscaves"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "alexscaves:vesper_wing"
+        ],
+        "values": {
+          "MEAT": 0.5,
+          "MONSTER": 1
+        }
+      }
+    }
+  ]
+}

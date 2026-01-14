@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:frog_legs",
+    "hoshimimod:cooked_frog_legs"
+  ],
+  "values": {
+    "MEAT": 0.5
+  }
+}

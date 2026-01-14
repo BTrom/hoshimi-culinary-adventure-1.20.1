@@ -1,0 +1,23 @@
+{
+  "type": "hoshimimod:crock_pot_cooking",
+  "cookingtime": 200,
+  "potlevel": 0,
+  "priority": 20,
+  "requirements": [
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/salmon"
+      },
+      "quantity": 1
+    },
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "item": "minecraft:dried_kelp"
+      },
+      "quantity": 1
+    }
+  ],
+  "result": "hoshimimod:salmon_sushi"
+}

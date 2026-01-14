@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "simplefarming"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "simplefarming:cantaloupe_block",
+          "simplefarming:honeydew_block"
+        ],
+        "values": {
+          "FRUIT": 1
+        }
+      }
+    }
+  ]
+}

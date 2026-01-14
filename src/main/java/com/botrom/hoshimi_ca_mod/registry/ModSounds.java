@@ -30,6 +30,10 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> ENTITY_SHIBA_PANT = createSoundEvent("entity/shiba_pant");
     public static final RegistryObject<SoundEvent> ENTITY_SHIBA_HURT = createSoundEvent("entity/shiba_hurt");
     public static final RegistryObject<SoundEvent> ENTITY_SHIBA_DEATH = createSoundEvent("entity/shiba_death");
+    public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
+    public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
+    public static final RegistryObject<SoundEvent> CROCK_POT_FINISH = createSoundEvent("block/crock_pot_finish");
+    public static final RegistryObject<SoundEvent> CROCK_POT_RATTLE = createSoundEvent("block/crock_pot_rattle");
 
 
 //    public static final RegistryObject<SoundEvent> BLOCK_PIZZA_SIZZLING = SOUND_EVENTS.register("block.pizza.sizzling", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "block.pizza.sizzling")));

@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "twilightdelight:raw_tomahawk_smeak",
+          "twilightdelight:cooked_tomahawk_smeak"
+        ],
+        "values": {
+          "MEAT": 1.5
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:honeycomb"
+  ],
+  "values": {
+    "SWEETENER": 1
+  }
+}

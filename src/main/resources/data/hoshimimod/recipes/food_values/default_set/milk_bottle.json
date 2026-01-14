@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:milk_bottle"
+  ],
+  "values": {
+    "DAIRY": 1
+  }
+}

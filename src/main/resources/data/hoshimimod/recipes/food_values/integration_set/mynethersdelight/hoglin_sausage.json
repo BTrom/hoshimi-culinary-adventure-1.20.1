@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mynethersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "mynethersdelight:hoglin_sausage",
+          "mynethersdelight:roasted_sausage"
+        ],
+        "values": {
+          "MEAT": 0.75
+        }
+      }
+    }
+  ]
+}

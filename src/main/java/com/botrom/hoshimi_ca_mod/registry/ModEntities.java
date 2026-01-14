@@ -1,7 +1,9 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.blocks.entities.Birdcage;
 import com.botrom.hoshimi_ca_mod.entities.*;
+import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.google.common.base.Predicates;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
@@ -144,6 +146,20 @@ public class ModEntities {
 //					.setUpdateInterval(1)
 //					.setShouldReceiveVelocityUpdates(true)
 //					.build("baleen_whale"));
+
+	public static final RegistryObject<EntityType<Birdcage>> BIRDCAGE = ENTITIES.register("birdcage",
+			() -> EntityType.Builder.of(Birdcage::new, MobCategory.MISC)
+					.sized(0.0001F, 0.0001F)
+					.setUpdateInterval(20)
+					.setTrackingRange(256)
+					.build(Utils.createResourceLocation("birdcage").toString()));
+
+	public static final RegistryObject<EntityType<ThrownParrotEgg>> PARROT_EGG = ENTITIES.register("parrot_egg",
+			() -> EntityType.Builder.<ThrownParrotEgg>of(ThrownParrotEgg::new, MobCategory.MISC)
+					.sized(0.25F, 0.25F)
+					.updateInterval(10)
+					.clientTrackingRange(4)
+					.build(Utils.createResourceLocation("parrot_egg").toString()));
 
 
 

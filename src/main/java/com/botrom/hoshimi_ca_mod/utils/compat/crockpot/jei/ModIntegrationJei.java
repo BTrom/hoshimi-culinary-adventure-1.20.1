@@ -1,0 +1,99 @@
+package com.botrom.hoshimi_ca_mod.utils.compat.crockpot.jei;
+
+import com.botrom.hoshimi_ca_mod.blocks.CrockPotBlock;
+import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
+import com.botrom.hoshimi_ca_mod.registry.ModItems;
+import com.botrom.hoshimi_ca_mod.registry.ModRecipes;
+import com.botrom.hoshimi_ca_mod.registry.ModTags;
+import com.botrom.hoshimi_ca_mod.utils.Utils;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.FoodCategory;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.FoodValuesDefinition;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.util.I18nUtils;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+@JeiPlugin
+public class ModIntegrationJei implements IModPlugin {
+    public static final String MOD_ID = "jei";
+    public static final ResourceLocation ICONS = Utils.createResourceLocation("textures/gui/jei/icons.png");
+
+    @Override
+    public ResourceLocation getPluginUid() {
+        return Utils.createResourceLocation("crock_pot");
+    }
+
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration registration) {
+        var guiHelper = registration.getJeiHelpers().getGuiHelper();
+        registration.addRecipeCategories(new CrockPotCookingRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new FoodValuesCategory(guiHelper));
+        registration.addRecipeCategories(new ExplosionCraftingRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new ParrotLayingEggsRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new ParrotFeedingRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new PiglinBarteringRecipeCategory(guiHelper));
+    }
+
+    @Override
+    public void registerRecipes(IRecipeRegistration registration) {
+        var level = Minecraft.getInstance().level;
+        var recipeManager = level.getRecipeManager();
+        FoodValuesDefinitionCache.regenerate(level);
+        registration.addRecipes(CrockPotCookingRecipeCategory.RECIPE_TYPE, recipeManager.getAllRecipesFor(ModRecipes.CROCK_POT_COOKING_RECIPE_TYPE.get()).stream().toList());
+        registration.addRecipes(
+                FoodValuesCategory.RECIPE_TYPE,
+                Arrays.stream(FoodCategory.values())
+                        .flatMap(category ->
+                                FoodValuesDefinitionCache.getMatchedItemsByValues(category).entrySet().stream()
+                                        .sorted(Map.Entry.comparingByKey())
+                                        .map(entry ->
+                                                new FoodValuesCategory.FoodCategoryMatchedItems(
+                                                        category, entry.getKey(), entry.getValue()
+                                                )
+                                        )
+                        )
+                        .toList()
+        );
+        registration.addRecipes(ExplosionCraftingRecipeCategory.RECIPE_TYPE, recipeManager.getAllRecipesFor(ModRecipes.EXPLOSION_CRAFTING_RECIPE_TYPE.get()));
+        var meatsGroupByMonster = FoodValuesDefinitionCache.getMatchedItems(FoodCategory.MEAT).stream()
+                .collect(Collectors.groupingBy(item -> FoodValuesDefinition.getFoodValues(item.getDefaultInstance(), Minecraft.getInstance().level).has(FoodCategory.MONSTER)));
+        var parrotLayingEggsRecipes = List.of(
+                new ParrotLayingEggsRecipeCategory.ParrotLayingEggsRecipeWrapper(Ingredient.of(meatsGroupByMonster.get(false).stream().map(Item::getDefaultInstance)), 1, 1),
+                new ParrotLayingEggsRecipeCategory.ParrotLayingEggsRecipeWrapper(Ingredient.of(meatsGroupByMonster.get(true).stream().map(Item::getDefaultInstance)), 0, 1)
+        );
+        registration.addRecipes(ParrotLayingEggsRecipeCategory.RECIPE_TYPE, parrotLayingEggsRecipes);
+        registration.addRecipes(ParrotFeedingRecipeCategory.RECIPE_TYPE, recipeManager.getAllRecipesFor(ModRecipes.PARROT_FEEDING_RECIPE_TYPE.get()));
+        registration.addRecipes(PiglinBarteringRecipeCategory.RECIPE_TYPE, recipeManager.getAllRecipesFor(ModRecipes.PIGLIN_BARTERING_RECIPE_TYPE.get()));
+
+        registration.addItemStackInfo(ModItems.BIRDCAGE.get().getDefaultInstance(), I18nUtils.createIntegrationComponent("jei", "information.birdcage"));
+        registration.addItemStackInfo(ModItems.CROCK_POT_UPGRADE_SMITHING_TEMPLATE.get().getDefaultInstance(), I18nUtils.createIntegrationComponent("jei", "information.pot_upgrade_smithing_template"));
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        ForgeRegistries.BLOCKS.tags().getTag(ModTags.CROCK_POTS).stream()
+                .filter(CrockPotBlock.class::isInstance)
+                .map(CrockPotBlock.class::cast)
+                .map(block -> block.asItem().getDefaultInstance())
+                .forEach(pot -> registration.addRecipeCatalyst(pot, CrockPotCookingRecipeCategory.RECIPE_TYPE));
+        registration.addRecipeCatalyst(ModItems.BIRDCAGE.get().getDefaultInstance(), ParrotLayingEggsRecipeCategory.RECIPE_TYPE, ParrotFeedingRecipeCategory.RECIPE_TYPE);
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        registration.addRecipeClickArea(CrockPotScreen.class, 88, 29, 24, 11, CrockPotCookingRecipeCategory.RECIPE_TYPE);
+    }
+}

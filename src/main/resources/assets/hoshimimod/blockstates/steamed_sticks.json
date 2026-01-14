@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hoshimimod:block/steamed_sticks",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/steamed_sticks"
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/steamed_sticks",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/steamed_sticks",
+      "y": 270
+    }
+  }
+}

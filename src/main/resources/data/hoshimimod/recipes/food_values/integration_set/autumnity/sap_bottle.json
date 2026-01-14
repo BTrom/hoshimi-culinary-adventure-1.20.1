@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "autumnity"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "autumnity:sap_bottle",
+          "autumnity:syrup_bottle"
+        ],
+        "values": {
+          "SWEETENER": 2
+        }
+      }
+    }
+  ]
+}

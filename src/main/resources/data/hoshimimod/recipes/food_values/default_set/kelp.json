@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:dried_kelp",
+    "minecraft:kelp"
+  ],
+  "values": {
+    "VEGGIE": 0.5
+  }
+}

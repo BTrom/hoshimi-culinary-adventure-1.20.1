@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.utils;
 
 import com.botrom.hoshimi_ca_mod.items.ItemRainbowJelly;
-import com.botrom.hoshimi_ca_mod.utils.compat.AMSimplexNoise;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMSimplexNoise;
 import com.github.alexthe666.citadel.Citadel;
 import com.github.alexthe666.citadel.server.entity.CitadelEntityData;
 import com.github.alexthe666.citadel.server.message.PropertiesMessage;

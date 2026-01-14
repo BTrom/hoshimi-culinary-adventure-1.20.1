@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:milk_bucket"
+  ],
+  "values": {
+    "DAIRY": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "fruitsdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "fruitsdelight:hamimelon",
+          "fruitsdelight:baked_pear"
+        ],
+        "values": {
+          "FRUIT": 1
+        }
+      }
+    }
+  ]
+}

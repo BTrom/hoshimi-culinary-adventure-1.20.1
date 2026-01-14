@@ -1,0 +1,8 @@
+{
+  "type": "hoshimimod:deep_frying",
+  "ingredient": {
+    "item": "hoshimimod:potato_slice"
+  },
+  "cookingtime": 100,
+  "result": "hoshimimod:potato_chip"
+}

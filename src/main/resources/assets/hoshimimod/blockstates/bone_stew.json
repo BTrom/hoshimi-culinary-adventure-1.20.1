@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,stacks=1": {
+      "model": "hoshimimod:block/bone_stew",
+      "y": 90
+    },
+    "facing=east,stacks=2": {
+      "model": "hoshimimod:block/bone_stew_1",
+      "y": 90
+    },
+    "facing=east,stacks=3": {
+      "model": "hoshimimod:block/bone_stew_2",
+      "y": 90
+    },
+    "facing=north,stacks=1": {
+      "model": "hoshimimod:block/bone_stew"
+    },
+    "facing=north,stacks=2": {
+      "model": "hoshimimod:block/bone_stew_1"
+    },
+    "facing=north,stacks=3": {
+      "model": "hoshimimod:block/bone_stew_2"
+    },
+    "facing=south,stacks=1": {
+      "model": "hoshimimod:block/bone_stew",
+      "y": 180
+    },
+    "facing=south,stacks=2": {
+      "model": "hoshimimod:block/bone_stew_1",
+      "y": 180
+    },
+    "facing=south,stacks=3": {
+      "model": "hoshimimod:block/bone_stew_2",
+      "y": 180
+    },
+    "facing=west,stacks=1": {
+      "model": "hoshimimod:block/bone_stew",
+      "y": 270
+    },
+    "facing=west,stacks=2": {
+      "model": "hoshimimod:block/bone_stew_1",
+      "y": 270
+    },
+    "facing=west,stacks=3": {
+      "model": "hoshimimod:block/bone_stew_2",
+      "y": 270
+    }
+  }
+}

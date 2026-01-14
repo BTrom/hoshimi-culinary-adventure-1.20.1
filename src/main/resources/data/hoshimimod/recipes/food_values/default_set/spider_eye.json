@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:spider_eye"
+  ],
+  "values": {
+    "MEAT": 0.5,
+    "MONSTER": 1
+  }
+}

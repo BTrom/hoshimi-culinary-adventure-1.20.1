@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ModConfig {
 
+    // Alex
     public static int catfishSpawnWeight = 4;
     public static int catfishSpawnRolls = 2;
     public static int lobsterSpawnWeight = 7;
@@ -25,6 +26,11 @@ public class ModConfig {
     public static List<? extends String> seagullStealingBlacklist = Lists.newArrayList();
     public static int pathfindingThreads = 5;
     public static double rainbowGlassFidelity = 16.0F;
+    // Crockpot
+    public static double crockPotSpeedModifier = 0.15F;
+    public static boolean showFoodValuesTooltip = true;
+    public static boolean showFoodEffectsTooltip = true;
+    public static boolean gnawsGiftHungerOverlay = true;
 
     public static void bake(net.minecraftforge.fml.config.ModConfig config) {
         try {
@@ -46,6 +52,12 @@ public class ModConfig {
             seagullStealingBlacklist = (List<? extends String>) ConfigHolder.COMMON.seagullStealingBlacklist.get();
             pathfindingThreads = ConfigHolder.COMMON.pathfindingThreads.get();
             rainbowGlassFidelity = ConfigHolder.COMMON.rainbowGlassFidelity.get();
+
+            crockPotSpeedModifier = ConfigHolder.COMMON.crockPotSpeedModifier.get();
+            showFoodValuesTooltip = ConfigHolder.CLIENT.showFoodValuesTooltip.get();
+            showFoodEffectsTooltip = ConfigHolder.CLIENT.showFoodEffectsTooltip.get();
+            gnawsGiftHungerOverlay = ConfigHolder.CLIENT.gnawsGiftHungerOverlay.get();
+
         } catch (Exception e) {
             HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");
             e.printStackTrace();

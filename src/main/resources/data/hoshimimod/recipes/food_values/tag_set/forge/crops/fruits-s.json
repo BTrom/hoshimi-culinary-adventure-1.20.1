@@ -1,0 +1,15 @@
+{
+  "type": "hoshimimod:food_values",
+  "tags": [
+    "forge:crops/blackberry",
+    "forge:crops/blueberry",
+    "forge:crops/coffee",
+    "forge:crops/coffeebean",
+    "forge:crops/maloberry",
+    "forge:crops/raspberry",
+    "forge:crops/strawberry"
+  ],
+  "values": {
+    "FRUIT": 0.5
+  }
+}

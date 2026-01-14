@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "twilightdelight:mushgloom_colony"
+        ],
+        "values": {
+          "VEGGIE": 1
+        }
+      }
+    }
+  ]
+}

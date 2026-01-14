@@ -7,12 +7,18 @@ public final class ConfigHolder {
 
     public static final ForgeConfigSpec COMMON_SPEC;
     public static final CommonConfig COMMON;
+    public static final ForgeConfigSpec CLIENT_SPEC;
+    public static final ClientConfig CLIENT;
 
     static {
         {
-            final Pair<CommonConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(CommonConfig::new);
-            COMMON = specPair.getLeft();
-            COMMON_SPEC = specPair.getRight();
+            final Pair<CommonConfig, ForgeConfigSpec> commonSpecPair = new ForgeConfigSpec.Builder().configure(CommonConfig::new);
+            COMMON = commonSpecPair.getLeft();
+            COMMON_SPEC = commonSpecPair.getRight();
+
+            final Pair<ClientConfig, ForgeConfigSpec> clientSpecPair = new ForgeConfigSpec.Builder().configure(ClientConfig::new);
+            CLIENT = clientSpecPair.getLeft();
+            CLIENT_SPEC = commonSpecPair.getRight();
         }
     }
 }

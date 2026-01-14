@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "thermal:syrup_bottle"
+        ],
+        "values": {
+          "SWEETENER": 2
+        }
+      }
+    }
+  ]
+}

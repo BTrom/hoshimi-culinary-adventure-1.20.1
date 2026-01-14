@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:corn_seeds",
+    "hoshimimod:eggplant_seeds",
+    "hoshimimod:onion_seeds",
+    "hoshimimod:pepper_seeds",
+    "hoshimimod:unknown_seeds"
+  ]
+}

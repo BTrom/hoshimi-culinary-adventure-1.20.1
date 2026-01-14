@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.blocks.entities;
 
 import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
-import com.botrom.hoshimi_ca_mod.utils.compat.FaCUtils;
+import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.FaCUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;

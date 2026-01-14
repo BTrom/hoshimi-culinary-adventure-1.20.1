@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hoshimimod:block/netherosia",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/netherosia"
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/netherosia",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/netherosia",
+      "y": 270
+    }
+  }
+}

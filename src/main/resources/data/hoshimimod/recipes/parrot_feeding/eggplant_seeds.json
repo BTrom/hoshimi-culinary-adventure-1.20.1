@@ -1,0 +1,13 @@
+{
+  "type": "hoshimimod:parrot_feeding",
+  "ingredient": {
+    "item": "hoshimimod:eggplant"
+  },
+  "result": {
+    "count": {
+      "max": 4,
+      "min": 2
+    },
+    "item": "hoshimimod:eggplant_seeds"
+  }
+}

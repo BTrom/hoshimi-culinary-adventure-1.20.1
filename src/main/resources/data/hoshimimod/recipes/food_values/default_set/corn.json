@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:corn",
+    "hoshimimod:popcorn"
+  ],
+  "values": {
+    "VEGGIE": 1
+  }
+}

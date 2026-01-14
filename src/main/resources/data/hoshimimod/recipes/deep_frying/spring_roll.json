@@ -1,0 +1,8 @@
+{
+  "type": "hoshimimod:deep_frying",
+  "ingredient": {
+    "item": "hoshimimod:raw_spring_roll"
+  },
+  "cookingtime": 100,
+  "result": "hoshimimod:spring_roll"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "hoshimimod:crock_pot_cooking",
+  "cookingtime": 600,
+  "potlevel": 0,
+  "priority": 1,
+  "requirements": [
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/eggplant"
+      },
+      "quantity": 1
+    },
+    {
+      "type": "CATEGORY_MIN",
+      "category": "VEGGIE",
+      "min": 1.5
+    }
+  ],
+  "result": "hoshimimod:stuffed_eggplant"
+}

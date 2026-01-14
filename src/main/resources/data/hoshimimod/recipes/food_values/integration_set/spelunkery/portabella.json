@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "spelunkery"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "spelunkery:grilled_portabella",
+          "spelunkery:portabella"
+        ],
+        "values": {
+          "VEGGIE": 1
+        }
+      }
+    }
+  ]
+}

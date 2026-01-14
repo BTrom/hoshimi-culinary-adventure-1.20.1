@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "naturalist"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "naturalist:alligator_egg",
+          "naturalist:tortoise_egg"
+        ],
+        "values": {
+          "EGG": 1
+        }
+      }
+    }
+  ]
+}

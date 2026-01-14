@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "pamhc2trees"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "pamhc2trees:coconutitem"
+        ],
+        "values": {
+          "FRUIT": 0.5
+        }
+      }
+    }
+  ]
+}

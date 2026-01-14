@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
 import com.botrom.hoshimi_ca_mod.entities.GiantSquidEntity;
-import com.botrom.hoshimi_ca_mod.utils.compat.AMMaths;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
 import com.github.alexthe666.citadel.client.model.basic.BasicModelPart;

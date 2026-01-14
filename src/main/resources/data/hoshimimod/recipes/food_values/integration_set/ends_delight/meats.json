@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ends_delight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "ends_delight:raw_dragon_meat_cuts",
+          "ends_delight:roasted_dragon_meat_cuts"
+        ],
+        "values": {
+          "MEAT": 1
+        }
+      }
+    }
+  ]
+}

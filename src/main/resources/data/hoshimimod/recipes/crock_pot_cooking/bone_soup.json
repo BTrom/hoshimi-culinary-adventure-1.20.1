@@ -1,0 +1,35 @@
+{
+  "type": "hoshimimod:crock_pot_cooking",
+  "cookingtime": 600,
+  "potlevel": 1,
+  "priority": 30,
+  "requirements": [
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/bone"
+      },
+      "quantity": 2
+    },
+    {
+      "type": "MUST_CONTAIN_INGREDIENT_LESS_THAN",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/bone"
+      },
+      "quantity": 2
+    },
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/onion"
+      },
+      "quantity": 1
+    },
+    {
+      "type": "CATEGORY_MAX",
+      "category": "INEDIBLE",
+      "max": 2.0
+    }
+  ],
+  "result": "hoshimimod:bone_soup"
+}

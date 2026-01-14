@@ -9,7 +9,7 @@ import com.botrom.hoshimi_ca_mod.items.EffectFoodBlockItem;
 import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
 import com.botrom.hoshimi_ca_mod.registry.ModRecipes;
 import com.botrom.hoshimi_ca_mod.utils.compat.EffectFoodHelper;
-import com.botrom.hoshimi_ca_mod.utils.compat.StoveRecipe;
+import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.StoveRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;

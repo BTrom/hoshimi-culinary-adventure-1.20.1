@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/gold"
+    },
+    "N": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "N N",
+    "III"
+  ],
+  "result": {
+    "item": "hoshimimod:birdcage"
+  },
+  "show_notification": true
+}

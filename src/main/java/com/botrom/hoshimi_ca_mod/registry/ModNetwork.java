@@ -1,7 +1,8 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.pizzacraft.network.ServerboundRenamePizzaPacket;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.PacketFoodCounter;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.network.ServerboundRenamePizzaPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.SyncSaturationPacket;
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.Minecraft;
@@ -12,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.util.Objects;
@@ -38,6 +40,12 @@ public class ModNetwork
                 .consumerMainThread(ServerboundRenamePizzaPacket::handle)
                 .add();
 
+        channel.messageBuilder(PacketFoodCounter.class, 1)
+                .decoder(PacketFoodCounter::deserialize)
+                .encoder(PacketFoodCounter::serialize)
+                .consumerMainThread(PacketFoodCounter::handle)
+                .add();
+
         return channel;
     }
 
@@ -47,6 +55,10 @@ public class ModNetwork
 
     public static void sendToPlayer(ServerPlayer player, ResourceLocation id, FriendlyByteBuf buf) {
         collectPackets(PacketSink.ofPlayer(player), serverToClient(), id, buf);
+    }
+
+    public static <MSG> void sendToPlayer(ServerPlayer player, MSG msg) {
+        HoshimiCulinaryMod.NETWORK.send(PacketDistributor.PLAYER.with(() -> player), msg);
     }
 
     public static void sendSaturationSync(SyncSaturationPacket packet, Entity entity) {

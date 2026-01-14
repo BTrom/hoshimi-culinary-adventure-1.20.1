@@ -1,0 +1,38 @@
+{
+  "type": "hoshimimod:crock_pot_cooking",
+  "cookingtime": 300,
+  "potlevel": 0,
+  "priority": 10,
+  "requirements": [
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/potato"
+      },
+      "quantity": 1
+    },
+    {
+      "type": "MUST_CONTAIN_INGREDIENT",
+      "ingredient": {
+        "tag": "hoshimimod:ingredients/stick"
+      },
+      "quantity": 1
+    },
+    {
+      "type": "CATEGORY_MAX",
+      "category": "MONSTER",
+      "max": 1.0
+    },
+    {
+      "type": "CATEGORY_MAX",
+      "category": "MEAT",
+      "max": 0.0
+    },
+    {
+      "type": "CATEGORY_MAX",
+      "category": "INEDIBLE",
+      "max": 2.0
+    }
+  ],
+  "result": "hoshimimod:potato_tornado"
+}

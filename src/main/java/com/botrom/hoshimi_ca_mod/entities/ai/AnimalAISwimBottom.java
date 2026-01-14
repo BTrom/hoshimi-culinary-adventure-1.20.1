@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.utils.compat.AMBlockPos;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.PathfinderMob;

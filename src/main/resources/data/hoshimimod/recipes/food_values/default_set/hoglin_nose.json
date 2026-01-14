@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:hoglin_nose",
+    "hoshimimod:cooked_hoglin_nose"
+  ],
+  "values": {
+    "MEAT": 0.5
+  }
+}

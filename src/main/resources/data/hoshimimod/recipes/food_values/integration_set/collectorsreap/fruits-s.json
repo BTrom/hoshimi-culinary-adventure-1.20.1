@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "collectorsreap"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "collectorsreap:pomegranate_slice",
+          "collectorsreap:lime_slice"
+        ],
+        "values": {
+          "FRUIT": 0.5
+        }
+      }
+    }
+  ]
+}

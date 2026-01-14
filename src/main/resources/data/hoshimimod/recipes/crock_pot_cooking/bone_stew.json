@@ -1,0 +1,19 @@
+{
+  "type": "hoshimimod:crock_pot_cooking",
+  "cookingtime": 300,
+  "potlevel": 0,
+  "priority": 0,
+  "requirements": [
+    {
+      "type": "CATEGORY_MIN",
+      "category": "MEAT",
+      "min": 3.0
+    },
+    {
+      "type": "CATEGORY_MAX",
+      "category": "INEDIBLE",
+      "max": 0.0
+    }
+  ],
+  "result": "hoshimimod:bone_stew"
+}

@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.blocks;
 
 import com.botrom.hoshimi_ca_mod.blocks.entities.FeedingTroughBlockEntity;
-import com.botrom.hoshimi_ca_mod.utils.compat.FaCUtils;
+import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.FaCUtils;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

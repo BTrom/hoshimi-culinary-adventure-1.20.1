@@ -1,0 +1,8 @@
+{
+  "type": "hoshimimod:deep_frying",
+  "ingredient": {
+    "item": "minecraft:porkchop"
+  },
+  "cookingtime": 100,
+  "result": "hoshimimod:tonkatsu"
+}

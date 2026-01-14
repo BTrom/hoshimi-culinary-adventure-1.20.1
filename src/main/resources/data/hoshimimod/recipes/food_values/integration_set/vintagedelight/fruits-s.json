@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "vintagedelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "vintagedelight:gearo_berry"
+        ],
+        "values": {
+          "FRUIT": 0.5
+        }
+      }
+    }
+  ]
+}

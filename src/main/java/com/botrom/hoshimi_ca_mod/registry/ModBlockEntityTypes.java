@@ -1,18 +1,13 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.blocks.entities.StoveBlockEntity;
-import com.botrom.hoshimi_ca_mod.blocks.entities.CrabTrapBlockEntity;
-import com.botrom.hoshimi_ca_mod.blocks.entities.FeedingTroughBlockEntity;
-import com.botrom.hoshimi_ca_mod.blocks.entities.PetBowlBlockEntity;
-import com.botrom.hoshimi_ca_mod.blocks.entities.StorageBlockEntity;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.BasinBlockEntity;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.PizzaBlockEntity;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.PizzaStationBlockEntity;
-import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
+import com.botrom.hoshimi_ca_mod.blocks.entities.*;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.BasinBlockEntity;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.PizzaBlockEntity;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.PizzaStationBlockEntity;
+import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.StorageTypeRegistry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -52,6 +47,15 @@ public class ModBlockEntityTypes {
 
     public static final Supplier<BlockEntityType<StoveBlockEntity>> STOVE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("stove_block",
             () -> BlockEntityType.Builder.of(StoveBlockEntity::new, ModBlocks.STOVE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<DeepFryingPanEntity>> DEEP_FRYING_PAN = BLOCK_ENTITY_TYPES.register("deep_frying_pan",
+            () -> BlockEntityType.Builder.of(DeepFryingPanEntity::new, ModBlocks.DEEP_FRYING_PAN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CrockPotBlockEntity>> CROCK_POT_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("crock_pot",
+            () -> BlockEntityType.Builder.of(CrockPotBlockEntity::new, ModBlocks.CROCK_POT.get(), ModBlocks.PORTABLE_CROCK_POT.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BirdcageBlockEntity>> BIRDCAGE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("birdcage",
+            () -> BlockEntityType.Builder.of(BirdcageBlockEntity::new, ModBlocks.BIRDCAGE.get()).build(null));
 
 
 //    public static void register(IEventBus eventBus) {

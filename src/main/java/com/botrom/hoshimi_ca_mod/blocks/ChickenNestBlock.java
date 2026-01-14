@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.blocks;
 
-import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
+import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.StorageTypeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

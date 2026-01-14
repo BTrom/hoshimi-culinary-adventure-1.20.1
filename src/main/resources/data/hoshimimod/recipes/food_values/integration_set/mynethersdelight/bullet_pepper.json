@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mynethersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "mynethersdelight:bullet_pepper"
+        ],
+        "values": {
+          "FRUIT": 0.5
+        }
+      }
+    }
+  ]
+}

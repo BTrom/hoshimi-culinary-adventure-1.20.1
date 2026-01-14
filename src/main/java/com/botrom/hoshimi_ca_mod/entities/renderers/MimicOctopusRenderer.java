@@ -4,7 +4,7 @@ import com.botrom.hoshimi_ca_mod.entities.MimicOctopusEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.MimicOctopusModel;
 import com.botrom.hoshimi_ca_mod.registry.ModRenderTypes;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
-import com.botrom.hoshimi_ca_mod.utils.compat.AMMaths;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;

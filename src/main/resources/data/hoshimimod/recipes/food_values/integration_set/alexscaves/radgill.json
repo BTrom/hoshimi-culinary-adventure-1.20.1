@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "alexscaves"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "alexscaves:cooked_radgill",
+          "alexscaves:radgill"
+        ],
+        "values": {
+          "FISH": 1,
+          "MEAT": 0.5,
+          "MONSTER": 1
+        }
+      }
+    }
+  ]
+}

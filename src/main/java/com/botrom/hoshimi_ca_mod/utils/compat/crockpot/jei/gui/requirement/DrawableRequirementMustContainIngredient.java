@@ -1,0 +1,54 @@
+package com.botrom.hoshimi_ca_mod.utils.compat.crockpot.jei.gui.requirement;
+
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.cooking.requirement.RequirementMustContainIngredient;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.cooking.requirement.RequirementMustContainIngredientLessThan;
+import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.jei.JeiUtils;
+import com.google.common.collect.ImmutableList;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class DrawableRequirementMustContainIngredient extends AbstractDrawableRequirement<RequirementMustContainIngredient> {
+    public DrawableRequirementMustContainIngredient(RequirementMustContainIngredient requirement) {
+        super(requirement, Component.translatable(requirement.getQuantity() >= 4 ? "integration.hoshimimod.jei.crock_pot_cooking.requirement.eq" : "integration.hoshimimod.jei.crock_pot_cooking.requirement.ge", requirement.getQuantity()));
+    }
+
+    public DrawableRequirementMustContainIngredient(RequirementMustContainIngredient requirement, RequirementMustContainIngredientLessThan dummy) {
+        super(requirement, Component.translatable("integration.hoshimimod.jei.crock_pot_cooking.requirement.eq", requirement.getQuantity()));
+    }
+
+    @Override
+    public int getWidth() {
+        return 23 + Minecraft.getInstance().font.width(description);
+    }
+
+    @Override
+    public int getHeight() {
+        return 22;
+    }
+
+    @Override
+    public void draw(GuiGraphics guiGraphics, int xOffset, int yOffset) {
+        super.draw(guiGraphics, xOffset, yOffset);
+        guiGraphics.drawString(Minecraft.getInstance().font, description, xOffset + 20, yOffset + 7, 0, false);
+    }
+
+    @Override
+    public List<ItemStack> getInvisibleInputs() {
+        return ImmutableList.of();
+    }
+
+    @Override
+    public List<GuiItemStacksInfo> getGuiItemStacksInfos(int xOffset, int yOffset) {
+        Set<ItemStack> stacks = new TreeSet<>(Comparator.comparing(o -> ForgeRegistries.ITEMS.getKey(o.getItem())));
+        stacks.addAll(JeiUtils.getItemsFromIngredientWithoutEmptyTag(requirement.getIngredient()));
+        return ImmutableList.of(new GuiItemStacksInfo(ImmutableList.copyOf(stacks), xOffset + 3, yOffset + 3));
+    }
+}

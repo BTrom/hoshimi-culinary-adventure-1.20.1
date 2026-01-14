@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "thermal:frost_melon"
+        ],
+        "values": {
+          "FRUIT": 1,
+          "FROZEN": 1
+        }
+      }
+    }
+  ]
+}

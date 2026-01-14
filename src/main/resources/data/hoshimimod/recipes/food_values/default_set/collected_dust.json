@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:collected_dust"
+  ],
+  "values": {
+    "INEDIBLE": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ends_delight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "ends_delight:fried_dragon_egg",
+          "ends_delight:liquid_dragon_egg"
+        ],
+        "values": {
+          "EGG": 4
+        }
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -329,12 +330,74 @@ public class ModCreativeTabs {
                         output.accept(ModItems.COFFEE.get());
                         output.accept(ModItems.MILK_COFFEE.get());
                         output.accept(ModItems.COTTON_BOLL.get());
-                        output.accept(ModItems.SPRING_ROLLS.get());
                         output.accept(ModBlocks.CHERRY_BLOSSOM_CHEESECAKE.get());
                         output.accept(ModBlocks.CHOCOLATE_PANCAKES.get());
                         output.accept(ModBlocks.PANCAKES.get());
                         output.accept(ModBlocks.WILD_COFFEE.get());
                         output.accept(ModBlocks.WILD_COTTON.get());
+
+                        // Casualness Delight
+                        output.accept(ModBlocks.DEEP_FRYING_PAN.get());
+                        output.accept(ModItems.POTATO_SLICE.get());
+                        output.accept(ModItems.POTATO_CHIP.get());
+                        output.accept(ModItems.FISH_AND_CHIPS.get());
+                        output.accept(ModItems.RAW_SPRING_ROLL.get());
+                        output.accept(ModItems.SPRING_ROLL.get());
+                        output.accept(ModBlocks.SPRING_ROLL_MEDLEY.get());
+                        output.accept(ModItems.TONKATSU.get());
+                        output.accept(ModItems.RAW_FRIED_DUMPLING.get());
+                        output.accept(ModItems.FRIED_DUMPLING.get());
+                        output.accept(ModBlocks.PLATE_OF_FRIED_DUMPLING.get());
+                        output.accept(ModItems.BOWL_OF_FRIED_DUMPLING.get());
+
+                        // Crockpot
+                        output.accept(ModBlocks.CROCK_POT.get());
+                        output.accept(ModBlocks.PORTABLE_CROCK_POT.get());
+                        output.accept(ModBlocks.BIRDCAGE.get());
+                        output.accept(ModItems.ASPARAGUS.get());
+                        output.accept(ModItems.GARLIC.get());
+                        output.accept(ModItems.CHILI_PEPPER.get());
+                        output.accept(ModItems.ASPARAGUS_SEEDS.get());
+                        output.accept(ModItems.GARLIC_SEEDS.get());
+                        output.accept(ModItems.UNKNOWN_SEEDS.get());
+//                        output.accept(ModItems.PARROT_EGG_RED_BLUE.get());
+//                        output.accept(ModItems.PARROT_EGG_BLUE.get());
+//                        output.accept(ModItems.PARROT_EGG_GREEN.get());
+//                        output.accept(ModItems.PARROT_EGG_YELLOW_BLUE.get());
+//                        output.accept(ModItems.PARROT_EGG_GRAY.get());
+                        ModItems.PARROT_EGGS.values().forEach(item -> {
+                            output.accept(item.get());
+                        });
+                        output.accept(ModItems.CROCK_POT_UPGRADE_SMITHING_TEMPLATE.get());
+                        output.accept(ModItems.HOGLIN_NOSE.get());
+                        output.accept(ModItems.COOKED_HOGLIN_NOSE.get());
+                        output.accept(ModItems.SYRUP.get());
+                        output.accept(ModItems.NETHEROSIA.get());
+                        output.accept(ModBlocks.BACON_EGGS.get());
+                        output.accept(ModBlocks.BONE_SOUP.get());
+                        output.accept(ModBlocks.BONE_STEW.get());
+                        output.accept(ModBlocks.BREAKFAST_SKILLET.get());
+                        output.accept(ModBlocks.BUNNY_STEW.get());
+                        output.accept(ModBlocks.CALIFORNIA_ROLL.get());
+                        output.accept(ModBlocks.CEVICHE.get());
+                        output.accept(ModBlocks.GLOW_BERRY_MOUSSE.get());
+                        output.accept(ModBlocks.HONEY_NUGGETS.get());
+                        output.accept(ModBlocks.HOT_CHILI.get());
+                        output.accept(ModBlocks.ICED_TEA.get());
+                        output.accept(ModBlocks.JAMMY_PRESERVES.get());
+                        output.accept(ModBlocks.MEAT_BALLS.get());
+                        output.accept(ModBlocks.MONSTER_LASAGNA.get());
+                        output.accept(ModBlocks.MONSTER_TARTARE.get());
+                        output.accept(ModBlocks.PEPPER_POPPER.get());
+                        output.accept(ModBlocks.PIEROGI.get());
+                        output.accept(ModBlocks.POTATO_TORNADO.get());
+                        output.accept(ModBlocks.RATATOUILLE.get());
+                        output.accept(ModBlocks.SALMON_SUSHI.get());
+                        output.accept(ModBlocks.STEAMED_STICKS.get());
+                        output.accept(ModBlocks.STUFFED_EGGPLANT.get());
+                        output.accept(ModBlocks.SURF_N_TURF.get());
+                        output.accept(ModBlocks.WATERMELON_ICLE.get());
+                        output.accept(ModBlocks.WET_GOOP.get());
                     })
                     .build());
 

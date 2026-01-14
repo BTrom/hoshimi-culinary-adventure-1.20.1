@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "minecraft:bamboo"
+  ],
+  "values": {
+    "INEDIBLE": 1
+  }
+}

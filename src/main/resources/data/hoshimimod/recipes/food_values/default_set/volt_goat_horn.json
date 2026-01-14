@@ -1,0 +1,9 @@
+{
+  "type": "hoshimimod:food_values",
+  "items": [
+    "hoshimimod:volt_goat_horn"
+  ],
+  "values": {
+    "INEDIBLE": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "hoshimimod:food_values",
+  "tags": [
+    "forge:butter",
+    "forge:butters",
+    "forge:milk"
+  ],
+  "values": {
+    "DAIRY": 1
+  }
+}

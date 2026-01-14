@@ -3,8 +3,6 @@ package com.botrom.hoshimi_ca_mod.registry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -33,11 +31,9 @@ public class ModFoods
     public static final FoodProperties PINEAPPLE = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
     public static final FoodProperties OLIVE = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
     public static final FoodProperties LIME = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 200, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 200, 0), 1F).build();
     public static final FoodProperties DRAGON_FRUIT = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 400, 0, false, false, true), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 400, 0, false, false, true), 1F).build();
 
     //Slices
     public static final FoodProperties CUT_AVOCADO = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).fast().build();
@@ -50,29 +46,25 @@ public class ModFoods
     public static final FoodProperties TOMATO_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
     public static final FoodProperties MUSHROOM_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
     public static final FoodProperties LIME_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.2F).fast()
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 100, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 100, 0), 1F).build();
     public static final FoodProperties POMEGRANATE_SLICE = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 200, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 200, 0), 1F).build();
     public static final FoodProperties PANETTONE_SLICE = new FoodProperties.Builder().nutrition(8).saturationMod(0.75F).fast().build();
     public static final FoodProperties MUSHROOM_QUICHE_SLICE = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).build();
     public static final FoodProperties LIME_PIE_SLICE = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F).fast()
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 300, 1), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 300, 1), 1F).build();
     public static final FoodProperties POMEGRANATE_CAKE_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).fast()
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0), 1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 300, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 300, 0), 1F).build();
     public static final FoodProperties DRAGON_FRUIT_CAKE_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).fast()
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0), 1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 300, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 300, 0), 1F).build();
     public static final FoodProperties PLATINUM_BASS_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).build();
     public static final FoodProperties COOKED_PLATINUM_BASS_SLICE = new FoodProperties.Builder().nutrition(4).saturationMod(0.85F).build();
     public static final FoodProperties COCONUT_HALF = new FoodProperties.Builder().nutrition(2).saturationMod(0.4f).build();
     public static final FoodProperties RAW_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).meat().fast().build();
     public static final FoodProperties COOKED_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).meat().fast().build();
+    public static final FoodProperties POTATO_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
 
 
     //Meats
@@ -103,6 +95,7 @@ public class ModFoods
     public static final FoodProperties COOKED_LOBSTER_TAIL = new FoodProperties.Builder().nutrition(6).saturationMod(0.65F).meat().build();
     public static final FoodProperties RAW_CATFISH = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).meat().build();
     public static final FoodProperties COOKED_CATFISH = new FoodProperties.Builder().nutrition(5).saturationMod(0.5F).meat().build();
+    public static final FoodProperties TONKATSU = new FoodProperties.Builder().nutrition(8).saturationMod(0.85F).build();
 
 
     //Smoked
@@ -121,10 +114,13 @@ public class ModFoods
     public static final FoodProperties CHEESE = new FoodProperties.Builder().nutrition(4).saturationMod(1.6F).build();
     public static final FoodProperties JAM_JAR = new FoodProperties.Builder().nutrition(5).saturationMod(0.3F).build();
     public static final FoodProperties CREAM_CHEESE = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 400, 1), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 400, 1), 1F).build();
     public static final FoodProperties COCONUT_MILK = new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(0.5f).build();
     public static final FoodProperties RAINBOW_JELLY = new FoodProperties.Builder().nutrition(1).saturationMod(0.2F).build();
+    public static final FoodProperties RAW_SPRING_ROLL = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.8F).build();
+    public static final FoodProperties RAW_FRIED_DUMPLING = new FoodProperties.Builder().nutrition(6).saturationMod(0.5F)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 900, 0), 1F).build();
 
 
     //Meals
@@ -334,7 +330,14 @@ public class ModFoods
     public static final FoodProperties PANCAKE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).build();
     public static final FoodProperties CHOCOLATE_PANCAKE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 900, 0, false, false), 1.0F).build();
-    public static final FoodProperties SPRING_ROLLS = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).build();
+    public static final FoodProperties FISH_AND_CHIPS = new FoodProperties.Builder().nutrition(14).saturationMod(0.5F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(),6000,0), 1).build();
+    public static final FoodProperties POTATO_CHIP = new FoodProperties.Builder().nutrition(4).saturationMod(1.0F).fast().build();
+    public static final FoodProperties SPRING_ROLL = new FoodProperties.Builder().nutrition(6).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 600, 0), 1).build();
+    public static final FoodProperties FRIED_DUMPLING = new FoodProperties.Builder().nutrition(16).saturationMod(0.7F)
+            .effect(()->new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1).build();
+    public static final FoodProperties BOWL_OF_FRIED_DUMPLING = new FoodProperties.Builder().nutrition(4).saturationMod(0.7F).build();
 
 
 

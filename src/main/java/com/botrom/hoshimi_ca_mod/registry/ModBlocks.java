@@ -2,15 +2,12 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.*;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.*;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blocks.crops.SimpleCropBlock;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.*;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.crops.SimpleCropBlock;
 import com.botrom.hoshimi_ca_mod.worldgen.tree.PalmTreeGrower;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,6 +22,7 @@ import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
+import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -71,6 +69,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> STRAWBERRY_CROP = registerBlockWithoutBlockItem("strawberry_crop", () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> COTTON_CROP = BLOCKS.register("cotton", () -> new CottonCropBlock(BlockBehaviour.Properties.copy(Blocks.CARROTS).noOcclusion().noCollission()));
     public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee", () -> new CoffeeCropBlock(BlockBehaviour.Properties.copy(Blocks.CARROTS).noOcclusion().noCollission()));
+    public static final RegistryObject<Block> UNKNOWN_CROPS = BLOCKS.register("unknown_crops", UnknownCropsBlock::new);
+    public static final RegistryObject<Block> ASPARAGUS = BLOCKS.register("asparaguses", () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
 
     // Saplings
@@ -98,7 +98,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> STOVE = registerBlock("stove", () -> new StoveBlock(BlockBehaviour.Properties.copy(Blocks.BRICKS).lightLevel(state -> state.getValue(StoveBlock.LIT) ? 13 : 0)));
     public static final RegistryObject<Block> DOG_FOOD_BAG = registerBlock("dog_food_bag", () -> new StackableBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET), 3));
     public static final RegistryObject<Block> CAT_FOOD_BAG = registerBlock("cat_food_bag", () -> new StackableBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CARPET), 3));
-    public static final RegistryObject<Block> COTTON_BOLL_CRATE = BLOCKS.register("cotton_boll_crate", () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> COTTON_BOLL_CRATE = registerBlock("cotton_boll_crate", () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DEEP_FRYING_PAN = registerBlock("deep_frying_pan", () -> new DeepFryingPan(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> CROCK_POT = BLOCKS.register("crock_pot", () -> new CrockPotBlock(0));
+    public static final RegistryObject<Block> PORTABLE_CROCK_POT = BLOCKS.register("portable_crock_pot", () -> new CrockPotBlock(1));
+    public static final RegistryObject<Block> BIRDCAGE = BLOCKS.register("birdcage", BirdcageBlock::new);
 
 
     // Meal Blocks
@@ -121,6 +125,34 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHERRY_BLOSSOM_CHEESECAKE = registerBlockWithoutBlockItem("cherry_blossom_cheesecake", () -> new PieBlock(Block.Properties.copy(Blocks.CAKE), ModItems.CHERRY_BLOSSOM_CHEESECAKE_SLICE));
     public static final RegistryObject<Block> PANCAKES = registerBlockWithoutBlockItem("pancakes", () -> new PancakeBlock(ModItems.PANCAKE, Block.Properties.copy(Blocks.CAKE).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> CHOCOLATE_PANCAKES = BLOCKS.register("chocolate_pancakes", () -> new PancakeBlock(ModItems.CHOCOLATE_PANCAKE, Block.Properties.copy(Blocks.CAKE).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SPRING_ROLL_MEDLEY = BLOCKS.register("spring_roll_medley", () -> new SpringRollMedley(Block.Properties.copy(Blocks.CAKE)));
+    public static final RegistryObject<Block> PLATE_OF_FRIED_DUMPLING = BLOCKS.register("plate_of_fried_dumpling", () -> new PlateOfFriedDumpling(Block.Properties.copy(Blocks.CAKE)));
+    public static final RegistryObject<Block> BACON_EGGS = BLOCKS.register("bacon_eggs", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> BONE_SOUP = BLOCKS.register("bone_soup", () -> CrockPotStackableFoodBlock.of(3));
+    public static final RegistryObject<Block> BONE_STEW = BLOCKS.register("bone_stew", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.LANTERN), 3));
+    public static final RegistryObject<Block> BREAKFAST_SKILLET = BLOCKS.register("breakfast_skillet", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.LANTERN), 3));
+    public static final RegistryObject<Block> BUNNY_STEW = BLOCKS.register("bunny_stew", () -> CrockPotStackableFoodBlock.of(3));
+    public static final RegistryObject<Block> CALIFORNIA_ROLL = BLOCKS.register("california_roll", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOL), 3));
+    public static final RegistryObject<Block> CEVICHE = BLOCKS.register("ceviche", () -> CrockPotStackableFoodBlock.of(3));
+    public static final RegistryObject<Block> GLOW_BERRY_MOUSSE = BLOCKS.register("glow_berry_mousse", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK), 3));
+    public static final RegistryObject<Block> HONEY_NUGGETS = BLOCKS.register("honey_nuggets", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> HOT_CHILI = BLOCKS.register("hot_chili", () -> CrockPotStackableFoodBlock.of(3));
+    public static final RegistryObject<Block> ICED_TEA = BLOCKS.register("iced_tea", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.GLASS), 3));
+    public static final RegistryObject<Block> JAMMY_PRESERVES = BLOCKS.register("jammy_preserves", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK), 3));
+    public static final RegistryObject<Block> MEAT_BALLS = BLOCKS.register("meat_balls", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> MONSTER_LASAGNA = BLOCKS.register("monster_lasagna", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK), 3));
+    public static final RegistryObject<Block> MONSTER_TARTARE = BLOCKS.register("monster_tartare", () -> CrockPotStackableFoodBlock.of(3));
+    public static final RegistryObject<Block> PEPPER_POPPER = BLOCKS.register("pepper_popper", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> PIEROGI = BLOCKS.register("pierogi", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> POTATO_TORNADO = BLOCKS.register("potato_tornado", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> RATATOUILLE = BLOCKS.register("ratatouille", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.LANTERN), 3));
+    public static final RegistryObject<Block> SALMON_SUSHI = BLOCKS.register("salmon_sushi", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOL), 3));
+    public static final RegistryObject<Block> STEAMED_STICKS = BLOCKS.register("steamed_sticks", () -> new CrockPotFoodBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STUFFED_EGGPLANT = BLOCKS.register("stuffed_eggplant", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.SWEET_BERRY_BUSH), 3));
+    public static final RegistryObject<Block> SURF_N_TURF = BLOCKS.register("surf_n_turf", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.WOOD), 3));
+    public static final RegistryObject<Block> WATERMELON_ICLE = BLOCKS.register("watermelon_icle", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.GLASS), 3));
+    public static final RegistryObject<Block> WET_GOOP = BLOCKS.register("wet_goop", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK), 3));
+    public static final RegistryObject<Block> NETHEROSIA = BLOCKS.register("netherosia", CrockPotFoodBlock::new);
 
 
     // Tree Blocks

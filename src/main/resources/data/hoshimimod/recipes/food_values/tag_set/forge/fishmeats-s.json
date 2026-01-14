@@ -1,0 +1,10 @@
+{
+  "type": "hoshimimod:food_values",
+  "tags": [
+    "forge:crab_meats"
+  ],
+  "values": {
+    "FISH": 0.5,
+    "MEAT": 0.5
+  }
+}

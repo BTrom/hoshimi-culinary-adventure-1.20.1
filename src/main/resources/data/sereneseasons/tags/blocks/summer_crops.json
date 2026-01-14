@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:corns",
+    "hoshimimod:garlics",
+    "hoshimimod:peppers",
+    "hoshimimod:tomatoes",
+    "hoshimimod:unknown_crops"
+  ]
+}

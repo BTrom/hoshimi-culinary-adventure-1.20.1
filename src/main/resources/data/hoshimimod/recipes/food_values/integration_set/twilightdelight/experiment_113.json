@@ -1,0 +1,23 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightdelight"
+        }
+      ],
+      "recipe": {
+        "type": "hoshimimod:food_values",
+        "items": [
+          "twilightdelight:experiment_113"
+        ],
+        "values": {
+          "MEAT": 1,
+          "MONSTER": 1
+        }
+      }
+    }
+  ]
+}

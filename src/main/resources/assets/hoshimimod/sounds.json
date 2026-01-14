@@ -188,5 +188,35 @@
     "sounds": [
       "minecraft:mob/wolf/death"
     ]
+  },
+  "block/crock_pot_close": {
+    "sounds": [
+      "hoshimimod:block/crock_pot_close"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.crock_pot.close"
+  },
+  "block/crock_pot_finish": {
+    "sounds": [
+      "hoshimimod:block/crock_pot_finish"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.crock_pot.finish"
+  },
+  "block/crock_pot_open": {
+    "sounds": [
+      "hoshimimod:block/crock_pot_open"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.crock_pot.open"
+  },
+  "block/crock_pot_rattle": {
+    "sounds": [
+      "hoshimimod:block/crock_pot_rattle_1",
+      "hoshimimod:block/crock_pot_rattle_2",
+      "hoshimimod:block/crock_pot_rattle_3",
+      "hoshimimod:block/crock_pot_rattle_4",
+      "hoshimimod:block/crock_pot_rattle_5",
+      "hoshimimod:block/crock_pot_rattle_6",
+      "hoshimimod:block/crock_pot_rattle_7"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.crock_pot.rattle"
   }
 }

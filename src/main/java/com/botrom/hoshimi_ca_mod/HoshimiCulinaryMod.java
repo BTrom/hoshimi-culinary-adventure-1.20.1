@@ -1,33 +1,33 @@
 package com.botrom.hoshimi_ca_mod;
 
 import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
-import com.botrom.hoshimi_ca_mod.entities.renderers.ChickenNestRenderer;
 import com.botrom.hoshimi_ca_mod.entities.renderers.ShibaRenderer;
-import com.botrom.hoshimi_ca_mod.entities.renderers.StorageBlockEntityRenderer;
+import com.botrom.hoshimi_ca_mod.entities.renderers.EmptyRenderer;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
+import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
 import com.botrom.hoshimi_ca_mod.gui.StoveGui;
-import com.botrom.hoshimi_ca_mod.pizzacraft.blockentity.content.BasinContent;
-import com.botrom.hoshimi_ca_mod.pizzacraft.config.PizzaCraftConfig;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.gui.ScreenPizza;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.gui.ScreenPizzaStation;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.BasinRenderer;
-import com.botrom.hoshimi_ca_mod.pizzacraft.client.renderer.PizzaRenderer;
-import com.botrom.hoshimi_ca_mod.pizzacraft.init.PizzaLayers;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.content.BasinContent;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.config.PizzaCraftConfig;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.gui.ScreenPizza;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.gui.ScreenPizzaStation;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.renderer.BasinRenderer;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.renderer.PizzaRenderer;
+import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.init.PizzaLayers;
 import com.botrom.hoshimi_ca_mod.registry.*;
 import com.botrom.hoshimi_ca_mod.utils.CommonProxy;
 import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
 import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
-import com.botrom.hoshimi_ca_mod.utils.compat.MessageHurtMultipart;
-import com.botrom.hoshimi_ca_mod.utils.compat.MessageInteractMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageHurtMultipart;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageInteractMultipart;
 import com.botrom.hoshimi_ca_mod.utils.compat.QuarkModelHandler;
-import com.botrom.hoshimi_ca_mod.utils.compat.StorageTypeRegistry;
 import com.botrom.hoshimi_ca_mod.worldgen.AMMobSpawnBiomeModifier;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.world.BiomeModifier;
@@ -74,11 +74,11 @@ public class HoshimiCulinaryMod {
         modEventBus.register(new ClientEvents());
 
         ModEntities.ENTITIES.register(modEventBus);
-        ModItems.ITEMS.register(modEventBus);
+        ModEffects.EFFECTS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         ModParticleTypes.PARTICLE_TYPES.register(modEventBus);
-        ModEffects.EFFECTS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
@@ -139,6 +139,7 @@ public class HoshimiCulinaryMod {
         MenuScreens.register(ModMenuTypes.PIZZA_STATION.get(), ScreenPizzaStation::new);
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CRAB_TRAP_MENU.get(), CrabTrapGUI::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new));
+        event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CROCK_POT_MENU_TYPE.get(), CrockPotScreen::new));
 
         //BlockEntityRenderers
         BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);
@@ -195,6 +196,8 @@ public class HoshimiCulinaryMod {
     private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         // register entity renderer
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
+        event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
+        event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
         LOGGER.info("Registered Shiba entity renderer");
     }
 }
