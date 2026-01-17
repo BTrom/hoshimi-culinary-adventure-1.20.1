@@ -1,19 +1,11 @@
 package com.botrom.hoshimi_ca_mod.events;
 
-import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
-import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
-import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
-import com.botrom.hoshimi_ca_mod.effects.particle.SurgeParticle;
 import com.botrom.hoshimi_ca_mod.entities.models.*;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
-import com.botrom.hoshimi_ca_mod.registry.ModEntities;
-import com.botrom.hoshimi_ca_mod.registry.ModParticleTypes;
 import com.botrom.hoshimi_ca_mod.utils.BlueprintDataUtils;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -21,9 +13,7 @@ import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegistryObject;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -60,6 +50,7 @@ public class ClientEvents {
 		e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
 		e.registerLayerDefinition(FiddlerCrabModel.LAYER_LOCATION, FiddlerCrabModel::createBodyLayer);
 		e.registerLayerDefinition(new ModelLayerLocation(Utils.createResourceLocation("shiba"), "main"), ShibaModel::createBodyLayer);
+//		e.registerLayerDefinition(ChesterRenderer.LAYER_LOCATION, ChesterModel::create);
 	}
 
 

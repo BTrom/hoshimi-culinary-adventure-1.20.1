@@ -1,6 +1,8 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.utils.compat.chester.OpenChesterScreenPacket;
+import com.botrom.hoshimi_ca_mod.utils.compat.chester.SitNearbyChesterPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.PacketFoodCounter;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.network.ServerboundRenamePizzaPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.SyncSaturationPacket;
@@ -18,14 +20,12 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.util.Objects;
 
-public class ModNetwork
-{
+public class ModNetwork {
     public static final ResourceLocation CHANNEL_NAME = new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "network");
     public static final String NETWORK_VERSION = new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "1").toString();
     public static final ResourceLocation SYNC_SATURATION = new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "sync_saturation");
 
-    public static SimpleChannel registerNetworkChannel()
-    {
+    public static SimpleChannel registerNetworkChannel() {
         final SimpleChannel channel = NetworkRegistry.ChannelBuilder.named(CHANNEL_NAME)
                 .clientAcceptedVersions(version -> true)
                 .serverAcceptedVersions(version -> true)
@@ -44,6 +44,17 @@ public class ModNetwork
                 .decoder(PacketFoodCounter::deserialize)
                 .encoder(PacketFoodCounter::serialize)
                 .consumerMainThread(PacketFoodCounter::handle)
+                .add();
+
+        channel.messageBuilder(OpenChesterScreenPacket.class, 2)
+                .decoder(OpenChesterScreenPacket::new)
+                .encoder(OpenChesterScreenPacket::encode)
+                .consumerMainThread(OpenChesterScreenPacket.Handler::onMessage)
+                .add();
+        channel.messageBuilder(SitNearbyChesterPacket.class, 3)
+                .decoder(SitNearbyChesterPacket::new)
+                .encoder(SitNearbyChesterPacket::encode)
+                .consumerMainThread(SitNearbyChesterPacket.Handler::onMessage)
                 .add();
 
         return channel;

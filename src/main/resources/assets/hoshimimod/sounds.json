@@ -189,6 +189,85 @@
       "minecraft:mob/wolf/death"
     ]
   },
+  "entity/chester_idle": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_idle_1",
+      "hoshimimod:entity/chester_idle_2",
+      "hoshimimod:entity/chester_idle_3",
+      "hoshimimod:entity/chester_idle_4",
+      "hoshimimod:entity/chester_idle_5",
+      "hoshimimod:entity/chester_idle_6",
+      "hoshimimod:entity/chester_idle_7",
+      "hoshimimod:entity/chester_idle_8",
+      "hoshimimod:entity/chester_idle_9",
+      "hoshimimod:entity/chester_idle_10",
+      "hoshimimod:entity/chester_idle_11",
+      "hoshimimod:entity/chester_idle_12",
+      "hoshimimod:entity/chester_idle_13",
+      "hoshimimod:entity/chester_idle_14",
+      "hoshimimod:entity/chester_idle_15",
+      "hoshimimod:entity/chester_idle_16",
+      "hoshimimod:entity/chester_idle_17",
+      "hoshimimod:entity/chester_idle_18"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_idle"
+  },
+  "entity/chester_jump": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_jump_1",
+      "hoshimimod:entity/chester_jump_2",
+      "hoshimimod:entity/chester_jump_3",
+      "hoshimimod:entity/chester_jump_4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_jump"
+  },
+  "entity/chester_hurt": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_hurt_1",
+      "hoshimimod:entity/chester_hurt_2",
+      "hoshimimod:entity/chester_hurt_3",
+      "hoshimimod:entity/chester_hurt_4",
+      "hoshimimod:entity/chester_hurt_5",
+      "hoshimimod:entity/chester_hurt_6",
+      "hoshimimod:entity/chester_hurt_7",
+      "hoshimimod:entity/chester_hurt_8"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_hurt"
+  },
+  "entity/chester_death": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_death_1",
+      "hoshimimod:entity/chester_death_2",
+      "hoshimimod:entity/chester_death_3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_death"
+  },
+  "entity/chester_open_mouth": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_open_mouth_1",
+      "hoshimimod:entity/chester_open_mouth_2",
+      "hoshimimod:entity/chester_open_mouth_3",
+      "hoshimimod:entity/chester_open_mouth_4",
+      "hoshimimod:entity/chester_open_mouth_5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_open_mouth"
+  },
+  "entity/chester_close_mouth": {
+    "category": "neutral",
+    "sounds": [
+      "hoshimimod:entity/chester_close_mouth_1",
+      "hoshimimod:entity/chester_close_mouth_2",
+      "hoshimimod:entity/chester_close_mouth_3",
+      "hoshimimod:entity/chester_close_mouth_4",
+      "hoshimimod:entity/chester_close_mouth_5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.chester_close_mouth"
+  },
   "block/crock_pot_close": {
     "sounds": [
       "hoshimimod:block/crock_pot_close"

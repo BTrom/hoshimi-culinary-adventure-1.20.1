@@ -103,6 +103,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CROCK_POT = BLOCKS.register("crock_pot", () -> new CrockPotBlock(0));
     public static final RegistryObject<Block> PORTABLE_CROCK_POT = BLOCKS.register("portable_crock_pot", () -> new CrockPotBlock(1));
     public static final RegistryObject<Block> BIRDCAGE = BLOCKS.register("birdcage", BirdcageBlock::new);
+    public static final RegistryObject<Block> EYE_BONE = BLOCKS.register("eye_bone", EyeBoneBlock::new);
 
 
     // Meal Blocks

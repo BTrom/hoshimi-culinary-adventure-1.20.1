@@ -1,0 +1,121 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.eye_bone.idle": {
+			"loop": true,
+			"animation_length": 24,
+			"bones": {
+				"pupil": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.5": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, -1, 0],
+							"easing": "easeOutExpo"
+						},
+						"3.5": {
+							"vector": [0, -1, 0],
+							"easing": "easeOutExpo"
+						},
+						"4.0": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"5.5": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"6.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"7.5": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"7.5417": {
+							"vector": [0, -1, 0],
+							"easing": "easeOutExpo"
+						},
+						"9.5": {
+							"vector": [0, -1, 0]
+						},
+						"10.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"11.5": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"12.0": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"13.5": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"14.0": {
+							"vector": [0, 0, -2],
+							"easing": "easeOutExpo"
+						},
+						"15.5": {
+							"vector": [0, 0, -2],
+							"easing": "easeOutExpo"
+						},
+						"15.5833": {
+							"vector": [0, 0, -2],
+							"easing": "easeOutExpo"
+						},
+						"17.5": {
+							"vector": [0, 0, -2],
+							"easing": "easeOutExpo"
+						},
+						"18.0": {
+							"vector": [0, -1, 0],
+							"easing": "easeOutExpo"
+						},
+						"19.5": {
+							"vector": [0, -1, 0],
+							"easing": "easeOutExpo"
+						},
+						"20.0": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"21.5": {
+							"vector": [0, -1, -2],
+							"easing": "easeOutExpo"
+						},
+						"22.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"23.5": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						},
+						"23.5417": {
+							"vector": [0, 0, 0],
+							"easing": "easeOutExpo"
+						}
+					}
+				}
+			},
+			"timeline": {
+				"7.5": "close",
+				"7.8333": "open",
+				"15.5": "close",
+				"15.8333": "open",
+				"23.5": "close",
+				"23.8333": "open"
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

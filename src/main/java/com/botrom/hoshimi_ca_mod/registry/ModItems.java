@@ -140,6 +140,7 @@ public class ModItems {
     public static final RegistryObject<Item> WATERMELON_ICLE = ITEMS.register("watermelon_icle", () -> new CrockPotFoodBlockItem(ModBlocks.WATERMELON_ICLE.get(), CrockPotFoodProperties.builder(5, 0.4F).duration(FoodUseDuration.FAST).effect(MobEffects.MOVEMENT_SPEED, 3 * 60 * 20).effect(MobEffects.JUMP, 3 * 60 * 20).removeEffect(MobEffects.MOVEMENT_SLOWDOWN).build()));
     public static final RegistryObject<Item> WET_GOOP = ITEMS.register("wet_goop", () -> new CrockPotFoodBlockItem(ModBlocks.WET_GOOP.get(), CrockPotFoodProperties.builder().duration(FoodUseDuration.SUPER_SLOW).alwaysEat().effect(MobEffects.CONFUSION, 10 * 20).tooltip("wet_goop", ChatFormatting.DARK_AQUA).build()));
     public static final RegistryObject<Item> NETHEROSIA = ITEMS.register("netherosia", NetherosiaItem::new);
+    public static final RegistryObject<Item> EYE_BONE = ITEMS.register("eye_bone", () -> new EyeBoneBlockItem(new Item.Properties()));
 
 
     //Seeds
@@ -423,6 +424,8 @@ public class ModItems {
     public static final RegistryObject<Item> MIMIC_OCTOPUS_SPAWN_EGG = ITEMS.register("mimic_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MIMIC_OCTOPUS, 0XFFEBDC,0X1D1C1F, new Item.Properties()));
     public static final RegistryObject<Item> SEAGULL_SPAWN_EGG = ITEMS.register("seagull_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SEAGULL, 0XC9D2DC,0XFFD850, new Item.Properties()));
     public static final RegistryObject<Item> SHIBA_SPAWN_EGG = ITEMS.register("shiba_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIBA, 0xa86741, 0xe8d5b6, new Item.Properties()));
+    public static final RegistryObject<Item> CHESTER_SPAWN_EGG = ITEMS.register("chester_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CHESTER, 0xd48f43, 0x942020, new Item.Properties()));
+
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
 //    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9, new Item.Properties()));

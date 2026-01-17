@@ -1,0 +1,35 @@
+package com.botrom.hoshimi_ca_mod.gui;
+
+import com.botrom.hoshimi_ca_mod.entities.Chester;
+import com.botrom.hoshimi_ca_mod.utils.compat.chester.ChesterMenu;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+
+public class ChesterScreen extends AbstractContainerScreen<ChesterMenu> {
+	private static final ResourceLocation CONTAINER_BACKGROUND = new ResourceLocation("textures/gui/container/generic_54.png");
+	private final int containerRows;
+
+	public ChesterScreen(ChesterMenu menu, Inventory inventory, Chester entity) {
+		super(menu, inventory, entity.getDisplayName());
+		this.containerRows = 3;
+		this.imageHeight = 114 + this.containerRows * 18;
+		this.inventoryLabelY = this.imageHeight - 94;
+	}
+
+	@Override
+	public void render(GuiGraphics graphics, int x, int y, float partialTicks) {
+		this.renderBackground(graphics);
+		super.render(graphics, x, y, partialTicks);
+		this.renderTooltip(graphics, x, y);
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics graphics, float partialTicks, int x, int y) {
+		int i = (this.width - this.imageWidth) / 2;
+		int j = (this.height - this.imageHeight) / 2;
+		graphics.blit(CONTAINER_BACKGROUND, i, j, 0, 0, this.imageWidth, this.containerRows * 18 + 17);
+		graphics.blit(CONTAINER_BACKGROUND, i, j + this.containerRows * 18 + 17, 0, 126, this.imageWidth, 96);
+	}
+}

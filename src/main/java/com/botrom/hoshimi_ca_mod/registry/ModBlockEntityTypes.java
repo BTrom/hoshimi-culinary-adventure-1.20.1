@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 public class ModBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, HoshimiCulinaryMod.MOD_ID);
 
+
     public static final RegistryObject<BlockEntityType<PizzaBlockEntity>> PIZZA = BLOCK_ENTITY_TYPES.register("pizza",
             () -> BlockEntityType.Builder.of(PizzaBlockEntity::new, ModBlocks.RAW_PIZZA.get(), ModBlocks.PIZZA.get()).build(null));
 
@@ -30,8 +31,7 @@ public class ModBlockEntityTypes {
                     ModBlocks.BLACKSTONE_BASIN.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<PizzaStationBlockEntity>> PIZZA_STATION = BLOCK_ENTITY_TYPES.register("pizza_station",
-            () -> BlockEntityType.Builder.of(PizzaStationBlockEntity::new,
-                    ModBlocks.PIZZA_STATION.get()).build(null));
+            () -> BlockEntityType.Builder.of(PizzaStationBlockEntity::new, ModBlocks.PIZZA_STATION.get()).build(null));
 
     public static final Supplier<BlockEntityType<CrabTrapBlockEntity>> CRAB_TRAP = BLOCK_ENTITY_TYPES.register("crab_trap",
             () -> BlockEntityType.Builder.of(CrabTrapBlockEntity::new, new Block[]{ModBlocks.CRAB_TRAP.get()}).build(null));
@@ -56,6 +56,10 @@ public class ModBlockEntityTypes {
 
     public static final RegistryObject<BlockEntityType<BirdcageBlockEntity>> BIRDCAGE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("birdcage",
             () -> BlockEntityType.Builder.of(BirdcageBlockEntity::new, ModBlocks.BIRDCAGE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EyeBoneBlockEntity>> EYE_BONE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("eye_bone",
+            () -> BlockEntityType.Builder.of(EyeBoneBlockEntity::new, ModBlocks.EYE_BONE.get()).build(null));
+
 
 
 //    public static void register(IEventBus eventBus) {

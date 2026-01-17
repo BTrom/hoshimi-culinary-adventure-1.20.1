@@ -1,6 +1,5 @@
 package com.botrom.hoshimi_ca_mod.entities;
 
-import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.entities.ai.*;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -12,7 +11,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -39,7 +37,6 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.UUID;
 
 public class Shiba extends TamableAnimal {
 
@@ -65,7 +62,7 @@ public class Shiba extends TamableAnimal {
 		goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
 		goalSelector.addGoal(7, new TemptGoal(this, 1, Ingredient.of(Items.BONE), false));
 		goalSelector.addGoal(8, new BreedGoal(this, 1.0D));
-		goalSelector.addGoal(9, new NuzzleGoal(this, 0.5F, 16, 2, ModSounds.ENTITY_SHIBA_WHINE.get()));
+		goalSelector.addGoal(9, new NuzzleGoal(this, 0.5F, 16, 2, ModSounds.SHIBA_WHINE.get()));
 		goalSelector.addGoal(10, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		goalSelector.addGoal(12, new RandomLookAroundGoal(this));
@@ -279,7 +276,7 @@ public class Shiba extends TamableAnimal {
 					if(player.level() instanceof ServerLevel serverLevel) {
 						Vec3 pos = position();
 						serverLevel.sendParticles(ParticleTypes.HEART, pos.x, pos.y + 0.5, pos.z, 1, 0, 0, 0, 0.1);
-						playSound(ModSounds.ENTITY_SHIBA_WHINE.get(), 0.6F, 0.5F + (float) Math.random() * 0.5F);
+						playSound(ModSounds.SHIBA_WHINE.get(), 0.6F, 0.5F + (float) Math.random() * 0.5F);
 					}
 					setMouthItem(ItemStack.EMPTY);
 					return InteractionResult.CONSUME;
@@ -362,25 +359,25 @@ public class Shiba extends TamableAnimal {
 
 	@Override
 	protected void playStepSound(@NotNull BlockPos pos, @NotNull BlockState blockIn) {
-		playSound(ModSounds.ENTITY_SHIBA_STEP.get(), 0.15F, 1.0F);
+		playSound(ModSounds.SHIBA_STEP.get(), 0.15F, 1.0F);
 	}
 
 	@Override
 	protected SoundEvent getAmbientSound() {
 		if(random.nextInt(3) == 0)
-			return (getHealth() / getMaxHealth()) < 0.5f ? ModSounds.ENTITY_SHIBA_WHINE.get() : ModSounds.ENTITY_SHIBA_PANT.get();
+			return (getHealth() / getMaxHealth()) < 0.5f ? ModSounds.SHIBA_WHINE.get() : ModSounds.SHIBA_PANT.get();
 		else
-			return ModSounds.ENTITY_SHIBA_AMBIENT.get();
+			return ModSounds.SHIBA_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(@NotNull DamageSource damageSourceIn) {
-		return ModSounds.ENTITY_SHIBA_HURT.get();
+		return ModSounds.SHIBA_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return ModSounds.ENTITY_SHIBA_DEATH.get();
+		return ModSounds.SHIBA_DEATH.get();
 	}
 
 	@Override

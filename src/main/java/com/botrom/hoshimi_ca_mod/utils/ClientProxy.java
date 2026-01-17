@@ -5,6 +5,7 @@ import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
 import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
 import com.botrom.hoshimi_ca_mod.effects.particle.SurgeParticle;
+import com.botrom.hoshimi_ca_mod.entities.models.ChesterModel;
 import com.botrom.hoshimi_ca_mod.entities.models.DumboOctopusModel;
 import com.botrom.hoshimi_ca_mod.entities.models.KoiFishModel;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
@@ -109,10 +110,12 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.GIANT_SQUID.get(), GiantSquidRenderer::new);
         EntityRenderers.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
         EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
+        EntityRenderers.register(ModEntities.CHESTER.get(), context -> new GeoEntityRenderer<>(context, new ChesterModel()));
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
         BlockEntityRenderers.register(ModBlockEntityTypes.STORAGE_ENTITY.get(), context -> new StorageBlockEntityRenderer());
+        BlockEntityRenderers.register(ModBlockEntityTypes.EYE_BONE_BLOCK_ENTITY.get(), context -> new EyeBoneBlockRenderer(new EyeBoneBlockRenderer.EyeBoneModel()));
     }
 
     private void initRainbowBuffers() {
@@ -138,78 +141,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public Object getArmorModel(int armorId, LivingEntity entity) {
-        switch (armorId) {
-            /*
-            case 0:
-                return ROADRUNNER_BOOTS_MODEL;
-            case 1:
-                return MOOSE_HEADGEAR_MODEL;
-            case 2:
-                return FRONTIER_CAP_MODEL.withAnimations(entity);
-            case 3:
-                return SOMBRERO_MODEL;
-            case 4:
-                return SPIKED_TURTLE_SHELL_MODEL;
-            case 5:
-                return FEDORA_MODEL;
-            case 6:
-                return ELYTRA_MODEL.withAnimations(entity);
-
-             */
-            default:
-                return null;
-        }
-    }
-
-    @OnlyIn(Dist.CLIENT)
     public void onEntityStatus(Entity entity, byte updateKind) {
-//        if (updateKind == 67) {
-//            if (entity instanceof EntityCockroach && entity.isAlive()) {
-//                SoundLaCucaracha sound;
-//                if (COCKROACH_SOUND_MAP.get(entity.getId()) == null) {
-//                    sound = new SoundLaCucaracha((EntityCockroach) entity);
-//                    COCKROACH_SOUND_MAP.put(entity.getId(), sound);
-//                } else {
-//                    sound = COCKROACH_SOUND_MAP.get(entity.getId());
-//                }
-//                if (!Minecraft.getInstance().getSoundManager().isActive(sound) && sound.canPlaySound() && sound.isOnlyCockroach()) {
-//                    Minecraft.getInstance().getSoundManager().play(sound);
-//                }
-//            } else if (entity instanceof EntityVoidWorm && entity.isAlive()) {
-//                final float f2 = Minecraft.getInstance().options.getSoundSourceVolume(SoundSource.MUSIC);
-//                if (f2 <= 0) {
-//                    WORMBOSS_SOUND_MAP.clear();
-//                } else {
-//                    SoundWormBoss sound;
-//                    if (WORMBOSS_SOUND_MAP.get(entity.getId()) == null) {
-//                        sound = new SoundWormBoss((EntityVoidWorm) entity);
-//                        WORMBOSS_SOUND_MAP.put(entity.getId(), sound);
-//                    } else {
-//                        sound = WORMBOSS_SOUND_MAP.get(entity.getId());
-//                    }
-//                    if (!Minecraft.getInstance().getSoundManager().isActive(sound) && sound.isNearest()) {
-//                        Minecraft.getInstance().getSoundManager().play(sound);
-//                    }
-//                }
-//            } else if (entity instanceof EntityGrizzlyBear && entity.isAlive()) {
-//                SoundBearMusicBox sound;
-//                if (BEAR_MUSIC_BOX_SOUND_MAP.get(entity.getId()) == null) {
-//                    sound = new SoundBearMusicBox((EntityGrizzlyBear) entity);
-//                    BEAR_MUSIC_BOX_SOUND_MAP.put(entity.getId(), sound);
-//                } else {
-//                    sound = BEAR_MUSIC_BOX_SOUND_MAP.get(entity.getId());
-//                }
-//                if (!Minecraft.getInstance().getSoundManager().isActive(sound) && sound.canPlaySound() && sound.isOnlyMusicBox()) {
-//                    Minecraft.getInstance().getSoundManager().play(sound);
-//                }
-//            } else if (entity instanceof EntityBlueJay && entity.isAlive()) {
-//                singingBlueJayId = entity.getId();
-//            }
-//        }
-//        if (entity instanceof EntityBlueJay && entity.isAlive() && updateKind == 68) {
-//            singingBlueJayId = -1;
-//        }
+
     }
 
     public void updateBiomeVisuals(int x, int z) {
@@ -258,39 +191,9 @@ public class ClientProxy extends CommonProxy {
         return new AMItemRenderProperties();
     }
 
-//    @Override
-//    public Object getArmorRenderProperties() {
-//        return new CustomArmorRenderProperties();
-//    }
-
-//    public void spawnSpecialParticle(int type) {
-//        if (type == 0) {
-//            Minecraft.getInstance().level.addParticle(AMParticleRegistry.BEAR_FREDDY.get(), Minecraft.getInstance().player.getX(), Minecraft.getInstance().player.getY(), Minecraft.getInstance().player.getZ(), 0, 0, 0);
-//        }
-//    }
-
     public void processVisualFlag(Entity entity, int flag) {
         if (entity == Minecraft.getInstance().player && flag == 87) {
             ClientEvents.renderStaticScreenFor = 60;
         }
     }
-
-    public void setPupfishChunkForItem(int chunkX, int chunkZ) {
-        this.pupfishChunkX = chunkX;
-        this.pupfishChunkZ = chunkZ;
-    }
-
-    public void setDisplayTransmuteResult(int slot, ItemStack stack){
-        transmuteStacks[Mth.clamp(slot, 0, 2)] = stack;
-    }
-
-    public ItemStack getDisplayTransmuteResult(int slot){
-        ItemStack stack = transmuteStacks[Mth.clamp(slot, 0, 2)];
-        return stack == null ? ItemStack.EMPTY : stack;
-    }
-
-    public int getSingingBlueJayId() {
-        return singingBlueJayId;
-    }
-
 }

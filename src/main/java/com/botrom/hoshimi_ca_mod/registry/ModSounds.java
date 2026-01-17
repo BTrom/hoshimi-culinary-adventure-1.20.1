@@ -2,7 +2,6 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,17 +22,26 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> MIMIC_OCTOPUS_HURT = createSoundEvent("entity/mimic_octopus_hurt");
     public static final RegistryObject<SoundEvent> SEAGULL_IDLE = createSoundEvent("entity/seagull_idle");
     public static final RegistryObject<SoundEvent> SEAGULL_HURT = createSoundEvent("entity/seagull_hurt");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_EAT_ARROW = createSoundEvent("entity/shiba_eat_arrow");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_WHINE = createSoundEvent("entity/shiba_whine");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_STEP = createSoundEvent("entity/shiba_step");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_AMBIENT = createSoundEvent("entity/shiba_ambient");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_PANT = createSoundEvent("entity/shiba_pant");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_HURT = createSoundEvent("entity/shiba_hurt");
-    public static final RegistryObject<SoundEvent> ENTITY_SHIBA_DEATH = createSoundEvent("entity/shiba_death");
+    public static final RegistryObject<SoundEvent> SHIBA_EAT_ARROW = createSoundEvent("entity/shiba_eat_arrow");
+    public static final RegistryObject<SoundEvent> SHIBA_WHINE = createSoundEvent("entity/shiba_whine");
+    public static final RegistryObject<SoundEvent> SHIBA_STEP = createSoundEvent("entity/shiba_step");
+    public static final RegistryObject<SoundEvent> SHIBA_AMBIENT = createSoundEvent("entity/shiba_ambient");
+    public static final RegistryObject<SoundEvent> SHIBA_PANT = createSoundEvent("entity/shiba_pant");
+    public static final RegistryObject<SoundEvent> SHIBA_HURT = createSoundEvent("entity/shiba_hurt");
+    public static final RegistryObject<SoundEvent> SHIBA_DEATH = createSoundEvent("entity/shiba_death");
+    public static final RegistryObject<SoundEvent> CHESTER_IDLE = createSoundEvent("entity/chester_idle");
+    public static final RegistryObject<SoundEvent> CHESTER_JUMP = createSoundEvent("entity/chester_jump");
+    public static final RegistryObject<SoundEvent> CHESTER_HURT = createSoundEvent("entity/chester_hurt");
+    public static final RegistryObject<SoundEvent> CHESTER_DEATH = createSoundEvent("entity/chester_death");
+    public static final RegistryObject<SoundEvent> CHESTER_OPEN_MOUTH = createSoundEvent("entity/chester_open_mouth");
+    public static final RegistryObject<SoundEvent> CHESTER_CLOSE_MOUTH = createSoundEvent("entity/chester_close_mouth");
+
+
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
     public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
     public static final RegistryObject<SoundEvent> CROCK_POT_FINISH = createSoundEvent("block/crock_pot_finish");
     public static final RegistryObject<SoundEvent> CROCK_POT_RATTLE = createSoundEvent("block/crock_pot_rattle");
+
 
 
 //    public static final RegistryObject<SoundEvent> BLOCK_PIZZA_SIZZLING = SOUND_EVENTS.register("block.pizza.sizzling", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "block.pizza.sizzling")));

@@ -5,14 +5,11 @@ import com.botrom.hoshimi_ca_mod.blocks.entities.Birdcage;
 import com.botrom.hoshimi_ca_mod.entities.*;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.google.common.base.Predicates;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.WaterAnimal;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -127,9 +124,9 @@ public class ModEntities {
 
 	public static final RegistryObject<EntityType<Shiba>> SHIBA = ENTITIES.register("shiba",
 			() -> EntityType.Builder.of(Shiba::new, MobCategory.CREATURE)
-			.sized(0.8F, 0.8F)
-			.clientTrackingRange(8)
-			.build("shiba"));
+					.sized(0.8F, 0.8F)
+					.clientTrackingRange(8)
+					.build("shiba"));
 
 //	public static final EntityType<GiantMudCrabEntity> GIANT_MUD_CRAB =Registry.register(Registries.ENTITY_TYPE,
 //			new Identifier(MoreCrustacean.MOD_ID,"giant_mud_crab"),
@@ -161,6 +158,12 @@ public class ModEntities {
 					.clientTrackingRange(4)
 					.build(Utils.createResourceLocation("parrot_egg").toString()));
 
+	public static final RegistryObject<EntityType<Chester>> CHESTER = ENTITIES.register("chester",
+			() -> EntityType.Builder.of(Chester::new, MobCategory.MISC)
+					.sized(1F, 1F)
+					.build("chester"));
+
+
 
 
 	@SubscribeEvent
@@ -180,6 +183,7 @@ public class ModEntities {
 		event.put(MIMIC_OCTOPUS.get(), MimicOctopusEntity.bakeAttributes().build());
 		event.put(SEAGULL.get(), SeagullEntity.bakeAttributes().build());
 		event.put(SHIBA.get(), Shiba.bakeAttributes().build());
+		event.put(CHESTER.get(), Chester.registerAttributes().build());
 	}
 
 	@SubscribeEvent

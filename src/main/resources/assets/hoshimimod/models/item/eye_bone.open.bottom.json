@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:item/eye_bone",
+  "textures": {
+    "layer0": "hoshimimod:item/eye_bone.open.bottom"
+  }
+}

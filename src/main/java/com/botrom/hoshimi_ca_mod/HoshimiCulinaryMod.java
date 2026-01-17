@@ -190,7 +190,6 @@ public class HoshimiCulinaryMod {
     private void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         // register your model layer -> LayerDefinition supplier
         event.registerLayerDefinition(QuarkModelHandler.getShiba(), ShibaModel::createBodyLayer);
-        LOGGER.info("Registered Shiba layer definition");
     }
 
     private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -198,6 +197,6 @@ public class HoshimiCulinaryMod {
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
-        LOGGER.info("Registered Shiba entity renderer");
+//        event.registerEntityRenderer(ModEntities.CHESTER.get(), ChesterRenderer::new); TODO
     }
 }

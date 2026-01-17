@@ -7,7 +7,7 @@ import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 
 public class DumboOctopusModel extends DefaultedEntityGeoModel<DumboOctopusEntity> {
     private static final ResourceLocation MODEL = Utils.createResourceLocation("dumbo_octopus");
-    private static final ResourceLocation[] TEXTURES = new ResourceLocation[]{
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[] {
             Utils.createResourceLocation("textures/entity/dumbo_octopus/dumbo_octopus_1.png"),
             Utils.createResourceLocation("textures/entity/dumbo_octopus/dumbo_octopus_2.png"),
             Utils.createResourceLocation("textures/entity/dumbo_octopus/dumbo_octopus_3.png"),

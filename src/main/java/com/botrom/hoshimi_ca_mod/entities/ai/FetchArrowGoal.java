@@ -51,7 +51,7 @@ public class FetchArrowGoal extends Goal {
 			// anything above 1 block looks weird as it just gets booped out of existence
 			if (dist < 1) {
 				if (fetching.pickup == Pickup.DISALLOWED || fetching.pickup == Pickup.CREATIVE_ONLY) {
-					shiba.level().playSound(null, shiba.blockPosition(), ModSounds.ENTITY_SHIBA_EAT_ARROW.get(), SoundSource.NEUTRAL);
+					shiba.level().playSound(null, shiba.blockPosition(), ModSounds.SHIBA_EAT_ARROW.get(), SoundSource.NEUTRAL);
 					fetching.discard();
 				}
 			}
