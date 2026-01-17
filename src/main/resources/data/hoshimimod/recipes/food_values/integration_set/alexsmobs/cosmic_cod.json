@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "alexsmobs"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:cosmic_cod"
+          "hoshimimod:cosmic_cod"
         ],
         "values": {
           "FISH": 1,

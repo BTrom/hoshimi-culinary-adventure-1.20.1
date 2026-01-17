@@ -5,16 +5,16 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "alexsmobs"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:cooked_catfish",
-          "alexsmobs:cooked_lobster_tail",
-          "alexsmobs:lobster_tail",
-          "alexsmobs:raw_catfish"
+          "hoshimimod:cooked_catfish",
+          "hoshimimod:cooked_lobster_tail",
+          "hoshimimod:lobster_tail",
+          "hoshimimod:raw_catfish"
         ],
         "values": {
           "FISH": 1,

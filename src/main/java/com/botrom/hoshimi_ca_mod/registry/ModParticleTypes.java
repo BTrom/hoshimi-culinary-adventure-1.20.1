@@ -15,6 +15,7 @@ public class ModParticleTypes {
 	public static final RegistryObject<SimpleParticleType> SHOCKWAVE = PARTICLE_TYPES.register("shockwave", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> SURGE = PARTICLE_TYPES.register("surge", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> SHOCKED = PARTICLE_TYPES.register("shocked", ()-> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> WHALE_SPLASH = PARTICLE_TYPES.register("whale_splash", ()-> new SimpleParticleType(false));
 
 	public static void create(IEventBus bus) {
 		PARTICLE_TYPES.register(bus);

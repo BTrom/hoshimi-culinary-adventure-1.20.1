@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "hoshimimod:hummingbird_feeder",
-    "hoshimimod:rainbow_glass",
+    "hoshimimod:birdcage",
     "hoshimimod:crock_pot",
+    "hoshimimod:hummingbird_feeder",
     "hoshimimod:portable_crock_pot",
-    "hoshimimod:birdcage"
+    "hoshimimod:rainbow_glass"
   ]
 }

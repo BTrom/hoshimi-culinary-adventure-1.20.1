@@ -7,6 +7,7 @@ import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
 import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
 import com.botrom.hoshimi_ca_mod.gui.StoveGui;
+import com.botrom.hoshimi_ca_mod.utils.compat.alex.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.gui.ScreenPizza;
@@ -18,8 +19,6 @@ import com.botrom.hoshimi_ca_mod.registry.*;
 import com.botrom.hoshimi_ca_mod.utils.CommonProxy;
 import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
 import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
-import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageHurtMultipart;
-import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageInteractMultipart;
 import com.botrom.hoshimi_ca_mod.utils.compat.QuarkModelHandler;
 import com.botrom.hoshimi_ca_mod.worldgen.AMMobSpawnBiomeModifier;
 import com.mojang.serialization.Codec;
@@ -28,6 +27,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.world.BiomeModifier;
@@ -44,9 +44,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,6 +89,7 @@ public class HoshimiCulinaryMod {
         ModTreePlacerTypes.TRUNK_PLACERS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         ModStateProviders.PROVIDERS.register(modEventBus);
+        AMPointOfInterestRegistry.DEF_REG.register(modEventBus);
 
         final DeferredRegister<Codec<? extends BiomeModifier>> biomeModifiers = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MOD_ID);
         biomeModifiers.register(modEventBus);
@@ -107,6 +110,8 @@ public class HoshimiCulinaryMod {
 
             NETWORK.registerMessage(packetsRegistered++, MessageHurtMultipart.class, MessageHurtMultipart::write, MessageHurtMultipart::read, MessageHurtMultipart.Handler::handle);
             NETWORK.registerMessage(packetsRegistered++, MessageInteractMultipart.class, MessageInteractMultipart::write, MessageInteractMultipart::read, MessageInteractMultipart.Handler::handle);
+            NETWORK.registerMessage(packetsRegistered++, MessageCrowMountPlayer.class, MessageCrowMountPlayer::write, MessageCrowMountPlayer::read, MessageCrowMountPlayer.Handler::handle);
+            NETWORK.registerMessage(packetsRegistered++, MessageCrowDismount.class, MessageCrowDismount::write, MessageCrowDismount::read, MessageCrowDismount.Handler::handle);
 
             event.enqueueWork(ModItems::initDispenser);
             ModVanillaCompat.setup();
@@ -185,6 +190,16 @@ public class HoshimiCulinaryMod {
 
     public static <MSG> void sendMSGToServer(MSG message) {
         NETWORK.sendToServer(message);
+    }
+
+    public static <MSG> void sendMSGToAll(MSG message) {
+        for (ServerPlayer player : ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers()) {
+            sendNonLocal(message, player);
+        }
+    }
+
+    public static <MSG> void sendNonLocal(MSG msg, ServerPlayer player) {
+        NETWORK.sendTo(msg, player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
     }
 
     private void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

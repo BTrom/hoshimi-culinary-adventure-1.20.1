@@ -1,18 +1,18 @@
 {
   "replace": false,
   "entries": [
-    "hoshimimod:olives_from_jungle_leaves",
-    "hoshimimod:seeds_from_tall_grass",
-    "hoshimimod:banana_drop",
     "hoshimimod:acorn_from_knife",
     "hoshimimod:acorn_rare",
+    "hoshimimod:banana_drop",
+    "hoshimimod:cooked_hoglin_nose_from_hoglin",
+    "hoshimimod:crock_pot_upgrade_smithing_template_from_nether_bridge",
     "hoshimimod:green_tea_leaf",
     "hoshimimod:green_tea_leaf_rare",
-    "hoshimimod:seeds_from_tall_grass",
-    "hoshimimod:cooked_hoglin_nose_from_hoglin",
-    "hoshimimod:unknown_seeds_from_grass",
-    "hoshimimod:crock_pot_upgrade_smithing_template_from_nether_bridge",
     "hoshimimod:hoglin_nose_from_hoglin",
+    "hoshimimod:olives_from_jungle_leaves",
+    "hoshimimod:seeds_from_tall_grass",
+    "hoshimimod:seeds_from_tall_grass",
+    "hoshimimod:unknown_seeds_from_grass",
     "hoshimimod:unknown_seeds_from_tall_grass"
   ]
 }

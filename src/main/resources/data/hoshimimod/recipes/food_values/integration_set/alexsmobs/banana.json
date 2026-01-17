@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "alexsmobs"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:banana"
+          "hoshimimod:banana"
         ],
         "values": {
           "FRUIT": 1

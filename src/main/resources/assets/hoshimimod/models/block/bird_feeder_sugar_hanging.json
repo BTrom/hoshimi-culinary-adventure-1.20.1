@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/bird_feeder_hanging",
+  "textures": {
+    "texture": "hoshimimod:block/bird_feeder_sugar"
+  }
+}

@@ -36,6 +36,9 @@ public class ModBlockEntityTypes {
     public static final Supplier<BlockEntityType<CrabTrapBlockEntity>> CRAB_TRAP = BLOCK_ENTITY_TYPES.register("crab_trap",
             () -> BlockEntityType.Builder.of(CrabTrapBlockEntity::new, new Block[]{ModBlocks.CRAB_TRAP.get()}).build(null));
 
+    public static final RegistryObject<BlockEntityType<BlockEntityTerrapinEgg>> TERRAPIN_EGG = BLOCK_ENTITY_TYPES.register("terrapin_egg_te",
+            () -> BlockEntityType.Builder.of(BlockEntityTerrapinEgg::new, ModBlocks.TERRAPIN_EGG.get()).build(null));
+
     public static final Supplier<BlockEntityType<StorageBlockEntity>> STORAGE_ENTITY = BLOCK_ENTITY_TYPES.register("storage",
             () -> BlockEntityType.Builder.of(StorageBlockEntity::new, StorageTypeRegistry.registerBlocks(new HashSet<>()).toArray(new Block[0])).build(null));
 

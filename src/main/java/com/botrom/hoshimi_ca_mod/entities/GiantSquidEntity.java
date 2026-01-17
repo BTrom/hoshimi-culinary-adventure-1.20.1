@@ -3,6 +3,7 @@ package com.botrom.hoshimi_ca_mod.entities;
 import com.botrom.hoshimi_ca_mod.entities.ai.AquaticMoveController;
 import com.botrom.hoshimi_ca_mod.entities.ai.EntityAINearestTarget3D;
 import com.botrom.hoshimi_ca_mod.registry.ModEntities;
+import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import com.botrom.hoshimi_ca_mod.utils.ModConfig;
@@ -31,6 +32,7 @@ import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
 import net.minecraft.world.entity.animal.WaterAnimal;
@@ -118,8 +120,8 @@ public class GiantSquidEntity extends WaterAnimal {
     }
 
 
-    @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
+    @javax.annotation.Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @javax.annotation.Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
         if (reason == MobSpawnType.NATURAL) {
             doInitialPosing(worldIn);
         }
@@ -180,13 +182,13 @@ public class GiantSquidEntity extends WaterAnimal {
     }
 
 
-    protected void registerGoals() { // TODO: Implement or partially implement the whale to finish the squid
+    protected void registerGoals() {
         this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
-//        this.goalSelector.addGoal(1, new AIAvoidWhales());
+        this.goalSelector.addGoal(1, new AIAvoidWhales());
         this.goalSelector.addGoal(2, new AIMelee());
         this.goalSelector.addGoal(3, new AIDeepwaterSwimming());
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-//        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, EntityCachalotWhale.class)));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, EntityCachalotWhale.class)));
         this.targetSelector.addGoal(2, new EntityAINearestTarget3D(this, Guardian.class, 20, true, true, null) {
             public boolean canUse() {
                 return super.canUse();
@@ -602,23 +604,23 @@ public class GiantSquidEntity extends WaterAnimal {
         return true;
     }
 
-//    public boolean tickCaptured(EntityCachalotWhale whale) { TODO
-//        resetCapturedStateIn = 25;
-//        if (random.nextInt(13) == 0) {
-//            spawnInk();
-//            whale.hurt(this.damageSources().mobAttack(this), 4 + random.nextInt(4));
-//            if (random.nextFloat() <= 0.3F) {
-//                this.setCaptured(false);
-//                if(random.nextFloat() < 0.2F){
-//                    this.spawnAtLocation(AMItemRegistry.LOST_TENTACLE.get());
-//                }
-//                return true;
-//            }
-//        }
-//        this.setCaptured(true);
-//        this.setSquidPitch(0);
-//        return false;
-//    }
+    public boolean tickCaptured(EntityCachalotWhale whale) {
+        resetCapturedStateIn = 25;
+        if (random.nextInt(13) == 0) {
+            spawnInk();
+            whale.hurt(this.damageSources().mobAttack(this), 4 + random.nextInt(4));
+            if (random.nextFloat() <= 0.3F) {
+                this.setCaptured(false);
+                if(random.nextFloat() < 0.2F){
+                    this.spawnAtLocation(ModItems.LOST_TENTACLE.get());
+                }
+                return true;
+            }
+        }
+        this.setCaptured(true);
+        this.setSquidPitch(0);
+        return false;
+    }
 
     @OnlyIn(Dist.CLIENT)
     public void handleEntityEvent(byte id) {
@@ -648,62 +650,62 @@ public class GiantSquidEntity extends WaterAnimal {
         }
     }
 
-//    private class AIAvoidWhales extends Goal { TODO
-//
-//        private EntityCachalotWhale whale;
-//        private Vec3 moveTo;
-//        private int runDelay;
-//
-//        public AIAvoidWhales() {
-//            this.setFlags(EnumSet.of(Flag.MOVE));
-//        }
-//
-//        @Override
-//        public boolean canUse() {
-//            if (EntityGiantSquid.this.isInWaterOrBubble() && !EntityGiantSquid.this.horizontalCollision && !EntityGiantSquid.this.isCaptured() && runDelay-- <= 0) {
-//                EntityCachalotWhale closest = null;
-//                float dist = 50;
-//                for (EntityCachalotWhale dude : EntityGiantSquid.this.level().getEntitiesOfClass(EntityCachalotWhale.class, EntityGiantSquid.this.getBoundingBox().inflate(dist))) {
-//                    if (closest == null || dude.distanceTo(EntityGiantSquid.this) < closest.distanceTo(EntityGiantSquid.this)) {
-//                        closest = dude;
-//                    }
-//                }
-//                if (closest != null) {
-//                    whale = closest;
-//                    return true;
-//                }
-//                runDelay = 50 + random.nextInt(50);
-//            }
-//
-//            return false;
-//        }
-//
-//        @Override
-//        public boolean canContinueToUse() {
-//            return whale != null && whale.isAlive() && !EntityGiantSquid.this.horizontalCollision && EntityGiantSquid.this.distanceTo(whale) < 60;
-//        }
-//
-//        public void tick() {
-//            if (whale != null && whale.isAlive()) {
-//                double dist = EntityGiantSquid.this.distanceTo(whale);
-//                Vec3 vec = EntityGiantSquid.this.position().subtract(whale.position()).normalize();
-//                Vec3 vec2 = EntityGiantSquid.this.position().add(vec.scale(12 + random.nextInt(5)));
-//                EntityGiantSquid.this.getNavigation().moveTo(vec2.x, vec2.y, vec2.z, dist < 20 ? 1.9F : 1.3F);
-//            }
-//        }
-//
-//        public void stop() {
-//            whale = null;
-//            moveTo = null;
-//        }
-//    }
+    private class AIAvoidWhales extends Goal {
+
+        private EntityCachalotWhale whale;
+        private Vec3 moveTo;
+        private int runDelay;
+
+        public AIAvoidWhales() {
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
+
+        @Override
+        public boolean canUse() {
+            if (GiantSquidEntity.this.isInWaterOrBubble() && !GiantSquidEntity.this.horizontalCollision && !GiantSquidEntity.this.isCaptured() && runDelay-- <= 0) {
+                EntityCachalotWhale closest = null;
+                float dist = 50;
+                for (EntityCachalotWhale dude : GiantSquidEntity.this.level().getEntitiesOfClass(EntityCachalotWhale.class, GiantSquidEntity.this.getBoundingBox().inflate(dist))) {
+                    if (closest == null || dude.distanceTo(GiantSquidEntity.this) < closest.distanceTo(GiantSquidEntity.this)) {
+                        closest = dude;
+                    }
+                }
+                if (closest != null) {
+                    whale = closest;
+                    return true;
+                }
+                runDelay = 50 + random.nextInt(50);
+            }
+
+            return false;
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return whale != null && whale.isAlive() && !GiantSquidEntity.this.horizontalCollision && GiantSquidEntity.this.distanceTo(whale) < 60;
+        }
+
+        public void tick() {
+            if (whale != null && whale.isAlive()) {
+                double dist = GiantSquidEntity.this.distanceTo(whale);
+                Vec3 vec = GiantSquidEntity.this.position().subtract(whale.position()).normalize();
+                Vec3 vec2 = GiantSquidEntity.this.position().add(vec.scale(12 + random.nextInt(5)));
+                GiantSquidEntity.this.getNavigation().moveTo(vec2.x, vec2.y, vec2.z, dist < 20 ? 1.9F : 1.3F);
+            }
+        }
+
+        public void stop() {
+            whale = null;
+            moveTo = null;
+        }
+    }
 
     private class AIDeepwaterSwimming extends Goal {
 
         private BlockPos moveTo;
 
         public AIDeepwaterSwimming() {
-            this.setFlags(EnumSet.of(Flag.MOVE));
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
         @Override

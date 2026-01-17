@@ -22,6 +22,20 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> MIMIC_OCTOPUS_HURT = createSoundEvent("entity/mimic_octopus_hurt");
     public static final RegistryObject<SoundEvent> SEAGULL_IDLE = createSoundEvent("entity/seagull_idle");
     public static final RegistryObject<SoundEvent> SEAGULL_HURT = createSoundEvent("entity/seagull_hurt");
+    public static final RegistryObject<SoundEvent> HUMMINGBIRD_IDLE = createSoundEvent("entity/hummingbird_idle");
+    public static final RegistryObject<SoundEvent> HUMMINGBIRD_HURT = createSoundEvent("entity/hummingbird_hurt");
+    public static final RegistryObject<SoundEvent> HUMMINGBIRD_LOOP = createSoundEvent("entity/hummingbird_loop");
+    public static final RegistryObject<SoundEvent> CROW_IDLE = createSoundEvent("entity/crow_idle");
+    public static final RegistryObject<SoundEvent> CROW_HURT = createSoundEvent("entity/crow_hurt");
+    public static final RegistryObject<SoundEvent> MANTIS_SHRIMP_SNAP = createSoundEvent("entity/mantis_shrimp_snap");
+    public static final RegistryObject<SoundEvent> MANTIS_SHRIMP_HURT = createSoundEvent("entity/mantis_shrimp_hurt");
+    public static final RegistryObject<SoundEvent> CACHALOT_WHALE_IDLE = createSoundEvent("entity/cachalot_whale_idle");
+    public static final RegistryObject<SoundEvent> CACHALOT_WHALE_HURT = createSoundEvent("entity/cachalot_whale_hurt");
+    public static final RegistryObject<SoundEvent> CACHALOT_WHALE_CLICK = createSoundEvent("entity/cachalot_whale_click");
+    public static final RegistryObject<SoundEvent> TERRAPIN_HURT = createSoundEvent("entity/terrapin_hurt");
+    public static final RegistryObject<SoundEvent> MUDSKIPPER_HURT = createSoundEvent("entity/mudskipper_hurt");
+    public static final RegistryObject<SoundEvent> MUDSKIPPER_WALK = createSoundEvent("entity/mudskipper_walk");
+    public static final RegistryObject<SoundEvent> MUDSKIPPER_SPIT = createSoundEvent("entity/mudskipper_spit");
     public static final RegistryObject<SoundEvent> SHIBA_EAT_ARROW = createSoundEvent("entity/shiba_eat_arrow");
     public static final RegistryObject<SoundEvent> SHIBA_WHINE = createSoundEvent("entity/shiba_whine");
     public static final RegistryObject<SoundEvent> SHIBA_STEP = createSoundEvent("entity/shiba_step");
@@ -36,7 +50,6 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> CHESTER_OPEN_MOUTH = createSoundEvent("entity/chester_open_mouth");
     public static final RegistryObject<SoundEvent> CHESTER_CLOSE_MOUTH = createSoundEvent("entity/chester_close_mouth");
 
-
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
     public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
     public static final RegistryObject<SoundEvent> CROCK_POT_FINISH = createSoundEvent("block/crock_pot_finish");
@@ -44,12 +57,7 @@ public class ModSounds
 
 
 
-//    public static final RegistryObject<SoundEvent> BLOCK_PIZZA_SIZZLING = SOUND_EVENTS.register("block.pizza.sizzling", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "block.pizza.sizzling")));
-
-
-
     private static RegistryObject<SoundEvent> createSoundEvent(final String soundName) {
         return SOUND_EVENTS.register(soundName, () -> SoundEvent.createVariableRangeEvent(Utils.createResourceLocation(soundName)));
     }
-
 }

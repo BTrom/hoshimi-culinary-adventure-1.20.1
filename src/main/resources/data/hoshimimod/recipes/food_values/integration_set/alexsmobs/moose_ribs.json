@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "alexsmobs"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:moose_ribs",
-          "alexsmobs:cooked_moose_ribs"
+          "hoshimimod:moose_ribs",
+          "hoshimimod:cooked_moose_ribs"
         ],
         "values": {
           "MEAT": 1

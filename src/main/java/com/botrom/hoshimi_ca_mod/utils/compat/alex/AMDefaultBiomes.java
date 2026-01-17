@@ -781,7 +781,7 @@ public class AMDefaultBiomes {
 
     public static final SpawnBiomeData SKREECHER = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, "forge:no_default_monsters", 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, "alexsmobs:skreechers_can_spawn_wardens", 0);
+            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, "hoshimimod:skreechers_can_spawn_wardens", 0);
 
     public static final SpawnBiomeData MURMUR = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, "minecraft:is_overworld", 0)

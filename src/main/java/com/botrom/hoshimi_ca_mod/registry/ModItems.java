@@ -83,6 +83,8 @@ public class ModItems {
     public static final RegistryObject<Item> STRIPPED_PALM_WOOD = ITEMS.register("stripped_palm_wood", () -> new BlockItem(ModBlocks.STRIPPED_PALM_WOOD.get(), basicItem()));
     public static final RegistryObject<Item> PALM_LEAVES = ITEMS.register("palm_leaves", () -> new BlockItem(ModBlocks.PALM_LEAVES.get(), basicItem()));
     public static final RegistryObject<Item> PALM_SAPLING = ITEMS.register("palm_sapling", () -> new BlockItem(ModBlocks.PALM_SAPLING.get(), basicItem()));
+    public static final RegistryObject<Item> HUMMINGBIRD_FEEDER = ITEMS.register("hummingbird_feeder", () -> new BlockItem(ModBlocks.HUMMINGBIRD_FEEDER.get(), basicItem()));
+    public static final RegistryObject<Item> TERRAPIN_EGG = ITEMS.register("terrapin_egg", () -> new BlockItem(ModBlocks.TERRAPIN_EGG.get(), basicItem()));
     public static final RegistryObject<Item> RAINBOW_GLASS = ITEMS.register("rainbow_glass", () -> new BlockItem(ModBlocks.RAINBOW_GLASS.get(), basicItem()));
     public static final RegistryObject<Item> ANEMONE_ROSE_BULB = ITEMS.register("anemone_rose_bulb", () -> new BlockItem(ModBlocks.ANEMONE_ROSE_BULB.get(), basicItem()));
     public static final RegistryObject<Item> ANEMONE_SAND = ITEMS.register("anemone_sand", () -> new BlockItem(ModBlocks.ANEMONE_SAND.get(), basicItem()));
@@ -249,7 +251,13 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_CATFISH = ITEMS.register("cooked_catfish", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH)));
     public static final RegistryObject<Item> COOKED_CATFISH_SLICE = ITEMS.register("cooked_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.COOKED_CATFISH_SLICE)));
     public static final RegistryObject<Item> RAW_CATFISH_SLICE = ITEMS.register("raw_catfish_slice", () -> new Item(new Item.Properties().food(ModFoods.RAW_CATFISH_SLICE)));
+    public static final RegistryObject<Item> SHARK_TOOTH = ITEMS.register("shark_tooth", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CACHALOT_WHALE_TOOTH = ITEMS.register("cachalot_whale_tooth", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> AMBERGRIS = ITEMS.register("ambergris", () -> new FuelItem(new Item.Properties(), 12800));
+    public static final RegistryObject<Item> LOST_TENTACLE = ITEMS.register("lost_tentacle", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAINBOW_JELLY = ITEMS.register("rainbow_jelly", () -> new Item(new Item.Properties().food(ModFoods.RAINBOW_JELLY)));
+    public static final RegistryObject<Item> ECHOLOCATOR = ITEMS.register("echolocator", () -> new ItemEcholocator(new Item.Properties().durability(100), ItemEcholocator.EchoType.ECHOLOCATION));
+    public static final RegistryObject<Item> ENDOLOCATOR = ITEMS.register("endolocator", () -> new ItemEcholocator(new Item.Properties().durability(25), ItemEcholocator.EchoType.ENDER));
     public static final RegistryObject<Item> GREEN_ONION = ITEMS.register("green_onion", () -> new Item(pizzaProperties().food(ModFoods.GREEN_ONION)));
     public static final RegistryObject<Item> GREEN_TEA_LEAVES = ITEMS.register("green_tea_leaves", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> YELLOW_TEA_LEAVES = ITEMS.register("yellow_tea_leaves", () -> new Item(new Item.Properties()));
@@ -384,6 +392,7 @@ public class ModItems {
     public static final RegistryObject<Item> BUCKET_OF_SHRIMP_CHUM = ITEMS.register("bucket_of_shrimp_chum", () -> new ChumItem(basicItem()));
     public static final RegistryObject<Item> CAT_FOOD = ITEMS.register("cat_food", () -> new Item(basicItem()));
     public static final RegistryObject<Item> DOG_FOOD = ITEMS.register("dog_food", () -> new DogFoodItem(new Item.Properties()));
+    public static final RegistryObject<Item> SHARK_TOOTH_ARROW = ITEMS.register("shark_tooth_arrow", () -> new ItemModArrow(new Item.Properties()));
 
 
     // Farmer's Respite Drinks #TODO
@@ -423,6 +432,13 @@ public class ModItems {
     public static final RegistryObject<Item> COMB_JELLY_SPAWN_EGG = ITEMS.register("comb_jelly_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.COMB_JELLY, 0XCFE9FE, 0X6EFF8B, new Item.Properties()));
     public static final RegistryObject<Item> MIMIC_OCTOPUS_SPAWN_EGG = ITEMS.register("mimic_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MIMIC_OCTOPUS, 0XFFEBDC,0X1D1C1F, new Item.Properties()));
     public static final RegistryObject<Item> SEAGULL_SPAWN_EGG = ITEMS.register("seagull_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SEAGULL, 0XC9D2DC,0XFFD850, new Item.Properties()));
+    public static final RegistryObject<Item> HUMMINGBIRD_SPAWN_EGG = ITEMS.register("hummingbird_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.HUMMINGBIRD, 0X325E7F,0X44A75F, new Item.Properties()));
+    public static final RegistryObject<Item> HAMMERHEAD_SHARK_SPAWN_EGG = ITEMS.register("hammerhead_shark_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.HAMMERHEAD_SHARK, 0X8A92B5,0XB9BED8, new Item.Properties()));
+    public static final RegistryObject<Item> CROW_SPAWN_EGG = ITEMS.register("crow_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CROW, 0X0D111C,0X1C2030, new Item.Properties()));
+    public static final RegistryObject<Item> MANTIS_SHRIMP_SPAWN_EGG = ITEMS.register("mantis_shrimp_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MANTIS_SHRIMP, 0XDB4858,0X15991E, new Item.Properties()));
+    public static final RegistryObject<Item> CACHALOT_WHALE_SPAWN_EGG = ITEMS.register("cachalot_whale_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CACHALOT_WHALE, 0X949899,0X5F666E, new Item.Properties()));
+    public static final RegistryObject<Item> TERRAPIN_SPAWN_EGG = ITEMS.register("terrapin_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TERRAPIN, 0X6E6E30, 0X929647, new Item.Properties()));
+    public static final RegistryObject<Item> FLYING_FISH_SPAWN_EGG = ITEMS.register("flying_fish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.FLYING_FISH, 0X7BBCED, 0X6881B3, new Item.Properties()));
     public static final RegistryObject<Item> SHIBA_SPAWN_EGG = ITEMS.register("shiba_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIBA, 0xa86741, 0xe8d5b6, new Item.Properties()));
     public static final RegistryObject<Item> CHESTER_SPAWN_EGG = ITEMS.register("chester_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CHESTER, 0xd48f43, 0x942020, new Item.Properties()));
 
@@ -463,6 +479,10 @@ public class ModItems {
             () -> new ItemModFishBucket(ModEntities.COMB_JELLY, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> MIMIC_OCTOPUS_BUCKET = ITEMS.register("mimic_octopus_bucket",
             () -> new ItemModFishBucket(ModEntities.MIMIC_OCTOPUS, Fluids.WATER, new Item.Properties()));
+    public static final RegistryObject<Item> TERRAPIN_BUCKET = ITEMS.register("terrapin_bucket",
+            () -> new ItemModFishBucket(ModEntities.TERRAPIN, Fluids.WATER, new Item.Properties()));
+    public static final RegistryObject<Item> FLYING_FISH_BUCKET = ITEMS.register("flying_fish_bucket",
+            () -> new ItemModFishBucket(ModEntities.FLYING_FISH, Fluids.WATER, new Item.Properties()));
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_BUCKET = ITEMS.register("giant_mud_crab_bucket",
 //            () -> new MobBucketItem(ModEntities.GIANT_MUD_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));

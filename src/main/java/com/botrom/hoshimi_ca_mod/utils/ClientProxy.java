@@ -109,6 +109,15 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.COMB_JELLY.get(), CombJellyRenderer::new);
         EntityRenderers.register(ModEntities.GIANT_SQUID.get(), GiantSquidRenderer::new);
         EntityRenderers.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
+        EntityRenderers.register(ModEntities.HUMMINGBIRD.get(), RenderHummingbird::new);
+        EntityRenderers.register(ModEntities.HAMMERHEAD_SHARK.get(), RenderHammerheadShark::new);
+        EntityRenderers.register(ModEntities.SHARK_TOOTH_ARROW.get(), RenderSharkToothArrow::new);
+        EntityRenderers.register(ModEntities.CROW.get(), RenderCrow::new);
+        EntityRenderers.register(ModEntities.MANTIS_SHRIMP.get(), RenderMantisShrimp::new);
+        EntityRenderers.register(ModEntities.CACHALOT_WHALE.get(), RenderCachalotWhale::new);
+        EntityRenderers.register(ModEntities.CACHALOT_ECHO.get(), RenderCachalotEcho::new);
+        EntityRenderers.register(ModEntities.TERRAPIN.get(), RenderTerrapin::new);
+        EntityRenderers.register(ModEntities.FLYING_FISH.get(), RenderFlyingFish::new);
         EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
         EntityRenderers.register(ModEntities.CHESTER.get(), context -> new GeoEntityRenderer<>(context, new ChesterModel()));
 

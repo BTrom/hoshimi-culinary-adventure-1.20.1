@@ -90,6 +90,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> COCONUT = registerBlock("coconut", () -> new CoconutBlock(Block.Properties.copy(Blocks.COCOA)));
     public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new SeashellBlock(Block.Properties.copy(Blocks.HORN_CORAL).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> CRAB_TRAP = registerBlock("crab_trap", () -> new CrabTrapBlock(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> HUMMINGBIRD_FEEDER = registerBlock("hummingbird_feeder", BlockHummingbirdFeeder::new);
+    public static final RegistryObject<Block> TERRAPIN_EGG = registerBlock("terrapin_egg", BlockTerrapinEgg::new);
     public static final RegistryObject<Block> RAINBOW_GLASS = registerBlock("rainbow_glass", BlockRainbowGlass::new);
     public static final RegistryObject<Block> COFFEE_BEANS_SACK = registerBlock("coffee_beans_sack", () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get())));
     public static final RegistryObject<Block> FEEDING_TROUGH = registerBlock("feeding_trough", () -> new FeedingTroughBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));

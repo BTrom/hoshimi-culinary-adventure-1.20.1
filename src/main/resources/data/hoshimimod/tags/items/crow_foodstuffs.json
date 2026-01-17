@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:eggs",
+    "minecraft:sugar",
+    "#forge:seeds",
+    "#hoshimimod:crow_breedables",
+    "#hoshimimod:crow_breedables"
+  ]
+}

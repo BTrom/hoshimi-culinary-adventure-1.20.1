@@ -44,6 +44,15 @@ public class ModTags {
     public static final TagKey<Item> MIMIC_OCTOPUS_MOISTURIZES = bindItemTagAlex("mimic_octopus_moisturizes");
     public static final TagKey<Item> SEAGULL_BREEDABLES = bindItemTagAlex("seagull_breedables");
     public static final TagKey<Item> SEAGULL_OFFERINGS = bindItemTagAlex("seagull_offerings");
+    public static final TagKey<Item> CROW_BREEDABLES = bindItemTagAlex("crow_breedables");
+    public static final TagKey<Item> CROW_FOODSTUFFS = bindItemTagAlex("crow_foodstuffs");
+    public static final TagKey<Item> CROW_TAMEABLES = bindItemTagAlex("crow_tameables");
+    public static final TagKey<Item> HUMMINGBIRD_BREEDABLES = bindItemTagAlex("hummingbird_breedables");
+    public static final TagKey<Item> HUMMINGNBIRD_FEEDER_SWEETENERS = bindItemTagAlex("hummingnbird_feeder_sweeteners");
+    public static final TagKey<Item> MANTIS_SHRIMP_BREEDABLES = bindItemTagAlex("mantis_shrimp_breedables");
+    public static final TagKey<Item> MANTIS_SHRIMP_TAMEABLES = bindItemTagAlex("mantis_shrimp_tameables");
+    public static final TagKey<Item> SHRIMP_RICE_FRYABLES = bindItemTagAlex("shrimp_rice_fryables");
+    public static final TagKey<Item> TERRAPIN_BREEDABLES = bindItemTagAlex("terrapin_breedables");
     public static final TagKey<Item> FEEDING_TROUGH_FODDER = bindItemTagAlex("feeding_trough_fodder");
 //    public static final TagKey<Item> CROCK_POTS = bindItemTag("crock_pots");
     public static final TagKey<Item> PARROT_EGGS = bindItemTag("parrot_eggs");
@@ -129,6 +138,15 @@ public class ModTags {
     public static final TagKey<Block> CATFISH_BLOCK_FASCINATIONS = bindBlockTagAlex("catfish_block_fascinations");
     public static final TagKey<Block> LOBSTER_SPAWNS = bindBlockTagAlex("lobster_spawns");
     public static final TagKey<Block> MIMIC_OCTOPUS_SPAWNS = bindBlockTagAlex("mimic_octopus_spawns");
+    public static final TagKey<Block> CACHALOT_WHALE_BREAKABLES = bindBlockTagAlex("cachalot_whale_breakables");
+    public static final TagKey<Block> CROCODILE_SPAWNS = bindBlockTagAlex("crocodile_spawns");
+    public static final TagKey<Block> CROW_FEARS = bindBlockTagAlex("crow_fears");
+    public static final TagKey<Block> CROW_FOODBLOCKS = bindBlockTagAlex("crow_foodblocks");
+    public static final TagKey<Block> CROW_HOME_BLOCKS = bindBlockTagAlex("crow_home_blocks");
+    public static final TagKey<Block> HUMMINGBIRD_POLLINATES = bindBlockTagAlex("hummingbird_pollinates");
+    public static final TagKey<Block> HUMMINGBIRD_SPAWNS = bindBlockTagAlex("hummingbird_spawns");
+    public static final TagKey<Block> MANTIS_SHRIMP_SPAWNS = bindBlockTagAlex("mantis_shrimp_spawns");
+    public static final TagKey<Block> ORCA_BREAKABLES = bindBlockTagAlex("orca_breakables");
     public static final TagKey<Block> COOKING_POTS = bindBlockTagAlex("cooking_pots");
     public static final TagKey<Block> ALLOWS_COOKING = bindBlockTagAlex("allows_cooking");
     public static final TagKey<Block> WILD_CROPS = bindBlockTagAlex("wild_crops");
@@ -156,10 +174,13 @@ public class ModTags {
     public static final TagKey<EntityType<?>> MIMIC_OCTOPUS_FEARS = bindEntityTag("mimic_octopus_fears");
     public static final TagKey<EntityType<?>> CATFISH_IGNORE_EATING = bindEntityTag("catfish_ignore_eating");
     public static final TagKey<EntityType<?>> SCATTERS_CROWS = bindEntityTag("scatters_crows");
+    public static final TagKey<EntityType<?>> MANTIS_SHRIMP_TARGETS = bindEntityTag("mantis_shrimp_targets");
+    public static final TagKey<EntityType<?>> CACHALOT_WHALE_TARGETS = bindEntityTag("cachalot_whale_targets");
     public static final TagKey<EntityType<?>> IS_WOLF = bindEntityTag("is_wolf");
 
     // Biome Tags
     public static final TagKey<Biome> SPAWNS_HUGE_CATFISH = bindBiomeTag("spawns_huge_catfish");
+    public static final TagKey<Biome> SPAWNS_WHITE_MANTIS_SHRIMP = bindBiomeTag("spawns_white_mantis_shrimp");
     
 
 

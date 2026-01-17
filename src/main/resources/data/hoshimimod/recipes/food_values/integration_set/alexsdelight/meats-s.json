@@ -11,7 +11,7 @@
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:centipede_leg",
+          "hoshimimod:centipede_leg",
           "alexsdelight:cooked_centipede_leg",
           "alexsdelight:raw_bunfungus",
           "alexsdelight:cooked_bunfungus",

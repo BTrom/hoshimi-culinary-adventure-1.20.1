@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "alexsmobs"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "alexsmobs:caiman_egg",
-          "alexsmobs:crocodile_egg"
+          "hoshimimod:caiman_egg",
+          "hoshimimod:crocodile_egg"
         ],
         "values": {
           "EGG": 2
