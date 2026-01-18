@@ -475,15 +475,7 @@ public class ModItems {
     public static final RegistryObject<Item> CARDINAL_SPAWN_EGG = ITEMS.register("cardinal_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CARDINAL, 13772840, 4465186, new Item.Properties()));
     public static final RegistryObject<Item> LIZARD_SPAWN_EGG = ITEMS.register("lizard_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.LIZARD, 10853166, 15724462, new Item.Properties()));
     public static final RegistryObject<Item> TORTOISE_SPAWN_EGG = ITEMS.register("tortoise_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TORTOISE, 15724462, 11765582, new Item.Properties()));
-
-
-//    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
-//    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9, new Item.Properties()));
-//    public static final RegistryObject<Item> SAND_CRAB_SPAWN_EGG = ITEMS.register("sand_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.SAND_CRAB,0xc6d2cb,0x291616, new Item.Properties()));
-//    public static final RegistryObject<Item> LAND_CRAB_SPAWN_EGG = ITEMS.register("land_crab_spawn_egg", new ForgeSpawnEggItem(ModEntities.LAND_CRAB,0x3f5589,0xf3e8e9, new Item.Properties()));
-//    public static final RegistryObject<Item> CLAWSTER_SPAWN_EGG = ITEMS.register("clawster_spawn_egg", new ForgeSpawnEggItem(ModEntities.CLAWSTER,0x9a4e26,0x583726, new Item.Properties()));
-//    public static final RegistryObject<Item> LOBSTER_SPAWN_EGG = ITEMS.register("lobster_spawn_egg", new ForgeSpawnEggItem(ModEntities.LOBSTER,0x6d3307,0x3c030f, new Item.Properties()));
-//    public static final RegistryObject<Item> CRAYFISH_SPAWN_EGG = ITEMS.register("crayfish_spawn_egg", new ForgeSpawnEggItem(ModEntities.CRAYFISH,0x671620,0x2e181b, new Item.Properties()));
+    public static final RegistryObject<Item> BALEEN_WHALE_SPAWN_EGG = ITEMS.register("baleen_whale_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.BALEEN_WHALE, 0x12141E, 0x5B6168, new Item.Properties()));
 
     public static final RegistryObject<Item> TIGER_PRAWN_BUCKET = ITEMS.register("tiger_prawn_bucket",
             () -> new MobBucketItem(ModEntities.TIGER_PRAWN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));

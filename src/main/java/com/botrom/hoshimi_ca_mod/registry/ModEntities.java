@@ -197,14 +197,6 @@ public class ModEntities {
 					.sized(0.6F, 0.4F)
 					.build("crayfish"));
 
-//	public static RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
-//			() -> EntityType.Builder.of(EntityBaleenWhale::new, MobCategory.CREATURE)
-//					.sized(2.6F, 1.6F)
-//					.clientTrackingRange(64)
-//					.setUpdateInterval(1)
-//					.setShouldReceiveVelocityUpdates(true)
-//					.build("baleen_whale"));
-
 	public static final RegistryObject<EntityType<Chester>> CHESTER = ENTITIES.register("chester",
 			() -> EntityType.Builder.of(Chester::new, MobCategory.MISC)
 					.sized(1F, 1F)
@@ -251,6 +243,12 @@ public class ModEntities {
 					.sized(0.7F, 0.7F)
 					.clientTrackingRange(10)
 					.build("snail"));
+
+	public static RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
+			() -> EntityType.Builder.of(EntityBaleenWhale::new, MobCategory.CREATURE)
+					.sized(2.6F, 1.6F)
+					.setTrackingRange(10)
+					.build("baleen_whale"));
 
 
 
@@ -324,6 +322,7 @@ public class ModEntities {
 		event.put(CATERPILLAR.get(), Caterpillar.createAttributes().build());
 		event.put(LIZARD.get(), Lizard.createAttributes().build());
 		event.put(TORTOISE.get(), Tortoise.createAttributes().build());
+		event.put(BALEEN_WHALE.get(), EntityBaleenWhale.registerAttributes().build());
 	}
 
 	@SubscribeEvent

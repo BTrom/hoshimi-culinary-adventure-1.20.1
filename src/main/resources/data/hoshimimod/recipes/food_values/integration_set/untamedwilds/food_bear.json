@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "untamedwilds"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "untamedwilds:food_bear_raw",
-          "untamedwilds:food_bear_cooked"
+          "hoshimimod:food_bear_raw",
+          "hoshimimod:food_bear_cooked"
         ],
         "values": {
           "MEAT": 1

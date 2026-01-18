@@ -301,6 +301,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.MISO_WITH_BAMBOO_SPROUTS.get());
 
                         // Untamed Wilds
+                        output.accept(ModItems.BALEEN_WHALE_SPAWN_EGG.get());
                         output.accept(ModBlocks.ANEMONE_ROSE_BULB.get());
                         output.accept(ModBlocks.ANEMONE_SAND.get());
                         output.accept(ModBlocks.ANEMONE_SEBAE.get());

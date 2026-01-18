@@ -26,6 +26,9 @@
 				},
 				"antennae": {
 					"rotation": ["Math.sin((query.anim_time - 0.0) * 720) * 8", 0, 0]
+				},
+				"main": {
+					"position": [0, "-Math.cos((query.anim_time - 0.4) * 720) * 5", 0]
 				}
 			}
 		}
