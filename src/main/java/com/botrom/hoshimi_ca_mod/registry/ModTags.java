@@ -56,6 +56,7 @@ public class ModTags {
     public static final TagKey<Item> FEEDING_TROUGH_FODDER = bindItemTagAlex("feeding_trough_fodder");
 //    public static final TagKey<Item> CROCK_POTS = bindItemTag("crock_pots");
     public static final TagKey<Item> PARROT_EGGS = bindItemTag("parrot_eggs");
+    public static final TagKey<Item> CRAB_ITEMS = bindItemTag("crabs");
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");
@@ -152,7 +153,11 @@ public class ModTags {
     public static final TagKey<Block> WILD_CROPS = bindBlockTagAlex("wild_crops");
     public static final TagKey<Block> CROCK_POTS = bindBlockTag("crock_pots");
     public static final TagKey<Block> UNKNOWN_CROPS = bindBlockTag("unknown_crops");
-    
+    public static final TagKey<Block> CRAB_DIGGABLE_BLOCKS = bindBlockTag("crab_diggable_blocks");
+    public static final TagKey<Block> CRAB_SPAWN_BLOCKS = bindBlockTag("crab_spawn_blocks");
+    public static final TagKey<Block> CRAB_COMFORT_BLOCKS = bindBlockTag("crab_comfort_blocks");
+
+
     // Mob Effects
     public static final TagKey<MobEffect> UNOBTAINABLE_FROM_PANETTONE = bindEffectTag("unobtainable_from_panettone");
 

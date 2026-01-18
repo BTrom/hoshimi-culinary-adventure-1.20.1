@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:hairy_crab",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:crayfish",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:clam",
+          "weight": 1
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

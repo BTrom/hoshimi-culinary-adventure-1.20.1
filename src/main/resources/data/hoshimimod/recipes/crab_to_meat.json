@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "cook",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:crabs"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:crab_meat",
+    "count": 3
+  }
+}

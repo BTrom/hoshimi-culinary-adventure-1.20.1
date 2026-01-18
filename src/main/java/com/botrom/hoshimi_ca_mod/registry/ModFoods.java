@@ -96,6 +96,13 @@ public class ModFoods
     public static final FoodProperties RAW_CATFISH = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).meat().build();
     public static final FoodProperties COOKED_CATFISH = new FoodProperties.Builder().nutrition(5).saturationMod(0.5F).meat().build();
     public static final FoodProperties TONKATSU = new FoodProperties.Builder().nutrition(8).saturationMod(0.85F).build();
+    public static final FoodProperties CRAB_MEAT = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+    public static final FoodProperties COOKED_CRAB_MEAT = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).meat().build();
+    public static final FoodProperties GIANT_MUD_CRAB = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).meat().build();
+    public static final FoodProperties KING_CRAB = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.3F).meat().build();
+    public static final FoodProperties OYSTER =(new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).build();
+    public static final FoodProperties COOKED_GIANT_MUD_CRAB = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.8F).meat().build();
+    public static final FoodProperties COOKED_KING_CRAB = (new FoodProperties.Builder()).nutrition(8).saturationMod(1.0F).meat().build();
 
 
     //Smoked
@@ -338,6 +345,13 @@ public class ModFoods
     public static final FoodProperties FRIED_DUMPLING = new FoodProperties.Builder().nutrition(16).saturationMod(0.7F)
             .effect(()->new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1).build();
     public static final FoodProperties BOWL_OF_FRIED_DUMPLING = new FoodProperties.Builder().nutrition(4).saturationMod(0.7F).build();
+    public static final FoodProperties SPICY_CRAYFISH = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST,3600,0),1.0F).build();
+    public static final FoodProperties CRAB_CAKE = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED,14400,0),1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,14400,0),1.0F).build();
+    public static final FoodProperties MARINATED_CRAB = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties CRAB_BUTTER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).meat().build();
 
 
 

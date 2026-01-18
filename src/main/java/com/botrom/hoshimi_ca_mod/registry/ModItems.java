@@ -24,6 +24,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -280,6 +281,16 @@ public class ModItems {
     public static final RegistryObject<Item> HOGLIN_NOSE = ITEMS.register("hoglin_nose", () -> new CrockPotFoodItem(CrockPotFoodProperties.builder(3, 0.2F).meat().hideEffects().build()));
     public static final RegistryObject<Item> COOKED_HOGLIN_NOSE = ITEMS.register("cooked_hoglin_nose", () -> new CrockPotFoodItem(CrockPotFoodProperties.builder(8, 0.7F).meat().hideEffects().build()));
     public static final RegistryObject<Item> SYRUP = ITEMS.register("syrup", () -> new CrockPotFoodItem(CrockPotFoodProperties.builder(1, 0.3F).drink().sound(SoundEvents.HONEY_DRINK).hideEffects().build()));
+    public static final RegistryObject<Item> CRAB_SHELL = ITEMS.register("crab_shell",() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRAB_MEAT = ITEMS.register("crab_meat",() -> new Item(new Item.Properties().food(ModFoods.CRAB_MEAT)));
+    public static final RegistryObject<Item> COOKED_CRAB_MEAT = ITEMS.register("cooked_crab_meat",() -> new Item(new Item.Properties().food(ModFoods.COOKED_CRAB_MEAT)));
+    public static final RegistryObject<Item> GIANT_MUD_CRAB = ITEMS.register("giant_mud_crab",() -> new Item(new Item.Properties().food(ModFoods.GIANT_MUD_CRAB)));
+    public static final RegistryObject<Item> KING_CRAB = ITEMS.register("king_crab",() -> new Item(new Item.Properties().food(ModFoods.KING_CRAB)));
+    public static final RegistryObject<Item> CRAYFISH = ITEMS.register("crayfish",() -> new Item(new Item.Properties().food(ModFoods.CRAB_MEAT)));
+    public static final RegistryObject<Item> OYSTER = ITEMS.register("oyster",() -> new Item(new Item.Properties().food(ModFoods.OYSTER)));
+    public static final RegistryObject<Item> COOKED_GIANT_MUD_CRAB = ITEMS.register("cooked_giant_mud_crab",() -> new Item(new Item.Properties().food(ModFoods.COOKED_GIANT_MUD_CRAB)));
+    public static final RegistryObject<Item> COOKED_KING_CRAB = ITEMS.register("cooked_king_crab",() -> new Item(new Item.Properties().food(ModFoods.COOKED_KING_CRAB)));
+    public static final RegistryObject<Item> COOKED_CRAYFISH = ITEMS.register("cooked_crayfish",() -> new Item(new Item.Properties().food(ModFoods.COOKED_CRAB_MEAT)));
 
 
     //Meals
@@ -381,6 +392,10 @@ public class ModItems {
     public static final RegistryObject<Item> SPRING_ROLL = ITEMS.register("spring_roll", () -> new ConsumableItem(new Item.Properties().food(ModFoods.SPRING_ROLL)));
     public static final RegistryObject<Item> FRIED_DUMPLING = ITEMS.register("fried_dumpling", () -> new ConsumableItem(new Item.Properties().food(ModFoods.FRIED_DUMPLING)));
     public static final RegistryObject<Item> BOWL_OF_FRIED_DUMPLING = ITEMS.register("bowl_of_fried_dumpling", () -> new ConsumableItem(new Item.Properties().food(ModFoods.BOWL_OF_FRIED_DUMPLING).craftRemainder(Items.BOWL)));
+    public static final RegistryObject<Item> CRAB_BUTTER = ITEMS.register("crab_butter", () -> new Item(new Item.Properties().food(ModFoods.CRAB_BUTTER)));
+    public static final RegistryObject<Item> SPICY_CRAYFISH = ITEMS.register("spicy_crayfish", () -> new Item(new Item.Properties().food(ModFoods.SPICY_CRAYFISH)));
+    public static final RegistryObject<Item> CRAB_CAKE = ITEMS.register("crab_cake", () -> new BowlFoodItem(new Item.Properties().food(ModFoods.CRAB_CAKE)));
+    public static final RegistryObject<Item> MARINATED_CRAB = ITEMS.register("marinated_crab", () -> new Item(new Item.Properties().food(ModFoods.MARINATED_CRAB)));
 
 
     //Tools
@@ -441,6 +456,10 @@ public class ModItems {
     public static final RegistryObject<Item> FLYING_FISH_SPAWN_EGG = ITEMS.register("flying_fish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.FLYING_FISH, 0X7BBCED, 0X6881B3, new Item.Properties()));
     public static final RegistryObject<Item> SHIBA_SPAWN_EGG = ITEMS.register("shiba_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIBA, 0xa86741, 0xe8d5b6, new Item.Properties()));
     public static final RegistryObject<Item> CHESTER_SPAWN_EGG = ITEMS.register("chester_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CHESTER, 0xd48f43, 0x942020, new Item.Properties()));
+    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d,new Item.Properties()));
+    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9,new Item.Properties()));
+    public static final RegistryObject<Item> SAND_CRAB_SPAWN_EGG = ITEMS.register("sand_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SAND_CRAB,0xc6d2cb,0x291616,new Item.Properties()));
+    public static final RegistryObject<Item> CRAYFISH_SPAWN_EGG = ITEMS.register("crayfish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CRAYFISH,0x671620,0x2e181b,new Item.Properties()));
 
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
@@ -483,21 +502,14 @@ public class ModItems {
             () -> new ItemModFishBucket(ModEntities.TERRAPIN, Fluids.WATER, new Item.Properties()));
     public static final RegistryObject<Item> FLYING_FISH_BUCKET = ITEMS.register("flying_fish_bucket",
             () -> new ItemModFishBucket(ModEntities.FLYING_FISH, Fluids.WATER, new Item.Properties()));
-
-//    public static final RegistryObject<Item> GIANT_MUD_CRAB_BUCKET = ITEMS.register("giant_mud_crab_bucket",
-//            () -> new MobBucketItem(ModEntities.GIANT_MUD_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> KING_CRAB_BUCKET = ITEMS.register("king_crab_bucket",
-//            () -> new MobBucketItem(ModEntities.KING_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> SAND_CRAB_BUCKET = ITEMS.register("sand_crab_bucket",
-//            () -> new MobBucketItem(ModEntities.SAND_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> LAND_CRAB_BUCKET = ITEMS.register("land_crab_bucket",
-//            () -> new MobBucketItem(ModEntities.LAND_CRAB, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> CLAWSTER_BUCKET = ITEMS.register("clawster_bucket",
-//            () -> new MobBucketItem(ModEntities.CLAWSTER, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> LOBSTER_BUCKET = ITEMS.register("lobster_bucket",
-//            () -> new MobBucketItem(ModEntities.LOBSTER, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-//    public static final RegistryObject<Item> CRAYFISH_BUCKET = ITEMS.register("crayfish_bucket",
-//            () -> new MobBucketItem(ModEntities.CRAYFISH, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> GIANT_MUD_CRAB_BUCKET = ITEMS.register("giant_mud_crab_bucket",
+            () -> new ItemModFishBucket(ModEntities.GIANT_MUD_CRAB, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> KING_CRAB_BUCKET = ITEMS.register("king_crab_bucket",
+            () -> new ItemModFishBucket(ModEntities.KING_CRAB, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> SAND_CRAB_BUCKET = ITEMS.register("sand_crab_bucket",
+            () -> new ItemModFishBucket(ModEntities.SAND_CRAB, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> CRAYFISH_BUCKET = ITEMS.register("crayfish_bucket",
+            () -> new ItemModFishBucket(ModEntities.CRAYFISH, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
     public static final Map<Parrot.Variant, RegistryObject<Item>> PARROT_EGGS = Util.make(new EnumMap<>(Parrot.Variant.class), map -> {
         for (var variant : Parrot.Variant.values()) {
@@ -548,7 +560,14 @@ public class ModItems {
         DispenserBlock.registerBehavior(MEDIUM_CATFISH_BUCKET.get(), bucketDispenseBehavior);
         DispenserBlock.registerBehavior(LARGE_CATFISH_BUCKET.get(), bucketDispenseBehavior);
 //        ComposterBlock.COMPOSTABLES.put(BANANA.get(), 0.65F);                                 TODO
-//        ComposterBlock.COMPOSTABLES.put(AMBlockRegistry.BANANA_PEEL.get().asItem(), 1F);
-
+//        ComposterBlock.COMPOSTABLES.put(ModItems.BANANA_PEEL.get().asItem(), 1F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.KING_CRAB.get(), 0.6F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.GIANT_MUD_CRAB.get(), 0.5F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.CRAYFISH.get(), 0.2F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.COOKED_KING_CRAB.get(), 0.6F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.COOKED_GIANT_MUD_CRAB.get(), 0.5F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.COOKED_CRAYFISH.get(), 0.2F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.CRAB_MEAT.get(), 0.1F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.COOKED_CRAB_MEAT.get(), 0.1F);
     }
 }

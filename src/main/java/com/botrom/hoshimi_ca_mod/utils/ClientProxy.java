@@ -1,13 +1,8 @@
 package com.botrom.hoshimi_ca_mod.utils;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.effects.particle.AcidParticle;
-import com.botrom.hoshimi_ca_mod.effects.particle.ParticleSimpleHeart;
-import com.botrom.hoshimi_ca_mod.effects.particle.ShockwaveParticle;
-import com.botrom.hoshimi_ca_mod.effects.particle.SurgeParticle;
-import com.botrom.hoshimi_ca_mod.entities.models.ChesterModel;
-import com.botrom.hoshimi_ca_mod.entities.models.DumboOctopusModel;
-import com.botrom.hoshimi_ca_mod.entities.models.KoiFishModel;
+import com.botrom.hoshimi_ca_mod.effects.particle.*;
+import com.botrom.hoshimi_ca_mod.entities.models.*;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.registry.*;
@@ -46,17 +41,9 @@ import java.util.UUID;
 @Mod.EventBusSubscriber(modid = HoshimiCulinaryMod.MOD_ID, value = Dist.CLIENT)
 public class ClientProxy extends CommonProxy {
 
-//    public static final Int2ObjectMap<SoundBearMusicBox> BEAR_MUSIC_BOX_SOUND_MAP = new Int2ObjectOpenHashMap<>();
-//    public static final Int2ObjectMap<SoundLaCucaracha> COCKROACH_SOUND_MAP = new Int2ObjectOpenHashMap<>();
-//    public static final Int2ObjectMap<SoundWormBoss> WORMBOSS_SOUND_MAP = new Int2ObjectOpenHashMap<>();
     public static final List<UUID> currentUnrenderedEntities = new ArrayList<>();
-    public static int voidPortalCreationTime = 0;
     public CameraType prevPOV = CameraType.FIRST_PERSON;
     public boolean initializedRainbowBuffers = false;
-    private int pupfishChunkX = 0;
-    private int pupfishChunkZ = 0;
-    private int singingBlueJayId = -1;
-    private final ItemStack[] transmuteStacks = new ItemStack[3];
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
@@ -103,7 +90,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.FIDDLER_CRAB.get(), FiddlerCrabRenderer::new);
         EntityRenderers.register(ModEntities.DUMBO_OCTOPUS.get(), context -> new GeoEntityRenderer<>(context, new DumboOctopusModel()));
         EntityRenderers.register(ModEntities.KOI_FISH.get(), context -> new GeoEntityRenderer<>(context, new KoiFishModel()));
-        EntityRenderers.register(ModEntities.LOBSTER.get(), LobsterRenderer::new);
+//        EntityRenderers.register(ModEntities.LOBSTER.get(), LobsterRenderer::new);
         EntityRenderers.register(ModEntities.MIMIC_OCTOPUS.get(), MimicOctopusRenderer::new);
         EntityRenderers.register(ModEntities.SEAGULL.get(), SeagullRenderer::new);
         EntityRenderers.register(ModEntities.COMB_JELLY.get(), CombJellyRenderer::new);
@@ -120,6 +107,11 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.FLYING_FISH.get(), RenderFlyingFish::new);
         EntityRenderers.register(ModEntities.SHIBA.get(), ShibaRenderer::new);
         EntityRenderers.register(ModEntities.CHESTER.get(), context -> new GeoEntityRenderer<>(context, new ChesterModel()));
+        EntityRenderers.register(ModEntities.LOBSTER.get(), context -> new GeoEntityRenderer<>(context, new LobsterModel()));
+        EntityRenderers.register(ModEntities.GIANT_MUD_CRAB.get(), context -> new GeoEntityRenderer<>(context, new GiantMudCrabModel()));
+        EntityRenderers.register(ModEntities.KING_CRAB.get(), context -> new GeoEntityRenderer<>(context, new KingCrabModel()));
+        EntityRenderers.register(ModEntities.SAND_CRAB.get(), context -> new GeoEntityRenderer<>(context, new SandCrabModel()));
+        EntityRenderers.register(ModEntities.CRAYFISH.get(), context -> new GeoEntityRenderer<>(context, new CrayfishModel()));
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
@@ -164,6 +156,7 @@ public class ClientProxy extends CommonProxy {
         registry.registerSpriteSet(ModParticleTypes.SHOCKWAVE.get(), ShockwaveParticle.Provider::new);
         registry.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
         registry.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
+        registry.registerSpriteSet(ModParticleTypes.WHALE_SPLASH.get(), ParticleWhaleSplash.Factory::new);
     }
 
 

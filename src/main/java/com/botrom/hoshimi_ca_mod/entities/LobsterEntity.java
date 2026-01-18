@@ -40,11 +40,21 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class LobsterEntity extends WaterAnimal implements ISemiAquatic, Bucketable {
+public class LobsterEntity extends WaterAnimal implements ISemiAquatic, Bucketable, GeoEntity {
 
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(LobsterEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> ATTACK_TICK = SynchedEntityData.defineId(LobsterEntity.class, EntityDataSerializers.INT);
@@ -52,6 +62,7 @@ public class LobsterEntity extends WaterAnimal implements ISemiAquatic, Bucketab
     public float attackProgress;
     public float prevAttackProgress;
     private int attackCooldown = 0;
+    private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     public LobsterEntity(EntityType type, Level p_i48565_2_) {
         super(type, p_i48565_2_);
@@ -308,5 +319,40 @@ public class LobsterEntity extends WaterAnimal implements ISemiAquatic, Bucketab
     public static <T extends Mob> boolean canLobsterSpawn(EntityType type, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
         boolean spawnBlock = worldIn.getBlockState(pos.below()).is(ModTags.LOBSTER_SPAWNS);
         return spawnBlock || worldIn.getFluidState(pos).is(FluidTags.WATER);
+    }
+
+    // --- GECKO SWITCH ---
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this,"controller",10,this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this,"attackcontroller",0,this::attackPredicate));
+    }
+
+    protected <E extends LobsterEntity> PlayState predicate(AnimationState<LobsterEntity> event) {
+        if(!this.onGround() && this.isInWater()){
+            event.getController().setAnimation(RawAnimation.begin().then("clawster.model.escape", Animation.LoopType.LOOP));
+            event.getController().setAnimationSpeed(2.5D);
+        } else if(event.isMoving()){
+            event.getController().setAnimation(RawAnimation.begin().then("clawster.model.walk", Animation.LoopType.LOOP));
+            event.getController().setAnimationSpeed(3.0D);
+        } else{
+            event.getController().setAnimation(RawAnimation.begin().then("clawster.model.idle", Animation.LoopType.LOOP));
+        }
+        return PlayState.CONTINUE;
+    }
+
+    protected <E extends LobsterEntity> PlayState attackPredicate(final AnimationState<E> event){
+        if(this.swinging && event.getController().getAnimationState().equals(AnimationController.State.STOPPED)){
+            event.getController().forceAnimationReset();
+            event.getController().setAnimation(RawAnimation.begin().then("clawster.model.attack",Animation.LoopType.PLAY_ONCE));
+            this.swinging = false;
+        }
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.geoCache;
     }
 }

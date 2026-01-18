@@ -415,6 +415,30 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SURF_N_TURF.get());
                         output.accept(ModBlocks.WATERMELON_ICLE.get());
                         output.accept(ModBlocks.WET_GOOP.get());
+
+                        // More Crustaceans
+                        output.accept(ModItems.CRAB_SHELL.get());
+                        output.accept(ModItems.CRAB_MEAT.get());
+                        output.accept(ModItems.CRAB_BUTTER.get());
+                        output.accept(ModItems.COOKED_CRAB_MEAT.get());
+                        output.accept(ModItems.GIANT_MUD_CRAB.get());
+                        output.accept(ModItems.COOKED_GIANT_MUD_CRAB.get());
+                        output.accept(ModItems.KING_CRAB.get());
+                        output.accept(ModItems.COOKED_KING_CRAB.get());
+                        output.accept(ModItems.CRAYFISH.get());
+                        output.accept(ModItems.COOKED_CRAYFISH.get());
+                        output.accept(ModItems.OYSTER.get());
+                        output.accept(ModItems.SPICY_CRAYFISH.get());
+                        output.accept(ModItems.CRAB_CAKE.get());
+                        output.accept(ModItems.MARINATED_CRAB.get());
+                        output.accept(ModItems.GIANT_MUD_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.KING_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.SAND_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.CRAYFISH_SPAWN_EGG.get());
+                        output.accept(ModItems.GIANT_MUD_CRAB_BUCKET.get());
+                        output.accept(ModItems.KING_CRAB_BUCKET.get());
+                        output.accept(ModItems.SAND_CRAB_BUCKET.get());
+                        output.accept(ModItems.CRAYFISH_BUCKET.get());
                     })
                     .build());
 

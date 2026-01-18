@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:swimmer_crab"
+    },
+    {
+      "item": "hoshimimod:swimmer_crab"
+    },
+    {
+      "item": "hoshimimod:swimmer_crab"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "minecraft:potion"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:marinated_crab",
+    "count": 3
+  }
+}

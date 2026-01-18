@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:brown_crab",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:clawster",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:prawn",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:clam",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:cockle",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nautilus_shell",
+          "weight": 5
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

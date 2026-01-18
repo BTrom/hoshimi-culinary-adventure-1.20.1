@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:crab_meat",
+    "hoshimimod:brown_crab",
+    "hoshimimod:swimmer_crab",
+    "hoshimimod:hairy_crab",
+    "hoshimimod:giant_mud_crab",
+    "hoshimimod:king_crab",
+    "hoshimimod:clawster",
+    "hoshimimod:lobster",
+    "hoshimimod:prawn",
+    "hoshimimod:crayfish",
+    "hoshimimod:cooked_crab_meat",
+    "hoshimimod:cooked_brown_crab",
+    "hoshimimod:cooked_swimmer_crab",
+    "hoshimimod:cooked_hairy_crab",
+    "hoshimimod:cooked_giant_mud_crab",
+    "hoshimimod:cooked_king_crab",
+    "hoshimimod:cooked_clawster",
+    "hoshimimod:cooked_lobster",
+    "hoshimimod:cooked_prawn",
+    "hoshimimod:cooked_crayfish"
+  ]
+}

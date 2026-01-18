@@ -1,8 +1,7 @@
 package com.botrom.hoshimi_ca_mod;
 
 import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
-import com.botrom.hoshimi_ca_mod.entities.renderers.ShibaRenderer;
-import com.botrom.hoshimi_ca_mod.entities.renderers.EmptyRenderer;
+import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
 import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
@@ -210,8 +209,11 @@ public class HoshimiCulinaryMod {
     private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         // register entity renderer
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
+//        event.registerEntityRenderer(ModEntities.GIANT_MUD_CRAB.get(), GiantMudCrabRenderer::new);
+//        event.registerEntityRenderer(ModEntities.KING_CRAB.get(), KingCrabRenderer::new);
+//        event.registerEntityRenderer(ModEntities.SAND_CRAB.get(), SandCrabRenderer::new);
+//        event.registerEntityRenderer(ModEntities.CRAYFISH.get(), CrayfishRenderer::new);
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
-//        event.registerEntityRenderer(ModEntities.CHESTER.get(), ChesterRenderer::new); TODO
     }
 }

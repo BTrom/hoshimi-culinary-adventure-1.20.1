@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:brown_crab"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item":"minecraft:bread"
+    },
+    {
+      "tag": "c:milk"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:crab_cake",
+    "count": 2
+  }
+}

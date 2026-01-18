@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:king_crab",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hoshimimod:clam",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:prismarine_crystals",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:prismarine_shard",
+          "weight": 5
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

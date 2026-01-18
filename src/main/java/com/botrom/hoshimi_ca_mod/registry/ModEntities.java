@@ -170,9 +170,25 @@ public class ModEntities {
 					.clientTrackingRange(8)
 					.build("shiba"));
 
-//	public static final EntityType<KingCrabEntity> KING_CRAB =Registry.register(Registries.ENTITY_TYPE,
-//			new Identifier(MoreCrustacean.MOD_ID,"king_crab"),
-//			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, KingCrabEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.8f)).build());
+	public static final RegistryObject<EntityType<GiantMudCrabEntity>> GIANT_MUD_CRAB = ENTITIES.register("giant_mud_crab",
+			() -> EntityType.Builder.of(GiantMudCrabEntity::new, MobCategory.WATER_CREATURE)
+					.sized(0.9F, 0.6F)
+					.build("giant_mud_crab"));
+
+	public static final RegistryObject<EntityType<KingCrabEntity>> KING_CRAB = ENTITIES.register("king_crab",
+			() -> EntityType.Builder.of(KingCrabEntity::new, MobCategory.WATER_CREATURE)
+					.sized(1.0F, 0.8F)
+					.build("king_crab"));
+
+	public static final RegistryObject<EntityType<SandCrabEntity>> SAND_CRAB = ENTITIES.register("sand_crab",
+			() -> EntityType.Builder.of(SandCrabEntity::new, MobCategory.WATER_CREATURE)
+					.sized(0.4F, 0.2F)
+					.build("sand_crab"));
+
+	public static final RegistryObject<EntityType<CrayfishEntity>> CRAYFISH = ENTITIES.register("crayfish",
+			() -> EntityType.Builder.of(CrayfishEntity::new, MobCategory.WATER_CREATURE)
+					.sized(0.6F, 0.4F)
+					.build("crayfish"));
 
 //	public static RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
 //			() -> EntityType.Builder.of(EntityBaleenWhale::new, MobCategory.CREATURE)
@@ -181,13 +197,6 @@ public class ModEntities {
 //					.setUpdateInterval(1)
 //					.setShouldReceiveVelocityUpdates(true)
 //					.build("baleen_whale"));
-
-	public static final RegistryObject<EntityType<Birdcage>> BIRDCAGE = ENTITIES.register("birdcage",
-			() -> EntityType.Builder.of(Birdcage::new, MobCategory.MISC)
-					.sized(0.0001F, 0.0001F)
-					.setUpdateInterval(20)
-					.setTrackingRange(256)
-					.build(Utils.createResourceLocation("birdcage").toString()));
 
 	public static final RegistryObject<EntityType<Chester>> CHESTER = ENTITIES.register("chester",
 			() -> EntityType.Builder.of(Chester::new, MobCategory.MISC)
@@ -218,6 +227,15 @@ public class ModEntities {
 					.build("cachalot_echo"));
 
 
+	// Blocks
+	public static final RegistryObject<EntityType<Birdcage>> BIRDCAGE = ENTITIES.register("birdcage",
+			() -> EntityType.Builder.of(Birdcage::new, MobCategory.MISC)
+					.sized(0.0001F, 0.0001F)
+					.setUpdateInterval(20)
+					.setTrackingRange(256)
+					.build(Utils.createResourceLocation("birdcage").toString()));
+
+
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
@@ -243,6 +261,10 @@ public class ModEntities {
 		event.put(TERRAPIN.get(), EntityTerrapin.bakeAttributes().build());
 		event.put(FLYING_FISH.get(), EntityFlyingFish.bakeAttributes().build());
 		event.put(SHIBA.get(), Shiba.bakeAttributes().build());
+		event.put(GIANT_MUD_CRAB.get(), GiantMudCrabEntity.setAttributes().build());
+		event.put(SAND_CRAB.get(), SandCrabEntity.setAttributes().build());
+		event.put(KING_CRAB.get(), KingCrabEntity.setAttributes().build());
+		event.put(CRAYFISH.get(), CrayfishEntity.setAttributes().build());
 		event.put(CHESTER.get(), Chester.registerAttributes().build());
 	}
 
@@ -269,6 +291,10 @@ public class ModEntities {
 		event.register(CACHALOT_WHALE.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityCachalotWhale::canCachalotWhaleSpawn, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(TERRAPIN.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityTerrapin::canTerrapinSpawn, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(FLYING_FISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(GIANT_MUD_CRAB.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GiantMudCrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(KING_CRAB.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KingCrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(SAND_CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SandCrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(CRAYFISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrayfishEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(SHIBA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
