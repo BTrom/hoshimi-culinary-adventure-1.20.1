@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMantisShrimp;
+import com.botrom.hoshimi_ca_mod.entities.MantisShrimpEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class MantisShrimpAIBreakBlocks extends Goal {
 
-    private final EntityMantisShrimp mantisShrimp;
+    private final MantisShrimpEntity mantisShrimp;
     private int idleAtFlowerTime = 0;
     private int timeoutCounter = 0;
     private int searchCooldown = 0;
@@ -32,7 +32,7 @@ public class MantisShrimpAIBreakBlocks extends Goal {
     private final BlockSorter targetSorter;
 
 
-    public MantisShrimpAIBreakBlocks(EntityMantisShrimp mantisShrimp) {
+    public MantisShrimpAIBreakBlocks(MantisShrimpEntity mantisShrimp) {
         super();
         this.mantisShrimp = mantisShrimp;
         this.targetSorter = new BlockSorter(mantisShrimp);

@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityTerrapin;
+import com.botrom.hoshimi_ca_mod.entities.TerrapinEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.ModelTerrapin;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.TerrapinTypes;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Pose;
 
-public class RenderTerrapin extends MobRenderer<EntityTerrapin, ModelTerrapin> {
+public class RenderTerrapin extends MobRenderer<TerrapinEntity, ModelTerrapin> {
 
     private static final ResourceLocation[] SHELL_TEXTURES = {
             new ResourceLocation("hoshimimod:textures/entity/terrapin/overlay/terrapin_shell_pattern_0.png"),
@@ -37,18 +37,18 @@ public class RenderTerrapin extends MobRenderer<EntityTerrapin, ModelTerrapin> {
         this.addLayer(new TurtleOverlayLayer(this, 2));
     }
 
-    protected void scale(EntityTerrapin entitylivingbaseIn, PoseStack matrixStackIn, float partialTickTime) {
+    protected void scale(TerrapinEntity entitylivingbaseIn, PoseStack matrixStackIn, float partialTickTime) {
     }
 
 
-    public ResourceLocation getTextureLocation(EntityTerrapin entity) {
+    public ResourceLocation getTextureLocation(TerrapinEntity entity) {
         if(entity.isKoopa()){
             return TerrapinTypes.KOOPA.getTexture();
         }
         return entity.getTurtleType().getTexture();
     }
 
-    protected void setupRotations(EntityTerrapin entity, PoseStack stack, float pitchIn, float yawIn, float partialTickTime) {
+    protected void setupRotations(TerrapinEntity entity, PoseStack stack, float pitchIn, float yawIn, float partialTickTime) {
         if (this.isShaking(entity)) {
             yawIn += (float)(Math.cos((double)entity.tickCount * 3.25D) * Math.PI * (double)0.4F);
         }
@@ -75,7 +75,7 @@ public class RenderTerrapin extends MobRenderer<EntityTerrapin, ModelTerrapin> {
         }
     }
 
-    static class TurtleOverlayLayer extends RenderLayer<EntityTerrapin, ModelTerrapin> {
+    static class TurtleOverlayLayer extends RenderLayer<TerrapinEntity, ModelTerrapin> {
 
         private final int layer;
 
@@ -84,7 +84,7 @@ public class RenderTerrapin extends MobRenderer<EntityTerrapin, ModelTerrapin> {
             this.layer = layer;
         }
 
-        public void render(PoseStack matrixStackIn, MultiBufferSource buffer, int packedLightIn, EntityTerrapin turtle, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+        public void render(PoseStack matrixStackIn, MultiBufferSource buffer, int packedLightIn, TerrapinEntity turtle, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
             if(turtle.getTurtleType() == TerrapinTypes.OVERLAY && !turtle.isKoopa()){
                 ResourceLocation tex = layer == 0 ? this.getTextureLocation(turtle) : layer == 1 ? SHELL_TEXTURES[turtle.getShellType() % SHELL_TEXTURES.length] : SKIN_PATTERN_TEXTURES[turtle.getSkinType() % SKIN_PATTERN_TEXTURES.length];
                 int color = layer == 0 ? turtle.getTurtleColor() : layer == 1 ? turtle.getShellColor() : turtle.getSkinColor();

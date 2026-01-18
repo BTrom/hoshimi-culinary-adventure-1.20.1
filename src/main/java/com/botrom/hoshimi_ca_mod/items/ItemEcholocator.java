@@ -1,10 +1,8 @@
 package com.botrom.hoshimi_ca_mod.items;
 
-import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotEcho;
+import com.botrom.hoshimi_ca_mod.entities.CachalotEchoEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMPointOfInterestRegistry;
-import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMWorldData;
 import com.google.common.base.Predicates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -70,7 +68,7 @@ public class ItemEcholocator extends Item {
         if (livingEntityIn.getUsedItemHand() == InteractionHand.OFF_HAND && livingEntityIn.getMainArm() == HumanoidArm.RIGHT || livingEntityIn.getUsedItemHand() == InteractionHand.MAIN_HAND && livingEntityIn.getMainArm() == HumanoidArm.LEFT) {
             left = true;
         }
-        EntityCachalotEcho whaleEcho = new EntityCachalotEcho(worldIn, livingEntityIn, !left, type == EchoType.PUPFISH);
+        CachalotEchoEntity whaleEcho = new CachalotEchoEntity(worldIn, livingEntityIn, !left, type == EchoType.PUPFISH);
         if (!worldIn.isClientSide && worldIn instanceof ServerLevel) {
             BlockPos playerPos = livingEntityIn.blockPosition();
             List<BlockPos> portals = getNearbyPortals(playerPos, (ServerLevel) worldIn, 128);

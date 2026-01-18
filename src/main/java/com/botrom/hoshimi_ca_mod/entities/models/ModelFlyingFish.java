@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityFlyingFish;
+import com.botrom.hoshimi_ca_mod.entities.FlyingFishEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -8,7 +8,7 @@ import com.github.alexthe666.citadel.client.model.basic.BasicModelPart;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.Mth;
 
-public class ModelFlyingFish extends AdvancedEntityModel<EntityFlyingFish> {
+public class ModelFlyingFish extends AdvancedEntityModel<FlyingFishEntity> {
     private final AdvancedModelBox root;
     private final AdvancedModelBox body;
     private final AdvancedModelBox left_pectoralFin;
@@ -70,7 +70,7 @@ public class ModelFlyingFish extends AdvancedEntityModel<EntityFlyingFish> {
     }
 
     @Override
-    public void setupAnim(EntityFlyingFish entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(FlyingFishEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.resetToDefaultPose();
         float idleSpeed = 0.2F;
         float idleDegree = 0.3F;

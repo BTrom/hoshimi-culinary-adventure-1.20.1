@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotPart;
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotWhale;
+import com.botrom.hoshimi_ca_mod.entities.CachalotPartEntity;
+import com.botrom.hoshimi_ca_mod.entities.CachalotWhaleEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.ModelCachalotWhale;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.culling.Frustum;
@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class RenderCachalotWhale extends MobRenderer<EntityCachalotWhale, ModelCachalotWhale> {
+public class RenderCachalotWhale extends MobRenderer<CachalotWhaleEntity, ModelCachalotWhale> {
     private static final ResourceLocation TEXTURE = new ResourceLocation("hoshimimod:textures/entity/cachalot/cachalot_whale.png");
     private static final ResourceLocation TEXTURE_SLEEPING = new ResourceLocation("hoshimimod:textures/entity/cachalot/cachalot_whale_sleeping.png");
     private static final ResourceLocation TEXTURE_ALBINO = new ResourceLocation("hoshimimod:textures/entity/cachalot/cachalot_whale_albino.png");
@@ -20,14 +20,14 @@ public class RenderCachalotWhale extends MobRenderer<EntityCachalotWhale, ModelC
         this.addLayer(new LayerCachalotWhaleCapturedSquid(this));
     }
 
-    protected void scale(EntityCachalotWhale entitylivingbaseIn, PoseStack matrixStackIn, float partialTickTime) {
+    protected void scale(CachalotWhaleEntity entitylivingbaseIn, PoseStack matrixStackIn, float partialTickTime) {
     }
 
-    public boolean shouldRender(EntityCachalotWhale livingEntityIn, Frustum camera, double camX, double camY, double camZ) {
+    public boolean shouldRender(CachalotWhaleEntity livingEntityIn, Frustum camera, double camX, double camY, double camZ) {
         if (super.shouldRender(livingEntityIn, camera, camX, camY, camZ)) {
             return true;
         } else {
-            for(EntityCachalotPart part : livingEntityIn.whaleParts){
+            for(CachalotPartEntity part : livingEntityIn.whaleParts){
                 if(camera.isVisible(part.getBoundingBox())){
                     return true;
                 }
@@ -36,7 +36,7 @@ public class RenderCachalotWhale extends MobRenderer<EntityCachalotWhale, ModelC
         }
     }
 
-    public ResourceLocation getTextureLocation(EntityCachalotWhale entity) {
+    public ResourceLocation getTextureLocation(CachalotWhaleEntity entity) {
         if(entity.isAlbino()){
             return entity.isSleeping() || entity.isBeached() ? TEXTURE_ALBINO_SLEEPING : TEXTURE_ALBINO;
         }else {

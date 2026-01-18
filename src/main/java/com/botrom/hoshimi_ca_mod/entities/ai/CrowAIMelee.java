@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCrow;
+import com.botrom.hoshimi_ca_mod.entities.CrowEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import net.minecraft.util.Mth;
@@ -10,14 +10,14 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
 
 public class CrowAIMelee extends Goal {
-    private final EntityCrow crow;
+    private final CrowEntity crow;
     float circlingTime = 0;
     float circleDistance = 1;
     float yLevel = 2;
     boolean clockwise = false;
     private int maxCircleTime;
 
-    public CrowAIMelee(EntityCrow crow) {
+    public CrowAIMelee(CrowEntity crow) {
         this.crow = crow;
     }
 

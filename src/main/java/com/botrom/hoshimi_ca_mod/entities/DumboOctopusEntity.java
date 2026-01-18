@@ -1,7 +1,11 @@
 package com.botrom.hoshimi_ca_mod.entities;
 
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
+import com.botrom.hoshimi_ca_mod.registry.ModNetwork;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
+import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundBubbleStatePacket;
+import com.botrom.hoshimi_ca_mod.utils.compat.IBubbleState;
+import com.botrom.hoshimi_ca_mod.utils.compat.IBubbleStateCAC;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -202,12 +206,12 @@ public class DumboOctopusEntity extends WaterAnimal implements GeoEntity, Bucket
         return PlayState.CONTINUE;
     }
 
-//    public void sendBubble(ServerPlayer player, boolean state) { TODO
-//        if (!(player instanceof IBubbleStateCAC bubbleState)) return;
-//
-//        bubbleState.setBubbleActive(state);
-//        CACPacketHandler.BUBBLE_STATE.sendToTracking(player, new ClientboundBubbleStatePacket(state, player.getId()));
-//    }
+    public void sendBubble(ServerPlayer player, boolean state) {
+        if (!(player instanceof IBubbleState bubbleState)) return;
+
+        bubbleState.setBubbleActive(state);
+        ModNetwork.sendToTracking(player, new ClientboundBubbleStatePacket(state, player.getId()));
+    }
 
     public ServerPlayer getBubbledPlayer() {
         return this.bubbledPlayer;
@@ -301,10 +305,10 @@ public class DumboOctopusEntity extends WaterAnimal implements GeoEntity, Bucket
                     }
                 }
             } else {
-//                if (!this.bubbleSent) { TODO
-//                    DumboOctopusEntity.this.sendBubble(DumboOctopusEntity.this.bubbledPlayer, true);
-//                    this.bubbleSent = true;
-//                }
+                if (!this.bubbleSent) {
+                    DumboOctopusEntity.this.sendBubble(DumboOctopusEntity.this.bubbledPlayer, true);
+                    this.bubbleSent = true;
+                }
             }
 
             if (this.bubbleSent) {
@@ -315,7 +319,7 @@ public class DumboOctopusEntity extends WaterAnimal implements GeoEntity, Bucket
         @Override
         public void stop() {
             DumboOctopusEntity.this.bubblingPlayer = false;
-//            DumboOctopusEntity.this.sendBubble(DumboOctopusEntity.this.bubbledPlayer, false); TODO
+            DumboOctopusEntity.this.sendBubble(DumboOctopusEntity.this.bubbledPlayer, false);
             this.bubbleSent = false;
             DumboOctopusEntity.this.bubbledPlayer.playSound(ModSounds.BUBBLE_POP.get());
             DumboOctopusEntity.this.bubbledPlayer = null;

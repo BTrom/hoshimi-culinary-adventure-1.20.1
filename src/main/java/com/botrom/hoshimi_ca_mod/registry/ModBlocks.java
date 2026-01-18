@@ -41,6 +41,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_STRAWBERRIES = registerBlock("wild_strawberries", () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.AZURE_BLUET)));
     public static final RegistryObject<Block> WILD_COTTON = BLOCKS.register("wild_cotton", () -> new WildCropBlock(MobEffects.JUMP, 5, Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_COFFEE = BLOCKS.register("wild_coffee", () -> new WildCropBlock(MobEffects.DIG_SPEED, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new TallFlowerBlock(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
 
 
     // Fauna
@@ -106,6 +107,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> PORTABLE_CROCK_POT = BLOCKS.register("portable_crock_pot", () -> new CrockPotBlock(1));
     public static final RegistryObject<Block> BIRDCAGE = BLOCKS.register("birdcage", BirdcageBlock::new);
     public static final RegistryObject<Block> EYE_BONE = BLOCKS.register("eye_bone", EyeBoneBlock::new);
+    public static final RegistryObject<Block> TORTOISE_EGG = BLOCKS.register("tortoise_egg", () -> new TortoiseEggBlock(BlockBehaviour.Properties.copy(Blocks.TURTLE_EGG)));
+    public static final RegistryObject<Block> SNAIL_EGGS = BLOCKS.register("snail_eggs", () -> new SnailEggBlock(BlockBehaviour.Properties.copy(Blocks.FROGSPAWN)));
+    public static final RegistryObject<Block> GLOW_GOOP_BLOCK = BLOCKS.register("glow_goop", () -> new GlowGoopBlock(BlockBehaviour.Properties.of().strength(0.5F).replaceable().noOcclusion().noCollission().lightLevel(GlowGoopBlock.LIGHT_EMISSION).sound(SoundType.HONEY_BLOCK)));
+    public static final RegistryObject<Block> CHRYSALIS_BLOCK = BLOCKS.register("chrysalis", () -> new ChrysalisBlock(BlockBehaviour.Properties.of().randomTicks().strength(0.2F, 3.0F).sound(SoundType.GRASS).noOcclusion().noCollission().pushReaction(PushReaction.DESTROY)));
 
 
     // Meal Blocks

@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.blocks;
 
 import com.botrom.hoshimi_ca_mod.blocks.entities.BlockEntityTerrapinEgg;
-import com.botrom.hoshimi_ca_mod.entities.EntityTerrapin;
+import com.botrom.hoshimi_ca_mod.entities.TerrapinEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
 import com.botrom.hoshimi_ca_mod.registry.ModEntities;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
@@ -121,7 +121,7 @@ public class BlockTerrapinEgg extends BaseEntityBlock {
                 worldIn.removeBlock(pos, false);
                 for (int j = 0; j < state.getValue(EGGS); ++j) {
                     worldIn.levelEvent(2001, pos, Block.getId(state));
-                    EntityTerrapin turtleentity = ModEntities.TERRAPIN.get().create(worldIn);
+                    TerrapinEntity turtleentity = ModEntities.TERRAPIN.get().create(worldIn);
                     turtleentity.setAge(-24000);
                     if(worldIn.getBlockEntity(pos) instanceof BlockEntityTerrapinEgg eggTE){
                         eggTE.addAttributesToOffspring(turtleentity, random);
@@ -175,7 +175,7 @@ public class BlockTerrapinEgg extends BaseEntityBlock {
     }
 
     private boolean canTrample(Level worldIn, Entity trampler) {
-        if (!(trampler instanceof EntityTerrapin) && !(trampler instanceof Bat)) {
+        if (!(trampler instanceof TerrapinEntity) && !(trampler instanceof Bat)) {
             if (!(trampler instanceof LivingEntity)) {
                 return false;
             } else {

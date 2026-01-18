@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "hoshimimod:block/cattail_bottom"
+    },
+    "half=upper": {
+      "model": "hoshimimod:block/cattail_top"
+    }
+  }
+}

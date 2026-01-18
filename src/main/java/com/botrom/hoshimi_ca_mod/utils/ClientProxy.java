@@ -11,6 +11,9 @@ import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.StorageTypeRegistry;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -36,6 +39,8 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(modid = HoshimiCulinaryMod.MOD_ID, value = Dist.CLIENT)
@@ -49,12 +54,6 @@ public class ClientProxy extends CommonProxy {
     @OnlyIn(Dist.CLIENT)
     public static void onItemColors(RegisterColorHandlersEvent.Item event) {
 
-//        HoshimiCulinaryMod.loggerLog(Level.ALL, "loaded in item colorizer");
-//        if(ModItems.STRADDLEBOARD.isPresent()){
-//            event.register((stack, colorIn) -> colorIn < 1 ? -1 : ((DyeableLeatherItem) stack.getItem()).getColor(stack), AMItemRegistry.STRADDLEBOARD.get());
-//        }else{
-//            AlexsMobs.LOGGER.warn("Could not add straddleboard item to colorizer...");
-//        }
     }
 
     @SubscribeEvent
@@ -90,6 +89,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.FIDDLER_CRAB.get(), FiddlerCrabRenderer::new);
         EntityRenderers.register(ModEntities.DUMBO_OCTOPUS.get(), context -> new GeoEntityRenderer<>(context, new DumboOctopusModel()));
         EntityRenderers.register(ModEntities.KOI_FISH.get(), context -> new GeoEntityRenderer<>(context, new KoiFishModel()));
+        EntityRenderers.register(ModEntities.SHIMA_ENAGA.get(), context -> new GeoEntityRenderer<>(context, new ShimaEnagaModel()));
 //        EntityRenderers.register(ModEntities.LOBSTER.get(), LobsterRenderer::new);
         EntityRenderers.register(ModEntities.MIMIC_OCTOPUS.get(), MimicOctopusRenderer::new);
         EntityRenderers.register(ModEntities.SEAGULL.get(), SeagullRenderer::new);
@@ -112,6 +112,13 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.KING_CRAB.get(), context -> new GeoEntityRenderer<>(context, new KingCrabModel()));
         EntityRenderers.register(ModEntities.SAND_CRAB.get(), context -> new GeoEntityRenderer<>(context, new SandCrabModel()));
         EntityRenderers.register(ModEntities.CRAYFISH.get(), context -> new GeoEntityRenderer<>(context, new CrayfishModel()));
+        EntityRenderers.register(ModEntities.CARDINAL.get(), BirdRenderer::new);
+        EntityRenderers.register(ModEntities.SPARROW.get(), BirdRenderer::new);
+        EntityRenderers.register(ModEntities.BUTTERFLY.get(), ButterflyRenderer::new);
+        EntityRenderers.register(ModEntities.CATERPILLAR.get(), CaterpillarRenderer::new);
+        EntityRenderers.register(ModEntities.LIZARD.get(), LizardRenderer::new);
+        EntityRenderers.register(ModEntities.SNAIL.get(), SnailRenderer::new);
+        EntityRenderers.register(ModEntities.TORTOISE.get(), TortoiseRenderer::new);
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
@@ -197,5 +204,14 @@ public class ClientProxy extends CommonProxy {
         if (entity == Minecraft.getInstance().player && flag == 87) {
             ClientEvents.renderStaticScreenFor = 60;
         }
+    }
+
+    @SubscribeEvent
+    public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        registerEntityLayers(event::registerLayerDefinition);
+    }
+
+    public static void registerEntityLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> event) {
+        event.accept(BubbleLayer.LAYER_LOCATION, BubbleModel::createLayer);
     }
 }

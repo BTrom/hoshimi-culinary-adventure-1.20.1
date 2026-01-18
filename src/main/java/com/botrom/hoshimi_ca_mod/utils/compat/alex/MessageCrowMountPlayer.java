@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.utils.compat.alex;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.entities.EntityCrow;
+import com.botrom.hoshimi_ca_mod.entities.CrowEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -48,7 +48,7 @@ public class MessageCrowMountPlayer {
                     if (player.level() != null) {
                         Entity entity = player.level().getEntity(message.rider);
                         Entity mountEntity = player.level().getEntity(message.mount);
-                        if (entity instanceof EntityCrow && mountEntity instanceof Player && entity.distanceTo(mountEntity) < 16D) {
+                        if (entity instanceof CrowEntity && mountEntity instanceof Player && entity.distanceTo(mountEntity) < 16D) {
                             entity.startRiding(mountEntity, true);
                         }
                     }

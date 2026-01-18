@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMantisShrimp;
+import com.botrom.hoshimi_ca_mod.entities.MantisShrimpEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import net.minecraft.core.BlockPos;
@@ -16,13 +16,13 @@ import java.util.EnumSet;
 
 public class MantisShrimpAIFryRice extends MoveToBlockGoal {
 
-    private final EntityMantisShrimp mantisShrimp;
+    private final MantisShrimpEntity mantisShrimp;
     private boolean wasLitPrior = false;
     private int cookingTicks = 0;
 
-    public MantisShrimpAIFryRice(EntityMantisShrimp entityMantisShrimp) {
-        super(entityMantisShrimp, 1, 8);
-        this.mantisShrimp = entityMantisShrimp;
+    public MantisShrimpAIFryRice(MantisShrimpEntity mantisShrimpEntity) {
+        super(mantisShrimpEntity, 1, 8);
+        this.mantisShrimp = mantisShrimpEntity;
         this.setFlags(EnumSet.of(Flag.MOVE));
     }
 

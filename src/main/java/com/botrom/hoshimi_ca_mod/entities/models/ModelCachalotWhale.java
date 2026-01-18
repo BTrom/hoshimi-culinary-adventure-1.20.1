@@ -2,7 +2,7 @@ package com.botrom.hoshimi_ca_mod.entities.models;// Made with Blockbench 3.8.3
 // Exported for Minecraft version 1.15 - 1.16
 // Paste this class into your mod and generate all required imports
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotWhale;
+import com.botrom.hoshimi_ca_mod.entities.CachalotWhaleEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -12,7 +12,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.util.Mth;
 
-public class ModelCachalotWhale extends AdvancedEntityModel<EntityCachalotWhale> {
+public class ModelCachalotWhale extends AdvancedEntityModel<CachalotWhaleEntity> {
 	public final AdvancedModelBox root;
 	public final AdvancedModelBox body;
 	public final AdvancedModelBox top_fin;
@@ -96,7 +96,7 @@ public class ModelCachalotWhale extends AdvancedEntityModel<EntityCachalotWhale>
 	}
 
 	@Override
-	public void setupAnim(EntityCachalotWhale entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setupAnim(CachalotWhaleEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		this.resetToDefaultPose();
 		float partialTicks = ageInTicks - entity.tickCount;
 		float renderYaw = (float)entity.getMovementOffsets(0, partialTicks)[0] ;

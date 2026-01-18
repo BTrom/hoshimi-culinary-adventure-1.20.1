@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCrow;
+import com.botrom.hoshimi_ca_mod.entities.CrowEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import com.botrom.hoshimi_ca_mod.utils.ModConfig;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class CrowAICircleCrops extends MoveToBlockGoal {
 
-    private final EntityCrow crow;
+    private final CrowEntity crow;
     private int idleAtFlowerTime = 0;
     private boolean isAboveDestinationBear;
     float circlingTime = 0;
@@ -28,7 +28,7 @@ public class CrowAICircleCrops extends MoveToBlockGoal {
     boolean clockwise = false;
     boolean circlePhase = false;
 
-    public CrowAICircleCrops(EntityCrow bird) {
+    public CrowAICircleCrops(CrowEntity bird) {
         super(bird, 1D, 32, 8);
         this.crow = bird;
     }

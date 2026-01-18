@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
-import com.botrom.hoshimi_ca_mod.entities.EntityCrow;
+import com.botrom.hoshimi_ca_mod.entities.CrowEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.MessageCrowMountPlayer;
@@ -20,7 +20,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.EnumSet;
 
 public class CrowAIFollowOwner extends Goal {
-    private final EntityCrow crow;
+    private final CrowEntity crow;
     private final LevelReader world;
     private final double followSpeed;
     private final PathNavigation navigator;
@@ -36,7 +36,7 @@ public class CrowAIFollowOwner extends Goal {
     private float oldWaterCost;
     private int maxCircleTime;
 
-    public CrowAIFollowOwner(EntityCrow p_i225711_1_, double p_i225711_2_, float p_i225711_4_, float p_i225711_5_, boolean p_i225711_6_) {
+    public CrowAIFollowOwner(CrowEntity p_i225711_1_, double p_i225711_2_, float p_i225711_4_, float p_i225711_5_, boolean p_i225711_6_) {
         this.crow = p_i225711_1_;
         this.world = p_i225711_1_.level();
         this.followSpeed = p_i225711_2_;

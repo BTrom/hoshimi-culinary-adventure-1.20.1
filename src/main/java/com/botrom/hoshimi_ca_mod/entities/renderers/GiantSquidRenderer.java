@@ -1,7 +1,7 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
 import com.botrom.hoshimi_ca_mod.entities.GiantSquidEntity;
-import com.botrom.hoshimi_ca_mod.entities.EntityGiantSquidPart;
+import com.botrom.hoshimi_ca_mod.entities.GiantSquidPartEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.GiantSquidModel;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -36,7 +36,7 @@ public class GiantSquidRenderer extends MobRenderer<GiantSquidEntity, GiantSquid
         if (super.shouldRender(livingEntityIn, camera, camX, camY, camZ)) {
             return true;
         } else {
-            for (EntityGiantSquidPart part : livingEntityIn.allParts) {
+            for (GiantSquidPartEntity part : livingEntityIn.allParts) {
                 if (camera.isVisible(part.getBoundingBox())) {
                     return true;
                 }

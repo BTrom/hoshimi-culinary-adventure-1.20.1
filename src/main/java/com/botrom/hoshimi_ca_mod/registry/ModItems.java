@@ -42,6 +42,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.function.Supplier;
 
 import static vectorwing.farmersdelight.common.registry.ModItems.*;
 import static vectorwing.farmersdelight.common.registry.ModItems.bowlFoodItem;
@@ -144,6 +145,11 @@ public class ModItems {
     public static final RegistryObject<Item> WET_GOOP = ITEMS.register("wet_goop", () -> new CrockPotFoodBlockItem(ModBlocks.WET_GOOP.get(), CrockPotFoodProperties.builder().duration(FoodUseDuration.SUPER_SLOW).alwaysEat().effect(MobEffects.CONFUSION, 10 * 20).tooltip("wet_goop", ChatFormatting.DARK_AQUA).build()));
     public static final RegistryObject<Item> NETHEROSIA = ITEMS.register("netherosia", NetherosiaItem::new);
     public static final RegistryObject<Item> EYE_BONE = ITEMS.register("eye_bone", () -> new EyeBoneBlockItem(new Item.Properties()));
+    public static final RegistryObject<Item> TORTOISE_EGG = ITEMS.register("tortoise_egg", () -> new BlockItem(ModBlocks.TORTOISE_EGG.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SNAIL_EGGS = ITEMS.register("snail_eggs", () -> new BlockItem(ModBlocks.SNAIL_EGGS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CHRYSALIS = ITEMS.register("chrysalis", () -> new BlockItem(ModBlocks.CHRYSALIS_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GLOW_GOOP = ITEMS.register("glow_goop", () -> new GlowGoopItem(ModBlocks.GLOW_GOOP_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CATTAIL = ITEMS.register("cattail", () -> new BlockItem(ModBlocks.CATTAIL.get(), new Item.Properties()));
 
 
     //Seeds
@@ -291,6 +297,7 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_GIANT_MUD_CRAB = ITEMS.register("cooked_giant_mud_crab",() -> new Item(new Item.Properties().food(ModFoods.COOKED_GIANT_MUD_CRAB)));
     public static final RegistryObject<Item> COOKED_KING_CRAB = ITEMS.register("cooked_king_crab",() -> new Item(new Item.Properties().food(ModFoods.COOKED_KING_CRAB)));
     public static final RegistryObject<Item> COOKED_CRAYFISH = ITEMS.register("cooked_crayfish",() -> new Item(new Item.Properties().food(ModFoods.COOKED_CRAB_MEAT)));
+    public static final RegistryObject<Item> SNAIL_SHELL = ITEMS.register("snail_shell", () -> new Item(new Item.Properties()));
 
 
     //Meals
@@ -441,6 +448,7 @@ public class ModItems {
     public static final RegistryObject<Item> FIDDLER_CRAB_SPAWN_EGG = ITEMS.register("fiddler_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.FIDDLER_CRAB, 0x2f437c, 0xf48b45, new Item.Properties()));
     public static final RegistryObject<Item> DUMBO_OCTOPUS_SPAWN_EGG = ITEMS.register("dumbo_octopus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.DUMBO_OCTOPUS, 0xFCDC4C, 0x162630, new Item.Properties()));
     public static final RegistryObject<Item> KOI_FISH_SPAWN_EGG = ITEMS.register("koi_fish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.KOI_FISH, 0xF3ECED, 0xFB5321, new Item.Properties()));
+    public static final RegistryObject<Item> SHIMA_ENAGA_SPAWN_EGG = ITEMS.register("shima_enaga_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIMA_ENAGA, 0xFCFCEC, 0x5C3C34, (new Item.Properties())));
     public static final RegistryObject<Item> LOBSTER_SPAWN_EGG = ITEMS.register("lobster_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.LOBSTER, 0XC43123,0XDD5F38, new Item.Properties()));
     public static final RegistryObject<Item> CATFISH_SPAWN_EGG = ITEMS.register("catfish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CATFISH, 0X807757, 0X8A7466, new Item.Properties()));
     public static final RegistryObject<Item> GIANT_SQUID_SPAWN_EGG = ITEMS.register("giant_squid_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GIANT_SQUID, 0XAB4B4D, 0XD67D6B, new Item.Properties()));
@@ -456,10 +464,17 @@ public class ModItems {
     public static final RegistryObject<Item> FLYING_FISH_SPAWN_EGG = ITEMS.register("flying_fish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.FLYING_FISH, 0X7BBCED, 0X6881B3, new Item.Properties()));
     public static final RegistryObject<Item> SHIBA_SPAWN_EGG = ITEMS.register("shiba_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SHIBA, 0xa86741, 0xe8d5b6, new Item.Properties()));
     public static final RegistryObject<Item> CHESTER_SPAWN_EGG = ITEMS.register("chester_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CHESTER, 0xd48f43, 0x942020, new Item.Properties()));
-    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d,new Item.Properties()));
-    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9,new Item.Properties()));
-    public static final RegistryObject<Item> SAND_CRAB_SPAWN_EGG = ITEMS.register("sand_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SAND_CRAB,0xc6d2cb,0x291616,new Item.Properties()));
-    public static final RegistryObject<Item> CRAYFISH_SPAWN_EGG = ITEMS.register("crayfish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CRAYFISH,0x671620,0x2e181b,new Item.Properties()));
+    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
+    public static final RegistryObject<Item> KING_CRAB_SPAWN_EGG = ITEMS.register("king_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.KING_CRAB,0x40191b,0xf9f4e9, new Item.Properties()));
+    public static final RegistryObject<Item> SAND_CRAB_SPAWN_EGG = ITEMS.register("sand_crab_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SAND_CRAB,0xc6d2cb,0x291616, new Item.Properties()));
+    public static final RegistryObject<Item> CRAYFISH_SPAWN_EGG = ITEMS.register("crayfish_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CRAYFISH,0x671620,0x2e181b, new Item.Properties()));
+    public static final RegistryObject<Item> BUTTERFLY_SPAWN_EGG = ITEMS.register("butterfly_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.BUTTERFLY, 15165706, 6828564, new Item.Properties()));
+    public static final RegistryObject<Item> CATERPILLAR_SPAWN_EGG = ITEMS.register("caterpillar_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CATERPILLAR, 3815473, 15647488, new Item.Properties()));
+    public static final RegistryObject<Item> SNAIL_SPAWN_EGG = ITEMS.register("snail_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SNAIL, 5457209, 8811878, new Item.Properties()));
+    public static final RegistryObject<Item> SPARROW_SPAWN_EGG = ITEMS.register("sparrow_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SPARROW, 6504493, 14603707, new Item.Properties()));
+    public static final RegistryObject<Item> CARDINAL_SPAWN_EGG = ITEMS.register("cardinal_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CARDINAL, 13772840, 4465186, new Item.Properties()));
+    public static final RegistryObject<Item> LIZARD_SPAWN_EGG = ITEMS.register("lizard_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.LIZARD, 10853166, 15724462, new Item.Properties()));
+    public static final RegistryObject<Item> TORTOISE_SPAWN_EGG = ITEMS.register("tortoise_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TORTOISE, 15724462, 11765582, new Item.Properties()));
 
 
 //    public static final RegistryObject<Item> GIANT_MUD_CRAB_SPAWN_EGG = ITEMS.register("giant_mud_crab_spawn_egg",new ForgeSpawnEggItem(ModEntities.GIANT_MUD_CRAB,0x444722,0x5f2d2d, new Item.Properties()));
@@ -510,6 +525,8 @@ public class ModItems {
             () -> new ItemModFishBucket(ModEntities.SAND_CRAB, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
     public static final RegistryObject<Item> CRAYFISH_BUCKET = ITEMS.register("crayfish_bucket",
             () -> new ItemModFishBucket(ModEntities.CRAYFISH, Fluids.WATER, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+    public static final RegistryObject<Item> SNAIL_BUCKET = ITEMS.register("snail_bucket",
+            () -> new MobBucketItem(ModEntities.SNAIL, () -> Fluids.EMPTY, ModSounds.BUCKET_EMPTY_SNAIL, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET))); // Snail.Color.values().length);
 
     public static final Map<Parrot.Variant, RegistryObject<Item>> PARROT_EGGS = Util.make(new EnumMap<>(Parrot.Variant.class), map -> {
         for (var variant : Parrot.Variant.values()) {

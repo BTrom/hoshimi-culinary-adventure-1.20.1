@@ -2,13 +2,13 @@ package com.botrom.hoshimi_ca_mod.entities.models;// Made with Blockbench 3.7.4
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-import com.botrom.hoshimi_ca_mod.entities.EntityHammerheadShark;
+import com.botrom.hoshimi_ca_mod.entities.HammerheadSharkEntity;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
 import com.github.alexthe666.citadel.client.model.basic.BasicModelPart;
 import com.google.common.collect.ImmutableList;
 
-public class ModelHammerheadShark extends AdvancedEntityModel<EntityHammerheadShark> {
+public class ModelHammerheadShark extends AdvancedEntityModel<HammerheadSharkEntity> {
 	private final AdvancedModelBox root;
 	private final AdvancedModelBox main_body;
 	private final AdvancedModelBox head;
@@ -114,7 +114,7 @@ public class ModelHammerheadShark extends AdvancedEntityModel<EntityHammerheadSh
 	}
 
 	@Override
-	public void setupAnim(EntityHammerheadShark entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(HammerheadSharkEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.resetToDefaultPose();
 		AdvancedModelBox[] tailBoxes = new AdvancedModelBox[]{main_body, tail1, tail2, tail3};
 		float swimSpeed = 0.4F;

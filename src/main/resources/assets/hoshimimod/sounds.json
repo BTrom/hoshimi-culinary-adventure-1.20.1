@@ -466,6 +466,190 @@
     ],
     "subtitle": "hoshimimod.sound.subtitle.chester_close_mouth"
   },
+  "entity/tortoise_hide": {
+    "sounds": [
+      {
+        "name": "entity/player/attack/sweep1",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep2",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep3",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep4",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep5",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep6",
+        "volume": 0.5,
+        "pitch": 0.8
+      },
+      {
+        "name": "entity/player/attack/sweep7",
+        "volume": 0.5,
+        "pitch": 0.8
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.hide"
+  },
+  "entity/tortoise_thud": {
+    "sounds": [
+      "damage/fallsmall"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.thud"
+  },
+  "entity/tortoise_shell_block": {
+    "sounds": [
+      "item/shield/block1",
+      "item/shield/block2",
+      "item/shield/block3",
+      "item/shield/block4",
+      "item/shield/block5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.shell_block"
+  },
+  "entity/tortoise_egg_break": {
+    "sounds": [
+      "mob/turtle/egg/egg_break1",
+      "mob/turtle/egg/egg_break2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_break"
+  },
+  "entity/tortoise_egg_crack": {
+    "sounds": [
+      "mob/turtle/egg/egg_crack1",
+      "mob/turtle/egg/egg_crack2",
+      "mob/turtle/egg/egg_crack3",
+      "mob/turtle/egg/egg_crack4",
+      "mob/turtle/egg/egg_crack5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_crack"
+  },
+  "entity/tortoise_egg_hatch": {
+    "sounds": [
+      "mob/turtle/baby/egg_hatched1",
+      "mob/turtle/baby/egg_hatched2",
+      "mob/turtle/baby/egg_hatched3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_hatch"
+  },
+  "entity/snail_crush": {
+    "sounds": [
+      "minecraft:mob/turtle/egg/egg_crack1",
+      "minecraft:mob/turtle/egg/egg_crack2",
+      "minecraft:mob/turtle/egg/egg_crack3",
+      "minecraft:mob/turtle/egg/egg_crack4",
+      "minecraft:mob/turtle/egg/egg_crack5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.snail.crush"
+  },
+  "entity/snail_forward": {
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/snail_forward",
+        "volume": 0.1,
+        "pitch": 1
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.snail.move"
+  },
+  "entity/snail_back": {
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/snail_back",
+        "volume": 0.1,
+        "pitch": 1
+      }
+    ],
+    "subtitle": "hoshimimod.subtitles.entity.snail.move"
+  },
+  "item/bucket_fill_snail": {
+    "sounds": [
+      "hoshimimod:entity/snail_bucket_fill"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bucket.fill_snail"
+  },
+  "item/bucket_empty_snail": {
+    "sounds": [
+      "hoshimimod:entity/snail_bucket_empty"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bucket.empty_snail"
+  },
+  "entity/bird_hurt": {
+    "sounds": [
+      "minecraft:mob/parrot/hurt1",
+      "minecraft:mob/parrot/hurt2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.hurt"
+  },
+  "entity/bird_death": {
+    "sounds": [
+      "minecraft:mob/parrot/death1",
+      "minecraft:mob/parrot/death2",
+      "minecraft:mob/parrot/death3",
+      "minecraft:mob/parrot/death4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.death"
+  },
+  "entity/bird_eat": {
+    "sounds": [
+      "minecraft:mob/parrot/eat1",
+      "minecraft:mob/parrot/eat2",
+      "minecraft:mob/parrot/eat3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.eat"
+  },
+  "entity/bird_fly": {
+    "sounds": [
+      "minecraft:mob/parrot/fly1",
+      "minecraft:mob/parrot/fly2",
+      "minecraft:mob/parrot/fly3",
+      "minecraft:mob/parrot/fly4",
+      "minecraft:mob/parrot/fly5",
+      "minecraft:mob/parrot/fly6",
+      "minecraft:mob/parrot/fly7"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.fly"
+  },
+  "entity/bird_ambient_sparrow": {
+    "sounds": [
+      "hoshimimod:entity/bird_sparrow_idle1",
+      "hoshimimod:entity/bird_sparrow_idle2",
+      "hoshimimod:entity/bird_sparrow_idle3",
+      "hoshimimod:entity/bird_sparrow_idle4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.ambient_sparrow"
+  },
+  "entity/bird_ambient_cardinal": {
+    "sounds": [
+      "hoshimimod:entity/bird_cardinal_idle",
+      "hoshimimod:entity/bird_cardinal_song"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.bird.ambient_cardinal"
+  },
+  "entity/shima_enaga_ambient": {
+    "sounds": [
+      "hoshimimod:entity/shima_enaga_ambient_1",
+      "hoshimimod:entity/shima_enaga_ambient_2",
+      "hoshimimod:entity/shima_enaga_ambient_3",
+      "hoshimimod:entity/shima_enaga_ambient_4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.shima_enaga.ambient"
+  },
   "block/crock_pot_close": {
     "sounds": [
       "hoshimimod:block/crock_pot_close"

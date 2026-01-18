@@ -2,10 +2,13 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class ModSounds
 {
@@ -49,11 +52,35 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> CHESTER_DEATH = createSoundEvent("entity/chester_death");
     public static final RegistryObject<SoundEvent> CHESTER_OPEN_MOUTH = createSoundEvent("entity/chester_open_mouth");
     public static final RegistryObject<SoundEvent> CHESTER_CLOSE_MOUTH = createSoundEvent("entity/chester_close_mouth");
+    public static final RegistryObject<SoundEvent> SHIMA_ENAGA_AMBIENT = createSoundEvent("entity/shima_enaga_ambient");
+    public static final RegistryObject<SoundEvent> TORTOISE_HIDE = createSoundEvent("entity/tortoise_hide");
+    public static final RegistryObject<SoundEvent> TORTOISE_THUD = createSoundEvent("entity/tortoise_thud");
+    public static final RegistryObject<SoundEvent> TORTOISE_HURT = createSoundEvent("entity/tortoise_hurt");
+    public static final RegistryObject<SoundEvent> TORTOISE_DEATH = createSoundEvent("entity/tortoise_death");
+    public static final RegistryObject<SoundEvent> SNAIL_CRUSH = createSoundEvent("entity/snail_crush");
+    public static final RegistryObject<SoundEvent> SNAIL_FORWARD = createSoundEvent("entity/snail_forward");
+    public static final RegistryObject<SoundEvent> SNAIL_BACK = createSoundEvent("entity/snail_back");
+    public static final RegistryObject<SoundEvent> BUCKET_FILL_SNAIL = createSoundEvent("item/bucket_fill_snail");
+    public static final RegistryObject<SoundEvent> BUCKET_EMPTY_SNAIL = createSoundEvent("item/bucket_empty_snail");
+    public static final RegistryObject<SoundEvent> BIRD_HURT = createSoundEvent("entity/bird_hurt");
+    public static final RegistryObject<SoundEvent> BIRD_DEATH = createSoundEvent("entity/bird_death");
+    public static final RegistryObject<SoundEvent> BIRD_EAT = createSoundEvent("entity/bird_eat");
+    public static final RegistryObject<SoundEvent> BIRD_FLY = createSoundEvent("entity/bird_fly");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_BLUEJAY = createSoundEvent("entity/bird_ambient_bluejay");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_CANARY = createSoundEvent("entity/bird_ambient_canary");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_ROBIN = createSoundEvent("entity/bird_ambient_robin");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_CARDINAL = createSoundEvent("entity/bird_ambient_cardinal");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_FINCH = createSoundEvent("entity/bird_ambient_finch");
+    public static final RegistryObject<SoundEvent> BIRD_AMBIENT_SPARROW = createSoundEvent("entity/bird_ambient_sparrow");
+
 
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
     public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
     public static final RegistryObject<SoundEvent> CROCK_POT_FINISH = createSoundEvent("block/crock_pot_finish");
     public static final RegistryObject<SoundEvent> CROCK_POT_RATTLE = createSoundEvent("block/crock_pot_rattle");
+    public static final RegistryObject<SoundEvent> TORTOISE_EGG_BREAK = createSoundEvent("block/tortoise_egg_break");
+    public static final RegistryObject<SoundEvent> TORTOISE_EGG_CRACK = createSoundEvent("block/tortoise_egg_crack");
+    public static final RegistryObject<SoundEvent> TORTOISE_EGG_HATCH = createSoundEvent("block/tortoise_egg_hatch");
 
 
 

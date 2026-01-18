@@ -1,0 +1,105 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "hoshimimod:item/lower_bucket",
+    "layer1": "hoshimimod:item/bucket_content/snail/brown"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "color": 0
+      },
+      "model": "hoshimimod:item/snail/white"
+    },
+    {
+      "predicate": {
+        "color": 0.066
+      },
+      "model": "hoshimimod:item/snail/orange"
+    },
+    {
+      "predicate": {
+        "color": 0.133
+      },
+      "model": "hoshimimod:item/snail/magenta"
+    },
+    {
+      "predicate": {
+        "color": 0.2
+      },
+      "model": "hoshimimod:item/snail/light_blue"
+    },
+    {
+      "predicate": {
+        "color": 0.266
+      },
+      "model": "hoshimimod:item/snail/yellow"
+    },
+    {
+      "predicate": {
+        "color": 0.333
+      },
+      "model": "hoshimimod:item/snail/lime"
+    },
+    {
+      "predicate": {
+        "color": 0.4
+      },
+      "model": "hoshimimod:item/snail/pink"
+    },
+    {
+      "predicate": {
+        "color": 0.466
+      },
+      "model": "hoshimimod:item/snail/gray"
+    },
+    {
+      "predicate": {
+        "color": 0.533
+      },
+      "model": "hoshimimod:item/snail/light_gray"
+    },
+    {
+      "predicate": {
+        "color": 0.6
+      },
+      "model": "hoshimimod:item/snail/cyan"
+    },
+    {
+      "predicate": {
+        "color": 0.666
+      },
+      "model": "hoshimimod:item/snail/purple"
+    },
+    {
+      "predicate": {
+        "color": 0.733
+      },
+      "model": "hoshimimod:item/snail/blue"
+    },
+    {
+      "predicate": {
+        "color": 0.8
+      },
+      "model": "hoshimimod:item/snail/brown"
+    },
+    {
+      "predicate": {
+        "color": 0.866
+      },
+      "model": "hoshimimod:item/snail/green"
+    },
+    {
+      "predicate": {
+        "color": 0.933
+      },
+      "model": "hoshimimod:item/snail/red"
+    },
+    {
+      "predicate": {
+        "color": 1.0
+      },
+      "model": "hoshimimod:item/snail/black"
+    }
+  ]
+}

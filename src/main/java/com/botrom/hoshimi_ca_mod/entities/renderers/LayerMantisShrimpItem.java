@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMantisShrimp;
+import com.botrom.hoshimi_ca_mod.entities.MantisShrimpEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.ModelMantisShrimp;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -12,13 +12,13 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
-public class LayerMantisShrimpItem extends RenderLayer<EntityMantisShrimp, ModelMantisShrimp> {
+public class LayerMantisShrimpItem extends RenderLayer<MantisShrimpEntity, ModelMantisShrimp> {
 
     public LayerMantisShrimpItem(RenderMantisShrimp render) {
         super(render);
     }
 
-    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, EntityMantisShrimp entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, MantisShrimpEntity entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         ItemStack itemstack = entitylivingbaseIn.getItemBySlot(EquipmentSlot.MAINHAND);
         matrixStackIn.pushPose();
         boolean left = entitylivingbaseIn.isLeftHanded();

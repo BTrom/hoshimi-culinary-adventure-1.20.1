@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityMantisShrimp;
+import com.botrom.hoshimi_ca_mod.entities.MantisShrimpEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -11,7 +11,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 
-public class ModelMantisShrimp extends AdvancedEntityModel<EntityMantisShrimp> {
+public class ModelMantisShrimp extends AdvancedEntityModel<MantisShrimpEntity> {
 	public final AdvancedModelBox root;
 	public final AdvancedModelBox body;
 	public final AdvancedModelBox tail;
@@ -155,7 +155,7 @@ public class ModelMantisShrimp extends AdvancedEntityModel<EntityMantisShrimp> {
 
 
 	@Override
-	public void setupAnim(EntityMantisShrimp entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setupAnim(MantisShrimpEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		this.resetToDefaultPose();
 		float idleSpeed = 0.1f;
 		float idleDegree = 0.3f;

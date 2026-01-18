@@ -252,6 +252,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.KOI_FISH_SPAWN_EGG.get());
                         output.accept(ModItems.DUMBO_OCTOPUS_BUCKET.get());
                         output.accept(ModItems.KOI_FISH_BUCKET.get());
+                        output.accept(ModItems.SHIMA_ENAGA_SPAWN_EGG.get());
 
                         // Alex's Mobs
                         output.accept(ModItems.LOBSTER_SPAWN_EGG.get());
@@ -439,6 +440,22 @@ public class ModCreativeTabs {
                         output.accept(ModItems.KING_CRAB_BUCKET.get());
                         output.accept(ModItems.SAND_CRAB_BUCKET.get());
                         output.accept(ModItems.CRAYFISH_BUCKET.get());
+
+                        // Naturalist
+                        output.accept(ModItems.BUTTERFLY_SPAWN_EGG.get());
+                        output.accept(ModItems.CATERPILLAR_SPAWN_EGG.get());
+                        output.accept(ModItems.SNAIL_SPAWN_EGG.get());
+                        output.accept(ModItems.SPARROW_SPAWN_EGG.get());
+                        output.accept(ModItems.CARDINAL_SPAWN_EGG.get());
+                        output.accept(ModItems.LIZARD_SPAWN_EGG.get());
+                        output.accept(ModItems.TORTOISE_SPAWN_EGG.get());
+                        output.accept(ModItems.SNAIL_BUCKET.get());
+                        output.accept(ModItems.SNAIL_SHELL.get());
+                        output.accept(ModItems.GLOW_GOOP.get());
+                        output.accept(ModItems.CHRYSALIS.get());
+                        output.accept(ModBlocks.TORTOISE_EGG.get());
+                        output.accept(ModBlocks.SNAIL_EGGS.get());
+                        output.accept(ModBlocks.CATTAIL.get());
                     })
                     .build());
 

@@ -22,6 +22,8 @@
     "minecraft:wolf",
     "hoshimimod:crow",
     "minecraft:goat",
-    "minecraft:frog"
+    "minecraft:frog",
+    "hoshimimod:lizard",
+    "hoshimimod:tortoise"
   ]
 }

@@ -67,17 +67,17 @@ public class GiantSquidEntity extends WaterAnimal {
     private static final EntityDataAccessor<Boolean> CAPTURED = SynchedEntityData.defineId(GiantSquidEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> BLUE = SynchedEntityData.defineId(GiantSquidEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> GRAB_ENTITY = SynchedEntityData.defineId(GiantSquidEntity.class, EntityDataSerializers.INT);
-    public final EntityGiantSquidPart mantlePart1;
-    public final EntityGiantSquidPart mantlePart2;
-    public final EntityGiantSquidPart mantlePart3;
-    public final EntityGiantSquidPart tentaclesPart1;
-    public final EntityGiantSquidPart tentaclesPart2;
-    public final EntityGiantSquidPart tentaclesPart3;
-    public final EntityGiantSquidPart tentaclesPart4;
-    public final EntityGiantSquidPart tentaclesPart5;
-    public final EntityGiantSquidPart tentaclesPart6;
-    public final EntityGiantSquidPart mantleCollisionPart;
-    public final EntityGiantSquidPart[] allParts;
+    public final GiantSquidPartEntity mantlePart1;
+    public final GiantSquidPartEntity mantlePart2;
+    public final GiantSquidPartEntity mantlePart3;
+    public final GiantSquidPartEntity tentaclesPart1;
+    public final GiantSquidPartEntity tentaclesPart2;
+    public final GiantSquidPartEntity tentaclesPart3;
+    public final GiantSquidPartEntity tentaclesPart4;
+    public final GiantSquidPartEntity tentaclesPart5;
+    public final GiantSquidPartEntity tentaclesPart6;
+    public final GiantSquidPartEntity mantleCollisionPart;
+    public final GiantSquidPartEntity[] allParts;
     public final float[][] ringBuffer = new float[64][2];
     public int ringBufferIndex = -1;
     public float prevSquidPitch;
@@ -95,17 +95,17 @@ public class GiantSquidEntity extends WaterAnimal {
     public GiantSquidEntity(EntityType type, Level level) {
         super(type, level);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
-        this.mantlePart1 = new EntityGiantSquidPart(this, 0.9F, 0.9F);
-        this.mantlePart2 = new EntityGiantSquidPart(this, 1.2F, 1.2F);
-        this.mantlePart3 = new EntityGiantSquidPart(this, 0.45F, 0.45F);
-        this.tentaclesPart1 = new EntityGiantSquidPart(this, 0.9F, 0.9F);
-        this.tentaclesPart2 = new EntityGiantSquidPart(this, 1F, 1F);
-        this.tentaclesPart3 = new EntityGiantSquidPart(this, 1.2F, 1.2F);
-        this.tentaclesPart4 = new EntityGiantSquidPart(this, 1.2F, 1.2F);
-        this.tentaclesPart5 = new EntityGiantSquidPart(this, 1.2F, 1.2F);
-        this.tentaclesPart6 = new EntityGiantSquidPart(this, 1.2F, 1.2F);
-        this.mantleCollisionPart = new EntityGiantSquidPart(this, 2.9F, 2.9F, true);
-        this.allParts = new EntityGiantSquidPart[]{this.mantlePart1, this.mantlePart2, this.mantlePart3, this.mantleCollisionPart, this.tentaclesPart1, this.tentaclesPart2, this.tentaclesPart3, this.tentaclesPart4, this.tentaclesPart5, this.tentaclesPart6};
+        this.mantlePart1 = new GiantSquidPartEntity(this, 0.9F, 0.9F);
+        this.mantlePart2 = new GiantSquidPartEntity(this, 1.2F, 1.2F);
+        this.mantlePart3 = new GiantSquidPartEntity(this, 0.45F, 0.45F);
+        this.tentaclesPart1 = new GiantSquidPartEntity(this, 0.9F, 0.9F);
+        this.tentaclesPart2 = new GiantSquidPartEntity(this, 1F, 1F);
+        this.tentaclesPart3 = new GiantSquidPartEntity(this, 1.2F, 1.2F);
+        this.tentaclesPart4 = new GiantSquidPartEntity(this, 1.2F, 1.2F);
+        this.tentaclesPart5 = new GiantSquidPartEntity(this, 1.2F, 1.2F);
+        this.tentaclesPart6 = new GiantSquidPartEntity(this, 1.2F, 1.2F);
+        this.mantleCollisionPart = new GiantSquidPartEntity(this, 2.9F, 2.9F, true);
+        this.allParts = new GiantSquidPartEntity[]{this.mantlePart1, this.mantlePart2, this.mantlePart3, this.mantleCollisionPart, this.tentaclesPart1, this.tentaclesPart2, this.tentaclesPart3, this.tentaclesPart4, this.tentaclesPart5, this.tentaclesPart6};
         this.lookControl = new SmoothSwimmingLookControl(this, 4);
         this.moveControl = new AquaticMoveController(this, 1.2F, 5);
     }
@@ -188,7 +188,7 @@ public class GiantSquidEntity extends WaterAnimal {
         this.goalSelector.addGoal(2, new AIMelee());
         this.goalSelector.addGoal(3, new AIDeepwaterSwimming());
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, EntityCachalotWhale.class)));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, CachalotWhaleEntity.class)));
         this.targetSelector.addGoal(2, new EntityAINearestTarget3D(this, Guardian.class, 20, true, true, null) {
             public boolean canUse() {
                 return super.canUse();
@@ -375,11 +375,11 @@ public class GiantSquidEntity extends WaterAnimal {
         return rotlerp(prevBuffer, end, 10);
     }
 
-    private void setPartPosition(EntityGiantSquidPart part, double offsetX, double offsetY, double offsetZ, float offsetScale) {
+    private void setPartPosition(GiantSquidPartEntity part, double offsetX, double offsetY, double offsetZ, float offsetScale) {
         part.setPos(this.getX() + offsetX * offsetScale * part.scale, this.getY() + offsetY * offsetScale * part.scale, this.getZ() + offsetZ * offsetScale * part.scale);
     }
 
-    private void setPartPositionFromBuffer(EntityGiantSquidPart part, float pitch, float offsetScale, int ringBufferOffset) {
+    private void setPartPositionFromBuffer(GiantSquidPartEntity part, float pitch, float offsetScale, int ringBufferOffset) {
         float f2 = Mth.sin(getRingBuffer(ringBufferOffset, 1.0F, false) * Mth.DEG_TO_RAD) * (1 - Math.abs((this.getXRot()) / 90F));
         float f3 = Mth.cos(getRingBuffer(ringBufferOffset, 1.0F, false) * Mth.DEG_TO_RAD) * (1 - Math.abs((this.getXRot()) / 90F));
         setPartPosition(part, f2, pitch, -f3, offsetScale);
@@ -542,7 +542,7 @@ public class GiantSquidEntity extends WaterAnimal {
         return this.allParts;
     }
 
-    public boolean attackEntityPartFrom(EntityGiantSquidPart part, DamageSource source, float amount) {
+    public boolean attackEntityPartFrom(GiantSquidPartEntity part, DamageSource source, float amount) {
         return this.hurt(source, amount);
     }
 
@@ -604,7 +604,7 @@ public class GiantSquidEntity extends WaterAnimal {
         return true;
     }
 
-    public boolean tickCaptured(EntityCachalotWhale whale) {
+    public boolean tickCaptured(CachalotWhaleEntity whale) {
         resetCapturedStateIn = 25;
         if (random.nextInt(13) == 0) {
             spawnInk();
@@ -652,7 +652,7 @@ public class GiantSquidEntity extends WaterAnimal {
 
     private class AIAvoidWhales extends Goal {
 
-        private EntityCachalotWhale whale;
+        private CachalotWhaleEntity whale;
         private Vec3 moveTo;
         private int runDelay;
 
@@ -663,9 +663,9 @@ public class GiantSquidEntity extends WaterAnimal {
         @Override
         public boolean canUse() {
             if (GiantSquidEntity.this.isInWaterOrBubble() && !GiantSquidEntity.this.horizontalCollision && !GiantSquidEntity.this.isCaptured() && runDelay-- <= 0) {
-                EntityCachalotWhale closest = null;
+                CachalotWhaleEntity closest = null;
                 float dist = 50;
-                for (EntityCachalotWhale dude : GiantSquidEntity.this.level().getEntitiesOfClass(EntityCachalotWhale.class, GiantSquidEntity.this.getBoundingBox().inflate(dist))) {
+                for (CachalotWhaleEntity dude : GiantSquidEntity.this.level().getEntitiesOfClass(CachalotWhaleEntity.class, GiantSquidEntity.this.getBoundingBox().inflate(dist))) {
                     if (closest == null || dude.distanceTo(GiantSquidEntity.this) < closest.distanceTo(GiantSquidEntity.this)) {
                         closest = dude;
                     }

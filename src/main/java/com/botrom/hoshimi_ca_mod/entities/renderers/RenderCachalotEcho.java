@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotEcho;
+import com.botrom.hoshimi_ca_mod.entities.CachalotEchoEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class RenderCachalotEcho extends EntityRenderer<EntityCachalotEcho> {
+public class RenderCachalotEcho extends EntityRenderer<CachalotEchoEntity> {
     private static final ResourceLocation TEXTURE_0 = new ResourceLocation("hoshimimod:textures/entity/cachalot/whale_echo_0.png");
     private static final ResourceLocation TEXTURE_1 = new ResourceLocation("hoshimimod:textures/entity/cachalot/whale_echo_1.png");
     private static final ResourceLocation TEXTURE_2 = new ResourceLocation("hoshimimod:textures/entity/cachalot/whale_echo_2.png");
@@ -28,7 +28,7 @@ public class RenderCachalotEcho extends EntityRenderer<EntityCachalotEcho> {
         super(renderManagerIn);
     }
 
-    public void render(EntityCachalotEcho entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn) {
+    public void render(CachalotEchoEntity entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn) {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.25F, 0.0D);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entityIn.yRotO, entityIn.getYRot()) - 90.0F));
@@ -65,7 +65,7 @@ public class RenderCachalotEcho extends EntityRenderer<EntityCachalotEcho> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(EntityCachalotEcho entity) {
+    public ResourceLocation getTextureLocation(CachalotEchoEntity entity) {
         return TEXTURE_0;
     }
 

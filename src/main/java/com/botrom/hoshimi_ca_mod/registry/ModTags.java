@@ -57,6 +57,9 @@ public class ModTags {
 //    public static final TagKey<Item> CROCK_POTS = bindItemTag("crock_pots");
     public static final TagKey<Item> PARROT_EGGS = bindItemTag("parrot_eggs");
     public static final TagKey<Item> CRAB_ITEMS = bindItemTag("crabs");
+    public static final TagKey<Item> BIRD_FOOD_ITEMS = bindItemTagAlex("bird_food_items");
+    public static final TagKey<Item> LIZARD_TEMPT_ITEMS = bindItemTagAlex("lizard_tempt_items");
+    public static final TagKey<Item> TORTOISE_TEMPT_ITEMS = bindItemTagAlex("tortoise_tempt_items");
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");
@@ -156,6 +159,9 @@ public class ModTags {
     public static final TagKey<Block> CRAB_DIGGABLE_BLOCKS = bindBlockTag("crab_diggable_blocks");
     public static final TagKey<Block> CRAB_SPAWN_BLOCKS = bindBlockTag("crab_spawn_blocks");
     public static final TagKey<Block> CRAB_COMFORT_BLOCKS = bindBlockTag("crab_comfort_blocks");
+    public static final TagKey<Block> BUTTERFLIES_SPAWNABLE_ON = bindBlockTagAlex("butterflies_spawnable_on");
+    public static final TagKey<Block> TORTOISE_EGG_LAYABLE_ON = bindBlockTagAlex("tortoise_egg_layable_on");
+    public static final TagKey<Block> CATTAIL_PLACEABLE = bindBlockTagAlex("cattail_placeable");
 
 
     // Mob Effects
@@ -182,11 +188,19 @@ public class ModTags {
     public static final TagKey<EntityType<?>> MANTIS_SHRIMP_TARGETS = bindEntityTag("mantis_shrimp_targets");
     public static final TagKey<EntityType<?>> CACHALOT_WHALE_TARGETS = bindEntityTag("cachalot_whale_targets");
     public static final TagKey<EntityType<?>> IS_WOLF = bindEntityTag("is_wolf");
+    public static final TagKey<EntityType<?>> SAFE_EGG_WALKERS = bindEntityTag("safe_egg_walkers");
+
 
     // Biome Tags
     public static final TagKey<Biome> SPAWNS_HUGE_CATFISH = bindBiomeTag("spawns_huge_catfish");
     public static final TagKey<Biome> SPAWNS_WHITE_MANTIS_SHRIMP = bindBiomeTag("spawns_white_mantis_shrimp");
-    
+    public static final TagKey<Biome> HAS_BUTTERFLY = bindBiomeTag("has_butterfly");
+    public static final TagKey<Biome> HAS_CARDINAL = bindBiomeTag("has_cardinal");
+    public static final TagKey<Biome> HAS_SPARROW = bindBiomeTag("has_sparrow");
+    public static final TagKey<Biome> HAS_TORTOISE = bindBiomeTag("has_tortoise");
+    public static final TagKey<Biome> HAS_SNAIL = bindBiomeTag("has_snail");
+    public static final TagKey<Biome> HAS_LIZARD = bindBiomeTag("has_lizard");
+
 
 
     // Registry

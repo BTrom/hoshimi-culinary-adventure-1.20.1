@@ -1,0 +1,41 @@
+package com.botrom.hoshimi_ca_mod.entities.renderers;
+
+import com.botrom.hoshimi_ca_mod.entities.Snail;
+import com.botrom.hoshimi_ca_mod.entities.models.SnailModel;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
+
+//@Environment(EnvType.CLIENT)
+public class SnailRenderer extends GeoEntityRenderer<Snail> {
+    public SnailRenderer(EntityRendererProvider.Context renderManager) {
+        super(renderManager, new SnailModel());
+        this.shadowRadius = 0.2F;
+    }
+
+    @Override
+    public float getMotionAnimThreshold(Snail animatable) {
+        return 0.000001f;
+    }
+
+    @Override
+    public void render(@NotNull Snail animatable, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        if (animatable.isBaby()) {
+            poseStack.scale(0.5F, 0.5F, 0.5F);
+        }
+        else {
+            poseStack.scale(1.0F, 1.0F, 1.0F);
+        }
+        super.render(animatable, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
+   public RenderType getRenderType(Snail animatable, float partialTicks, PoseStack stack, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn, @NotNull ResourceLocation textureLocation) {
+        return RenderType.entityCutoutNoCull(textureLocation);
+    }
+}

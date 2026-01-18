@@ -137,6 +137,9 @@ public class HoshimiCulinaryMod {
         // ItemBlockRenderTypes.setRenderLayer(ModBlocks.AVOCADO_SEED.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CORN_BOTTOM.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CORN_UPPER.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRYSALIS_BLOCK.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNAIL_EGGS.get(), RenderType.cutout());
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CATTAIL.get(), RenderType.cutout());
 
         //Screens
         MenuScreens.register(ModMenuTypes.PIZZA.get(), ScreenPizza::new);
@@ -202,17 +205,11 @@ public class HoshimiCulinaryMod {
     }
 
     private void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        // register your model layer -> LayerDefinition supplier
         event.registerLayerDefinition(QuarkModelHandler.getShiba(), ShibaModel::createBodyLayer);
     }
 
     private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        // register entity renderer
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
-//        event.registerEntityRenderer(ModEntities.GIANT_MUD_CRAB.get(), GiantMudCrabRenderer::new);
-//        event.registerEntityRenderer(ModEntities.KING_CRAB.get(), KingCrabRenderer::new);
-//        event.registerEntityRenderer(ModEntities.SAND_CRAB.get(), SandCrabRenderer::new);
-//        event.registerEntityRenderer(ModEntities.CRAYFISH.get(), CrayfishRenderer::new);
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
     }

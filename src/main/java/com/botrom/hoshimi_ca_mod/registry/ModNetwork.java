@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundBubbleStatePacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.OpenChesterScreenPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.SitNearbyChesterPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.PacketFoodCounter;
@@ -19,6 +20,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.util.Objects;
+import java.util.ServiceLoader;
 
 public class ModNetwork {
     public static final ResourceLocation CHANNEL_NAME = new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "network");
@@ -57,9 +59,16 @@ public class ModNetwork {
                 .consumerMainThread(SitNearbyChesterPacket.Handler::onMessage)
                 .add();
 
+        ClientboundBubbleStatePacket.Handler bubbleHandler = new ClientboundBubbleStatePacket.Handler();
+
+        channel.messageBuilder(ClientboundBubbleStatePacket.class, 4)
+                .decoder(bubbleHandler::read)
+                .encoder(bubbleHandler::write)
+                .consumerMainThread(bubbleHandler::handle)
+                .add();
+
         return channel;
     }
-
     public static void collectPackets(PacketSink sink, Side side, ResourceLocation id, FriendlyByteBuf buf) {
         throw new AssertionError();
     }
@@ -70,6 +79,16 @@ public class ModNetwork {
 
     public static <MSG> void sendToPlayer(ServerPlayer player, MSG msg) {
         HoshimiCulinaryMod.NETWORK.send(PacketDistributor.PLAYER.with(() -> player), msg);
+    }
+
+    // Helper to send to everyone tracking an entity (S2C)
+    // This effectively replaces "BUBBLE_STATE.sendToTracking"
+    public static <MSG> void sendToTracking(Entity entity, MSG msg) {
+        HoshimiCulinaryMod.NETWORK.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), msg);
+    }
+
+    public static <MSG> void sendToAllTracking(Entity entity, MSG msg) {
+        HoshimiCulinaryMod.NETWORK.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), msg);
     }
 
     public static void sendSaturationSync(SyncSaturationPacket packet, Entity entity) {
@@ -115,5 +134,15 @@ public class ModNetwork {
         }
 
         void accept(Packet<?> packet);
+    }
+
+    public interface IPacketHandler<T> {
+
+        T read(FriendlyByteBuf byteBuf);
+
+        void write(T packet, FriendlyByteBuf byteBuf);
+
+        void handle(T packet);
+
     }
 }

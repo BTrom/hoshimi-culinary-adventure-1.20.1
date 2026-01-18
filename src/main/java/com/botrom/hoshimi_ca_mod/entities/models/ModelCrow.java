@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCrow;
+import com.botrom.hoshimi_ca_mod.entities.CrowEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -10,7 +10,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 
-public class ModelCrow extends AdvancedEntityModel<EntityCrow> {
+public class ModelCrow extends AdvancedEntityModel<CrowEntity> {
 	public final AdvancedModelBox root;
 	public final AdvancedModelBox body;
 	public final AdvancedModelBox leg_left;
@@ -84,7 +84,7 @@ public class ModelCrow extends AdvancedEntityModel<EntityCrow> {
 	}
 
 	@Override
-	public void setupAnim(EntityCrow entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setupAnim(CrowEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		this.resetToDefaultPose();
 		float flapSpeed = 0.8F;
 		float flapDegree = 0.2F;

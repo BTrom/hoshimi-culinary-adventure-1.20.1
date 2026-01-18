@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.renderers;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityCachalotWhale;
+import com.botrom.hoshimi_ca_mod.entities.CachalotWhaleEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.ModelCachalotWhale;
 import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -17,13 +17,13 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.Entity;
 
-public class LayerCachalotWhaleCapturedSquid extends RenderLayer<EntityCachalotWhale, ModelCachalotWhale> {
+public class LayerCachalotWhaleCapturedSquid extends RenderLayer<CachalotWhaleEntity, ModelCachalotWhale> {
 
     public LayerCachalotWhaleCapturedSquid(RenderCachalotWhale render) {
         super(render);
     }
 
-    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, EntityCachalotWhale whale, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, CachalotWhaleEntity whale, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if(whale.hasCaughtSquid() && whale.isAlive()){
             Entity squid = whale.getCaughtSquid();
             if(squid != null && squid.isAlive()){

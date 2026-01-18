@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityHummingbird;
+import com.botrom.hoshimi_ca_mod.entities.HummingbirdEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 public class HummingbirdAIWander extends Goal {
-    private final EntityHummingbird fly;
+    private final HummingbirdEntity fly;
     private final int rangeXZ;
     private final int rangeY;
     private final int chance;
     private final float speed;
     private Vec3 moveToPoint = null;
 
-    public HummingbirdAIWander(EntityHummingbird fly, int rangeXZ, int rangeY, int chance, float speed) {
+    public HummingbirdAIWander(HummingbirdEntity fly, int rangeXZ, int rangeY, int chance, float speed) {
         this.setFlags(EnumSet.of(Flag.MOVE));
         this.fly = fly;
         this.rangeXZ = rangeXZ;

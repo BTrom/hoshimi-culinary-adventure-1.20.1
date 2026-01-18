@@ -1,0 +1,12 @@
+{
+  "values": [
+    "hoshimimod:butterfly",
+    "hoshimimod:cardinal",
+    "hoshimimod:sparrow",
+    "minecraft:bat",
+    {
+      "id": "alexsmobs:crow",
+      "required": false
+    }
+  ]
+}

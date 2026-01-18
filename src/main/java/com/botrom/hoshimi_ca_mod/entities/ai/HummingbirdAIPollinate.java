@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.ai;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityHummingbird;
+import com.botrom.hoshimi_ca_mod.entities.HummingbirdEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMBlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -18,11 +18,11 @@ import net.minecraft.world.phys.Vec3;
 
 public class HummingbirdAIPollinate  extends MoveToBlockGoal {
 
-    private final EntityHummingbird bird;
+    private final HummingbirdEntity bird;
     private int idleAtFlowerTime = 0;
     private boolean isAboveDestinationBear;
 
-    public HummingbirdAIPollinate(EntityHummingbird bird) {
+    public HummingbirdAIPollinate(HummingbirdEntity bird) {
         super(bird, 1D, 32, 8);
         this.bird = bird;
     }

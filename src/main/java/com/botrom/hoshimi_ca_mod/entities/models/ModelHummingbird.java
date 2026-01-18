@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityHummingbird;
+import com.botrom.hoshimi_ca_mod.entities.HummingbirdEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -10,7 +10,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 
-public class ModelHummingbird extends AdvancedEntityModel<EntityHummingbird> {
+public class ModelHummingbird extends AdvancedEntityModel<HummingbirdEntity> {
     private final AdvancedModelBox root;
     private final AdvancedModelBox body;
     private final AdvancedModelBox head;
@@ -86,7 +86,7 @@ public class ModelHummingbird extends AdvancedEntityModel<EntityHummingbird> {
     }
 
     @Override
-    public void setupAnim(EntityHummingbird entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(HummingbirdEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.resetToDefaultPose();
         float flySpeed = 1.0F;
         float flyDegree = 0.8F;

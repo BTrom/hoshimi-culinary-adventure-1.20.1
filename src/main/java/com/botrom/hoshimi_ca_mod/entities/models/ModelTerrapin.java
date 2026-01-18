@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.entities.models;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityTerrapin;
+import com.botrom.hoshimi_ca_mod.entities.TerrapinEntity;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMMaths;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.citadel.client.model.AdvancedModelBox;
@@ -10,7 +10,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.util.Mth;
 
-public class ModelTerrapin extends AdvancedEntityModel<EntityTerrapin> {
+public class ModelTerrapin extends AdvancedEntityModel<TerrapinEntity> {
 
     private final AdvancedModelBox root;
     private final AdvancedModelBox body;
@@ -107,7 +107,7 @@ public class ModelTerrapin extends AdvancedEntityModel<EntityTerrapin> {
     }
 
     @Override
-    public void setupAnim(EntityTerrapin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(TerrapinEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.resetToDefaultPose();
         float partialTick = ageInTicks - entity.tickCount;
         float walkSpeed = 0.3F;

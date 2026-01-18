@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "naturalist"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "naturalist:alligator_egg",
-          "naturalist:tortoise_egg"
+          "hoshimimod:alligator_egg",
+          "hoshimimod:tortoise_egg"
         ],
         "values": {
           "EGG": 1

@@ -1,6 +1,6 @@
 package com.botrom.hoshimi_ca_mod.blocks.entities;
 
-import com.botrom.hoshimi_ca_mod.entities.EntityTerrapin;
+import com.botrom.hoshimi_ca_mod.entities.TerrapinEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.TerrapinTypes;
 import net.minecraft.core.BlockPos;
@@ -18,7 +18,7 @@ public class BlockEntityTerrapinEgg extends BlockEntity {
         super(ModBlockEntityTypes.TERRAPIN_EGG.get(), pos, state);
     }
 
-    public void addAttributesToOffspring(EntityTerrapin baby, RandomSource random){
+    public void addAttributesToOffspring(TerrapinEntity baby, RandomSource random){
         if(parent1 != null && parent2 != null){
             baby.setTurtleType(random.nextBoolean() ? parent1.type : parent2.type);
             baby.setShellType(random.nextBoolean() ? parent1.shellType : parent2.shellType);
