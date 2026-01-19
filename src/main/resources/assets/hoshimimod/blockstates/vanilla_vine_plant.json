@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "hoshimimod:block/vanilla_vine_plant",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "hoshimimod:block/vanilla_vine_plant"
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/vanilla_vine_plant",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/vanilla_vine_plant",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/vanilla_vine_plant",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "hoshimimod:block/vanilla_vine_plant",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

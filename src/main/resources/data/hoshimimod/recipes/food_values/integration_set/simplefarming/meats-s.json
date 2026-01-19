@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "simplefarming"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "simplefarming:cooked_chicken_wings",
-          "simplefarming:raw_chicken_wings"
+          "hoshimimod:cooked_chicken_wings",
+          "hoshimimod:raw_chicken_wings"
         ],
         "values": {
           "MEAT": 0.5

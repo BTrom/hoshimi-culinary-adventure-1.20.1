@@ -42,6 +42,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_COTTON = BLOCKS.register("wild_cotton", () -> new WildCropBlock(MobEffects.JUMP, 5, Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_COFFEE = BLOCKS.register("wild_coffee", () -> new WildCropBlock(MobEffects.DIG_SPEED, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new TallFlowerBlock(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
+    public static final RegistryObject<Block> WILD_OATS = registerBlock("wild_oats", () -> new WildCropBlock(MobEffects.SATURATION, 6, Block.Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> WILD_PEANUTS = registerBlock("wild_peanuts", () -> new WildCropBlock(MobEffects.DAMAGE_RESISTANCE, 6, Block.Properties.copy(Blocks.TALL_GRASS)));
 
 
     // Fauna
@@ -72,6 +74,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee", () -> new CoffeeCropBlock(BlockBehaviour.Properties.copy(Blocks.CARROTS).noOcclusion().noCollission()));
     public static final RegistryObject<Block> UNKNOWN_CROPS = BLOCKS.register("unknown_crops", UnknownCropsBlock::new);
     public static final RegistryObject<Block> ASPARAGUS = BLOCKS.register("asparaguses", () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+    public static final RegistryObject<Block> PEAS = BLOCKS.register("peas", () -> new CropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> CHILI_PEPPERS = BLOCKS.register("chili_peppers", () -> new CropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> SOYBEANS = BLOCKS.register("soybeans", () -> new CropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> SWEET_POTATOES = BLOCKS.register("sweet_potatoes", () -> new CropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> VANILLA_VINE = BLOCKS.register("vanilla_vine", () -> new VanillaVineTopBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> VANILLA_VINE_PLANT = BLOCKS.register("vanilla_vine_plant", () -> new VanillaVineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> MINT = BLOCKS.register("mint", () -> new MintBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().randomTicks().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
 
     // Saplings
@@ -111,6 +120,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> SNAIL_EGGS = BLOCKS.register("snail_eggs", () -> new SnailEggBlock(BlockBehaviour.Properties.copy(Blocks.FROGSPAWN)));
     public static final RegistryObject<Block> GLOW_GOOP_BLOCK = BLOCKS.register("glow_goop", () -> new GlowGoopBlock(BlockBehaviour.Properties.of().strength(0.5F).replaceable().noOcclusion().noCollission().lightLevel(GlowGoopBlock.LIGHT_EMISSION).sound(SoundType.HONEY_BLOCK)));
     public static final RegistryObject<Block> CHRYSALIS_BLOCK = BLOCKS.register("chrysalis", () -> new ChrysalisBlock(BlockBehaviour.Properties.of().randomTicks().strength(0.2F, 3.0F).sound(SoundType.GRASS).noOcclusion().noCollission().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> FERMENTER = BLOCKS.register("fermenter", () -> new FermenterBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.5F).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SMALL_BANANA_FROND = BLOCKS.register("small_banana_frond", () -> new BananaFrondBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> BANANA_FROND = BLOCKS.register("banana_frond", () -> new BananaFrondBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> LARGE_BANANA_FROND = BLOCKS.register("large_banana_frond", () -> new BananaFrondBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> POTTED_BANANA_FROND = BLOCKS.register("potted_banana_frond", () -> new FlowerPotBlock(SMALL_BANANA_FROND.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> POTTED_VANILLA_VINE = BLOCKS.register("potted_vanilla_vine", () -> new FlowerPotBlock(VANILLA_VINE.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> POTTED_MINT = BLOCKS.register("potted_mint", () -> new FlowerPotBlock(MINT.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
 
     // Meal Blocks

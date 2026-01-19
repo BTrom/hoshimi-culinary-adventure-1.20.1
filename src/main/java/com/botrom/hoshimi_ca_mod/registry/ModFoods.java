@@ -26,6 +26,9 @@ public class ModFoods
     public static final FoodProperties CACTUS_FLESH = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
     public static final FoodProperties CACTUS_STEAK = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties GREEN_ONION = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
+    public static final FoodProperties PEA_POD = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
+    public static final FoodProperties SWEET_POTATO = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
+
 
     //Fruits
     public static final FoodProperties PINEAPPLE = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
@@ -34,6 +37,8 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 200, 0), 1F).build();
     public static final FoodProperties DRAGON_FRUIT = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 400, 0, false, false, true), 1F).build();
+    public static final FoodProperties BANANA = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 300), 1.0F).build();
+
 
     //Slices
     public static final FoodProperties CUT_AVOCADO = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).fast().build();
@@ -128,6 +133,11 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.8F).build();
     public static final FoodProperties RAW_FRIED_DUMPLING = new FoodProperties.Builder().nutrition(6).saturationMod(0.5F)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 900, 0), 1F).build();
+    protected static final FoodProperties BAKED_SWEET_POTATO = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final FoodProperties DRIED_VANILLA_PODS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
+    public static final FoodProperties CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).build();
+    public static final FoodProperties MINT_LEAVES = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.BERSERKING.get(), 600), 1.0F).build();
+    public static final FoodProperties ICE_CUBES = new FoodProperties.Builder().alwaysEat().build();
 
 
     //Meals
@@ -184,96 +194,71 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1200, 0), 1F)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400, 0), 1F).build();
     public static final FoodProperties MARSHMALLOW_STICK = new FoodProperties.Builder().nutrition(3).saturationMod(0.35F)
-//            .effect(() -> new MobEffectInstance(NeapolitanCompat.getSugarRush(), 300, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 300, 0), 1F).build();
     public static final FoodProperties COOKED_MARSHMALLOW_STICK = new FoodProperties.Builder().nutrition(5).saturationMod(0.35F)
-//            .effect(() -> new MobEffectInstance(NeapolitanCompat.getSugarRush(), 600, 0), 1F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 600, 0), 1F)
             .effect(() -> new MobEffectInstance(MobEffects.SLOW_FALLING, 300, 0), 1F).build();
     public static final FoodProperties SMORE = new FoodProperties.Builder().nutrition(8).saturationMod(0.4F)
             .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 2400, 0), 1F)
-//            .effect(() -> new MobEffectInstance(NeapolitanCompat.getSugarRush(), 600, 1), 1F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 600, 1), 1F)
             .effect(() -> new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0), 1F).build();
     public static final FoodProperties PAELLA_BOWL = new FoodProperties.Builder().nutrition(14).saturationMod(0.75F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), FoodValues.LONG_DURATION, 0), 1.0F).build();
     public static final FoodProperties LIME_ICE_CREAM = new FoodProperties.Builder().nutrition(6).saturationMod(0.3F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 1200, 1), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 1200, 1), 1F).build();
     public static final FoodProperties SUNNY_ICE_CREAM = new FoodProperties.Builder().nutrition(12).saturationMod(0.3F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.REBOUND.get(), 1600, 1), 1F)
-            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 1F).build();
     public static final FoodProperties LIME_MILKSHAKE = new FoodProperties.Builder().alwaysEat().nutrition(2).saturationMod(1.5F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 1), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 1), 1F).build();
     public static final FoodProperties DRAGON_FRUIT_MILKSHAKE = new FoodProperties.Builder().alwaysEat().nutrition(2).saturationMod(1.5F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F).build();
     public static final FoodProperties POMEGRANATE_SMOOTHIE = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F).alwaysEat()
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 600, 0), 1F)
-//            .effect(() -> new MobEffectInstance(NeapolitanCompat.getAgility(), 600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 600, 0), 1F).build();
     public static final FoodProperties BERRY_LIMEADE = new FoodProperties.Builder().alwaysEat().nutrition(5).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 1200, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 1200, 0), 1F).build();
     public static final FoodProperties PINK_LIMEADE = new FoodProperties.Builder().alwaysEat().nutrition(5).saturationMod(1F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 1200, 0), 1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 1200, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 1200, 0), 1F).build();
     public static final FoodProperties DRAGONS_PASSION = new FoodProperties.Builder().alwaysEat().nutrition(5).saturationMod(1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F)
-//            .effect(() -> new MobEffectInstance(CompatEffects.getSpitting(), 800, 1), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F).build();
     public static final FoodProperties CLAM_MEATBALL_STEW = new FoodProperties.Builder().nutrition(10).saturationMod(0.8F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties CLAM_MEATBALL_STEW_CUP = new FoodProperties.Builder().nutrition(5).saturationMod(0.4F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F).build();
     public static final FoodProperties PRAWN_STEW = new FoodProperties.Builder().nutrition(10).saturationMod(0.8F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties PRAWN_STEW_CUP = new FoodProperties.Builder().nutrition(5).saturationMod(0.4F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F).build();
     public static final FoodProperties PLATINUM_BASS_STEW = new FoodProperties.Builder().nutrition(10).saturationMod(1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties PLATINUM_BASS_STEW_CUP = new FoodProperties.Builder().nutrition(5).saturationMod(0.5F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1800, 0), 1F).build();
     public static final FoodProperties POMEGRANATE_CHICKEN = new FoodProperties.Builder().nutrition(14).saturationMod(0.75F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 1200, 0), 1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties DELUXE_SALAD = new FoodProperties.Builder().nutrition(10).saturationMod(0.75F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VOLATILITY.get(), 600, 0), 1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 600, 0), 1F).build();
     public static final FoodProperties TROPICAL_SHAVED_ICE = new FoodProperties.Builder().nutrition(15).saturationMod(0.6F)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 4, false, true, true), 1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F).build();
     public static final FoodProperties PINK_NOODLES = new FoodProperties.Builder().nutrition(12).saturationMod(0.9F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 800, 0, false, false, true), 1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties LIME_POPSICLE = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F).fast()
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F).build();
     public static final FoodProperties MEDITERRANEAN_SALMON = new FoodProperties.Builder().nutrition(14).saturationMod(0.75F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties SALMON_TARTARE = new FoodProperties.Builder().nutrition(7).saturationMod(0.65F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties COD_CEVICHE = new FoodProperties.Builder().nutrition(9).saturationMod(0.7F).effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties CARBONARA_PASTA = new FoodProperties.Builder().nutrition(14).saturationMod(0.8F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 400, 1), 1F)
-            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1F).build();
     public static final FoodProperties CLAM_ROLL = new FoodProperties.Builder().nutrition(7).saturationMod(0.5F).build();
     public static final FoodProperties SEA_WRAP = new FoodProperties.Builder().nutrition(14).saturationMod(1F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1F).build();
@@ -287,8 +272,7 @@ public class ModFoods
     public static final FoodProperties BIG_RICE_BALL = new FoodProperties.Builder().nutrition(9).saturationMod(0.9F).build();
     public static final FoodProperties STRAWBERRY_JAM_BUN = new FoodProperties.Builder().nutrition(8).saturationMod(0.55F)
             .effect(() -> new MobEffectInstance(MobEffects.HEAL, 1, 0), 1F)
-            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F)
-            .build();
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F).build();
     public static final FoodProperties COCONUT_PUDDING = new FoodProperties.Builder().nutrition(6).saturationMod(0.5f).build();
     public static final FoodProperties SURF_AND_TURF = new FoodProperties.Builder().nutrition(14).saturationMod(0.8f)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1.0F).build();
@@ -352,6 +336,18 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,14400,0),1.0F).build();
     public static final FoodProperties MARINATED_CRAB = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).build();
     public static final FoodProperties CRAB_BUTTER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).meat().build();
+    public static final FoodProperties VANILLA_ICE_CREAM = new FoodProperties.Builder().nutrition(6).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VANILLA_SCENT.get(), 400), 1.0F).build();
+    public static final FoodProperties CHOCOLATE_ICE_CREAM = new FoodProperties.Builder().nutrition(6).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 600, 2), 1.0F).build();
+    public static final FoodProperties STRAWBERRY_ICE_CREAM = new FoodProperties.Builder().nutrition(6).saturationMod(0.3F).build();
+    public static final FoodProperties STRAWBERRY_MILKSHAKE = new FoodProperties.Builder().nutrition(2).saturationMod(1.2F).alwaysEat().build();
+    public static final FoodProperties BANANA_MILKSHAKE = new FoodProperties.Builder().nutrition(2).saturationMod(1.5F).alwaysEat()
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 600), 1.0F).build();
+    public static final FoodProperties BANANA_BREAD = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 600), 1.0F).build();
+    public static final FoodProperties ADZUKI_BUN = new FoodProperties.Builder().nutrition(5).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.HARMONY.get(), 300), 1.0F).build();
 
 
 

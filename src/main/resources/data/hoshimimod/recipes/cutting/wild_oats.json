@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:wild_oats"
+    }
+  ],
+  "result": [
+    {
+      "item": "hoshimimod:oat_seeds"
+    },
+    {
+      "item": "minecraft:green_dye"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "hoshimimod:block/large_banana_frond",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/large_banana_frond_wall"
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/large_banana_frond_wall",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/large_banana_frond_wall",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "hoshimimod:block/large_banana_frond_wall",
+      "y": 90
+    },
+    "facing=up,moist=false": {
+      "model": "hoshimimod:block/large_banana_frond"
+    },
+    "facing=up,moist=true": {
+      "model": "hoshimimod:block/large_banana_frond_moist"
+    }
+  }
+}

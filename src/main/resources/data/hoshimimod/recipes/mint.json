@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:mint_basket"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:mint_leaves",
+    "count": 9
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "berry_good"
+    }
+  ]
+}

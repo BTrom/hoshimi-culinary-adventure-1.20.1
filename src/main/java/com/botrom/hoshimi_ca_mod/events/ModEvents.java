@@ -1,19 +1,26 @@
 package com.botrom.hoshimi_ca_mod.events;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.registry.ModEffects;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
+import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.common.BasicItemListing;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
 
 import java.util.List;
 
@@ -70,6 +77,23 @@ public class ModEvents {
                         new BasicItemListing(new ItemStack(Items.TRIDENT, 64),
                         new ItemStack(ModItems.PEARL.get()), 1, 12, 0.05F));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPotionAdded(MobEffectEvent.Applicable event) {
+        MobEffect effect = event.getEffectInstance().getEffect();
+        LivingEntity entity = event.getEntity();
+
+        if (entity.getEffect(ModEffects.VANILLA_SCENT.get()) != null) {
+            ITagManager<MobEffect> mobEffectTags = ForgeRegistries.MOB_EFFECTS.tags();
+            if (mobEffectTags != null && !mobEffectTags.getTag(ModTags.UNAFFECTED_BY_VANILLA_SCENT).contains(effect)) {
+                event.setResult(Event.Result.DENY);
+            }
+        }
+
+        if (effect == ModEffects.SUGAR_RUSH.get() && !entity.level().isClientSide()) {
+            entity.getPersistentData().putInt("SugarRushDuration", event.getEffectInstance().getDuration());
         }
     }
 }

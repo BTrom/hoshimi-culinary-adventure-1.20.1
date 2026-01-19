@@ -81,6 +81,9 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_BREAK = createSoundEvent("block/tortoise_egg_break");
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_CRACK = createSoundEvent("block/tortoise_egg_crack");
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_HATCH = createSoundEvent("block/tortoise_egg_hatch");
+    public static final RegistryObject<SoundEvent> ICE_CUBES_EAT = createSoundEvent("item/ice_cubes_eat");
+    public static final RegistryObject<SoundEvent> ICE_CREAM_EAT = createSoundEvent("item/ice_cream_eat");
+    public static final RegistryObject<SoundEvent> BANANA_BUNCH_OPEN = createSoundEvent("item/banana_bunch_open");
 
 
 

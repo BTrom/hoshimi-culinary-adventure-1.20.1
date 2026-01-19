@@ -4,6 +4,7 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.entities.CrockPotBlockEntity;
 import com.botrom.hoshimi_ca_mod.blocks.menus.CrabTrapMenu;
 import com.botrom.hoshimi_ca_mod.blocks.menus.CrockPotMenu;
+import com.botrom.hoshimi_ca_mod.blocks.menus.FermenterMenu;
 import com.botrom.hoshimi_ca_mod.gui.StoveGuiHandler;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.container.PizzaMenu;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.container.PizzaStationMenu;
@@ -26,7 +27,8 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<CrabTrapMenu>> CRAB_TRAP_MENU = MENU_TYPES.register("crab_trap_menu", () -> IForgeMenuType.create(CrabTrapMenu::new));
     public static final RegistryObject<MenuType<StoveGuiHandler>> STOVE_SCREEN_HANDLER = MENU_TYPES.register("stove_gui_handler", () -> IForgeMenuType.create(StoveGuiHandler::new));
     public static final RegistryObject<MenuType<CrockPotMenu>> CROCK_POT_MENU_TYPE = MENU_TYPES.register("crock_pot", () -> IForgeMenuType.create((windowId, inv, data) -> new CrockPotMenu(windowId, inv, (CrockPotBlockEntity) inv.player.level().getBlockEntity(data.readBlockPos()))));
-
+    public static final RegistryObject<MenuType<FermenterMenu>> FERMENTER_MENU = MENU_TYPES.register("fermenter_menu", () -> IForgeMenuType.create(FermenterMenu::new)
+    );
 
 //    public static void register(IEventBus eventBus) {
 //        MENU_TYPES.register(eventBus);

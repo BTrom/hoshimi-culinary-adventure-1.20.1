@@ -8,11 +8,11 @@
           "values": [
             {
               "type": "forge:mod_loaded",
-              "modid": "neapolitan"
+              "modid": "hoshimimod"
             },
             {
               "type": "forge:item_exists",
-              "item": "neapolitan:vanilla_ice_cream"
+              "item": "hoshimimod:vanilla_ice_cream"
             },
             {
               "type": "forge:not",
@@ -29,7 +29,7 @@
         "category": "misc",
         "ingredients": [
           {
-            "item": "neapolitan:vanilla_ice_cream"
+            "item": "hoshimimod:vanilla_ice_cream"
           },
           {
             "tag": "forge:fruits/lucuma"

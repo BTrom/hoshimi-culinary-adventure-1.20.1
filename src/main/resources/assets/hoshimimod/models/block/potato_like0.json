@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/crop",
+  "textures": {
+    "crop": "minecraft:block/potatoes_stage0"
+  }
+}

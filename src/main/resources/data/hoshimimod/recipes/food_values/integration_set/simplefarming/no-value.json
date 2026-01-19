@@ -5,15 +5,15 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "simplefarming"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "simplefarming:olives",
-          "simplefarming:sorghum",
-          "simplefarming:soybean"
+          "hoshimimod:olives",
+          "hoshimimod:sorghum",
+          "hoshimimod:soybean"
         ],
         "values": {}
       }

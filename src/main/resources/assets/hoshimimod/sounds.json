@@ -679,5 +679,39 @@
       "hoshimimod:block/crock_pot_rattle_7"
     ],
     "subtitle": "hoshimimod.sound.subtitle.crock_pot.rattle"
+  },
+  "item/ice_cubes_eat": {
+    "sounds": [
+      {
+        "name": "hoshimimod:item/ice_cubes_eat_ice1"
+      },
+      {
+        "name": "hoshimimod:item/ice_cubes_eat_ice2"
+      },
+      {
+        "name": "hoshimimod:item/ice_cubes_eat_ice3",
+        "volume": 0.35
+      },
+      {
+        "name": "hoshimimod:item/ice_cubes_eat_ice3",
+        "volume": 0.75
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ice_cubes.eat"
+  },
+  "item/ice_cream_eat": {
+    "sounds": [
+      "hoshimimod:item/ice_cream_eat1",
+      "hoshimimod:item/ice_cream_eat2",
+      "hoshimimod:item/ice_cream_eat3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ice_cream.eat"
+  },
+  "item/banana_bunch_open": {
+    "sounds": [
+      "hoshimimod:item/banana_bunch_open1",
+      "hoshimimod:item/banana_bunch_open2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.banana_bunch.open"
   }
 }

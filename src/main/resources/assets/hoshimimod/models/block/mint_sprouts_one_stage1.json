@@ -1,0 +1,6 @@
+{
+    "parent": "hoshimimod:block/mint_sprouts_one",
+    "textures": {
+        "texture": "hoshimimod:block/mint_stage1"
+    }
+}

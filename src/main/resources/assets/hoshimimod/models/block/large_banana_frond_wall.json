@@ -1,0 +1,7 @@
+{
+  "parent": "hoshimimod:block/banana_frond_wall",
+  "textures": {
+    "frond": "hoshimimod:block/large_banana_frond",
+    "particle": "hoshimimod:block/large_banana_frond"
+  }
+}

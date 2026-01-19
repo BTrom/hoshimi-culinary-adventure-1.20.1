@@ -5,16 +5,16 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "simplefarming"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "simplefarming:cooked_bacon",
-          "simplefarming:cooked_sausage",
-          "simplefarming:raw_bacon",
-          "simplefarming:raw_sausage"
+          "hoshimimod:cooked_bacon",
+          "hoshimimod:cooked_sausage",
+          "hoshimimod:raw_bacon",
+          "hoshimimod:raw_sausage"
         ],
         "values": {
           "MEAT": 0.75

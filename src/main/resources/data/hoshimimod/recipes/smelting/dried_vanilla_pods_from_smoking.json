@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "hoshimimod:vanilla_pods"
+  },
+  "result": "hoshimimod:dried_vanilla_pods",
+  "experience": 0.35,
+  "cookingtime": 100
+}

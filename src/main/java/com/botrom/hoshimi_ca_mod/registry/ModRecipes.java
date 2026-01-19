@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.utils.compat.FermenterRecipe;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.recipes.crushing.CrushingRecipe;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.recipes.crushing.CrushingRecipeSerializer;
 import com.botrom.hoshimi_ca_mod.utils.compat.DeepFryingRecipe;
@@ -41,6 +42,7 @@ public class ModRecipes
     public static final RegistryObject<RecipeSerializer<FoodValuesDefinition>> FOOD_VALUES_RECIPE_SERIALIZER = SERIALIZERS.register("food_values", FoodValuesDefinition.Serializer::new);
     public static final RegistryObject<RecipeSerializer<ParrotFeedingRecipe>> PARROT_FEEDING_RECIPE_SERIALIZER = SERIALIZERS.register("parrot_feeding", ParrotFeedingRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<PiglinBarteringRecipe>> PIGLIN_BARTERING_RECIPE_SERIALIZER = SERIALIZERS.register("piglin_bartering", PiglinBarteringRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<FermenterRecipe>> FERMENTING_SERIALIZER = SERIALIZERS.register(FermenterRecipe.Type.ID, FermenterRecipe.Serializer::new);
 
 
     public static void register(IEventBus bus) {

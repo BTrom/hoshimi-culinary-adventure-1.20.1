@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "neapolitan"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "neapolitan:banana_bundle"
+          "hoshimimod:banana_bundle"
         ],
         "values": {
           "FRUIT": 1

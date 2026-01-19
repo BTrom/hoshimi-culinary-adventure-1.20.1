@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "vintagedelight"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "vintagedelight:gearo_berry"
+          "hoshimimod:gearo_berry"
         ],
         "values": {
           "FRUIT": 0.5

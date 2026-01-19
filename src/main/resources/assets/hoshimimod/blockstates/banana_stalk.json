@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "hoshimimod:block/banana_stalk"
+    },
+    "axis=z": {
+      "model": "hoshimimod:block/banana_stalk",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "hoshimimod:block/banana_stalk",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

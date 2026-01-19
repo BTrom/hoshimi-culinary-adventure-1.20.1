@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "hoshimimod:dried_vanilla_pods"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "hoshimimod:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:vanilla_ice_cream",
+    "count": 1
+  }
+}

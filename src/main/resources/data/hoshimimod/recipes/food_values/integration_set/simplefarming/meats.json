@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "simplefarming"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "simplefarming:raw_horse_meat",
-          "simplefarming:cooked_horse_meat"
+          "hoshimimod:raw_horse_meat",
+          "hoshimimod:cooked_horse_meat"
         ],
         "values": {
           "MEAT": 1

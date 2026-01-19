@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "simplefarming"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "simplefarming:cantaloupe_block",
-          "simplefarming:honeydew_block"
+          "hoshimimod:cantaloupe_block",
+          "hoshimimod:honeydew_block"
         ],
         "values": {
           "FRUIT": 1

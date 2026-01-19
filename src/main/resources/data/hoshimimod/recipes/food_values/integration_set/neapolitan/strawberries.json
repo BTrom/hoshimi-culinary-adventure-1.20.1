@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "neapolitan"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "neapolitan:strawberries",
-          "neapolitan:white_strawberries"
+          "hoshimimod:strawberries",
+          "hoshimimod:white_strawberries"
         ],
         "values": {
           "FRUIT": 0.5

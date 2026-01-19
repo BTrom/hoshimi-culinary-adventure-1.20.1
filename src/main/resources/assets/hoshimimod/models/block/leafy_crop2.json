@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/cross_crop",
+  "textures": {
+    "cross_crop": "hoshimimod:block/leafy_crop2"
+  }
+}

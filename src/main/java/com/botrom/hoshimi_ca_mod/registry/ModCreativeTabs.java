@@ -457,6 +457,37 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.TORTOISE_EGG.get());
                         output.accept(ModBlocks.SNAIL_EGGS.get());
                         output.accept(ModBlocks.CATTAIL.get());
+
+                        // Vintage Delight
+                        output.accept(ModBlocks.WILD_OATS.get());
+                        output.accept(ModBlocks.WILD_PEANUTS.get());
+
+                        // Simple Farming
+                        output.accept(ModBlocks.FERMENTER.get());
+                        output.accept(ModItems.PEA_SEEDS.get());
+                        output.accept(ModItems.CHILI_PEPPER_SEEDS.get());
+                        output.accept(ModItems.SOYBEAN_SEEDS.get());
+                        output.accept(ModItems.SWEET_POTATO_SEEDS.get());
+                        output.accept(ModItems.PEA_POD.get());
+                        output.accept(ModItems.SWEET_POTATO.get());
+                        output.accept(ModItems.BAKED_SWEET_POTATO.get());
+
+                        // Neapolitan
+                        output.accept(ModBlocks.BANANA_FROND.get());
+                        output.accept(ModItems.MINT_SPROUT.get());
+                        output.accept(ModItems.VANILLA_PODS.get());
+                        output.accept(ModItems.DRIED_VANILLA_PODS.get());
+                        output.accept(ModItems.CHOCOLATE_BAR.get());
+                        output.accept(ModItems.BANANA.get());
+                        output.accept(ModItems.BANANA_BUNCH.get());
+                        output.accept(ModItems.VANILLA_ICE_CREAM.get());
+                        output.accept(ModItems.CHOCOLATE_ICE_CREAM.get());
+                        output.accept(ModItems.STRAWBERRY_ICE_CREAM.get());
+                        output.accept(ModItems.STRAWBERRY_MILKSHAKE.get());
+                        output.accept(ModItems.BANANA_MILKSHAKE.get());
+                        output.accept(ModItems.BANANA_BREAD.get());
+                        output.accept(ModItems.ADZUKI_BUN.get());
+                        output.accept(ModItems.ICE_CUBES.get());
                     })
                     .build());
 

@@ -1,5 +1,7 @@
 package com.botrom.hoshimi_ca_mod;
 
+import com.botrom.hoshimi_ca_mod.gui.FermenterScreen;
+import com.botrom.hoshimi_ca_mod.entities.models.BananaPeelModel;
 import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
@@ -140,10 +142,20 @@ public class HoshimiCulinaryMod {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRYSALIS_BLOCK.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNAIL_EGGS.get(), RenderType.cutout());
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CATTAIL.get(), RenderType.cutout());
-
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.VANILLA_VINE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.VANILLA_VINE_PLANT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_VANILLA_VINE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_MINT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SMALL_BANANA_FROND.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BANANA_FROND.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.LARGE_BANANA_FROND.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BANANA_FROND.get(), RenderType.cutout());
+        
         //Screens
         MenuScreens.register(ModMenuTypes.PIZZA.get(), ScreenPizza::new);
         MenuScreens.register(ModMenuTypes.PIZZA_STATION.get(), ScreenPizzaStation::new);
+        MenuScreens.register(ModMenuTypes.FERMENTER_MENU.get(), FermenterScreen::new);
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CRAB_TRAP_MENU.get(), CrabTrapGUI::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CROCK_POT_MENU_TYPE.get(), CrockPotScreen::new));
@@ -206,11 +218,14 @@ public class HoshimiCulinaryMod {
 
     private void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(QuarkModelHandler.getShiba(), ShibaModel::createBodyLayer);
+        event.registerLayerDefinition(BananaPeelRenderer.BANANA_PEEL, BananaPeelModel::createBodyLayer);
     }
 
     private void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.SHIBA.get(), ShibaRenderer::new);
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ModEntities.BANANA_PEEL.get(), BananaPeelRenderer::new);
+
     }
 }

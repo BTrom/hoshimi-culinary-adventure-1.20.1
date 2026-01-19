@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:banana_frond"
+    },
+    {
+      "item": "hoshimimod:banana_frond"
+    },
+    {
+      "item": "hoshimimod:banana_frond"
+    }
+  ],
+  "result": {
+    "item": "minecraft:paper",
+    "count": 1
+  }
+}

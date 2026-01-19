@@ -283,6 +283,11 @@ public class ModEntities {
 					.setTrackingRange(256)
 					.build(Utils.createResourceLocation("birdcage").toString()));
 
+	public static final RegistryObject<EntityType<BananaPeel>> BANANA_PEEL = ENTITIES.register("banana_peel",
+			() -> EntityType.Builder.<BananaPeel>of(BananaPeel::new, MobCategory.MISC)
+					.sized(0.5F, 0.5F)
+					.build("banana_peel"));
+
 
 
 	@SubscribeEvent

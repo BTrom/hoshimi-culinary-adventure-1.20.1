@@ -16,7 +16,7 @@
         },
         {
           "type": "forge:item_exists",
-          "item": "neapolitan:dried_vanilla_pods"
+          "item": "hoshimimod:dried_vanilla_pods"
         }
       ],
       "recipe": {
@@ -34,7 +34,7 @@
             "item": "minecraft:sugar"
           },
           {
-            "item": "neapolitan:dried_vanilla_pods"
+            "item": "hoshimimod:dried_vanilla_pods"
           }
         ],
         "recipe_book_tab": "misc",
@@ -61,7 +61,7 @@
           "type": "forge:not",
           "value": {
             "type": "forge:item_exists",
-            "item": "neapolitan:dried_vanilla_pods"
+            "item": "hoshimimod:dried_vanilla_pods"
           }
         }
       ],

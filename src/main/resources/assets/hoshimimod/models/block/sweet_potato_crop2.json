@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/crop",
+  "textures": {
+    "crop": "hoshimimod:block/sweet_potato_crop2"
+  }
+}

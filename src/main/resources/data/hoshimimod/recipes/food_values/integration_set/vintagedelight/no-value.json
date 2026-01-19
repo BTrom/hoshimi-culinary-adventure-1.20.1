@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "vintagedelight"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "vintagedelight:peanut"
+          "hoshimimod:peanut"
         ],
         "values": {}
       }

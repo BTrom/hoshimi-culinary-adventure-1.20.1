@@ -11,6 +11,10 @@
     "hoshimimod:strawberry_seeds",
     "#forge:seeds/cotton",
     "#forge:seeds/coffee_beans",
-    "#forge:seeds/coffee"
+    "#forge:seeds/coffee",
+    "#forge:seeds/chili_pepper",
+    "#forge:seeds/pea",
+    "#forge:seeds/soybean",
+    "#forge:seeds/sweet_potato"
   ]
 }

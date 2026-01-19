@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "hoshimimod:chocolate_bar"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "hoshimimod:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:chocolate_ice_cream",
+    "count": 1
+  }
+}
