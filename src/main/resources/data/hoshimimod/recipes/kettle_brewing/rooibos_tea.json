@@ -1,0 +1,29 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 35,
+  "fluid": [
+    {
+      "amount": 20
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 25
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:rooibos_leaf"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:rooibos_tea",
+    "effect": "minecraft:regeneration",
+    "effectduration": 200
+  }
+}
+

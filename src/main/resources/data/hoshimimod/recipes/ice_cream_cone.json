@@ -1,0 +1,19 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": true,
+  "key": {
+    "W": {
+      "item": "hoshimimod:waffle"
+    },
+    "V": {
+      "item": "hoshimimod:ice_cream_scoop"
+    }
+  },
+  "pattern": [
+    "V",
+    "W"
+  ],
+  "result": {
+    "item": "hoshimimod:ice_cream_cone"
+  }
+}

@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.compat.FermenterRecipe;
+import com.botrom.hoshimi_ca_mod.utils.compat.TeaKettleRecipe;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.recipes.crushing.CrushingRecipe;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.recipes.crushing.CrushingRecipeSerializer;
 import com.botrom.hoshimi_ca_mod.utils.compat.DeepFryingRecipe;
@@ -44,6 +45,13 @@ public class ModRecipes
     public static final RegistryObject<RecipeSerializer<PiglinBarteringRecipe>> PIGLIN_BARTERING_RECIPE_SERIALIZER = SERIALIZERS.register("piglin_bartering", PiglinBarteringRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<FermenterRecipe>> FERMENTING_SERIALIZER = SERIALIZERS.register(FermenterRecipe.Type.ID, FermenterRecipe.Serializer::new);
 
+    public static final RegistryObject<RecipeSerializer<TeaKettleRecipe>> TEA_KETTLE_RECIPE_SERIALIZER = SERIALIZERS.register("kettle_brewing", TeaKettleRecipe.Serializer::new);
+    public static final RegistryObject<RecipeType<TeaKettleRecipe>> TEA_KETTLE_RECIPE_TYPE = RECIPE_TYPES.register("kettle_brewing", () -> new RecipeType<>() {
+        @Override
+        public String toString() {
+            return "kettle_brewing";
+        }
+    });
 
     public static void register(IEventBus bus) {
         RECIPE_TYPES.register(bus);

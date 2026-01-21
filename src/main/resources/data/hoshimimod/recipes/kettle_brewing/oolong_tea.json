@@ -1,0 +1,28 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 35,
+  "fluid": [
+    {
+      "amount": 20
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 40
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:dried_oolong_tea"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:oolong_tea",
+    "effect": "hoshimimod:fortune",
+    "effectduration": 1800
+  }
+}

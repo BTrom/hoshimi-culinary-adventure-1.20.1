@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:caramel_popcorn"
+    },
+    {
+      "item": "hoshimimod:caramel_popcorn"
+    },
+    {
+      "item": "hoshimimod:caramel_popcorn"
+    },
+    {
+      "item": "hoshimimod:caramel_popcorn"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:popcorn_box"
+  }
+}

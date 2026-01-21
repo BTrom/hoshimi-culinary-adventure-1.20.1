@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:tortillas"
+    },
+    {
+      "tag": "forge:tortillas"
+    },
+    {
+      "tag": "forge:cheeses"
+    },
+    {
+      "tag": "forge:avocados"
+    },
+    {
+      "tag": "hoshimimod:chicken_replacements"
+    },
+    {
+      "item": "hoshimimod:frying_pan"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:quesadilla",
+    "count": 2
+  }
+}

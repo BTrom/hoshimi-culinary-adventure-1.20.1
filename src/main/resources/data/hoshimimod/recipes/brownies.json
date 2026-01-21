@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "forge:flour"
+    },
+    {
+      "tag": "forge:milks"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "tag": "forge:chocolates"
+    },
+    {
+      "item": "hoshimimod:frying_pan"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:brownies",
+    "count": 1
+  }
+}

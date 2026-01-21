@@ -5,16 +5,16 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:clam",
-          "croptopia:cooked_shrimp",
-          "croptopia:oyster",
-          "croptopia:shrimp"
+          "hoshimimod:clam",
+          "hoshimimod:cooked_shrimp",
+          "hoshimimod:oyster",
+          "hoshimimod:shrimp"
         ],
         "values": {
           "FISH": 1

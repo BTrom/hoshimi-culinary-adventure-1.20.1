@@ -5,15 +5,15 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:anchovy",
-          "croptopia:cooked_anchovy",
-          "croptopia:crab"
+          "hoshimimod:anchovy",
+          "hoshimimod:cooked_anchovy",
+          "hoshimimod:crab"
         ],
         "values": {
           "FISH": 0.5,

@@ -3,6 +3,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -21,13 +22,15 @@ public class ModFoods
     public static final FoodProperties BROCCOLI = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
     public static final FoodProperties PICKLE = new FoodProperties.Builder().nutrition(4).saturationMod(0.7F).build();
     public static final FoodProperties PEPPER = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
-    public static final FoodProperties ACORN = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.HUNGER, 200, 0), 1F).build();
+    public static final FoodProperties ACORN = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 200, 0), 1F).build();
     public static final FoodProperties ROASTED_ACORN = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties CACTUS_FLESH = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
     public static final FoodProperties CACTUS_STEAK = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties GREEN_ONION = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
     public static final FoodProperties PEA_POD = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
     public static final FoodProperties SWEET_POTATO = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).build();
+    public static final FoodProperties SQUASH = new FoodProperties.Builder().nutrition(3).saturationMod(0.6F).build();
 
 
     //Fruits
@@ -37,7 +40,12 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 200, 0), 1F).build();
     public static final FoodProperties DRAGON_FRUIT = new FoodProperties.Builder().nutrition(3).saturationMod(0.2F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SURGE.get(), 400, 0, false, false, true), 1F).build();
-    public static final FoodProperties BANANA = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 300), 1.0F).build();
+    public static final FoodProperties BANANA = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 300), 1.0F).build();
+    public static final FoodProperties GRAPES = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final FoodProperties BLUEBERRY = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).fast().build();
+    public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(3).saturationMod(0.1F).fast().build();
+    public static final FoodProperties CHERRIES = new FoodProperties.Builder().nutrition(1).saturationMod(0.2F).build();
 
 
     //Slices
@@ -70,6 +78,8 @@ public class ModFoods
     public static final FoodProperties RAW_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).meat().fast().build();
     public static final FoodProperties COOKED_CATFISH_SLICE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).meat().fast().build();
     public static final FoodProperties POTATO_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
+    public static final FoodProperties APPLE_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.4F).fast().build();
+    public static final FoodProperties PINEAPPLE_SIDE = new FoodProperties.Builder().nutrition(1).saturationMod(0.5F).fast().build();
 
 
     //Meats
@@ -108,6 +118,18 @@ public class ModFoods
     public static final FoodProperties OYSTER =(new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).build();
     public static final FoodProperties COOKED_GIANT_MUD_CRAB = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.8F).meat().build();
     public static final FoodProperties COOKED_KING_CRAB = (new FoodProperties.Builder()).nutrition(8).saturationMod(1.0F).meat().build();
+    public static final FoodProperties ANCHOVY = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).meat().fast().build();
+    public static final FoodProperties COOKED_ANCHOVY = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).meat().fast().build();
+    public static final FoodProperties ROE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).meat().fast().build();
+    public static final FoodProperties TUNA = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.2F).meat().build();
+    public static final FoodProperties COOKED_TUNA = (new FoodProperties.Builder()).nutrition(6).saturationMod(1.2F).meat().build();
+    public static final FoodProperties CRAB_LEGS = (new FoodProperties.Builder()).nutrition(11).saturationMod(1.4F).meat().build();
+    public static final FoodProperties DEEP_FRIED_SHRIMP = (new FoodProperties.Builder()).nutrition(10).saturationMod(1.2F).meat().build();
+    public static final FoodProperties PEPPERONI = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.2F).meat().build();
+    public static final FoodProperties GRILLED_OYSTERS = (new FoodProperties.Builder()).nutrition(6).saturationMod(1.0F).meat().build();
+    public static final FoodProperties STEAMED_CRAB = (new FoodProperties.Builder()).nutrition(6).saturationMod(1.2F).meat().build();
+    public static final FoodProperties STEAMED_CLAMS = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.9F).meat().build();
+    public static final FoodProperties SAUSAGE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).meat().build();
 
 
     //Smoked
@@ -120,7 +142,8 @@ public class ModFoods
     public static final FoodProperties TOAST = new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build();
     public static final FoodProperties CORN_DOUGH = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).build();
     public static final FoodProperties TORTILLA = new FoodProperties.Builder().nutrition(4).saturationMod(0.6F).build();
-    public static final FoodProperties OLIVE_OIL = new FoodProperties.Builder().nutrition(2).saturationMod(1.2F).effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 240, 1), 0.75F).build();
+    public static final FoodProperties OLIVE_OIL = new FoodProperties.Builder().nutrition(2).saturationMod(1.2F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 240, 1), 0.75F).build();
     public static final FoodProperties TOMATO_SAUCE = new FoodProperties.Builder().nutrition(10).saturationMod(1.2F).build();
     public static final FoodProperties HOT_SAUCE = new FoodProperties.Builder().nutrition(10).saturationMod(1.2F).build();
     public static final FoodProperties CHEESE = new FoodProperties.Builder().nutrition(4).saturationMod(1.6F).build();
@@ -134,10 +157,22 @@ public class ModFoods
     public static final FoodProperties RAW_FRIED_DUMPLING = new FoodProperties.Builder().nutrition(6).saturationMod(0.5F)
             .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 900, 0), 1F).build();
     protected static final FoodProperties BAKED_SWEET_POTATO = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
-    public static final FoodProperties DRIED_VANILLA_PODS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
-    public static final FoodProperties CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).build();
-    public static final FoodProperties MINT_LEAVES = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.BERSERKING.get(), 600), 1.0F).build();
+    public static final FoodProperties DRIED_VANILLA_PODS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
+    public static final FoodProperties CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).build();
+    public static final FoodProperties MINT_LEAVES = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.BERSERKING.get(), 600), 1.0F).build();
     public static final FoodProperties ICE_CUBES = new FoodProperties.Builder().alwaysEat().build();
+    public static final FoodProperties CHERRY_JAM = new FoodProperties.Builder().nutrition(3).saturationMod(0.5F).build();
+    public static final FoodProperties SOYBEAN = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).fast().build();
+    public static final FoodProperties OATS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).build();
+    public static final FoodProperties PEANUTS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).build();
+    public static final FoodProperties SOY_MILK = new FoodProperties.Builder().alwaysEat().build();
+    public static final FoodProperties TOFU = new FoodProperties.Builder().nutrition(2).saturationMod(0.5F).fast().build();
+    public static final FoodProperties BOILED_EGG_PEELED = new FoodProperties.Builder().nutrition(6).saturationMod(0.1F).fast().build();
+    public static final FoodProperties ROOIBOS_LEAF = new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).fast().alwaysEat().build();
+    public static final FoodProperties DRIED_OOLONG_TEA = new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).fast().alwaysEat().build();
 
 
     //Meals
@@ -255,7 +290,8 @@ public class ModFoods
     public static final FoodProperties SALMON_TARTARE = new FoodProperties.Builder().nutrition(7).saturationMod(0.65F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 600, 0), 1F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
-    public static final FoodProperties COD_CEVICHE = new FoodProperties.Builder().nutrition(9).saturationMod(0.7F).effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
+    public static final FoodProperties COD_CEVICHE = new FoodProperties.Builder().nutrition(9).saturationMod(0.7F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1F).build();
     public static final FoodProperties CARBONARA_PASTA = new FoodProperties.Builder().nutrition(14).saturationMod(0.8F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CORROSION.get(), 400, 1), 1F)
             .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1F).build();
@@ -290,14 +326,14 @@ public class ModFoods
     public static final FoodProperties COOKED_WHOLE_CRAB = new FoodProperties.Builder().nutrition(15).saturationMod(0.6f).build();
     public static final FoodProperties MISO_WITH_BAMBOO_SPROUTS = new FoodProperties.Builder().nutrition(10).saturationMod(0.7f).build();
     public static final FoodProperties GREEN_TEA = new FoodProperties.Builder().alwaysEat()
-            .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 3600, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 3600, 0), 1.0F).build();
     public static final FoodProperties YELLOW_TEA = new FoodProperties.Builder().alwaysEat()
-            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 0), 1.0F).build();
     public static final FoodProperties BLACK_TEA = new FoodProperties.Builder().alwaysEat()
-            .effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F)
-            .effect(new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CAFFEINATED.get(), 200, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.CAFFEINATED.get(), 200, 0), 1.0F).build();
     public static final FoodProperties DANDELION_TEA = new FoodProperties.Builder().alwaysEat()
-            .effect(new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties OATMEAL_WITH_STRAWBERRIES = new FoodProperties.Builder().nutrition(4).saturationMod(0.8f)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.FARMERS_BLESSING.get(), 600, 0), 1F).build();
     public static final FoodProperties COOKED_SALMON = new FoodProperties.Builder().nutrition(7).saturationMod(0.9f)
@@ -348,7 +384,44 @@ public class ModFoods
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.AGILITY.get(), 600), 1.0F).build();
     public static final FoodProperties ADZUKI_BUN = new FoodProperties.Builder().nutrition(5).saturationMod(0.3F)
             .effect(() -> new MobEffectInstance(com.botrom.hoshimi_ca_mod.registry.ModEffects.HARMONY.get(), 300), 1.0F).build();
-
+    public static final FoodProperties APPLE_JUICE = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).alwaysEat().build();
+    public static final FoodProperties GRAPE_JUICE = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).alwaysEat().build();
+    public static final FoodProperties PINEAPPLE_JUICE = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).alwaysEat().build();
+    public static final FoodProperties ORANGE_JUICE = new FoodProperties.Builder().nutrition(6).saturationMod(0.8F).alwaysEat().build();
+    public static final FoodProperties LEMONADE = new FoodProperties.Builder().nutrition(6).saturationMod(0.8F).alwaysEat().build();
+    public static final FoodProperties BEEF_JERKY = new FoodProperties.Builder().nutrition(2).saturationMod(0.5F).fast().build();
+    public static final FoodProperties FRENCH_FRIES = new FoodProperties.Builder().nutrition(2).saturationMod(1.0F).fast().build();
+    public static final FoodProperties SWEET_POTATO_FRIES = new FoodProperties.Builder().nutrition(3).saturationMod(1.1F).fast().build();
+    public static final FoodProperties DOUGHNUT = new FoodProperties.Builder().nutrition(5).saturationMod(1.2F).build();
+    public static final FoodProperties CAESAR_SALAD = new FoodProperties.Builder().nutrition(7).saturationMod(0.6F).build();
+    public static final FoodProperties YOGHURT = new FoodProperties.Builder().nutrition(7).saturationMod(0.6F).build();
+    public static final FoodProperties ROASTED_NUTS = new FoodProperties.Builder().nutrition(2).saturationMod(0.5F).fast().build();
+    public static final FoodProperties TRAIL_MIX = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).fast().build();
+    public static final FoodProperties SCRAMBLED_EGGS = new FoodProperties.Builder().nutrition(2).saturationMod(0.5F).build();
+    public static final FoodProperties TOFUBURGER = new FoodProperties.Builder().nutrition(8).saturationMod(0.7F).build();
+    public static final FoodProperties BANANA_CREAM_PIE = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties BROWNIES = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties CHERRY_PIE = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties CHURROS = new FoodProperties.Builder().nutrition(2).saturationMod(0.8F).build();
+    public static final FoodProperties CINNAMON_ROLL = new FoodProperties.Builder().nutrition(2).saturationMod(0.5F).build();
+    public static final FoodProperties CROQUE_MONSIEUR = new FoodProperties.Builder().nutrition(12).saturationMod(1.5F).build();
+    public static final FoodProperties HASHED_BROWN = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F).build();
+    public static final FoodProperties MACARON = new FoodProperties.Builder().nutrition(5).saturationMod(1.2F).build();
+    public static final FoodProperties QUESADILLA = new FoodProperties.Builder().nutrition(10).saturationMod(1.0F).build();
+    public static final FoodProperties SCONES = new FoodProperties.Builder().nutrition(5).saturationMod(0.8F).build();
+    public static final FoodProperties ENCHILADA = new FoodProperties.Builder().nutrition(10).saturationMod(1.0F).build();
+    public static final FoodProperties FAJITAS = new FoodProperties.Builder().nutrition(10).saturationMod(0.8F).build();
+    public static final FoodProperties CARAMEL_POPCORN = new FoodProperties.Builder().nutrition(3).saturationMod(0.8F)
+            .effect(() -> new MobEffectInstance(MobEffects.LUCK, 600, 0), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 0), 1.0f).build();
+    public static final FoodProperties CHICKEN_NUGGETS = new FoodProperties.Builder().nutrition(4).saturationMod(0.9F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 600, 0), 1.0f).build();
+    public static final FoodProperties ICE_CREAM_SANDWICH = new FoodProperties.Builder().nutrition(6).saturationMod(0.7f).build();
+    public static final FoodProperties ICE_CREAM_CONE = new FoodProperties.Builder().nutrition(6).saturationMod(0.6f).build();
+    public static final FoodProperties NEAPOLITAN_ICE_CREAM_CONE = new FoodProperties.Builder().nutrition(7).saturationMod(0.6f).build();
+    public static final FoodProperties CORN_DOG = new FoodProperties.Builder().nutrition(8).saturationMod(0.9f).build();
+    public static final FoodProperties OOLONG_TEA = new FoodProperties.Builder().nutrition(Foods.SWEET_BERRIES.getNutrition()).saturationMod(Foods.SWEET_BERRIES.getSaturationModifier()).alwaysEat().build();
+    public static final FoodProperties PINEAPPLE_PIE_SIDE = new FoodProperties.Builder().nutrition(3).saturationMod(0.4F).build();
 
 
     public static FoodProperties.Builder startBuilding(int nutrition, float saturationMod) {

@@ -5,15 +5,15 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:calamari",
-          "croptopia:glowing_calamari",
-          "croptopia:cooked_calamari"
+          "hoshimimod:calamari",
+          "hoshimimod:glowing_calamari",
+          "hoshimimod:cooked_calamari"
         ],
         "values": {
           "FISH": 1

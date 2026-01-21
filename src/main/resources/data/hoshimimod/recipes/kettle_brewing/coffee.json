@@ -1,0 +1,28 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 20,
+  "fluid": [
+    {
+      "amount": 20
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 50
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:coffee_beans"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:coffee",
+    "effect": "hoshimimod:deeprush",
+    "effectduration": 1800
+  }
+}

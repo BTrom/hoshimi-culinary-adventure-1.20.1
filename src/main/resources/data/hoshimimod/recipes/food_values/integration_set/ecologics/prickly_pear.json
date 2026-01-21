@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "ecologics"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "ecologics:prickly_pear",
-          "ecologics:cooked_prickly_pear"
+          "hoshimimod:prickly_pear",
+          "hoshimimod:cooked_prickly_pear"
         ],
         "values": {
           "FRUIT": 1

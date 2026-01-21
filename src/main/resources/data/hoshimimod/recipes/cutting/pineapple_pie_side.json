@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "hoshimimod:pineapple_pie"
+    }
+  ],
+  "result": [
+    {
+      "item": "hoshimimod:pineapple_pie_side",
+      "count": 4
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:food_press"
+    },
+    {
+      "tag": "forge:soybeans"
+    },
+    {
+      "tag": "forge:water_bottles"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:soy_sauce",
+    "count": 1
+  }
+}

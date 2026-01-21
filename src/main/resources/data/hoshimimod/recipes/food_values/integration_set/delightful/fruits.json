@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "delightful"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "delightful:cantaloupe",
-          "delightful:mini_melon"
+          "hoshimimod:cantaloupe",
+          "hoshimimod:mini_melon"
         ],
         "values": {
           "FRUIT": 1

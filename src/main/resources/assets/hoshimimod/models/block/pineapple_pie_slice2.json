@@ -1,0 +1,11 @@
+{
+  "parent": "farmersdelight:block/pie_slice2",
+  "render_type": "cutout",
+  "textures": {
+    "particle": "hoshimimod:block/pineapple_pie_top",
+    "bottom": "hoshimimod:block/pie_bottom",
+    "inner": "hoshimimod:block/pineapple_pie_inner",
+    "side": "hoshimimod:block/pie_side",
+    "top": "hoshimimod:block/pineapple_pie_top"
+  }
+}

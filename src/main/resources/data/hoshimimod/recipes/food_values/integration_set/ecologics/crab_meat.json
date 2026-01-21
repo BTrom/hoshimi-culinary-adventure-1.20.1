@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "ecologics"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "ecologics:crab_claw",
-          "ecologics:crab_meat"
+          "hoshimimod:crab_claw",
+          "hoshimimod:crab_meat"
         ],
         "values": {
           "FISH": 0.5,

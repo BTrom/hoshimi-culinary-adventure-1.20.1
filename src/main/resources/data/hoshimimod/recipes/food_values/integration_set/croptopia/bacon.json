@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:bacon",
-          "croptopia:cooked_bacon"
+          "hoshimimod:bacon",
+          "hoshimimod:cooked_bacon"
         ],
         "values": {
           "MEAT": 0.75

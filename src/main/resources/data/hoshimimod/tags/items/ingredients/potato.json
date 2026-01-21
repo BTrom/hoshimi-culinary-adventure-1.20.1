@@ -13,7 +13,7 @@
     {"id":"#forge:crops/sweetpotato","required":false},
     {"id":"#forge:potatoes","required":false},
     {"id":"#forge:vegetables/potato","required":false},
-    {"id":"croptopia:baked_sweet_potato","required":false},
+    {"id":"hoshimimod:baked_sweet_potato","required":false},
     {"id":"pamhc2crops:bakedsweetpotatoitem","required":false},
     {"id":"hoshimimod:baked_sweet_potato","required":false}
   ]

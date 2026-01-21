@@ -1,5 +1,7 @@
 package com.botrom.hoshimi_ca_mod.blocks;
 
+import com.botrom.hoshimi_ca_mod.entities.CoconutCrab;
+import com.botrom.hoshimi_ca_mod.registry.ModEntities;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -110,6 +112,10 @@ public class CoconutBlock extends FallingBlock {
                         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2));
 
                         hitPlayer = true;
+                    } else if (level.random.nextFloat() <= 0.05) {
+                        CoconutCrab coconutCrab = ModEntities.COCONUT_CRAB.get().create(level);
+                        coconutCrab.setPos(pos.getX(), pos.getY(), pos.getZ());
+                        level.addFreshEntity(coconutCrab);
                     }
                 }
             }

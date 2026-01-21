@@ -1,0 +1,28 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 20,
+  "fluid": [
+    {
+      "amount": 0
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 50
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:coffee"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:milk_coffee",
+    "effect": "hoshimimod:deeprush",
+    "effectduration": 2600
+  }
+}

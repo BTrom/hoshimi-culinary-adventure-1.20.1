@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "hoshimimod:meat_replacements"
+    },
+    {
+      "tag": "forge:bellpeppers"
+    },
+    {
+      "tag": "forge:onions"
+    },
+    {
+      "tag": "forge:tomatoes"
+    },
+    {
+      "tag": "forge:cheeses"
+    },
+    {
+      "item": "hoshimimod:frying_pan"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:fajitas",
+    "count": 2
+  }
+}

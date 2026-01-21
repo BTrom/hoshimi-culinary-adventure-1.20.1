@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hoshimimod:block/sandcastle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/sandcastle"
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/sandcastle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/sandcastle",
+      "y": 270
+    }
+  }
+}

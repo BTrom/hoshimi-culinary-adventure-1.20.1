@@ -1,8 +1,16 @@
 {
   "variants": {
-     "age=0": { "model": "hoshimimod:block/pineapple_stage0" },
-     "age=1": { "model": "hoshimimod:block/pineapple_stage1" },
-     "age=2": { "model": "hoshimimod:block/pineapple_stage2" },
-     "age=3": { "model": "hoshimimod:block/pineapple_stage3" }
+    "age=0": {
+      "model": "hoshimimod:block/pineapple_stage0"
+    },
+    "age=1": {
+      "model": "hoshimimod:block/pineapple_stage1"
+    },
+    "age=2": {
+      "model": "hoshimimod:block/pineapple_stage2"
+    },
+    "age=3": {
+      "model": "hoshimimod:block/pineapple_stage3"
     }
+  }
 }

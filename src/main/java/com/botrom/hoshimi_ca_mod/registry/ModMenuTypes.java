@@ -6,12 +6,14 @@ import com.botrom.hoshimi_ca_mod.blocks.menus.CrabTrapMenu;
 import com.botrom.hoshimi_ca_mod.blocks.menus.CrockPotMenu;
 import com.botrom.hoshimi_ca_mod.blocks.menus.FermenterMenu;
 import com.botrom.hoshimi_ca_mod.gui.StoveGuiHandler;
+import com.botrom.hoshimi_ca_mod.gui.TeaKettleGuiHandler;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.container.PizzaMenu;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.container.PizzaStationMenu;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -27,12 +29,9 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<CrabTrapMenu>> CRAB_TRAP_MENU = MENU_TYPES.register("crab_trap_menu", () -> IForgeMenuType.create(CrabTrapMenu::new));
     public static final RegistryObject<MenuType<StoveGuiHandler>> STOVE_SCREEN_HANDLER = MENU_TYPES.register("stove_gui_handler", () -> IForgeMenuType.create(StoveGuiHandler::new));
     public static final RegistryObject<MenuType<CrockPotMenu>> CROCK_POT_MENU_TYPE = MENU_TYPES.register("crock_pot", () -> IForgeMenuType.create((windowId, inv, data) -> new CrockPotMenu(windowId, inv, (CrockPotBlockEntity) inv.player.level().getBlockEntity(data.readBlockPos()))));
-    public static final RegistryObject<MenuType<FermenterMenu>> FERMENTER_MENU = MENU_TYPES.register("fermenter_menu", () -> IForgeMenuType.create(FermenterMenu::new)
-    );
+    public static final RegistryObject<MenuType<FermenterMenu>> FERMENTER_MENU = MENU_TYPES.register("fermenter_menu", () -> IForgeMenuType.create(FermenterMenu::new));
+    public static final RegistryObject<MenuType<TeaKettleGuiHandler>> TEA_KETTLE_SCREEN_HANDLER = MENU_TYPES.register("tea_kettle_gui_handler", () -> new MenuType<>(TeaKettleGuiHandler::new, FeatureFlags.VANILLA_SET));
 
-//    public static void register(IEventBus eventBus) {
-//        MENU_TYPES.register(eventBus);
-//    }
 
     public static <H extends AbstractContainerMenu, S extends Screen & MenuAccess<H>> void registerScreenFactory(MenuType<? extends H> type, ScreenFactory<H, S> factory) {
         throw new AssertionError();

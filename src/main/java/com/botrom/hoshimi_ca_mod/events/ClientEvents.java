@@ -2,10 +2,12 @@ package com.botrom.hoshimi_ca_mod.events;
 
 import com.botrom.hoshimi_ca_mod.entities.models.*;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
+import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
 import com.botrom.hoshimi_ca_mod.utils.BlueprintDataUtils;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -28,6 +30,7 @@ public class ClientEvents {
 		if (!GRASS_COLOR_BLOCKS.isEmpty()) {
 			BlueprintDataUtils.registerBlockColor(e.getBlockColors(), (state, tint, pos, u) -> pos != null && tint != null ? BiomeColors.getAverageGrassColor(tint, pos) : GrassColor.getDefaultColor(), GRASS_COLOR_BLOCKS);
 		}
+		e.getBlockColors().register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ? BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), ModBlocks.PALM_LEAVES.get());
 	}
 
 	@SubscribeEvent
@@ -39,6 +42,7 @@ public class ClientEvents {
 		e.registerLayerDefinition(ClamRenderer.LAYER_LOCATION, ClamModel::createBodyLayer);
 		e.registerLayerDefinition(FiddlerCrabModel.LAYER_LOCATION, FiddlerCrabModel::createBodyLayer);
 		e.registerLayerDefinition(new ModelLayerLocation(Utils.createResourceLocation("shiba"), "main"), ShibaModel::createBodyLayer);
+		e.registerLayerDefinition(CoconutCrabModel.LAYER_LOCATION, CoconutCrabModel::createBodyLayer);
 	}
 
 

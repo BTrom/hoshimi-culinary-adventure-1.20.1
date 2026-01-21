@@ -1,0 +1,25 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": true,
+  "key": {
+    "W": {
+      "item": "hoshimimod:waffle"
+    },
+    "S": {
+      "item": "hoshimimod:sweet_berry_ice_cream_scoop"
+    },
+    "V": {
+      "item": "hoshimimod:ice_cream_scoop"
+    },
+    "C": {
+      "item": "hoshimimod:chocolate_ice_cream_scoop"
+    }
+  },
+  "pattern": [
+    "SVC",
+    " W "
+  ],
+  "result": {
+    "item": "hoshimimod:neapolitan_ice_cream_cone"
+  }
+}

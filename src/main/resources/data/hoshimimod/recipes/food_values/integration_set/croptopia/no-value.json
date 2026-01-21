@@ -5,18 +5,18 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:almond",
-          "croptopia:cashew",
-          "croptopia:pecan",
-          "croptopia:pepper",
-          "croptopia:soybean",
-          "croptopia:walnut"
+          "hoshimimod:almond",
+          "hoshimimod:cashew",
+          "hoshimimod:pecan",
+          "hoshimimod:pepper",
+          "hoshimimod:soybean",
+          "hoshimimod:walnut"
         ],
         "values": {}
       }

@@ -44,6 +44,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new TallFlowerBlock(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
     public static final RegistryObject<Block> WILD_OATS = registerBlock("wild_oats", () -> new WildCropBlock(MobEffects.SATURATION, 6, Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_PEANUTS = registerBlock("wild_peanuts", () -> new WildCropBlock(MobEffects.DAMAGE_RESISTANCE, 6, Block.Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> WILD_ROOIBOS_PLANT = registerBlock("wild_rooibos_plant", () -> new FlowerBlock(MobEffects.HEAL, 1, BlockBehaviour.Properties.copy(Blocks.DANDELION)));
+    public static final RegistryObject<Block> PINEAPPLE_WILD_CROP = registerBlock("pineapple_wild_crop", () -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6, Properties.copy(Blocks.TALL_GRASS)));
 
 
     // Fauna
@@ -81,6 +83,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> VANILLA_VINE = BLOCKS.register("vanilla_vine", () -> new VanillaVineTopBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> VANILLA_VINE_PLANT = BLOCKS.register("vanilla_vine_plant", () -> new VanillaVineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> MINT = BLOCKS.register("mint", () -> new MintBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().randomTicks().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> GRAPES = BLOCKS.register("grape_crop", () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+    public static final RegistryObject<Block> BLACK_PEPPER = BLOCKS.register("black_pepper_crop", () -> new CropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+    public static final RegistryObject<Block> ROOIBOS_PLANT = BLOCKS.register("rooibos_plant", () -> new CottonCropBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH)));
 
 
     // Saplings
@@ -127,6 +132,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_BANANA_FROND = BLOCKS.register("potted_banana_frond", () -> new FlowerPotBlock(SMALL_BANANA_FROND.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> POTTED_VANILLA_VINE = BLOCKS.register("potted_vanilla_vine", () -> new FlowerPotBlock(VANILLA_VINE.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> POTTED_MINT = BLOCKS.register("potted_mint", () -> new FlowerPotBlock(MINT.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SANDCASTLE = BLOCKS.register("sandcastle", SandcastleBlock::new);
+    public static final RegistryObject<Block> TEA_KETTLE = BLOCKS.register("tea_kettle", () -> new TeaKettleBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> COPPER_TEA_KETTLE = BLOCKS.register("copper_tea_kettle", () -> new TeaKettleBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> TEA_LEAF_CRATE = BLOCKS.register("tea_leaf_crate", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
 
 
     // Meal Blocks
@@ -177,6 +186,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> WATERMELON_ICLE = BLOCKS.register("watermelon_icle", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.GLASS), 3));
     public static final RegistryObject<Block> WET_GOOP = BLOCKS.register("wet_goop", () -> CrockPotStackableFoodBlock.of(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK), 3));
     public static final RegistryObject<Block> NETHEROSIA = BLOCKS.register("netherosia", CrockPotFoodBlock::new);
+    public static final RegistryObject<Block> POPCORN_BOX = BLOCKS.register("popcorn_box", PopcornBoxBlock::new);
+    public static final RegistryObject<Block> PINEAPPLE_PIE = BLOCKS.register("pineapple_pie", () -> new PieBlock(Properties.copy(Blocks.CAKE), ModItems.PINEAPPLE_PIE_SIDE));
 
 
     // Tree Blocks

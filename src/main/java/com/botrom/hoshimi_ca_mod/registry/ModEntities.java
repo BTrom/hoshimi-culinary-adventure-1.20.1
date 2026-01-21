@@ -92,7 +92,6 @@ public class ModEntities {
 					.sized(0.5F, 0.6F)
 					.build("shima_enaga"));
 
-
 	public static final RegistryObject<EntityType<LobsterEntity>> LOBSTER = ENTITIES.register("lobster",
 			() -> EntityType.Builder.of(LobsterEntity::new, MobCategory.WATER_AMBIENT)
 					.sized(0.7F, 0.4F)
@@ -244,11 +243,17 @@ public class ModEntities {
 					.clientTrackingRange(10)
 					.build("snail"));
 
-	public static RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
+	public static final RegistryObject<EntityType<EntityBaleenWhale>> BALEEN_WHALE = ENTITIES.register("baleen_whale",
 			() -> EntityType.Builder.of(EntityBaleenWhale::new, MobCategory.CREATURE)
 					.sized(2.6F, 1.6F)
 					.setTrackingRange(10)
 					.build("baleen_whale"));
+
+	public static final RegistryObject<EntityType<CoconutCrab>> COCONUT_CRAB = ENTITIES.register("coconut_crab",
+			() -> EntityType.Builder.of(CoconutCrab::new, MobCategory.CREATURE)
+					.sized(1.2F, 1.2F)
+					.clientTrackingRange(10)
+					.build("coconut_crab"));
 
 
 
@@ -328,6 +333,7 @@ public class ModEntities {
 		event.put(LIZARD.get(), Lizard.createAttributes().build());
 		event.put(TORTOISE.get(), Tortoise.createAttributes().build());
 		event.put(BALEEN_WHALE.get(), EntityBaleenWhale.registerAttributes().build());
+		event.put(COCONUT_CRAB.get(), CoconutCrab.createAttributes().build());
 	}
 
 	@SubscribeEvent

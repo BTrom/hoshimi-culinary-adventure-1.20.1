@@ -1,0 +1,31 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.5,
+  "crafting_duration": 50,
+  "fluid": [
+    {
+      "amount": 15
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 0
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:hibiscus"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:hibiscus_tea",
+    "effect": "hoshimimod:lifeleech",
+    "effectduration": 1800
+  }
+}

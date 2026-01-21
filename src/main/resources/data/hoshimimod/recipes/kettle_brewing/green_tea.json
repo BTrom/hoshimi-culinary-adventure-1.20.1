@@ -1,0 +1,28 @@
+{
+  "type": "hoshimimod:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 25,
+  "fluid": [
+    {
+      "amount": 10
+    }
+  ],
+  "heat_needed": [
+    {
+      "amount": 40
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "hoshimimod:dried_green_tea"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:green_tea",
+    "effect": "hoshimimod:balanced",
+    "effectduration": 1800
+  }
+}

@@ -5,7 +5,7 @@
     "#hoshimimod:ingredients/tomato",
     {"id":"#forge:crops/radish","required":false},
     {"id":"#forge:vegetables/radish","required":false},
-    {"id":"croptopia:roasted_radishes","required":false},
+    {"id":"hoshimimod:roasted_radishes","required":false},
     {"id":"pamhc2crops:roastedradishitem","required":false}
   ]
 }

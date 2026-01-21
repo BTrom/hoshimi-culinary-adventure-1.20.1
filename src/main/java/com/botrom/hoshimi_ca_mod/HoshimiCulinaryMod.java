@@ -6,6 +6,7 @@ import com.botrom.hoshimi_ca_mod.entities.models.ShibaModel;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
 import com.botrom.hoshimi_ca_mod.gui.CrabTrapGUI;
+import com.botrom.hoshimi_ca_mod.gui.TeaKettleGui;
 import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
 import com.botrom.hoshimi_ca_mod.gui.StoveGui;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.*;
@@ -159,6 +160,8 @@ public class HoshimiCulinaryMod {
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CRAB_TRAP_MENU.get(), CrabTrapGUI::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CROCK_POT_MENU_TYPE.get(), CrockPotScreen::new));
+        event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.TEA_KETTLE_SCREEN_HANDLER.get(), TeaKettleGui::new));
+
 
         //BlockEntityRenderers
         BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);
@@ -226,6 +229,6 @@ public class HoshimiCulinaryMod {
         event.registerEntityRenderer(ModEntities.BIRDCAGE.get(), EmptyRenderer::new);
         event.registerEntityRenderer(ModEntities.PARROT_EGG.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.BANANA_PEEL.get(), BananaPeelRenderer::new);
-
+        event.registerEntityRenderer(ModEntities.COCONUT_CRAB.get(), CoconutCrabRenderer::new);
     }
 }

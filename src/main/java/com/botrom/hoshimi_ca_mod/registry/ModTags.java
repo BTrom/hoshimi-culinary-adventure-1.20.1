@@ -53,6 +53,11 @@ public class ModTags {
     public static final TagKey<Item> FERMENTABLE = bindItemTag("fermentable");
     public static final TagKey<Item> ICE_CREAM = bindItemTag("ice_cream");
     public static final TagKey<Item> ICE_CUBES = bindItemForgeTag("ice_cubes");
+    public static final TagKey<Item> CONTAINER_ITEMS = bindItemForgeTag("container_items");
+    public static final TagKey<Item> SMALL_WATER_FILL = bindItemForgeTag("small_water_fill");
+    public static final TagKey<Item> LARGE_WATER_FILL = bindItemForgeTag("large_water_fill");
+    public static final TagKey<Item> HEAT_ITEMS = bindItemForgeTag("heat_items");
+
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");

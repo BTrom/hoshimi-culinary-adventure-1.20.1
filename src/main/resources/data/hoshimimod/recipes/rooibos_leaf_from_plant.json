@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hoshimimod:wild_rooibos_plant"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:rooibos_leaf"
+  }
+}

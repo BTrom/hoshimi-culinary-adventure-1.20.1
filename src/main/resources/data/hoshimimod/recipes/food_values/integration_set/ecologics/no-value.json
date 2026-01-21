@@ -5,13 +5,13 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "ecologics"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "ecologics:walnut"
+          "hoshimimod:walnut"
         ],
         "values": {}
       }

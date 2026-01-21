@@ -5,16 +5,16 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "delightful"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "delightful:raw_goat",
-          "delightful:cooked_goat",
-          "delightful:venison_chops",
-          "delightful:cooked_venison_chops"
+          "hoshimimod:raw_goat",
+          "hoshimimod:cooked_goat",
+          "hoshimimod:venison_chops",
+          "hoshimimod:cooked_venison_chops"
         ],
         "values": {
           "MEAT": 0.5

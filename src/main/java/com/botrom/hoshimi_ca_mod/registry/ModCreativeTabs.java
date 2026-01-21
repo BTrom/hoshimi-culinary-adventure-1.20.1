@@ -307,6 +307,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.ANEMONE_SEBAE.get());
 
                         // HarvestCraft 2
+                        output.accept(ModItems.GREEN_ONION_SEEDS.get());
                         output.accept(ModItems.GREEN_ONION.get());
 
                         // Farmer's Respite
@@ -379,14 +380,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.ASPARAGUS_SEEDS.get());
                         output.accept(ModItems.GARLIC_SEEDS.get());
                         output.accept(ModItems.UNKNOWN_SEEDS.get());
-//                        output.accept(ModItems.PARROT_EGG_RED_BLUE.get());
-//                        output.accept(ModItems.PARROT_EGG_BLUE.get());
-//                        output.accept(ModItems.PARROT_EGG_GREEN.get());
-//                        output.accept(ModItems.PARROT_EGG_YELLOW_BLUE.get());
-//                        output.accept(ModItems.PARROT_EGG_GRAY.get());
-                        ModItems.PARROT_EGGS.values().forEach(item -> {
-                            output.accept(item.get());
-                        });
+                        ModItems.PARROT_EGGS.values().forEach(item -> {output.accept(item.get());});
                         output.accept(ModItems.CROCK_POT_UPGRADE_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.HOGLIN_NOSE.get());
                         output.accept(ModItems.COOKED_HOGLIN_NOSE.get());
@@ -488,6 +482,103 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BANANA_BREAD.get());
                         output.accept(ModItems.ADZUKI_BUN.get());
                         output.accept(ModItems.ICE_CUBES.get());
+
+                        // Croptopia
+                        output.accept(ModItems.ANCHOVY.get());
+                        output.accept(ModItems.APPLE_JUICE.get());
+                        output.accept(ModItems.BANANA_CREAM_PIE.get());
+                        output.accept(ModItems.BEEF_JERKY.get());
+                        output.accept(ModItems.BLACK_PEPPER.get());
+                        output.accept(ModItems.BLACK_PEPPER_SEEDS.get());
+                        output.accept(ModItems.BLUEBERRY.get());
+                        output.accept(ModItems.BROWNIES.get());
+                        output.accept(ModItems.CAESAR_SALAD.get());
+                        output.accept(ModItems.CHERRIES.get());
+                        output.accept(ModItems.CHERRY_JAM.get());
+                        output.accept(ModItems.CHERRY_PIE.get());
+                        output.accept(ModItems.CHURROS.get());
+                        output.accept(ModItems.CINNAMON.get());
+                        output.accept(ModItems.CINNAMON_ROLL.get());
+                        output.accept(ModItems.COOKED_ANCHOVY.get());
+                        output.accept(ModItems.COOKED_TUNA.get());
+                        output.accept(ModItems.CRAB.get());
+                        output.accept(ModItems.CRAB_LEGS.get());
+                        output.accept(ModItems.CROQUE_MONSIEUR.get());
+                        output.accept(ModItems.DEEP_FRIED_SHRIMP.get());
+                        output.accept(ModItems.DOUGHNUT.get());
+                        output.accept(ModItems.ENCHILADA.get());
+                        output.accept(ModItems.FAJITAS.get());
+                        output.accept(ModItems.FRENCH_FRIES.get());
+                        output.accept(ModItems.GRAPES.get());
+                        output.accept(ModItems.GRAPE_JUICE.get());
+                        output.accept(ModItems.GRAPE_SEEDS.get());
+                        output.accept(ModItems.GRILLED_OYSTERS.get());
+                        output.accept(ModItems.HASHED_BROWN.get());
+                        output.accept(ModItems.LEMONADE.get());
+                        output.accept(ModItems.MACARON.get());
+                        output.accept(ModItems.MORTAR_AND_PESTLE.get());
+                        output.accept(ModItems.OATS.get());
+                        output.accept(ModItems.ORANGE_JUICE.get());
+                        output.accept(ModItems.PEANUTS.get());
+                        output.accept(ModItems.PEPPERONI.get());
+                        output.accept(ModItems.PINEAPPLE_JUICE.get());
+                        output.accept(ModItems.QUESADILLA.get());
+                        output.accept(ModItems.ROASTED_NUTS.get());
+                        output.accept(ModItems.ROE.get());
+                        output.accept(ModItems.SAUSAGE.get());
+                        output.accept(ModItems.SCONES.get());
+                        output.accept(ModItems.SCRAMBLED_EGGS.get());
+                        output.accept(ModItems.SOYBEAN.get());
+                        output.accept(ModItems.SOY_MILK.get());
+                        output.accept(ModItems.SOY_SAUCE.get());
+                        output.accept(ModItems.SQUASH.get());
+                        output.accept(ModItems.STEAMED_CLAMS.get());
+                        output.accept(ModItems.STEAMED_CRAB.get());
+                        output.accept(ModItems.STRAWBERRY.get());
+                        output.accept(ModItems.SWEET_POTATO_FRIES.get());
+                        output.accept(ModItems.TOFU.get());
+                        output.accept(ModItems.TOFUBURGER.get());
+                        output.accept(ModItems.TRAIL_MIX.get());
+                        output.accept(ModItems.TUNA.get());
+                        output.accept(ModItems.YOGHURT.get());
+
+                        // Ecologics
+                        output.accept(ModItems.COCONUT_CRAB_SPAWN_EGG.get());
+                        output.accept(ModItems.SANDCASTLE.get());
+
+                        // Corn Delight
+                        output.accept(ModItems.CORN_DOG.get());
+                        output.accept(ModBlocks.POPCORN_BOX.get());
+
+                        // Create: Food
+                        output.accept(ModItems.APPLE_SLICE.get());
+                        output.accept(ModItems.BOILED_EGG_PEELED.get());
+                        output.accept(ModItems.BREAD_CRUMBS.get());
+                        output.accept(ModItems.BUTTER.get());
+                        output.accept(ModItems.CARAMEL_POPCORN.get());
+                        output.accept(ModItems.CHICKEN_NUGGETS.get());
+                        output.accept(ModItems.ICE_CREAM_SANDWICH.get());
+
+                        // Create Gourmet
+                        output.accept(ModItems.BUTTER.get());
+                        output.accept(ModItems.ICE_CREAM_CONE.get());
+                        output.accept(ModItems.NEAPOLITAN_ICE_CREAM_CONE.get());
+
+                        // HerbalBrews
+                        output.accept(ModBlocks.WILD_ROOIBOS_PLANT.get());
+                        output.accept(ModBlocks.TEA_LEAF_CRATE.get());
+                        output.accept(ModBlocks.ROOIBOS_PLANT.get());
+                        output.accept(ModItems.ROOIBOS_LEAF.get());
+                        output.accept(ModItems.DRIED_OOLONG_TEA.get());
+                        output.accept(ModItems.OOLONG_TEA.get());
+                        output.accept(ModBlocks.TEA_KETTLE.get());
+                        output.accept(ModBlocks.COPPER_TEA_KETTLE.get());
+
+                        // Pineapple Delight
+                        output.accept(ModItems.PINEAPPLE_SIDE.get());
+                        output.accept(ModItems.PINEAPPLE_PIE_ITEM.get());
+                        output.accept(ModItems.PINEAPPLE_PIE_SIDE.get());
+                        output.accept(ModBlocks.PINEAPPLE_WILD_CROP.get());
                     })
                     .build());
 

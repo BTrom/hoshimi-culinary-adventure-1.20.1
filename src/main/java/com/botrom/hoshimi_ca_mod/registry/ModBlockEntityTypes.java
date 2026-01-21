@@ -64,8 +64,10 @@ public class ModBlockEntityTypes {
             () -> BlockEntityType.Builder.of(EyeBoneBlockEntity::new, ModBlocks.EYE_BONE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<FermenterBlockEntity>> FERMENTER = BLOCK_ENTITY_TYPES.register("fermenter",
-            () -> BlockEntityType.Builder.of(FermenterBlockEntity::new, ModBlocks.FERMENTER.get()).build(null)
-    );
+            () -> BlockEntityType.Builder.of(FermenterBlockEntity::new, ModBlocks.FERMENTER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<TeaKettleBlockEntity>> TEA_KETTLE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("tea_kettle",
+            () -> BlockEntityType.Builder.of(TeaKettleBlockEntity::new, ModBlocks.TEA_KETTLE.get(), ModBlocks.COPPER_TEA_KETTLE.get()).build(null));
 
 
 

@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/template_cross_crop",
+  "textures": {
+    "cross": "hoshimimod:block/rooibos_plant_stage0"
+  }
+}

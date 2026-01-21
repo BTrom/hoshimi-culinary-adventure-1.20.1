@@ -5,14 +5,14 @@
       "conditions": [
         {
           "type": "forge:mod_loaded",
-          "modid": "croptopia"
+          "modid": "hoshimimod"
         }
       ],
       "recipe": {
         "type": "hoshimimod:food_values",
         "items": [
-          "croptopia:frog_legs",
-          "croptopia:fried_frog_legs"
+          "hoshimimod:frog_legs",
+          "hoshimimod:fried_frog_legs"
         ],
         "values": {
           "MEAT": 0.5
