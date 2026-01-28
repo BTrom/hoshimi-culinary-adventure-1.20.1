@@ -579,6 +579,17 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PINEAPPLE_PIE_ITEM.get());
                         output.accept(ModItems.PINEAPPLE_PIE_SIDE.get());
                         output.accept(ModBlocks.PINEAPPLE_WILD_CROP.get());
+
+                        // Salt
+                        output.accept(ModItems.SALT.get());
+                        output.accept(ModItems.RAW_ROCK_SALT.get());
+                        output.accept(ModBlocks.ROCK_SALT_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_ROCK_SALT_ORE.get());
+                        output.accept(ModBlocks.RAW_ROCK_SALT_BLOCK.get());
+                        output.accept(ModBlocks.SMALL_SALT_BUD.get());
+                        output.accept(ModBlocks.MEDIUM_SALT_BUD.get());
+                        output.accept(ModBlocks.LARGE_SALT_BUD.get());
+                        output.accept(ModBlocks.SALT_CLUSTER.get());
                     })
                     .build());
 

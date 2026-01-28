@@ -1,13 +1,17 @@
 package com.botrom.hoshimi_ca_mod.events;
 
+import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.PanettoneBlock;
 import com.botrom.hoshimi_ca_mod.effects.CorrosionEffect;
 import com.botrom.hoshimi_ca_mod.effects.SurgeEffect;
+import com.botrom.hoshimi_ca_mod.items.AngelWingsItem;
 import com.botrom.hoshimi_ca_mod.registry.ModEffects;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import com.botrom.hoshimi_ca_mod.registry.ModParticleTypes;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
+import com.botrom.hoshimi_ca_mod.utils.WingLogicHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -15,6 +19,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
@@ -33,13 +38,17 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 import java.util.Objects;
 
+@Mod.EventBusSubscriber(modid = HoshimiCulinaryMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEvents {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onFinishPanettone(LivingEntityUseItemEvent.Finish e) {
@@ -287,4 +296,51 @@ public class ForgeEvents {
 //			e.setCanceled(true);
 //		}
 //	}
+
+	@SubscribeEvent
+	public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+		ItemStack itemStack = event.getItemStack();
+		Player player = event.getEntity();
+
+		// Check if using Firework Rocket
+		if (itemStack.getItem() == net.minecraft.world.item.Items.FIREWORK_ROCKET) {
+
+			// Check if wearing Angel Wings
+			ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+			if (chest.getItem() instanceof AngelWingsItem) {
+
+				// If the firework has an explosion (duration > 0), it's a booster.
+				// Or we can just ban all fireworks while flying.
+				if (player.isFallFlying()) {
+					event.setCanceled(true); // Stop usage
+					// Optional: Send message to player "Wings too cumbersome for rockets!"
+				}
+			}
+		}
+	}
+
+	// --- FIX: Fall Damage Override ---
+	@SubscribeEvent
+	public static void onFallDamage(LivingFallEvent event) {
+		if (event.getEntity() instanceof Player player) {
+			ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+			if (chest.getItem() instanceof AngelWingsItem) {
+				// If wings are OPEN, we act as a parachute (No Damage)
+				// If wings are CLOSED, vanilla fall damage applies (unless you land perfectly with elytra)
+				if (WingLogicHandler.isWingsOpen(chest)) {
+					if (event.getEntity().level().isClientSide) {
+						if (Minecraft.getInstance().options.keyJump.isDown()) {
+							event.setDamageMultiplier(0.0f);
+							event.setCanceled(true); // Completely negate damage
+						}
+					} else {
+						if (chest.getOrCreateTag().getBoolean(WingLogicHandler.INPUT_SPACE_TAG)) {
+							event.setDamageMultiplier(0.0f);
+							event.setCanceled(true); // Completely negate damage
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "hoshimimod:block/small_salt_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "hoshimimod:block/small_salt_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/small_salt_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/small_salt_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "hoshimimod:block/small_salt_bud"
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/small_salt_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

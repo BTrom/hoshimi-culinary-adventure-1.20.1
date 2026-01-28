@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "hoshimimod:block/salt_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "hoshimimod:block/salt_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hoshimimod:block/salt_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "hoshimimod:block/salt_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "hoshimimod:block/salt_cluster"
+    },
+    "facing=west": {
+      "model": "hoshimimod:block/salt_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

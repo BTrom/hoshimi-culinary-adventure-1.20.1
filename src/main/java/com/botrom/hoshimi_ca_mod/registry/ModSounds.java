@@ -2,13 +2,12 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Supplier;
 
 public class ModSounds
 {
@@ -85,9 +84,49 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> ICE_CREAM_EAT = createSoundEvent("item/ice_cream_eat");
     public static final RegistryObject<SoundEvent> BANANA_BUNCH_OPEN = createSoundEvent("item/banana_bunch_open");
 
+    public static final RegistryObject<SoundEvent> SALT_BREAK = createSaltSoundEvent("salt.break");
+    public static final RegistryObject<SoundEvent> SALT_STEP = createSaltSoundEvent("salt.step");
+    public static final RegistryObject<SoundEvent> SALT_PLACE = createSaltSoundEvent("salt.place");
+    public static final RegistryObject<SoundEvent> SALT_HIT = createSaltSoundEvent("salt.hit");
+    public static final RegistryObject<SoundEvent> SALT_FALL = createSaltSoundEvent("salt.fall");
+    public static final RegistryObject<SoundEvent> SALT_CLUSTER_BREAK = createSaltSoundEvent("salt_cluster.break");
+    public static final RegistryObject<SoundEvent> SALT_CLUSTER_STEP = createSaltSoundEvent("salt_cluster.step");
+    public static final RegistryObject<SoundEvent> SALT_CLUSTER_PLACE = createSaltSoundEvent("salt_cluster.place");
+    public static final RegistryObject<SoundEvent> SALT_CLUSTER_HIT = createSaltSoundEvent("salt_cluster.hit");
+    public static final RegistryObject<SoundEvent> SALT_CLUSTER_FALL = createSaltSoundEvent("salt_cluster.fall");
+    public static final RegistryObject<SoundEvent> LARGE_SALT_BUD_BREAK = createSaltSoundEvent("large_salt_bud.break");
+    public static final RegistryObject<SoundEvent> LARGE_SALT_BUD_STEP = createSaltSoundEvent("large_salt_bud.step");
+    public static final RegistryObject<SoundEvent> LARGE_SALT_BUD_PLACE = createSaltSoundEvent("large_salt_bud.place");
+    public static final RegistryObject<SoundEvent> LARGE_SALT_BUD_HIT = createSaltSoundEvent("large_salt_bud.hit");
+    public static final RegistryObject<SoundEvent> LARGE_SALT_BUD_FALL = createSaltSoundEvent("large_salt_bud.fall");
+    public static final RegistryObject<SoundEvent> MEDIUM_SALT_BUD_BREAK = createSaltSoundEvent("medium_salt_bud.break");
+    public static final RegistryObject<SoundEvent> MEDIUM_SALT_BUD_STEP = createSaltSoundEvent("medium_salt_bud.step");
+    public static final RegistryObject<SoundEvent> MEDIUM_SALT_BUD_PLACE = createSaltSoundEvent("medium_salt_bud.place");
+    public static final RegistryObject<SoundEvent> MEDIUM_SALT_BUD_HIT = createSaltSoundEvent("medium_salt_bud.hit");
+    public static final RegistryObject<SoundEvent> MEDIUM_SALT_BUD_FALL = createSaltSoundEvent("medium_salt_bud.fall");
+    public static final RegistryObject<SoundEvent> SMALL_SALT_BUD_BREAK = createSaltSoundEvent("small_salt_bud.break");
+    public static final RegistryObject<SoundEvent> SMALL_SALT_BUD_STEP = createSaltSoundEvent("small_salt_bud.step");
+    public static final RegistryObject<SoundEvent> SMALL_SALT_BUD_PLACE = createSaltSoundEvent("small_salt_bud.place");
+    public static final RegistryObject<SoundEvent> SMALL_SALT_BUD_HIT = createSaltSoundEvent("small_salt_bud.hit");
+    public static final RegistryObject<SoundEvent> SMALL_SALT_BUD_FALL = createSaltSoundEvent("small_salt_bud.fall");
+    public static final RegistryObject<SoundEvent> SALT_DISSOLVE = createSaltSoundEvent("salt.dissolve");
+    public static final RegistryObject<SoundEvent> MELT = createSaltSoundEvent("melt");
+    public static final RegistryObject<SoundEvent> CAULDRON_EVAPORATE = createSaltSoundEvent("cauldron.evaporate");
+    public static final RegistryObject<SoundEvent> SALT_BUBBLE_POP = createSaltSoundEvent("bubble_pop");
+    public static final RegistryObject<SoundEvent> SALT_CAULDRON_REMOVE_SALT = createSaltSoundEvent("salt_cauldron.remove_salt");
+
+    public static final SoundType SALT = new ForgeSoundType(1.0f, 1.0f, SALT_BREAK, SALT_STEP, SALT_PLACE, SALT_HIT, SALT_FALL);
+    public static final SoundType SALT_CLUSTER = new ForgeSoundType(1.0f, 1.0f, SALT_CLUSTER_BREAK, SALT_CLUSTER_STEP, SALT_CLUSTER_PLACE, SALT_CLUSTER_HIT, SALT_CLUSTER_FALL);
+    public static final SoundType LARGE_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, LARGE_SALT_BUD_BREAK, LARGE_SALT_BUD_STEP, LARGE_SALT_BUD_PLACE, LARGE_SALT_BUD_HIT, LARGE_SALT_BUD_FALL);
+    public static final SoundType MEDIUM_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, MEDIUM_SALT_BUD_BREAK, MEDIUM_SALT_BUD_STEP, MEDIUM_SALT_BUD_PLACE, MEDIUM_SALT_BUD_HIT, MEDIUM_SALT_BUD_FALL);
+    public static final SoundType SMALL_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, SMALL_SALT_BUD_BREAK, SMALL_SALT_BUD_STEP, SMALL_SALT_BUD_PLACE, SMALL_SALT_BUD_HIT, SMALL_SALT_BUD_FALL);
 
 
     private static RegistryObject<SoundEvent> createSoundEvent(final String soundName) {
         return SOUND_EVENTS.register(soundName, () -> SoundEvent.createVariableRangeEvent(Utils.createResourceLocation(soundName)));
+    }
+
+    private static RegistryObject<SoundEvent> createSaltSoundEvent(String name) {
+        return SOUND_EVENTS.register("block.salt." + name, () -> SoundEvent.createVariableRangeEvent(Utils.createResourceLocation("block.salt." + name)));
     }
 }

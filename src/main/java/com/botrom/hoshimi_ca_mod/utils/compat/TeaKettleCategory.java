@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.utils.compat;
 
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
+import com.botrom.hoshimi_ca_mod.utils.Utils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -47,7 +48,7 @@ public class TeaKettleCategory implements IRecipeCategory<TeaKettleRecipe> {
     private final IDrawableAnimated arrow;
     private final Component title;
 
-    private final ResourceLocation texture = new ResourceLocation("herbalbrews", "textures/gui/tea_kettle.png");
+    private final ResourceLocation texture = Utils.createResourceLocation("textures/gui/tea_kettle.png");
 
     public TeaKettleCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(texture, X_OFFSET, Y_OFFSET, BACKGROUND_WIDTH, BACKGROUND_HEIGHT);

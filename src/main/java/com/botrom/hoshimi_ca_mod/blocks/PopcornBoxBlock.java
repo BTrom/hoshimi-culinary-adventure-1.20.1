@@ -63,7 +63,7 @@ public class PopcornBoxBlock extends FeastBlock {
                 worldIn.playSound(null, pos, SoundEvents.ARMOR_EQUIP_GENERIC, SoundSource.BLOCKS, 1.0F, 1.0F);
                 return InteractionResult.SUCCESS;
             } else {
-                player.displayClientMessage(Component.translatable(HoshimiCulinaryMod.MOD_ID + ".block.popcorn.bare_hand", serving.getCraftingRemainingItem().getHoverName()), true);
+                player.displayClientMessage(Component.translatable("tooltip.hoshimimod.popcorn.bare_hand", serving.getCraftingRemainingItem().getHoverName()), true);
             }
         }
         return InteractionResult.PASS;

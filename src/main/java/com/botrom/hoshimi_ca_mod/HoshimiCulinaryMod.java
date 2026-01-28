@@ -162,7 +162,6 @@ public class HoshimiCulinaryMod {
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.CROCK_POT_MENU_TYPE.get(), CrockPotScreen::new));
         event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.TEA_KETTLE_SCREEN_HANDLER.get(), TeaKettleGui::new));
 
-
         //BlockEntityRenderers
         BlockEntityRenderers.register(ModBlockEntityTypes.BASIN.get(), BasinRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PIZZA.get(), PizzaRenderer::new);
@@ -177,6 +176,8 @@ public class HoshimiCulinaryMod {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CUCUMBERS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PEPPERS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PINEAPPLE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GRAPES.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLACK_PEPPER.get(), RenderType.cutout());
     }
 
     @SubscribeEvent

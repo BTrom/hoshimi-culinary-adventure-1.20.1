@@ -68,27 +68,27 @@ public class TeaKettleGui extends AbstractContainerScreen<TeaKettleGuiHandler> {
         super.render(guiGraphics, mouseX, mouseY, delta);
         if (isMouseOverWaterArea(mouseX, mouseY)) {
             int waterLevel = this.menu.getWaterLevel();
-            Component tooltip = Component.translatable("tooltip.herbalbrews.tea_kettle.water_level", waterLevel);
+            Component tooltip = Component.translatable("tooltip.hoshimimod.tea_kettle.water_level", waterLevel);
             guiGraphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
         if (isMouseOverWaterSlot(mouseX, mouseY)) {
-            Component tooltip = Component.translatable("tooltip.herbalbrews.tea_kettle.water_slot");
+            Component tooltip = Component.translatable("tooltip.hoshimimod.tea_kettle.water_slot");
             guiGraphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
         if (isMouseOverHeatArea(mouseX, mouseY)) {
             int heatLevel = this.menu.getHeatLevel();
-            Component tooltip = Component.translatable("tooltip.herbalbrews.tea_kettle.heat_level", heatLevel);
+            Component tooltip = Component.translatable("tooltip.hoshimimod.tea_kettle.heat_level", heatLevel);
             guiGraphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
         if (isMouseOverProgressArrow(mouseX, mouseY)) {
             int remainingTicks = this.menu.getRequiredDuration() - this.menu.getCookingTime();
             String formattedTime = formatTicks(remainingTicks);
-            Component tooltip = Component.translatable("tooltip.herbalbrews.tea_kettle.remaining_time", formattedTime);
+            Component tooltip = Component.translatable("tooltip.hoshimimod.tea_kettle.remaining_time", formattedTime);
             guiGraphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
         if (isMouseOverHeatingSlot(mouseX, mouseY)) {
             int heatIncrease = 35;
-            Component tooltip = Component.translatable("tooltip.herbalbrews.tea_kettle.heat_increase", heatIncrease);
+            Component tooltip = Component.translatable("tooltip.hoshimimod.tea_kettle.heat_increase", heatIncrease);
             guiGraphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
         super.renderTooltip(guiGraphics, mouseX, mouseY);

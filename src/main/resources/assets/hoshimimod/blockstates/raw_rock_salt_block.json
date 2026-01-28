@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "hoshimimod:block/raw_rock_salt_block"
+      },
+      {
+        "model": "hoshimimod:block/raw_rock_salt_block",
+        "y": 180
+      },
+      {
+        "model": "hoshimimod:block/raw_rock_salt_block_mirrored"
+      },
+      {
+        "model": "hoshimimod:block/raw_rock_salt_block_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

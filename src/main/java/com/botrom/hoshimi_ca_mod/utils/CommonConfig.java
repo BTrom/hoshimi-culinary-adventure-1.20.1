@@ -45,6 +45,15 @@ public class CommonConfig {
     public final ForgeConfigSpec.BooleanValue dolphinsAttackFlyingFish;
     public final ForgeConfigSpec.DoubleValue rainbowGlassFidelity;
     public final ForgeConfigSpec.DoubleValue crockPotSpeedModifier;
+    public final ForgeConfigSpec.DoubleValue DISSOLVING_CHANCE;
+    public final ForgeConfigSpec.BooleanValue DISSOLVING_IN_RAIN;
+    public final ForgeConfigSpec.DoubleValue DISSOLVING_IN_RAIN_CHANCE;
+    public final ForgeConfigSpec.DoubleValue MELTING_BLOCK_CHANCE;
+    public final ForgeConfigSpec.DoubleValue EVAPORATION_CHANCE;
+    public final ForgeConfigSpec.DoubleValue SALT_CLUSTER_GROWING_CHANCE;
+    public final ForgeConfigSpec.IntValue ROCK_SALT_SIZE;
+    public final ForgeConfigSpec.DoubleValue ROCK_SALT_CLUSTER_CHANCE;
+
 
     public CommonConfig(final ForgeConfigSpec.Builder builder) {
         builder.comment("General settings").push("general");
@@ -79,6 +88,30 @@ public class CommonConfig {
         crockPotSpeedModifier = buildDouble(builder,
                 "crockPotSpeedModifier", "all", ModConfig.crockPotSpeedModifier, 0.0F, 1.0F,
                 "Set this value to change Crock Pot speed modifier. Higher tier Crock Pot will cook faster.\nactualCookingTime = cookingTime * (1.0 - crockPotSpeedModifier * potLevel)");
+        DISSOLVING_CHANCE = builder
+                .comment("Chance of water dissolving in fluid on random tick. 1.0 = first random tick. 0.0 = never.")
+                .defineInRange("SaltDissolvingChance", 0.35d, 0.0d, 1.0d);
+        DISSOLVING_IN_RAIN = builder
+                .comment("Salt blocks will dissolve when exposed to rain")
+                .define("SaltDissolvingInRain", true);
+        DISSOLVING_IN_RAIN_CHANCE = builder
+                .comment("Chance of salt blocks dissolving in rain on random tick. 1.0 = first random tick. 0.0 = never.")
+                .defineInRange("SaltDissolvingInRainChance", 0.15d, 0.0d, 1.0d);
+        MELTING_BLOCK_CHANCE = builder
+                .comment("Chance of block melting on random tick. 1.0 = first random tick. 0.0 = never.")
+                .defineInRange("SaltBlockMeltingChance", 0.4d, 0.0d, 1.0d);
+        EVAPORATION_CHANCE = builder
+                .comment("Chance of water evaporating on random tick. 1.0 = first random tick. 0.0 = never.")
+                .defineInRange("EvaporationChance", 0.3d, 0.0d, 1.0d);
+        SALT_CLUSTER_GROWING_CHANCE = builder
+                .comment("Chance of cluster growing by one stage on random tick. 1.0 = first random tick. 0.0 = never.")
+                .defineInRange("SaltClusterGrowingChance", 0.1d, 0.0d, 1.0d);
+        ROCK_SALT_SIZE = builder
+                .comment("Size of the Rock Salt deposit")
+                .defineInRange("RockSaltSize", 24, 1, 64);
+        ROCK_SALT_CLUSTER_CHANCE = builder
+                .comment("Chance of the Salt Clusters generating on the deposits (per side)")
+                .defineInRange("RockSaltClusterChance", 0.15f, 0.0, 1.0);
         builder.pop();
         builder.comment("Spawning settings").push("spawning");
         catfishSpawnWeight = buildInt(builder,

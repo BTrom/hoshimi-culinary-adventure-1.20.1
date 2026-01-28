@@ -5,7 +5,6 @@ import com.botrom.hoshimi_ca_mod.registry.ModNetwork;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
 import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundBubbleStatePacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.IBubbleState;
-import com.botrom.hoshimi_ca_mod.utils.compat.IBubbleStateCAC;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -321,7 +320,7 @@ public class DumboOctopusEntity extends WaterAnimal implements GeoEntity, Bucket
             DumboOctopusEntity.this.bubblingPlayer = false;
             DumboOctopusEntity.this.sendBubble(DumboOctopusEntity.this.bubbledPlayer, false);
             this.bubbleSent = false;
-            DumboOctopusEntity.this.bubbledPlayer.playSound(ModSounds.BUBBLE_POP.get());
+            DumboOctopusEntity.this.bubbledPlayer.playSound(ModSounds.SALT_BUBBLE_POP.get());
             DumboOctopusEntity.this.bubbledPlayer = null;
             this.navigation.stop();
         }

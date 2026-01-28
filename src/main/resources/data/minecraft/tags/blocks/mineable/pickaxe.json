@@ -5,6 +5,14 @@
     "hoshimimod:crock_pot",
     "hoshimimod:hummingbird_feeder",
     "hoshimimod:portable_crock_pot",
-    "hoshimimod:rainbow_glass"
+    "hoshimimod:rainbow_glass",
+    "hoshimimod:rock_salt_ore",
+    "hoshimimod:deepslate_rock_salt_ore",
+    "hoshimimod:raw_rock_salt_block",
+    "hoshimimod:salt_cluster",
+    "hoshimimod:large_salt_bud",
+    "hoshimimod:medium_salt_bud",
+    "hoshimimod:small_salt_bud",
+    "hoshimimod:salt_cauldron"
   ]
 }

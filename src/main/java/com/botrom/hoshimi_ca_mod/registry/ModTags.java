@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -57,7 +58,9 @@ public class ModTags {
     public static final TagKey<Item> SMALL_WATER_FILL = bindItemForgeTag("small_water_fill");
     public static final TagKey<Item> LARGE_WATER_FILL = bindItemForgeTag("large_water_fill");
     public static final TagKey<Item> HEAT_ITEMS = bindItemForgeTag("heat_items");
-
+    public static final TagKey<Item> CAN_BE_SALTED = bindItemTag("can_be_salted");
+    public static final TagKey<Item> FORGE_SALTS = bindItemForgeTag("salts");
+    public static final TagKey<Item> FORGE_TORCHES = bindItemForgeTag("torches");
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");
@@ -162,6 +165,11 @@ public class ModTags {
     public static final TagKey<Block> CATTAIL_PLACEABLE = bindBlockTag("cattail_placeable");
     public static final TagKey<Block> VANILLA_PLANTABLE_ON = bindBlockTag("vanilla_plantable_on");
     public static final TagKey<Block> UNAFFECTED_BY_MINT = bindBlockTag("unaffected_by_mint");
+    public static final TagKey<Block> HEATERS = bindBlockTag("heaters");
+    public static final TagKey<Block> SALT_CLUSTER_GROWABLES = bindBlockTag("salt_cluster_growables");
+    public static final TagKey<Block> SALT_DISSOLVABLES = bindBlockTag("salt_dissolvables");
+    public static final TagKey<Block> MELTABLES = bindBlockTag("meltables");
+    public static final TagKey<Block> SALT_CLUSTER_REPLACEABLES = bindBlockTag("salt_cluster_replaceables");
 
 
     // Mob Effects
@@ -210,6 +218,7 @@ public class ModTags {
     public static final TagKey<Biome> HAS_UNCOMMON_BANANA_PLANT = bindBiomeTag("has_feature/banana_plant/uncommon");
     public static final TagKey<Biome> HAS_RARE_BANANA_PLANT = bindBiomeTag("has_feature/banana_plant/rare");
     public static final TagKey<Biome> BANANA_PLANT_REQUIRES_SAND = bindBiomeTag("banana_plant_requires_sand");
+    public static final TagKey<Biome> HAS_ROCK_SALT_DEPOSITS = bindBiomeTag("has_rock_salt_deposits");
 
     // TODO: Try to add Neapolitan's Strawberry Fields
 

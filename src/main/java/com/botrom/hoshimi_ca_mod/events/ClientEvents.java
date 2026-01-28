@@ -1,24 +1,34 @@
 package com.botrom.hoshimi_ca_mod.events;
 
+import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.entities.models.*;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
+import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import com.botrom.hoshimi_ca_mod.utils.BlueprintDataUtils;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
+import com.botrom.hoshimi_ca_mod.utils.WingHudOverlay;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collections;
 import java.util.List;
 
+@Mod.EventBusSubscriber(modid = HoshimiCulinaryMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientEvents {
 
 	public static int renderStaticScreenFor = 0;
@@ -55,5 +65,25 @@ public class ClientEvents {
 	@SubscribeEvent
 	public void registerParticles(RegisterParticleProvidersEvent e) {
 
+	}
+
+	@SubscribeEvent
+	public static void registerItemProperties(FMLClientSetupEvent event) {
+		event.enqueueWork(() -> {
+			ItemProperties.register(
+					ModItems.ANGEL_WINGS.get(), // Your RegistryObject
+					new ResourceLocation(HoshimiCulinaryMod.MOD_ID, "wing_open"),
+					(stack, level, entity, seed) -> {
+						// Returns 1.0 if Open, 0.0 if Closed
+						return stack.getOrCreateTag().getBoolean("WingState") ? 1.0F : 0.0F;
+					}
+			);
+		});
+	}
+
+	// Register the HUD
+	@SubscribeEvent
+	public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
+		event.registerAboveAll("angel_wings_hud", new WingHudOverlay());
 	}
 }

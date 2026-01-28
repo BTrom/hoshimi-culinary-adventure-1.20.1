@@ -5,6 +5,7 @@ import com.botrom.hoshimi_ca_mod.blocks.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.crops.SimpleCropBlock;
 import com.botrom.hoshimi_ca_mod.worldgen.tree.PalmTreeGrower;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.ItemLike;
@@ -136,6 +137,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> TEA_KETTLE = BLOCKS.register("tea_kettle", () -> new TeaKettleBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> COPPER_TEA_KETTLE = BLOCKS.register("copper_tea_kettle", () -> new TeaKettleBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> TEA_LEAF_CRATE = BLOCKS.register("tea_leaf_crate", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
+    public static final RegistryObject<Block> ROCK_SALT_ORE = BLOCKS.register("rock_salt_ore", () -> new SaltBlock(Blocks.STONE.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).randomTicks().strength(2.5F).requiresCorrectToolForDrops().sound(ModSounds.SALT)));
+    public static final RegistryObject<Block> DEEPSLATE_ROCK_SALT_ORE = BLOCKS.register("deepslate_rock_salt_ore", () -> new SaltBlock(net.minecraft.world.level.block.Blocks.DEEPSLATE.defaultBlockState(), BlockBehaviour.Properties.copy(ROCK_SALT_ORE.get()).mapColor(MapColor.COLOR_GRAY)));
+    public static final RegistryObject<Block> RAW_ROCK_SALT_BLOCK = BLOCKS.register("raw_rock_salt_block", () -> new SaltBlock(BlockBehaviour.Properties.copy(ROCK_SALT_ORE.get()).sound(ModSounds.SALT_CLUSTER)));
+    public static final RegistryObject<Block> SALT_CLUSTER = BLOCKS.register("salt_cluster", () -> new SaltClusterBlock(7, 3, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noOcclusion().randomTicks().strength(1.5F).sound(ModSounds.SALT_CLUSTER).lightLevel(state -> 3).dynamicShape()));
+    public static final RegistryObject<Block> LARGE_SALT_BUD = BLOCKS.register("large_salt_bud", () -> new SaltClusterBlock(5, 3, BlockBehaviour.Properties.copy(SALT_CLUSTER.get()).lightLevel(state -> 2).sound(ModSounds.LARGE_SALT_BUD)));
+    public static final RegistryObject<Block> MEDIUM_SALT_BUD = BLOCKS.register("medium_salt_bud", () -> new SaltClusterBlock(4, 3, BlockBehaviour.Properties.copy(SALT_CLUSTER.get()).lightLevel(state -> 2).sound(ModSounds.MEDIUM_SALT_BUD)));
+    public static final RegistryObject<Block> SMALL_SALT_BUD = BLOCKS.register("small_salt_bud", () -> new SaltClusterBlock(3, 4, BlockBehaviour.Properties.copy(SALT_CLUSTER.get()).lightLevel(state -> 1).sound(ModSounds.SMALL_SALT_BUD)));
+    public static final RegistryObject<Block> SALT_CAULDRON = BLOCKS.register("salt_cauldron", () -> new SaltCauldronBlock(LayeredCauldronBlock.RAIN, CauldronInteraction.EMPTY));
 
 
     // Meal Blocks

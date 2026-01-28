@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.utils;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.google.common.collect.Lists;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.List;
 
@@ -51,6 +52,16 @@ public class ModConfig {
     public static boolean showFoodValuesTooltip = true;
     public static boolean showFoodEffectsTooltip = true;
     public static boolean gnawsGiftHungerOverlay = true;
+    // Salt
+    public static double DISSOLVING_CHANCE;
+    public static boolean DISSOLVING_IN_RAIN;
+    public static double DISSOLVING_IN_RAIN_CHANCE;
+    public static double MELTING_BLOCK_CHANCE;
+    public static double EVAPORATION_CHANCE;
+    public static double SALT_CLUSTER_GROWING_CHANCE;
+    public static int ROCK_SALT_SIZE;
+    public static double ROCK_SALT_CLUSTER_CHANCE;
+
 
     public static void bake(net.minecraftforge.fml.config.ModConfig config) {
         try {
@@ -96,6 +107,15 @@ public class ModConfig {
             showFoodValuesTooltip = ConfigHolder.CLIENT.showFoodValuesTooltip.get();
             showFoodEffectsTooltip = ConfigHolder.CLIENT.showFoodEffectsTooltip.get();
             gnawsGiftHungerOverlay = ConfigHolder.CLIENT.gnawsGiftHungerOverlay.get();
+
+            DISSOLVING_CHANCE = ConfigHolder.COMMON.DISSOLVING_CHANCE.get();
+            DISSOLVING_IN_RAIN = ConfigHolder.COMMON.DISSOLVING_IN_RAIN.get();
+            DISSOLVING_IN_RAIN_CHANCE = ConfigHolder.COMMON.DISSOLVING_IN_RAIN_CHANCE.get();
+            MELTING_BLOCK_CHANCE = ConfigHolder.COMMON.MELTING_BLOCK_CHANCE.get();
+            EVAPORATION_CHANCE = ConfigHolder.COMMON.EVAPORATION_CHANCE.get();
+            SALT_CLUSTER_GROWING_CHANCE = ConfigHolder.COMMON.SALT_CLUSTER_GROWING_CHANCE.get();
+            ROCK_SALT_SIZE = ConfigHolder.COMMON.ROCK_SALT_SIZE.get();
+            ROCK_SALT_CLUSTER_CHANCE = ConfigHolder.COMMON.ROCK_SALT_CLUSTER_CHANCE.get();
 
         } catch (Exception e) {
             HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");

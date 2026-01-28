@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.utils.WingInputPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundBubbleStatePacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.OpenChesterScreenPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.SitNearbyChesterPacket;
@@ -65,6 +66,12 @@ public class ModNetwork {
                 .decoder(bubbleHandler::read)
                 .encoder(bubbleHandler::write)
                 .consumerMainThread(bubbleHandler::handle)
+                .add();
+
+        channel.messageBuilder(WingInputPacket.class, 5)
+                .decoder(WingInputPacket::decode)
+                .encoder(WingInputPacket::encode)
+                .consumerMainThread(WingInputPacket::handle)
                 .add();
 
         return channel;

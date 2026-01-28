@@ -171,6 +171,13 @@ public class ModItems {
     public static final RegistryObject<Item> TEA_LEAF_CRATE = ITEMS.register("tea_leaf_crate", () -> new BlockItem(ModBlocks.TEA_LEAF_CRATE.get(), new Item.Properties()));
     public static final RegistryObject<Item> PINEAPPLE_PIE_ITEM = ITEMS.register("pineapple_pie", () -> new BlockItem(ModBlocks.PINEAPPLE_PIE.get(), new Item.Properties()));
     public static final RegistryObject<Item> PINEAPPLE_WILD_CROP_ITEM = ITEMS.register("pineapple_wild_crop", () -> new BlockItem(ModBlocks.PINEAPPLE_WILD_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ROCK_SALT_ORE = ITEMS.register("rock_salt_ore", () -> new BlockItem(ModBlocks.ROCK_SALT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DEEPSLATE_ROCK_SALT_ORE = ITEMS.register("deepslate_rock_salt_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_ROCK_SALT_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> RAW_ROCK_SALT_BLOCK = ITEMS.register("raw_rock_salt_block", () -> new BlockItem(ModBlocks.RAW_ROCK_SALT_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SALT_CLUSTER = ITEMS.register("salt_cluster", () -> new BlockItem(ModBlocks.SALT_CLUSTER.get(), new Item.Properties()));
+    public static final RegistryObject<Item> LARGE_SALT_BUD = ITEMS.register("large_salt_bud", () -> new BlockItem(ModBlocks.LARGE_SALT_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MEDIUM_SALT_BUD = ITEMS.register("medium_salt_bud", () -> new BlockItem(ModBlocks.MEDIUM_SALT_BUD.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SMALL_SALT_BUD = ITEMS.register("small_salt_bud", () -> new BlockItem(ModBlocks.SMALL_SALT_BUD.get(), new Item.Properties()));
 
 
     //Seeds
@@ -364,6 +371,8 @@ public class ModItems {
     public static final RegistryObject<Item> DRIED_OOLONG_TEA = ITEMS.register("dried_oolong_tea", () -> new Item(new Item.Properties().food(ModFoods.DRIED_OOLONG_TEA)));
     public static final RegistryObject<Item> PINEAPPLE_SIDE = ITEMS.register("pineapple_side", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PINEAPPLE_SIDE)));
     public static final RegistryObject<Item> PINEAPPLE_PIE_SIDE = ITEMS.register("pineapple_pie_side", () -> new ConsumableItem(new Item.Properties().food(ModFoods.PINEAPPLE_PIE_SIDE)));
+    public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new SaltItem(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_ROCK_SALT = ITEMS.register("raw_rock_salt", () -> new Item(new Item.Properties()));
 
 
     //Meals
@@ -524,6 +533,7 @@ public class ModItems {
     public static final RegistryObject<Item> DOG_FOOD = ITEMS.register("dog_food", () -> new DogFoodItem(new Item.Properties()));
     public static final RegistryObject<Item> SHARK_TOOTH_ARROW = ITEMS.register("shark_tooth_arrow", () -> new ItemModArrow(new Item.Properties()));
     public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle", () -> new Item(basicItem()));
+    public static final RegistryObject<Item> ANGEL_WINGS = ITEMS.register("angel_wings", () -> new AngelWingsItem(new Item.Properties()));
 
 
     // Mobs

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hoshimimod:block/deepslate_rock_salt_ore_2"
+  }
+}
