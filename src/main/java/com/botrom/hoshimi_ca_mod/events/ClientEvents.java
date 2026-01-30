@@ -53,6 +53,10 @@ public class ClientEvents {
 		e.registerLayerDefinition(FiddlerCrabModel.LAYER_LOCATION, FiddlerCrabModel::createBodyLayer);
 		e.registerLayerDefinition(new ModelLayerLocation(Utils.createResourceLocation("shiba"), "main"), ShibaModel::createBodyLayer);
 		e.registerLayerDefinition(CoconutCrabModel.LAYER_LOCATION, CoconutCrabModel::createBodyLayer);
+		e.registerLayerDefinition(NautilusRenderer.LAYER_MAIN, NautilusModel::createBodyLayer);
+		e.registerLayerDefinition(NautilusRenderer.LAYER_BABY, NautilusModel::createBabyBodyLayer);
+		e.registerLayerDefinition(NautilusRenderer.LAYER_SADDLE, NautilusModel::createSaddleLayer);
+		e.registerLayerDefinition(NautilusRenderer.LAYER_ARMOR, NautilusModel::createArmorLayer);
 	}
 
 

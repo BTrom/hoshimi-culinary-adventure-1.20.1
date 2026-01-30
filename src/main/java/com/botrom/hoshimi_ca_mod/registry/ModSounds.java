@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
+import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.common.util.ForgeSoundType;
@@ -71,7 +72,27 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> BIRD_AMBIENT_CARDINAL = createSoundEvent("entity/bird_ambient_cardinal");
     public static final RegistryObject<SoundEvent> BIRD_AMBIENT_FINCH = createSoundEvent("entity/bird_ambient_finch");
     public static final RegistryObject<SoundEvent> BIRD_AMBIENT_SPARROW = createSoundEvent("entity/bird_ambient_sparrow");
-
+    public static final RegistryObject<SoundEvent> NAUTILUS_AMBIENT = createSoundEvent("entity/nautilus_ambient");
+    public static final RegistryObject<SoundEvent> NAUTILUS_AMBIENT_ON_LAND = createSoundEvent("entity/nautilus_ambient_land");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DASH = createSoundEvent("entity/nautilus_dash");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DASH_ON_LAND = createSoundEvent("entity/nautilus_dash_land");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DASH_READY = createSoundEvent("entity/nautilus_dash_ready");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DASH_READY_ON_LAND = createSoundEvent("entity/nautilus_dash_ready_land");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DEATH = createSoundEvent("entity/nautilus_death");
+    public static final RegistryObject<SoundEvent> NAUTILUS_DEATH_ON_LAND = createSoundEvent("entity/nautilus_death_land");
+    public static final RegistryObject<SoundEvent> NAUTILUS_EAT = createSoundEvent("entity/nautilus_eat");
+    public static final RegistryObject<SoundEvent> NAUTILUS_HURT = createSoundEvent("entity/nautilus_hurt");
+    public static final RegistryObject<SoundEvent> NAUTILUS_HURT_ON_LAND = createSoundEvent("entity/nautilus_hurt_land");
+    public static final RegistryObject<SoundEvent> NAUTILUS_SWIM = createSoundEvent("entity/nautilus_swim");
+    public static final RegistryObject<SoundEvent> NAUTILUS_RIDING = createSoundEvent("entity/nautilus_riding");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_AMBIENT = createSoundEvent("entity/baby_nautilus_ambient");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_AMBIENT_ON_LAND = createSoundEvent("entity/baby_nautilus_ambient_land");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_DEATH = createSoundEvent("entity/baby_nautilus_death");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_DEATH_ON_LAND = createSoundEvent("entity/baby_nautilus_death_land");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_EAT = createSoundEvent("entity/baby_nautilus_eat");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_HURT = createSoundEvent("entity/baby_nautilus_hurt");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_HURT_ON_LAND = createSoundEvent("entity/baby_nautilus_hurt_land");
+    public static final RegistryObject<SoundEvent> BABY_NAUTILUS_SWIM = createSoundEvent("entity/baby_nautilus_swim");
 
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
     public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
@@ -83,6 +104,8 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> ICE_CUBES_EAT = createSoundEvent("item/ice_cubes_eat");
     public static final RegistryObject<SoundEvent> ICE_CREAM_EAT = createSoundEvent("item/ice_cream_eat");
     public static final RegistryObject<SoundEvent> BANANA_BUNCH_OPEN = createSoundEvent("item/banana_bunch_open");
+    public static final RegistryObject<SoundEvent> NAUTILUS_SADDLE_UNDERWATER_EQUIP = createSoundEvent("item/nautilus_saddle_underwater_equip");
+    public static final RegistryObject<SoundEvent> NAUTILUS_SADDLE_EQUIP = createSoundEvent("item/nautilus_saddle_equip");
 
     public static final RegistryObject<SoundEvent> SALT_BREAK = createSaltSoundEvent("salt.break");
     public static final RegistryObject<SoundEvent> SALT_STEP = createSaltSoundEvent("salt.step");

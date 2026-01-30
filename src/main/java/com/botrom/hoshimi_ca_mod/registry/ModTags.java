@@ -61,6 +61,9 @@ public class ModTags {
     public static final TagKey<Item> CAN_BE_SALTED = bindItemTag("can_be_salted");
     public static final TagKey<Item> FORGE_SALTS = bindItemForgeTag("salts");
     public static final TagKey<Item> FORGE_TORCHES = bindItemForgeTag("torches");
+    public static final TagKey<Item> NAUTILUS_TAMING_ITEMS = bindItemTag("nautilus_taming_items");
+    public static final TagKey<Item> NAUTILUS_FOOD = bindItemTag("nautilus_food");
+    public static final TagKey<Item> NAUTILUS_BUCKET_FOOD = bindItemTag("nautilus_bucket_food");
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");
@@ -201,6 +204,7 @@ public class ModTags {
     public static final TagKey<EntityType<?>> SAFE_EGG_WALKERS = bindEntityTag("safe_egg_walkers");
     public static final TagKey<EntityType<?>> UNAFFECTED_BY_SLIPPING = bindEntityTag("unaffected_by_slipping");
     public static final TagKey<EntityType<?>> UNAFFECTED_BY_HARMONY = bindEntityTag("unaffected_by_harmony");
+    public static final TagKey<EntityType<?>> NAUTILUS_HOSTILES = bindEntityTag("nautilus_hostiles");
 
 
     // Biome Tags

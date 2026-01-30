@@ -87,6 +87,8 @@ public class HoshimiCulinaryMod {
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModMemoryModules.register(modEventBus);
+        ModSensorTypes.register(modEventBus);
         ModTreePlacerTypes.FOLIAGE_PLACERS.register(modEventBus);
         ModTreePlacerTypes.TRUNK_PLACERS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);

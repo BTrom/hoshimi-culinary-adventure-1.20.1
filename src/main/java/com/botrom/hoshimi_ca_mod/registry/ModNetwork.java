@@ -3,6 +3,7 @@ package com.botrom.hoshimi_ca_mod.registry;
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.WingInputPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundBubbleStatePacket;
+import com.botrom.hoshimi_ca_mod.utils.compat.ClientboundMountScreenOpenPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.OpenChesterScreenPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.chester.SitNearbyChesterPacket;
 import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.PacketFoodCounter;
@@ -72,6 +73,12 @@ public class ModNetwork {
                 .decoder(WingInputPacket::decode)
                 .encoder(WingInputPacket::encode)
                 .consumerMainThread(WingInputPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundMountScreenOpenPacket.class, 6)
+                .decoder(ClientboundMountScreenOpenPacket::new)
+                .encoder(ClientboundMountScreenOpenPacket::encode)
+                .consumerMainThread(ClientboundMountScreenOpenPacket::handle)
                 .add();
 
         return channel;

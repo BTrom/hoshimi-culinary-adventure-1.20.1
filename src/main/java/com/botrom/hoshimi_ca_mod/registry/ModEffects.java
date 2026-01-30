@@ -35,6 +35,7 @@ public class ModEffects {
 	public static final RegistryObject<MobEffect> SLIPPING = EFFECTS.register("slipping", SlippingMobEffect::new);
 	public static final RegistryObject<MobEffect> BERSERKING = EFFECTS.register("berserking", BerserkingMobEffect::new);
 	public static final RegistryObject<MobEffect> HARMONY = EFFECTS.register("harmony", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0xCA2F3E));
+	public static final RegistryObject<MobEffect> BREATH_OF_THE_NAUTILUS = EFFECTS.register("breath_of_the_nautilus", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 65518));
 
 
 	public static void register(IEventBus bus) {

@@ -1277,6 +1277,456 @@
     ],
     "subtitle": "hoshimimod.sound.subtitle.melt"
   },
+  "entity/nautilus_ambient": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.ambient",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_ambient8",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient7",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient6",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient5",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_ambient_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.ambient_land",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land7",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land6",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land5",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_ambient_land1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_dash": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.dash",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_dash4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_dash_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.dash",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_dash_land4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_land1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_dash_ready": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.dash",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready3",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_dash_ready_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.dash",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready_land1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_dash_ready_land4",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_death": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_death",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_death_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_death_land",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_eat": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_eat1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_eat2",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_hurt": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_hurt4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_hurt_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_hurt_land4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_hurt_land1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_swim": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_swim1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim5",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim6",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim7",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim8",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_swim9",
+        "stream": false
+      }
+    ]
+  },
+  "entity/nautilus_riding": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_ride",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_ambient": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.ambient",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient6",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient5",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_ambient_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.ambient_land",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient_land4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_ambient_land1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_death": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_death",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_death_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_death_land",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_eat": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.death",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_eat1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_eat2",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_hurt": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_hurt_land": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt_land4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt_land3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt_land2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_hurt_land1",
+        "stream": false
+      }
+    ]
+  },
+  "entity/baby_nautilus_swim": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus.hurt",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim1",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim2",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim3",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim4",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim5",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim6",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim7",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim8",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/baby_nautilus_swim9",
+        "stream": false
+      }
+    ]
+  },
+  "item/nautilus_saddle_equip": {
+    "subtitle": "hoshimimod.sound.subtitle.nautilus_saddle_equip",
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/nautilus_saddle_equip",
+        "stream": false
+      },
+      {
+        "name": "hoshimimod:entity/nautilus_saddle_underwater_equip",
+        "stream": false
+      }
+    ]
+  },
   "block.salt.salt.break": {
     "sounds": [
       {

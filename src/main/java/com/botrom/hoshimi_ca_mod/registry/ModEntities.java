@@ -4,6 +4,7 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.entities.Birdcage;
 import com.botrom.hoshimi_ca_mod.entities.*;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
+import com.botrom.hoshimi_ca_mod.utils.compat.AbstractNautilus;
 import com.google.common.base.Predicates;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -255,6 +256,14 @@ public class ModEntities {
 					.clientTrackingRange(10)
 					.build("coconut_crab"));
 
+	public static final RegistryObject<EntityType<Nautilus>> NAUTILUS = ENTITIES.register("nautilus",
+			() -> EntityType.Builder.of(Nautilus::new, MobCategory.WATER_CREATURE)
+					.sized(0.875F, 0.95F)
+//					.passengerAttachments(1.1375F)
+//					.eyeHeight(0.2751F)
+					.clientTrackingRange(10)
+					.build("nautilus"));
+
 
 
 	// Projectiles
@@ -334,6 +343,7 @@ public class ModEntities {
 		event.put(TORTOISE.get(), Tortoise.createAttributes().build());
 		event.put(BALEEN_WHALE.get(), EntityBaleenWhale.registerAttributes().build());
 		event.put(COCONUT_CRAB.get(), CoconutCrab.createAttributes().build());
+		event.put(NAUTILUS.get(), Nautilus.createAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -371,6 +381,7 @@ public class ModEntities {
 		event.register(SPARROW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING, Bird::checkBirdSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(LIZARD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(TORTOISE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(NAUTILUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractNautilus::checkNautilusSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static Predicate<LivingEntity> buildPredicateFromTag(TagKey<EntityType<?>> entityTag){
