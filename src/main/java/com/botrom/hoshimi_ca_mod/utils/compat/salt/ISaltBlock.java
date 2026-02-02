@@ -81,7 +81,7 @@ public interface ISaltBlock {
      */
     static void maybeGrowCluster(BlockState baseState, BlockPos basePos, ServerLevel level) {
         if (baseState.is(ModTags.SALT_CLUSTER_GROWABLES)
-                && level.random.nextFloat() < ModConfig.SALT_CLUSTER_GROWING_CHANCE) {
+                && level.random.nextFloat() < ModConfig.saltClusterGrowingChance) {
             BlockPos clusterPos = basePos.above();
             if (canGrowCluster(clusterPos, level)) {
                 Fluid drippingFluid = getFluidDrippingOn(level, clusterPos);

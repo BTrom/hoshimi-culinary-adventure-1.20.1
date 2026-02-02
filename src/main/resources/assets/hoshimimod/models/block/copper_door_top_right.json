@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "hoshimimod:block/copper_door_bottom",
+    "top": "hoshimimod:block/copper_door_top"
+  }
+}

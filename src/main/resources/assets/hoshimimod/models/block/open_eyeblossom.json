@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "hoshimimod:block/open_eyeblossom"
+  }
+}

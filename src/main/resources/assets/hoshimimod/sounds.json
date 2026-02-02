@@ -722,7 +722,7 @@
       "volume": 0.4
     }
   ],
-  "subtitle": "subtitles.block.bubble_column.bubble_pop"
+  "subtitle": "hoshimimod.sound.subtitle.bubble_pop"
   },
   "block.salt.cauldron.evaporate": {
     "sounds": [
@@ -1727,6 +1727,1202 @@
       }
     ]
   },
+  "entity/armadillo_ambient": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_ambient1",
+      "hoshimimod:entity/armadillo_ambient2",
+      "hoshimimod:entity/armadillo_ambient3",
+      "hoshimimod:entity/armadillo_ambient4",
+      "hoshimimod:entity/armadillo_ambient5",
+      "hoshimimod:entity/armadillo_ambient6",
+      "hoshimimod:entity/armadillo_ambient7",
+      "hoshimimod:entity/armadillo_ambient8"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.ambient"
+},
+  "entity/armadillo_brush": {
+    "sounds": [
+      {
+        "name": "hoshimimod:entity/brush_armadillo1",
+        "volume": 0.9
+      },
+      {
+        "name": "hoshimimod:entity/brush_armadillo1",
+        "pitch": 0.8,
+        "volume": 0.9
+      },
+      {
+        "name": "hoshimimod:entity/brush_armadillo1",
+        "pitch": 0.9,
+        "volume": 0.9
+      },
+      {
+        "name": "hoshimimod:entity/brush_armadillo2",
+        "volume": 0.9
+      },
+      {
+        "name": "hoshimimod:entity/brush_armadillo2",
+        "pitch": 0.8,
+        "volume": 0.9
+      },
+      {
+        "name": "hoshimimod:entity/brush_armadillo2",
+        "pitch": 0.9,
+        "volume": 0.9
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.brush"
+  },
+  "entity/armadillo_death": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_death1",
+      "hoshimimod:entity/armadillo_death2",
+      "hoshimimod:entity/armadillo_death3",
+      "hoshimimod:entity/armadillo_death4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.death"
+  },
+  "entity/armadillo_eat": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_eat1",
+      "hoshimimod:entity/armadillo_eat2",
+      "hoshimimod:entity/armadillo_eat3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.eat"
+  },
+  "entity/armadillo_hurt": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_hurt1",
+      "hoshimimod:entity/armadillo_hurt2",
+      "hoshimimod:entity/armadillo_hurt3",
+      "hoshimimod:entity/armadillo_hurt4",
+      "hoshimimod:entity/armadillo_hurt5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.hurt"
+  },
+  "entity/armadillo_hurt_reduced": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_hurt_reduced1",
+      "hoshimimod:entity/armadillo_hurt_reduced2",
+      "hoshimimod:entity/armadillo_hurt_reduced3",
+      "hoshimimod:entity/armadillo_hurt_reduced4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.hurt_reduced"
+  },
+  "entity/armadillo_land": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_land1",
+      "hoshimimod:entity/armadillo_land2",
+      "hoshimimod:entity/armadillo_land3",
+      "hoshimimod:entity/armadillo_land4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.land"
+  },
+  "entity/armadillo_peek": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_peek"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.peek"
+  },
+  "entity/armadillo_roll": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_roll1",
+      "hoshimimod:entity/armadillo_roll2",
+      "hoshimimod:entity/armadillo_roll3",
+      "hoshimimod:entity/armadillo_roll4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.roll"
+  },
+  "entity/armadillo_scute_drop": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_scute_drop1",
+      {
+        "name": "hoshimimod:entity/armadillo_scute_drop1",
+        "pitch": 0.9
+      },
+      "hoshimimod:entity/armadillo_scute_drop2",
+      {
+        "name": "hoshimimod:entity/armadillo_scute_drop2",
+        "pitch": 0.9
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.scute_drop"
+  },
+  "entity/armadillo_step": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_step1",
+      "hoshimimod:entity/armadillo_step2",
+      "hoshimimod:entity/armadillo_step3",
+      "hoshimimod:entity/armadillo_step4",
+      "hoshimimod:entity/armadillo_step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "entity/armadillo_unroll_finish": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_unroll_finish1",
+      "hoshimimod:entity/armadillo_unroll_finish2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.unroll_finish"
+  },
+  "entity/armadillo_unroll_start": {
+    "sounds": [
+      "hoshimimod:entity/armadillo_unroll_start"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.armadillo.unroll_start"
+  },
+  "entity/ghastling_ambient": {
+    "sounds": [
+      "hoshimimod:entity/ghastling1",
+      "hoshimimod:entity/ghastling2",
+      "hoshimimod:entity/ghastling3",
+      "hoshimimod:entity/ghastling4",
+      "hoshimimod:entity/ghastling5",
+      "hoshimimod:entity/ghastling6",
+      "hoshimimod:entity/ghastling7"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ghastling.ambient"
+  },
+  "entity/ghastling_death": {
+    "sounds": [
+      "hoshimimod:entity/ghastling_death"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ghastling.death"
+  },
+  "entity/ghastling_hurt": {
+    "sounds": [
+      "hoshimimod:entity/ghastling_hurt1",
+      "hoshimimod:entity/ghastling_hurt2",
+      "hoshimimod:entity/ghastling_hurt3",
+      "hoshimimod:entity/ghastling_hurt4",
+      "hoshimimod:entity/ghastling_hurt5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ghastling.hurt"
+  },
+  "entity/ghastling_spawn": {
+    "sounds": [
+      "hoshimimod:entity/ghastling_spawn"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.ghastling.spawn"
+  },
+  "entity/happy_ghast_ambient": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_ambient1",
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient2",
+        "weight": 3
+      },
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient3",
+        "weight": 2
+      },
+      "hoshimimod:entity/happy_ghast_ambient4",
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient5",
+        "weight": 2
+      },
+      "hoshimimod:entity/happy_ghast_ambient6",
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient7",
+        "weight": 2
+      },
+      "hoshimimod:entity/happy_ghast_ambient8",
+      "hoshimimod:entity/happy_ghast_ambient9",
+      "hoshimimod:entity/happy_ghast_ambient10",
+      "hoshimimod:entity/happy_ghast_ambient11",
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient12",
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:entity/happy_ghast_ambient13",
+        "weight": 2
+      },
+      "hoshimimod:entity/happy_ghast_ambient14"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.ambient"
+  },
+  "entity/happy_ghast_death": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_death"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.death"
+  },
+  "entity/happy_ghast_equip": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_harness_equip"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.equip"
+  },
+  "entity/happy_ghast_harness_goggles_down": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_goggles_down"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.harness_goggles_down"
+  },
+  "entity/happy_ghast_harness_goggles_up": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_goggles_up"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.harness_goggles_up"
+  },
+  "entity/happy_ghast_hurt": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_hurt1",
+      "hoshimimod:entity/happy_ghast_hurt2",
+      "hoshimimod:entity/happy_ghast_hurt3",
+      "hoshimimod:entity/happy_ghast_hurt4",
+      "hoshimimod:entity/happy_ghast_hurt5",
+      "hoshimimod:entity/happy_ghast_hurt6"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.hurt"
+  },
+  "entity/happy_ghast_riding": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_ride"
+    ]
+  },
+  "entity/happy_ghast_unequip": {
+    "sounds": [
+      "hoshimimod:entity/happy_ghast_harness_unequip"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.happy_ghast.unequip"
+  },
+  "entity/copper_golem_death.unaffected": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.death",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_death"
+    ]
+  },
+  "entity/copper_golem_death.exposed": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.death",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_death"
+    ]
+  },
+  "entity/copper_golem_death.weathered": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.death",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_weathered_death"
+    ]
+  },
+  "entity/copper_golem_death.oxidized": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.death",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_oxidized_death"
+    ]
+  },
+  "entity/copper_golem_hurt.unaffected": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.hurt",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_hurt1",
+      "hoshimimod:entity/copper_golem_regular_hurt2",
+      "hoshimimod:entity/copper_golem_regular_hurt3",
+      "hoshimimod:entity/copper_golem_regular_hurt4"
+    ]
+  },
+  "entity/copper_golem_hurt.exposed": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.hurt",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_hurt1",
+      "hoshimimod:entity/copper_golem_regular_hurt2",
+      "hoshimimod:entity/copper_golem_regular_hurt3",
+      "hoshimimod:entity/copper_golem_regular_hurt4"
+    ]
+  },
+  "entity/copper_golem_hurt.weathered": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.hurt",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_weathered_hurt1",
+      "hoshimimod:entity/copper_golem_weathered_hurt2",
+      "hoshimimod:entity/copper_golem_weathered_hurt3",
+      "hoshimimod:entity/copper_golem_weathered_hurt4"
+    ]
+  },
+  "entity/copper_golem_hurt.oxidized": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.hurt",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_oxidized_hurt1",
+      "hoshimimod:entity/copper_golem_oxidized_hurt2",
+      "hoshimimod:entity/copper_golem_oxidized_hurt3",
+      "hoshimimod:entity/copper_golem_oxidized_hurt4"
+    ]
+  },
+  "entity/copper_golem_step.unaffected": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.step",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_step1",
+      "hoshimimod:entity/copper_golem_regular_step2",
+      "hoshimimod:entity/copper_golem_regular_step3",
+      "hoshimimod:entity/copper_golem_regular_step4",
+      "hoshimimod:entity/copper_golem_regular_step5",
+      "hoshimimod:entity/copper_golem_regular_step6",
+      "hoshimimod:entity/copper_golem_regular_step7",
+      "hoshimimod:entity/copper_golem_regular_step8",
+      "hoshimimod:entity/copper_golem_regular_step9"
+    ]
+  },
+  "entity/copper_golem_step.exposed": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.step",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_step1",
+      "hoshimimod:entity/copper_golem_regular_step2",
+      "hoshimimod:entity/copper_golem_regular_step3",
+      "hoshimimod:entity/copper_golem_regular_step4",
+      "hoshimimod:entity/copper_golem_regular_step5",
+      "hoshimimod:entity/copper_golem_regular_step6",
+      "hoshimimod:entity/copper_golem_regular_step7",
+      "hoshimimod:entity/copper_golem_regular_step8",
+      "hoshimimod:entity/copper_golem_regular_step9"
+    ]
+  },
+  "entity/copper_golem_step.weathered": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.step",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_weathered_step1",
+      "hoshimimod:entity/copper_golem_weathered_step2",
+      "hoshimimod:entity/copper_golem_weathered_step3",
+      "hoshimimod:entity/copper_golem_weathered_step4",
+      "hoshimimod:entity/copper_golem_weathered_step5",
+      "hoshimimod:entity/copper_golem_weathered_step6",
+      "hoshimimod:entity/copper_golem_weathered_step7",
+      "hoshimimod:entity/copper_golem_weathered_step8",
+      "hoshimimod:entity/copper_golem_weathered_step9"
+    ]
+  },
+  "entity/copper_golem_step.oxidized": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.step",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_oxidized_step1",
+      "hoshimimod:entity/copper_golem_oxidized_step2",
+      "hoshimimod:entity/copper_golem_oxidized_step3",
+      "hoshimimod:entity/copper_golem_oxidized_step4",
+      "hoshimimod:entity/copper_golem_oxidized_step5",
+      "hoshimimod:entity/copper_golem_oxidized_step6",
+      "hoshimimod:entity/copper_golem_oxidized_step7",
+      "hoshimimod:entity/copper_golem_oxidized_step8",
+      "hoshimimod:entity/copper_golem_oxidized_step9"
+    ]
+  },
+  "entity/copper_golem_head_spin.unaffected": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.head_spin",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_spin1",
+      "hoshimimod:entity/copper_golem_regular_spin2",
+      "hoshimimod:entity/copper_golem_regular_spin3",
+      "hoshimimod:entity/copper_golem_regular_spin4",
+      "hoshimimod:entity/copper_golem_regular_spin5",
+      "hoshimimod:entity/copper_golem_regular_spin6",
+      "hoshimimod:entity/copper_golem_regular_spin7"
+    ]
+  },
+  "entity/copper_golem_head_spin.exposed": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.head_spin",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_regular_spin1",
+      "hoshimimod:entity/copper_golem_regular_spin2",
+      "hoshimimod:entity/copper_golem_regular_spin3",
+      "hoshimimod:entity/copper_golem_regular_spin4",
+      "hoshimimod:entity/copper_golem_regular_spin5",
+      "hoshimimod:entity/copper_golem_regular_spin6",
+      "hoshimimod:entity/copper_golem_regular_spin7"
+    ]
+  },
+  "entity/copper_golem_head_spin.weathered": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.head_spin",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_weathered_spin1",
+      "hoshimimod:entity/copper_golem_weathered_spin2",
+      "hoshimimod:entity/copper_golem_weathered_spin3",
+      "hoshimimod:entity/copper_golem_weathered_spin4",
+      "hoshimimod:entity/copper_golem_weathered_spin5",
+      "hoshimimod:entity/copper_golem_weathered_spin6",
+      "hoshimimod:entity/copper_golem_weathered_spin7"
+    ]
+  },
+  "entity/copper_golem_head_spin.oxidized": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.head_spin",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_oxidized_spin1",
+      "hoshimimod:entity/copper_golem_oxidized_spin2",
+      "hoshimimod:entity/copper_golem_oxidized_spin3",
+      "hoshimimod:entity/copper_golem_oxidized_spin4",
+      "hoshimimod:entity/copper_golem_oxidized_spin5",
+      "hoshimimod:entity/copper_golem_oxidized_spin6",
+      "hoshimimod:entity/copper_golem_oxidized_spin7"
+    ]
+  },
+  "entity/copper_golem_spawn": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.spawn",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_spawn"
+    ]
+  },
+  "entity/copper_golem_shear": {
+    "subtitle": "subtitles.item.shears.shear",
+    "sounds": [
+      "minecraft:mob/sheep/shear"
+    ]
+  },
+  "entity/copper_golem_item_drop": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.item_drop",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_item_drop"
+    ]
+  },
+  "entity/copper_golem_item_no_drop": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.item_no_drop",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_item_no_drop"
+    ]
+  },
+  "entity/copper_golem_no_item_get": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.item_get",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_no_item_get"
+    ]
+  },
+  "entity/copper_golem_no_item_no_get": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_golem.item_no_get",
+    "sounds": [
+      "hoshimimod:entity/copper_golem_no_item_no_get"
+    ]
+  },
+  "block/eyeblossom_close": {
+    "sounds": [
+      "hoshimimod:block/eyeblossom_close1",
+      "hoshimimod:block/eyeblossom_close2",
+      "hoshimimod:block/eyeblossom_close3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.eyeblossom.close"
+  },
+  "block/eyeblossom_close_long": {
+    "sounds": [
+      "hoshimimod:block/eyeblossom_close_long"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.eyeblossom.close"
+  },
+  "block/eyeblossom_idle": {
+    "sounds": [
+      "hoshimimod:block/eyeblossom_idle1",
+      "hoshimimod:block/eyeblossom_idle2",
+      "hoshimimod:block/eyeblossom_idle3",
+      "hoshimimod:block/eyeblossom_idle4",
+      "hoshimimod:block/eyeblossom_idle5",
+      "hoshimimod:block/eyeblossom_idle6"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.eyeblossom.idle"
+  },
+  "block/eyeblossom_open": {
+    "sounds": [
+      "hoshimimod:block/eyeblossom_open1",
+      "hoshimimod:block/eyeblossom_open2",
+      "hoshimimod:block/eyeblossom_open3",
+      "hoshimimod:block/eyeblossom_open4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.eyeblossom.open"
+  },
+  "block/eyeblossom_open_long": {
+    "sounds": [
+      "hoshimimod:block/eyeblossom_open_long"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.eyeblossom.open"
+  },
+  "block/pale_hanging_moss_idle": {
+    "sounds": [
+      "hoshimimod:block/pale_hanging_moss1",
+      "hoshimimod:block/pale_hanging_moss2",
+      "hoshimimod:block/pale_hanging_moss3",
+      "hoshimimod:block/pale_hanging_moss4",
+      "hoshimimod:block/pale_hanging_moss5",
+      "hoshimimod:block/pale_hanging_moss6",
+      "hoshimimod:block/pale_hanging_moss7",
+      "hoshimimod:block/pale_hanging_moss8",
+      "hoshimimod:block/pale_hanging_moss9",
+      "hoshimimod:block/pale_hanging_moss10",
+      "hoshimimod:block/pale_hanging_moss11",
+      "hoshimimod:block/pale_hanging_moss12",
+      "hoshimimod:block/pale_hanging_moss13",
+      "hoshimimod:block/pale_hanging_moss14",
+      "hoshimimod:block/pale_hanging_moss15"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.pale_hanging_moss.idle"
+  },
+  "block/creaking_heart_break": {
+    "sounds": [
+      {
+        "name": "hoshimimod:block/creaking_heart_break",
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/creaking_heart_fall": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_fall"
+    ]
+  },
+  "block/creaking_heart_hit": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_hit1",
+      "hoshimimod:block/creaking_heart_hit2",
+      "hoshimimod:block/creaking_heart_hit3",
+      "hoshimimod:block/creaking_heart_hit4",
+      "hoshimimod:block/creaking_heart_hit5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block/creaking_heart_hurt": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_trail1",
+      "hoshimimod:block/creaking_heart_trail2",
+      "hoshimimod:block/creaking_heart_trail3",
+      "hoshimimod:block/creaking_heart_trail4",
+      "hoshimimod:block/creaking_heart_trail5",
+      "hoshimimod:block/creaking_heart_trail6",
+      "hoshimimod:block/creaking_heart_trail7"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.creaking_heart.hurt"
+  },
+  "block/creaking_heart_idle": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_idle1",
+      "hoshimimod:block/creaking_heart_idle2",
+      "hoshimimod:block/creaking_heart_idle3",
+      "hoshimimod:block/creaking_heart_idle4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.creaking_heart.idle"
+  },
+  "block/creaking_heart_place": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_place1",
+      "hoshimimod:block/creaking_heart_place2",
+      "hoshimimod:block/creaking_heart_place3",
+      "hoshimimod:block/creaking_heart_place4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/creaking_heart_step": {
+    "sounds": [
+      "hoshimimod:block/creaking_heart_step1",
+      "hoshimimod:block/creaking_heart_step2",
+      "hoshimimod:block/creaking_heart_step3",
+      "hoshimimod:block/creaking_heart_step4",
+      "hoshimimod:block/creaking_heart_step5",
+      "hoshimimod:block/creaking_heart_step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block/resin_break": {
+    "sounds": [
+      "hoshimimod:block/resin_break1",
+      "hoshimimod:block/resin_break2",
+      "hoshimimod:block/resin_break3",
+      "hoshimimod:block/resin_break4",
+      "hoshimimod:block/resin_break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/resin_fall": {
+    "sounds": [
+      "hoshimimod:block/resin_fall"
+    ]
+  },
+  "block/resin_place": {
+    "sounds": [
+      "hoshimimod:block/resin_place1",
+      "hoshimimod:block/resin_place2",
+      "hoshimimod:block/resin_place3",
+      "hoshimimod:block/resin_place4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/resin_step": {
+    "sounds": [
+      "hoshimimod:block/resin_step1",
+      "hoshimimod:block/resin_step2",
+      "hoshimimod:block/resin_step3",
+      "hoshimimod:block/resin_step4",
+      "hoshimimod:block/resin_step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block/resin_bricks_break": {
+    "sounds": [
+      "hoshimimod:block/resin_brick_break"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/resin_bricks_fall": {
+    "sounds": [
+      "hoshimimod:block/resin_brick_fall"
+    ]
+  },
+  "block/resin_bricks_hit": {
+    "sounds": [
+      "hoshimimod:block/resin_brick_hit1",
+      "hoshimimod:block/resin_brick_hit2",
+      "hoshimimod:block/resin_brick_hit3",
+      "hoshimimod:block/resin_brick_hit4",
+      "hoshimimod:block/resin_brick_hit5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block/resin_bricks_place": {
+    "sounds": [
+      "hoshimimod:block/resin_brick_place1",
+      "hoshimimod:block/resin_brick_place2",
+      "hoshimimod:block/resin_brick_place3",
+      "hoshimimod:block/resin_brick_place4",
+      "hoshimimod:block/resin_brick_place5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/resin_bricks_step": {
+    "sounds": [
+      "hoshimimod:block/resin_brick_step1",
+      "hoshimimod:block/resin_brick_step2",
+      "hoshimimod:block/resin_brick_step3",
+      "hoshimimod:block/resin_brick_step4",
+      "hoshimimod:block/resin_brick_step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block/dried_ghast_ambient": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_ambient1",
+      "hoshimimod:block/dried_ghast_ambient2",
+      "hoshimimod:block/dried_ghast_ambient3",
+      "hoshimimod:block/dried_ghast_ambient4"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.dried_ghast.ambient"
+  },
+  "block/dried_ghast_ambient_water": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_ambient_water1",
+      "hoshimimod:block/dried_ghast_ambient_water2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.dried_ghast.ambient_water"
+  },
+  "block/dried_ghast_break": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_break"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/dried_ghast_fall": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_step1",
+      "hoshimimod:block/dried_ghast_step2",
+      "hoshimimod:block/dried_ghast_step3",
+      "hoshimimod:block/dried_ghast_step4",
+      "hoshimimod:block/dried_ghast_step5",
+      "hoshimimod:block/dried_ghast_step6"
+    ]
+  },
+  "block/dried_ghast_place": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_place1",
+      "hoshimimod:block/dried_ghast_place2",
+      "hoshimimod:block/dried_ghast_place3",
+      "hoshimimod:block/dried_ghast_place4",
+      "hoshimimod:block/dried_ghast_place5",
+      "hoshimimod:block/dried_ghast_place6"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/dried_ghast_place_in_water": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_placeinwater"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.dried_ghast.place_in_water"
+  },
+  "block/dried_ghast_step": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_step1",
+      "hoshimimod:block/dried_ghast_step2",
+      "hoshimimod:block/dried_ghast_step3",
+      "hoshimimod:block/dried_ghast_step4",
+      "hoshimimod:block/dried_ghast_step5",
+      "hoshimimod:block/dried_ghast_step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block/dried_ghast_transition": {
+    "sounds": [
+      "hoshimimod:block/dried_ghast_transition"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.dried_ghast.transition"
+  },
+  "block/firefly_bush_idle": {
+    "sounds": [
+      {
+        "name": "hoshimimod:block/firefly_bush1",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush2",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush3",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush4",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush5",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush6",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush7",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush8",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush9",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush10",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/firefly_bush11",
+        "volume": 4.0
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.firefly_bush.idle"
+  },
+  "block/sand_idle": {
+    "sounds": [
+      {
+        "name": "hoshimimod:block/sand1",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand2",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand3",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand4",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand5",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand6",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand7",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand8",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand9",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand10",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand10",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/sand11",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand12",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand12",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand13",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand14",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand15",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand16",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand17",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand18",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand19",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand20",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/sand21",
+        "volume": 4.0
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.sand.idle"
+  },
+  "block/deadbush_idle": {
+    "sounds": [
+      {
+        "name": "hoshimimod:block/deadbush_bushrustle1",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_bushrustle2",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_bushrustle3",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_creakysand1",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_crickets",
+        "volume": 4.0,
+        "weight": 3
+      },
+      {
+        "name": "hoshimimod:block/deadbush_howlingwind1",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_insect1",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_leaves",
+        "volume": 4.0
+      },
+      {
+        "name": "hoshimimod:block/deadbush_movingsand1",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/deadbush_movingsand2",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "hoshimimod:block/deadbush_movingsand3",
+        "volume": 4.0,
+        "weight": 2
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.deadbush.idle"
+  },
+  "block/dry_grass_ambient": {
+    "sounds": [
+      "hoshimimod:block/dry_grass_wind1",
+      "hoshimimod:block/dry_grass_wind2",
+      "hoshimimod:block/dry_grass_wind3",
+      "hoshimimod:block/dry_grass_wind4",
+      "hoshimimod:block/dry_grass_wind5",
+      "hoshimimod:block/dry_grass_wind6",
+      "hoshimimod:block/dry_grass_wind7",
+      "hoshimimod:block/dry_grass_wind8",
+      "hoshimimod:block/dry_grass_wind9",
+      "hoshimimod:block/dry_grass_wind10",
+      "hoshimimod:block/dry_grass_wind11",
+      "hoshimimod:block/dry_grass_wind12"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.dry_grass.ambient"
+  },
+
+  "block/leaf_litter_break": {
+    "sounds": [
+      "hoshimimod:block/leaf_litter_break1",
+      "hoshimimod:block/leaf_litter_break2",
+      "hoshimimod:block/leaf_litter_break3",
+      "hoshimimod:block/leaf_litter_break4",
+      "hoshimimod:block/leaf_litter_break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/leaf_litter_fall": {
+    "sounds": [
+      "hoshimimod:block/leaf_litter_step1",
+      "hoshimimod:block/leaf_litter_step2",
+      "hoshimimod:block/leaf_litter_step3",
+      "hoshimimod:block/leaf_litter_step4",
+      "hoshimimod:block/leaf_litter_step5",
+      "hoshimimod:block/leaf_litter_step6"
+    ]
+  },
+  "block/leaf_litter_hit": {
+    "sounds": [
+      "hoshimimod:block/leaf_litter_step1",
+      "hoshimimod:block/leaf_litter_step2",
+      "hoshimimod:block/leaf_litter_step3",
+      "hoshimimod:block/leaf_litter_step4",
+      "hoshimimod:block/leaf_litter_step5",
+      "hoshimimod:block/leaf_litter_step6"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block/leaf_litter_place": {
+    "sounds": [
+      "hoshimimod:block/leaf_litter_place1",
+      "hoshimimod:block/leaf_litter_place2",
+      "hoshimimod:block/leaf_litter_place3",
+      "hoshimimod:block/leaf_litter_place4",
+      "hoshimimod:block/leaf_litter_place5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/leaf_litter_step": {
+    "sounds": [
+      "hoshimimod:block/leaf_litter_step1",
+      "hoshimimod:block/leaf_litter_step2",
+      "hoshimimod:block/leaf_litter_step3",
+      "hoshimimod:block/leaf_litter_step4",
+      "hoshimimod:block/leaf_litter_step5",
+      "hoshimimod:block/leaf_litter_step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block/cactus_flower_break": {
+    "sounds": [
+      "hoshimimod:block/cactus_flower_break1",
+      "hoshimimod:block/cactus_flower_break2",
+      "hoshimimod:block/cactus_flower_break3",
+      "hoshimimod:block/cactus_flower_break4",
+      "hoshimimod:block/cactus_flower_break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/cactus_flower_place": {
+    "sounds": [
+      "hoshimimod:block/cactus_flower_place1",
+      "hoshimimod:block/cactus_flower_place2",
+      "hoshimimod:block/cactus_flower_place3",
+      "hoshimimod:block/cactus_flower_place4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/copper_chest_close": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_chest.close",
+    "sounds": [
+      "hoshimimod:block/copper_chest_close1",
+      "hoshimimod:block/copper_chest_close2",
+      "hoshimimod:block/copper_chest_close3",
+      "hoshimimod:block/copper_chest_weathered_close1",
+      "hoshimimod:block/copper_chest_weathered_close2",
+      "hoshimimod:block/copper_chest_weathered_close3",
+      "hoshimimod:block/copper_chest_oxidized_close1",
+      "hoshimimod:block/copper_chest_oxidized_close2",
+      "hoshimimod:block/copper_chest_oxidized_close3"
+    ]
+  },
+  "block/copper_chest_open": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_chest.open",
+    "sounds": [
+      "hoshimimod:block/copper_chest_open1",
+      "hoshimimod:block/copper_chest_open2",
+      "hoshimimod:block/copper_chest_open3",
+      "hoshimimod:block/copper_chest_weathered_open1",
+      "hoshimimod:block/copper_chest_weathered_open2",
+      "hoshimimod:block/copper_chest_weathered_open3",
+      "hoshimimod:block/copper_chest_oxidized_open1",
+      "hoshimimod:block/copper_chest_oxidized_open2",
+      "hoshimimod:block/copper_chest_oxidized_open3"
+    ]
+  },
+  "block/copper_statue_hit": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_statue.hit",
+    "sounds": [
+      "hoshimimod:block/copper_statue_hit1",
+      "hoshimimod:block/copper_statue_hit2",
+      "hoshimimod:block/copper_statue_hit3",
+      "hoshimimod:block/copper_statue_hit4"
+    ]
+  },
+  "block/copper_statue_break": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_statue.break",
+    "sounds": [
+      "hoshimimod:block/copper_statue_break1",
+      "hoshimimod:block/copper_statue_break2",
+      "hoshimimod:block/copper_statue_break3"
+    ]
+  },
+  "block/copper_statue_place": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_statue.place",
+    "sounds": [
+      "hoshimimod:block/copper_statue_place1",
+      "hoshimimod:block/copper_statue_place2",
+      "hoshimimod:block/copper_statue_place3",
+      "hoshimimod:block/copper_statue_place4"
+    ]
+  },
+  "block/become_statue": {
+    "subtitle": "hoshimimod.sound.subtitle.copper_statue.become_statue",
+    "sounds": [
+      "hoshimimod:block/become_statue1",
+      "hoshimimod:block/become_statue2",
+      "hoshimimod:block/become_statue3",
+      "hoshimimod:block/become_statue4"
+    ]
+  },
+  "block/copper_door_close": {
+    "subtitle": "subtitles.block.door.close",
+    "sounds": [
+      "hoshimimod:block/copper_door_toggle1",
+      "hoshimimod:block/copper_door_toggle2",
+      "hoshimimod:block/copper_door_toggle3"
+    ]
+  },
+  "block/copper_door_open": {
+    "subtitle": "subtitles.block.door.open",
+    "sounds": [
+      "hoshimimod:block/copper_door_toggle1",
+      "hoshimimod:block/copper_door_toggle2",
+      "hoshimimod:block/copper_door_toggle3"
+    ]
+  },
+  "block/copper_trapdoor_close": {
+    "subtitle": "subtitles.block.trapdoor.close",
+    "sounds": [
+      "hoshimimod:block/copper_trapdoor_toggle1",
+      "hoshimimod:block/copper_trapdoor_toggle2",
+      "hoshimimod:block/copper_trapdoor_toggle3",
+      "hoshimimod:block/copper_trapdoor_toggle4"
+    ]
+  },
+  "block/copper_trapdoor_open": {
+    "subtitle": "subtitles.block.trapdoor.open",
+    "sounds": [
+      "hoshimimod:block/copper_trapdoor_toggle1",
+      "hoshimimod:block/copper_trapdoor_toggle2",
+      "hoshimimod:block/copper_trapdoor_toggle3",
+      "hoshimimod:block/copper_trapdoor_toggle4"
+    ]
+  },
+  "block/copper_bulb_turn_off": {
+    "sounds": [
+      {
+        "attenuation_distance": 6,
+        "name": "hoshimimod:block/copper_bulb_toggle",
+        "pitch": 0.75
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.copper_bulb.turn_off"
+  },
+  "block/copper_bulb_turn_on": {
+    "sounds": [
+      {
+        "attenuation_distance": 6,
+        "name": "hoshimimod:block/copper_bulb_toggle"
+      }
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.copper_bulb.turn_on"
+  },
+  "block/copper_grate_break": {
+    "sounds": [
+      "hoshimimod:block/copper_grate_break1",
+      "hoshimimod:block/copper_grate_break2",
+      "hoshimimod:block/copper_grate_break3",
+      "hoshimimod:block/copper_grate_break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block/copper_grate_fall": {
+    "sounds": [
+      "hoshimimod:block/copper_grate_step1",
+      "hoshimimod:block/copper_grate_step2",
+      "hoshimimod:block/copper_grate_step3",
+      "hoshimimod:block/copper_grate_step4",
+      "hoshimimod:block/copper_grate_step5",
+      "hoshimimod:block/copper_grate_step6"
+    ],
+    "subtitle": "subtitles.block.generic.fall"
+  },
+  "block/copper_grate_hit": {
+    "sounds": [
+      "hoshimimod:block/copper_grate_step1",
+      "hoshimimod:block/copper_grate_step2",
+      "hoshimimod:block/copper_grate_step3",
+      "hoshimimod:block/copper_grate_step4",
+      "hoshimimod:block/copper_grate_step5",
+      "hoshimimod:block/copper_grate_step6"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block/copper_grate_place": {
+    "sounds": [
+      "hoshimimod:block/copper_grate_break1",
+      {
+        "name": "hoshimimod:block/copper_grate_break1",
+        "pitch": 0.95
+      },
+      "hoshimimod:block/copper_grate_break2",
+      "hoshimimod:block/copper_grate_break3",
+      "hoshimimod:block/copper_grate_break4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block/copper_grate_step": {
+    "sounds": [
+      "hoshimimod:block/copper_grate_step1",
+      "hoshimimod:block/copper_grate_step2",
+      "hoshimimod:block/copper_grate_step3",
+      "hoshimimod:block/copper_grate_step4",
+      "hoshimimod:block/copper_grate_step5",
+      "hoshimimod:block/copper_grate_step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
   "block.salt.salt.break": {
     "sounds": [
       {
@@ -2469,5 +3665,29 @@
       }
     ],
     "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "item/armor_equip_copper": {
+    "subtitle": "subtitles.item.armor.equip",
+    "sounds": [
+      "hoshimimod:item/equip_armor_copper1",
+      "hoshimimod:item/equip_armor_copper2",
+      "hoshimimod:item/equip_armor_copper3",
+      "hoshimimod:item/equip_armor_copper4",
+      "hoshimimod:item/equip_armor_copper5",
+      "hoshimimod:item/equip_armor_copper6"
+    ]
+  },
+  "weather.end_flash": {
+    "subtitle": "hoshimimod.sound.subtitle.end_flash",
+    "sounds": [
+      "hoshimimod:ambient/weather/end_flash1",
+      "hoshimimod:ambient/weather/end_flash2",
+      "hoshimimod:ambient/weather/end_flash3",
+      "hoshimimod:ambient/weather/end_flash4",
+      "hoshimimod:ambient/weather/end_flash5",
+      "hoshimimod:ambient/weather/end_flash6",
+      "hoshimimod:ambient/weather/end_flash7",
+      "hoshimimod:ambient/weather/end_flash8"
+    ]
   }
 }

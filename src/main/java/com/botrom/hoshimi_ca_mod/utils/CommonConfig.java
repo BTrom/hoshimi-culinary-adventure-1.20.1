@@ -45,14 +45,40 @@ public class CommonConfig {
     public final ForgeConfigSpec.BooleanValue dolphinsAttackFlyingFish;
     public final ForgeConfigSpec.DoubleValue rainbowGlassFidelity;
     public final ForgeConfigSpec.DoubleValue crockPotSpeedModifier;
-    public final ForgeConfigSpec.DoubleValue DISSOLVING_CHANCE;
-    public final ForgeConfigSpec.BooleanValue DISSOLVING_IN_RAIN;
-    public final ForgeConfigSpec.DoubleValue DISSOLVING_IN_RAIN_CHANCE;
-    public final ForgeConfigSpec.DoubleValue MELTING_BLOCK_CHANCE;
-    public final ForgeConfigSpec.DoubleValue EVAPORATION_CHANCE;
-    public final ForgeConfigSpec.DoubleValue SALT_CLUSTER_GROWING_CHANCE;
-    public final ForgeConfigSpec.IntValue ROCK_SALT_SIZE;
-    public final ForgeConfigSpec.DoubleValue ROCK_SALT_CLUSTER_CHANCE;
+    public final ForgeConfigSpec.DoubleValue dissolvingChance;
+    public final ForgeConfigSpec.BooleanValue dissolvingInRain;
+    public final ForgeConfigSpec.DoubleValue dissolvingInRainChance;
+    public final ForgeConfigSpec.DoubleValue meltingBlockChance;
+    public final ForgeConfigSpec.DoubleValue evaporationChance;
+    public final ForgeConfigSpec.DoubleValue saltClusterGrowingChance;
+    public final ForgeConfigSpec.IntValue rockSaltSize;
+    public final ForgeConfigSpec.DoubleValue rockSaltClusterChance;
+    public final ForgeConfigSpec.BooleanValue hasArmadillos;
+    public final ForgeConfigSpec.BooleanValue hasResin;
+    public final ForgeConfigSpec.BooleanValue hasPaleGarden;
+    public final ForgeConfigSpec.BooleanValue hasPaleTrades;
+    public final ForgeConfigSpec.IntValue creakingParticleColor;
+    public final ForgeConfigSpec.IntValue creakingParticleReverseColor;
+    public final ForgeConfigSpec.BooleanValue hasBushes;
+    public final ForgeConfigSpec.BooleanValue hasFireflyBushes;
+    public final ForgeConfigSpec.BooleanValue hasWildflowers;
+    public final ForgeConfigSpec.BooleanValue hasDryGrass;
+    public final ForgeConfigSpec.BooleanValue hasFallenTrees;
+    public final ForgeConfigSpec.BooleanValue hasLeafLitter;
+    public final ForgeConfigSpec.BooleanValue hasCactusFlowers;
+    public final ForgeConfigSpec.BooleanValue hasFarmAnimalVariants;
+    public final ForgeConfigSpec.BooleanValue hasWolfSoundVariants;
+    public final ForgeConfigSpec.BooleanValue hasSpringTrades;
+    public final ForgeConfigSpec.BooleanValue hasDriedGhasts;
+    public final ForgeConfigSpec.BooleanValue leashDropConnections;
+    public final ForgeConfigSpec.BooleanValue hasTearsMusicDisc;
+    public final ForgeConfigSpec.DoubleValue happyGhastSpeedModifier;
+    public final ForgeConfigSpec.BooleanValue golemPressesButtons;
+    public final ForgeConfigSpec.IntValue buttonPressChancePercent;
+    public final ForgeConfigSpec.IntValue golemTransportStackSize;
+    public final ForgeConfigSpec.IntValue weatheringTickFrom;
+    public final ForgeConfigSpec.IntValue weatheringTickTo;
+    public final ForgeConfigSpec.BooleanValue endFlashEnabled;
 
 
     public CommonConfig(final ForgeConfigSpec.Builder builder) {
@@ -88,30 +114,102 @@ public class CommonConfig {
         crockPotSpeedModifier = buildDouble(builder,
                 "crockPotSpeedModifier", "all", ModConfig.crockPotSpeedModifier, 0.0F, 1.0F,
                 "Set this value to change Crock Pot speed modifier. Higher tier Crock Pot will cook faster.\nactualCookingTime = cookingTime * (1.0 - crockPotSpeedModifier * potLevel)");
-        DISSOLVING_CHANCE = builder
+        dissolvingChance = builder
                 .comment("Chance of water dissolving in fluid on random tick. 1.0 = first random tick. 0.0 = never.")
                 .defineInRange("SaltDissolvingChance", 0.35d, 0.0d, 1.0d);
-        DISSOLVING_IN_RAIN = builder
+        dissolvingInRain = builder
                 .comment("Salt blocks will dissolve when exposed to rain")
                 .define("SaltDissolvingInRain", true);
-        DISSOLVING_IN_RAIN_CHANCE = builder
+        dissolvingInRainChance = builder
                 .comment("Chance of salt blocks dissolving in rain on random tick. 1.0 = first random tick. 0.0 = never.")
                 .defineInRange("SaltDissolvingInRainChance", 0.15d, 0.0d, 1.0d);
-        MELTING_BLOCK_CHANCE = builder
+        meltingBlockChance = builder
                 .comment("Chance of block melting on random tick. 1.0 = first random tick. 0.0 = never.")
                 .defineInRange("SaltBlockMeltingChance", 0.4d, 0.0d, 1.0d);
-        EVAPORATION_CHANCE = builder
+        evaporationChance = builder
                 .comment("Chance of water evaporating on random tick. 1.0 = first random tick. 0.0 = never.")
                 .defineInRange("EvaporationChance", 0.3d, 0.0d, 1.0d);
-        SALT_CLUSTER_GROWING_CHANCE = builder
+        saltClusterGrowingChance = builder
                 .comment("Chance of cluster growing by one stage on random tick. 1.0 = first random tick. 0.0 = never.")
                 .defineInRange("SaltClusterGrowingChance", 0.1d, 0.0d, 1.0d);
-        ROCK_SALT_SIZE = builder
+        rockSaltSize = builder
                 .comment("Size of the Rock Salt deposit")
                 .defineInRange("RockSaltSize", 24, 1, 64);
-        ROCK_SALT_CLUSTER_CHANCE = builder
+        rockSaltClusterChance = builder
                 .comment("Chance of the Salt Clusters generating on the deposits (per side)")
                 .defineInRange("RockSaltClusterChance", 0.15f, 0.0, 1.0);
+        hasResin = builder
+                .comment("allow resin to be obtainable from creaking hearts and woodland mansions")
+                .define("resin", true);
+        hasPaleGarden = builder
+                .comment("allow the pale garden to generate in the overworld")
+                .define("pale_garden", true);
+        hasPaleTrades = builder
+                .comment("allow features from 'The Garden Awakens' to be obtainable through wandering traders")
+                .define("pale_trades", true);
+        creakingParticleColor = builder
+                .comment("creaking heart trail particle color (gray by default)")
+                .defineInRange("creaking_particle_color", 6250335, 0, 16777215);
+        creakingParticleReverseColor = builder
+                .comment("creaking heart trail particle reverse color (orange by default)")
+                .defineInRange("creaking_particle_reverse_color", 16545810, 0, 16777215);
+        hasBushes = builder
+                .comment("allow bushes to generate in the overworld")
+                .define("bushes", true);
+        hasFireflyBushes = builder
+                .comment("allow firefly bushes to generate in the overworld")
+                .define("firefly_bushes", true);
+        hasWildflowers = builder
+                .comment("allow wildflowers to generate in the overworld")
+                .define("wildflowers", true);
+        hasDryGrass = builder
+                .comment("allow dry grass to generate in the overworld")
+                .define("dry_grass", true);
+        hasFallenTrees = builder
+                .comment("allow fallen trees to generate in the overworld")
+                .define("fallen_trees", true);
+        hasLeafLitter = builder
+                .comment("allow leaf litter to generate in the overworld")
+                .define("leaf_litter", true);
+        hasCactusFlowers = builder
+                .comment("allow cactus flowers to generate")
+                .define("cactus_flowers", true);
+        hasFarmAnimalVariants = builder
+                .comment("allow variants for pigs, cows and chickens to generate")
+                .define("farm_animal_variants", true);
+        hasWolfSoundVariants = builder
+                .comment("allow wolfs to have variants for their sounds")
+                .define("wolf_sound_variants", true);
+        hasSpringTrades = builder
+                .comment("allow features from 'Spring to Life' to be obtainable through wandering traders")
+                .define("spring_trades", true);
+        leashDropConnections = builder
+                .comment("toggle whether leashes drop their connections when boosting with a firework rocket")
+                .define("leash_drop_connections", true);
+        hasTearsMusicDisc = builder
+                .comment("allows ghasts drop the tears music disc")
+                .define("tears_music_disc", true);
+        happyGhastSpeedModifier = builder
+                .comment("apply a modifier to the speed of happy ghasts when ridden, 1.0 is default speed")
+                .defineInRange("happy_ghast_speed_modifier", 1.0, 0.1, 10.0);
+        golemPressesButtons = builder
+                .comment("Should Copper Golems randomly press copper buttons?")
+                .define("golemPressesButtons", true);
+        buttonPressChancePercent = builder
+                .comment("apply a modifier to the speed of happy ghasts when ridden, 1.0 is default speed")
+                .defineInRange("buttonPressChancePercent", 5, 0, 100);
+        golemTransportStackSize = builder
+                .comment("apply a modifier to the speed of happy ghasts when ridden, 1.0 is default speed")
+                .defineInRange("golemTransportStackSize", 16, 1, 64);
+        weatheringTickFrom = builder
+                .comment("Minimum time in ticks until the Copper Golem starts weathering to the next oxidation level.")
+                .defineInRange("weatheringTickFrom", 504000, 1, Integer.MAX_VALUE);
+        weatheringTickTo = builder
+                .comment("Maximum time in ticks until the Copper Golem weathers to the next oxidation level.")
+                .defineInRange("weatheringTickTo", 552000, 1, Integer.MAX_VALUE);
+        endFlashEnabled = builder
+                .comment("Enable or disable End dimension sky flashing effect.")
+                .define("endFlashEnabled", true);
         builder.pop();
         builder.comment("Spawning settings").push("spawning");
         catfishSpawnWeight = buildInt(builder,
@@ -192,6 +290,12 @@ public class CommonConfig {
         flyingFishSpawnRolls = buildInt(builder,
                 "flyingFishSpawnRolls", "spawns", ModConfig.flyingFishSpawnRolls, 0, Integer.MAX_VALUE,
                 "Random roll chance to enable mob spawning. Higher number = lower chance of spawning");
+        hasArmadillos = builder
+                .comment("allow armadillos to generate in the overworld")
+                .define("armadillo", true);
+        hasDriedGhasts = builder
+                .comment("allow dried ghasts to be obtainable through nether fossils and piglin bartering")
+                .define("dried_ghasts", true);
         builder.pop();
         builder.comment("Danger Zone").push("dangerZone");
         pathfindingThreads = buildInt(builder,

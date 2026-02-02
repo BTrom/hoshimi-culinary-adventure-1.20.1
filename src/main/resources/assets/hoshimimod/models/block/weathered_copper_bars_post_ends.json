@@ -1,0 +1,7 @@
+{
+  "parent": "hoshimimod:block/template_bars_post_ends",
+  "textures": {
+    "bars": "hoshimimod:block/weathered_copper_bars",
+    "edge": "hoshimimod:block/weathered_copper_bars"
+  }
+}

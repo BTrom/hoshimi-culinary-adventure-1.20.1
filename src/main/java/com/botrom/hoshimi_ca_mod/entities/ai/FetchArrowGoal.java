@@ -2,7 +2,7 @@ package com.botrom.hoshimi_ca_mod.entities.ai;
 
 import com.botrom.hoshimi_ca_mod.entities.Shiba;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
-import com.botrom.hoshimi_ca_mod.utils.compat.AccessorAbstractArrow;
+import com.botrom.hoshimi_ca_mod.utils.mixins.AccessorAbstractArrow;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/chain",
+  "textures": {
+    "all": "hoshimimod:block/copper_chain",
+    "particle": "hoshimimod:block/copper_chain"
+  }
+}

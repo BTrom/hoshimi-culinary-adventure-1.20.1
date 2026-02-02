@@ -4,7 +4,10 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.registry.ModEffects;
 import com.botrom.hoshimi_ca_mod.registry.ModItems;
 import com.botrom.hoshimi_ca_mod.registry.ModTags;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.CopperGolemSpawnLogic;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.PlayerJoinHandler;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,8 +16,11 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.BasicItemListing;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -94,6 +100,23 @@ public class ModEvents {
 
         if (effect == ModEffects.SUGAR_RUSH.get() && !entity.level().isClientSide()) {
             entity.getPersistentData().putInt("SugarRushDuration", event.getEffectInstance().getDuration());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
+        Level level = (Level) event.getLevel();
+        Direction direction = Direction.NORTH;
+        if (event.getEntity() != null) {
+            direction = Direction.fromYRot(event.getEntity().getYRot());
+        }
+        CopperGolemSpawnLogic.handleBlockPlaced(level, event.getPos(), event.getPlacedBlock(), direction);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            PlayerJoinHandler.onPlayerJoin(serverPlayer);
         }
     }
 }

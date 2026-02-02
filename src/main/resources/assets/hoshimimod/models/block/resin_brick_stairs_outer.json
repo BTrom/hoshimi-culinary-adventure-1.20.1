@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "hoshimimod:block/resin_bricks",
+    "side": "hoshimimod:block/resin_bricks",
+    "top": "hoshimimod:block/resin_bricks"
+  }
+}

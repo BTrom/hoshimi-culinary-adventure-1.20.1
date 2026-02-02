@@ -3,12 +3,16 @@ package com.botrom.hoshimi_ca_mod.registry;
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class ModSounds
 {
@@ -93,6 +97,55 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> BABY_NAUTILUS_HURT = createSoundEvent("entity/baby_nautilus_hurt");
     public static final RegistryObject<SoundEvent> BABY_NAUTILUS_HURT_ON_LAND = createSoundEvent("entity/baby_nautilus_hurt_land");
     public static final RegistryObject<SoundEvent> BABY_NAUTILUS_SWIM = createSoundEvent("entity/baby_nautilus_swim");
+    public static final RegistryObject<SoundEvent> ARMADILLO_EAT = createSoundEvent("entity/armadillo_eat");
+    public static final RegistryObject<SoundEvent> ARMADILLO_HURT = createSoundEvent("entity/armadillo_hurt");
+    public static final RegistryObject<SoundEvent> ARMADILLO_HURT_REDUCED = createSoundEvent("entity/armadillo_hurt_reduced");
+    public static final RegistryObject<SoundEvent> ARMADILLO_AMBIENT = createSoundEvent("entity/armadillo_ambient");
+    public static final RegistryObject<SoundEvent> ARMADILLO_STEP = createSoundEvent("entity/armadillo_step");
+    public static final RegistryObject<SoundEvent> ARMADILLO_DEATH = createSoundEvent("entity/armadillo_death");
+    public static final RegistryObject<SoundEvent> ARMADILLO_ROLL = createSoundEvent("entity/armadillo_roll");
+    public static final RegistryObject<SoundEvent> ARMADILLO_LAND = createSoundEvent("entity/armadillo_land");
+    public static final RegistryObject<SoundEvent> ARMADILLO_SCUTE_DROP = createSoundEvent("entity/armadillo_scute_drop");
+    public static final RegistryObject<SoundEvent> ARMADILLO_UNROLL_FINISH = createSoundEvent("entity/armadillo_unroll_finish");
+    public static final RegistryObject<SoundEvent> ARMADILLO_PEEK = createSoundEvent("entity/armadillo_peek");
+    public static final RegistryObject<SoundEvent> ARMADILLO_UNROLL_START = createSoundEvent("entity/armadillo_unroll_start");
+    public static final RegistryObject<SoundEvent> ARMADILLO_BRUSH = createSoundEvent("entity/armadillo_brush");
+    public static final RegistryObject<SoundEvent> GHASTLING_AMBIENT = createSoundEvent("entity/ghastling_ambient");
+    public static final RegistryObject<SoundEvent> GHASTLING_DEATH = createSoundEvent("entity/ghastling_death");
+    public static final RegistryObject<SoundEvent> GHASTLING_HURT = createSoundEvent("entity/ghastling_hurt");
+    public static final RegistryObject<SoundEvent> GHASTLING_SPAWN = createSoundEvent("entity/ghastling_spawn");
+    public static final RegistryObject<SoundEvent> HAPPY_GHAST_AMBIENT = createSoundEvent("entity/happy_ghast_ambient");
+    public static final RegistryObject<SoundEvent> HAPPY_GHAST_DEATH = createSoundEvent("entity/happy_ghast_death");
+    public static final RegistryObject<SoundEvent> HAPPY_GHAST_HURT = createSoundEvent("entity/happy_ghast_hurt");
+    public static final RegistryObject<SoundEvent> HAPPY_GHAST_RIDING = createSoundEvent("entity/happy_ghast_riding");
+    public static final RegistryObject<SoundEvent> HARNESS_EQUIP = createSoundEvent("entity/happy_ghast_equip");
+    public static final RegistryObject<SoundEvent> HARNESS_UNEQUIP = createSoundEvent("entity/happy_ghast_unequip");
+    public static final RegistryObject<SoundEvent> HARNESS_GOGGLES_UP = createSoundEvent("entity/happy_ghast_harness_goggles_up");
+    public static final RegistryObject<SoundEvent> HARNESS_GOGGLES_DOWN = createSoundEvent("entity/happy_ghast_harness_goggles_down");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_DEATH_EXPOSED = createSoundEvent("entity/copper_golem_death.exposed");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_DEATH_OXIDIZED = createSoundEvent("entity/copper_golem_death.oxidized");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_DEATH_UNAFFECTED = createSoundEvent("entity/copper_golem_death.unaffected");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_DEATH_WEATHERED = createSoundEvent("entity/copper_golem_death.weathered");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HEAD_SPIN_EXPOSED = createSoundEvent("entity/copper_golem_head_spin.exposed");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HEAD_SPIN_OXIDIZED = createSoundEvent("entity/copper_golem_head_spin.oxidized");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HEAD_SPIN_UNAFFECTED = createSoundEvent("entity/copper_golem_head_spin.unaffected");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HEAD_SPIN_WEATHERED = createSoundEvent("entity/copper_golem_head_spin.weathered");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HURT_EXPOSED = createSoundEvent("entity/copper_golem_hurt.exposed");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HURT_OXIDIZED = createSoundEvent("entity/copper_golem_hurt.oxidized");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HURT_UNAFFECTED = createSoundEvent("entity/copper_golem_hurt.unaffected");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HURT_WEATHERED = createSoundEvent("entity/copper_golem_hurt.weathered");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_EXPOSED = createSoundEvent("entity/copper_golem_step.exposed");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_OXIDIZED = createSoundEvent("entity/copper_golem_step.oxidized");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_UNAFFECTED = createSoundEvent("entity/copper_golem_step.unaffected");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_WEATHERED = createSoundEvent("entity/copper_golem_step.weathered");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_SPAWN = createSoundEvent("entity/copper_golem_spawn");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_BECOME_STATUE = createSoundEvent("entity/become_statue");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_SHEAR = createSoundEvent("entity/copper_golem_shear");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_DROP = createSoundEvent("entity/copper_golem_item_drop");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_NO_DROP = createSoundEvent("entity/copper_golem_item_no_drop");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_GET = createSoundEvent("entity/copper_golem_no_item_get");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_NO_GET = createSoundEvent("entity/copper_golem_no_item_no_get");
+
 
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");
     public static final RegistryObject<SoundEvent> CROCK_POT_OPEN = createSoundEvent("block/crock_pot_open");
@@ -101,11 +154,78 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_BREAK = createSoundEvent("block/tortoise_egg_break");
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_CRACK = createSoundEvent("block/tortoise_egg_crack");
     public static final RegistryObject<SoundEvent> TORTOISE_EGG_HATCH = createSoundEvent("block/tortoise_egg_hatch");
+    public static final RegistryObject<SoundEvent> EYEBLOSSOM_OPEN_LONG = createSoundEvent("block/eyeblossom_open_long");
+    public static final RegistryObject<SoundEvent> EYEBLOSSOM_OPEN = createSoundEvent("block/eyeblossom_open");
+    public static final RegistryObject<SoundEvent> EYEBLOSSOM_CLOSE_LONG = createSoundEvent("block/eyeblossom_close_long");
+    public static final RegistryObject<SoundEvent> EYEBLOSSOM_CLOSE = createSoundEvent("block/eyeblossom_close");
+    public static final RegistryObject<SoundEvent> EYEBLOSSOM_IDLE = createSoundEvent("block/eyeblossom_idle");
+    public static final RegistryObject<SoundEvent> PALE_HANGING_MOSS_IDLE = createSoundEvent("block/pale_hanging_moss_idle");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_BREAK = createSoundEvent("block/creaking_heart_break");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_FALL = createSoundEvent("block/creaking_heart_fall");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_HIT = createSoundEvent("block/creaking_heart_hit");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_HURT = createSoundEvent("block/creaking_heart_hurt");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_PLACE = createSoundEvent("block/creaking_heart_place");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_STEP = createSoundEvent("block/creaking_heart_step");
+    public static final RegistryObject<SoundEvent> CREAKING_HEART_IDLE = createSoundEvent("block/creaking_heart_idle");
+    public static final RegistryObject<SoundEvent> RESIN_BREAK = createSoundEvent("block/resin_break");
+    public static final RegistryObject<SoundEvent> RESIN_FALL = createSoundEvent("block/resin_fall");
+    public static final RegistryObject<SoundEvent> RESIN_PLACE = createSoundEvent("block/resin_place");
+    public static final RegistryObject<SoundEvent> RESIN_STEP = createSoundEvent("block/resin_step");
+    public static final RegistryObject<SoundEvent> RESIN_BRICKS_BREAK = createSoundEvent("block/resin_bricks_break");
+    public static final RegistryObject<SoundEvent> RESIN_BRICKS_FALL = createSoundEvent("block/resin_bricks_fall");
+    public static final RegistryObject<SoundEvent> RESIN_BRICKS_HIT = createSoundEvent("block/resin_bricks_hit");
+    public static final RegistryObject<SoundEvent> RESIN_BRICKS_PLACE = createSoundEvent("block/resin_bricks_place");
+    public static final RegistryObject<SoundEvent> RESIN_BRICKS_STEP = createSoundEvent("block/resin_bricks_step");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_BREAK = createSoundEvent("block/dried_ghast_break");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_STEP = createSoundEvent("block/dried_ghast_step");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_FALL = createSoundEvent("block/dried_ghast_fall");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_AMBIENT = createSoundEvent("block/dried_ghast_ambient");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_AMBIENT_WATER = createSoundEvent("block/dried_ghast_ambient_water");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_PLACE = createSoundEvent("block/dried_ghast_place");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_PLACE_IN_WATER = createSoundEvent("block/dried_ghast_place_in_water");
+    public static final RegistryObject<SoundEvent> DRIED_GHAST_TRANSITION = createSoundEvent("block/dried_ghast_transition");
+    public static final RegistryObject<SoundEvent> LEAF_LITTER_BREAK = createSoundEvent("block/leaf_litter_break");
+    public static final RegistryObject<SoundEvent> LEAF_LITTER_STEP = createSoundEvent("block/leaf_litter_step");
+    public static final RegistryObject<SoundEvent> LEAF_LITTER_PLACE = createSoundEvent("block/leaf_litter_place");
+    public static final RegistryObject<SoundEvent> LEAF_LITTER_HIT = createSoundEvent("block/leaf_litter_hit");
+    public static final RegistryObject<SoundEvent> LEAF_LITTER_FALL = createSoundEvent("block/leaf_litter_fall");
+    public static final RegistryObject<SoundEvent> CACTUS_FLOWER_BREAK = createSoundEvent("block/cactus_flower_break");
+    public static final RegistryObject<SoundEvent> CACTUS_FLOWER_PLACE = createSoundEvent("block/cactus_flower_place");
+    public static final RegistryObject<SoundEvent> FIREFLY_BUSH_IDLE = createSoundEvent("block/firefly_bush_idle");
+    public static final RegistryObject<SoundEvent> SAND_IDLE = createSoundEvent("block/sand_idle");
+    public static final RegistryObject<SoundEvent> DEAD_BUSH_IDLE = createSoundEvent("block/deadbush_idle");
+    public static final RegistryObject<SoundEvent> DRY_GRASS = createSoundEvent("block/dry_grass_ambient");
+    public static final RegistryObject<SoundEvent> COPPER_CHEST_CLOSE = createSoundEvent("block/copper_chest_close");
+    public static final RegistryObject<SoundEvent> COPPER_CHEST_OPEN = createSoundEvent("block/copper_chest_open");
+    public static final RegistryObject<SoundEvent> COPPER_STATUE_BREAK = createSoundEvent("block/copper_statue_break");
+    public static final RegistryObject<SoundEvent> COPPER_STATUE_PLACE = createSoundEvent("block/copper_statue_place");
+    public static final RegistryObject<SoundEvent> COPPER_STATUE_HIT = createSoundEvent("block/copper_statue_hit");
+    public static final RegistryObject<SoundEvent> COPPER_STATUE_BECOME = createSoundEvent("block/become_statue");
+//    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_CLOSE = createSoundEvent("block/copper_trapdoor_close");
+//    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_OPEN = createSoundEvent("block/copper_trapdoor_open");
+    public static final RegistryObject<SoundEvent> COPPER_BULB_TURN_ON = createSoundEvent("block/copper_bulb_turn_on");
+    public static final RegistryObject<SoundEvent> COPPER_BULB_TURN_OFF = createSoundEvent("block/copper_bulb_turn_off");
+    public static final RegistryObject<SoundEvent> COPPER_GRATE_BREAK = createSoundEvent("block/copper_grate_break");
+    public static final RegistryObject<SoundEvent> COPPER_GRATE_FALL = createSoundEvent("block/copper_grate_fall");
+    public static final RegistryObject<SoundEvent> COPPER_GRATE_HIT = createSoundEvent("block/copper_grate_hit");
+    public static final RegistryObject<SoundEvent> COPPER_GRATE_PLACE = createSoundEvent("block/copper_grate_place");
+    public static final RegistryObject<SoundEvent> COPPER_GRATE_STEP = createSoundEvent("block/copper_grate_step");
+    public static final RegistryObject<SoundEvent> COPPER_DOOR_CLOSE_SOUND = createSoundEvent("block/copper_door_close");
+    public static final RegistryObject<SoundEvent> COPPER_DOOR_OPEN_SOUND = createSoundEvent("block/copper_door_open");
+    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_CLOSE_SOUND = createSoundEvent("block/copper_trapdoor_close");
+    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_OPEN_SOUND = createSoundEvent("block/copper_trapdoor_open");
+
+
     public static final RegistryObject<SoundEvent> ICE_CUBES_EAT = createSoundEvent("item/ice_cubes_eat");
     public static final RegistryObject<SoundEvent> ICE_CREAM_EAT = createSoundEvent("item/ice_cream_eat");
     public static final RegistryObject<SoundEvent> BANANA_BUNCH_OPEN = createSoundEvent("item/banana_bunch_open");
     public static final RegistryObject<SoundEvent> NAUTILUS_SADDLE_UNDERWATER_EQUIP = createSoundEvent("item/nautilus_saddle_underwater_equip");
     public static final RegistryObject<SoundEvent> NAUTILUS_SADDLE_EQUIP = createSoundEvent("item/nautilus_saddle_equip");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_COPPER = createSoundEvent("item/armor_equip_copper");
+
+
+    public static final RegistryObject<SoundEvent> WEATHER_END_FLASH = createSoundEvent("weather.end_flash");
+
 
     public static final RegistryObject<SoundEvent> SALT_BREAK = createSaltSoundEvent("salt.break");
     public static final RegistryObject<SoundEvent> SALT_STEP = createSaltSoundEvent("salt.step");
@@ -143,6 +263,14 @@ public class ModSounds
     public static final SoundType LARGE_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, LARGE_SALT_BUD_BREAK, LARGE_SALT_BUD_STEP, LARGE_SALT_BUD_PLACE, LARGE_SALT_BUD_HIT, LARGE_SALT_BUD_FALL);
     public static final SoundType MEDIUM_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, MEDIUM_SALT_BUD_BREAK, MEDIUM_SALT_BUD_STEP, MEDIUM_SALT_BUD_PLACE, MEDIUM_SALT_BUD_HIT, MEDIUM_SALT_BUD_FALL);
     public static final SoundType SMALL_SALT_BUD = new ForgeSoundType(1.0f, 1.0f, SMALL_SALT_BUD_BREAK, SMALL_SALT_BUD_STEP, SMALL_SALT_BUD_PLACE, SMALL_SALT_BUD_HIT, SMALL_SALT_BUD_FALL);
+    public static final SoundType CREAKING_HEART = new ForgeSoundType(1.0f, 1.0f, CREAKING_HEART_BREAK, CREAKING_HEART_STEP, CREAKING_HEART_PLACE, CREAKING_HEART_HIT, CREAKING_HEART_FALL);
+    public static final SoundType RESIN = new ForgeSoundType(1.0f, 1.0f, RESIN_BREAK, RESIN_STEP, RESIN_PLACE, () -> SoundEvents.EMPTY, RESIN_FALL);
+    public static final SoundType RESIN_BRICKS = new ForgeSoundType(1.0f, 1.0f, RESIN_BRICKS_BREAK, RESIN_BRICKS_STEP, RESIN_BRICKS_PLACE, RESIN_BRICKS_HIT, RESIN_BRICKS_FALL);
+    public static final SoundType DRIED_GHAST = new ForgeSoundType(1.0f, 1.0f, DRIED_GHAST_BREAK, DRIED_GHAST_STEP, () -> SoundEvents.EMPTY, () -> SoundEvents.EMPTY, DRIED_GHAST_FALL);
+    public static final SoundType LEAF_LITTER = new ForgeSoundType(1.0f, 1.0f, LEAF_LITTER_BREAK, LEAF_LITTER_STEP, LEAF_LITTER_PLACE, LEAF_LITTER_HIT, LEAF_LITTER_FALL);
+    public static final SoundType CACTUS_FLOWER = new ForgeSoundType(1.0f, 1.0f, CACTUS_FLOWER_BREAK, () -> SoundEvents.EMPTY, CACTUS_FLOWER_PLACE, () -> SoundEvents.EMPTY, () -> SoundEvents.EMPTY);
+    public static final SoundType COPPER_STATUE = new ForgeSoundType(1.0F, 1.0F, (Supplier<SoundEvent>) COPPER_STATUE_BREAK, COPPER_STATUE_PLACE, COPPER_STATUE_PLACE, COPPER_STATUE_HIT, COPPER_STATUE_PLACE);
+    public static final SoundType COPPER_GRATE = new ForgeSoundType(1.0F, 1.0F, COPPER_GRATE_BREAK, COPPER_GRATE_STEP, COPPER_GRATE_PLACE, COPPER_GRATE_HIT, COPPER_GRATE_FALL);
 
 
     private static RegistryObject<SoundEvent> createSoundEvent(final String soundName) {

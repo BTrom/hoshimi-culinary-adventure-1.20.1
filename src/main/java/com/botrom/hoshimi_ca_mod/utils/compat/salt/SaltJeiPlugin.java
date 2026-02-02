@@ -12,7 +12,6 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.registration.IVanillaCategoryExtensionRegistration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -69,11 +68,11 @@ public class SaltJeiPlugin implements IModPlugin {
 //    }
 
     private boolean isSaltEvaporationEnabled() {
-        return ModConfig.EVAPORATION_CHANCE > 0.0d
+        return ModConfig.evaporationChance > 0.0d
                 && !Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).getTag(ModTags.HEATERS).isEmpty();
     }
 
     private boolean isSaltCrystalGrowingEnabled() {
-        return ModConfig.SALT_CLUSTER_GROWING_CHANCE > 0.0d;
+        return ModConfig.saltClusterGrowingChance > 0.0d;
     }
 }

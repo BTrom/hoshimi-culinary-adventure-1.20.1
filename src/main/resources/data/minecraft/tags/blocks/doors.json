@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:copper_door",
+    "hoshimimod:exposed_copper_door",
+    "hoshimimod:weathered_copper_door",
+    "hoshimimod:oxidized_copper_door",
+    "hoshimimod:waxed_copper_door",
+    "hoshimimod:waxed_exposed_copper_door",
+    "hoshimimod:waxed_weathered_copper_door",
+    "hoshimimod:waxed_oxidized_copper_door"
+  ]
+}

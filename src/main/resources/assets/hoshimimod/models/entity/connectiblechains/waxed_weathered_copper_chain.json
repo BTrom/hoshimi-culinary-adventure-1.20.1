@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "chain": "hoshimimod:textures/block/weathered_copper_chain",
+    "knot": "hoshimimod:textures/item/weathered_copper_chain"
+  }
+}

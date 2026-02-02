@@ -1,0 +1,31 @@
+package com.botrom.hoshimi_ca_mod.utils.mixins;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(LivingEntity.class)
+public abstract class LivingEntityMixin extends Entity {
+
+//	@Shadow
+//	public abstract boolean hasEffect(MobEffect effect);
+//
+	public LivingEntityMixin(EntityType<?> entityTypeIn, Level level) {
+		super(entityTypeIn, level);
+	}
+//
+//	@Inject(at = @At("RETURN"), method = "onClimbable", cancellable = true)
+//	private void onClimbable(CallbackInfoReturnable<Boolean> cir) {
+//		if (!this.isSpectator() && this.hasEffect(ModEffects.AGILITY.get())) {
+//			for (Direction direction : Direction.Plane.HORIZONTAL) {
+//				Vec3i normal = direction.getNormal();
+//				Vec3 vec3 = this.collide(Vec3.atLowerCornerOf(normal));
+//				if (Math.abs(vec3.get(direction.getAxis())) <= 0.2D) {
+//					cir.setReturnValue(true);
+//				}
+//			}
+//		}
+//	}
+}

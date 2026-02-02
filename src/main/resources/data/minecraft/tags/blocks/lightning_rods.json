@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lightning_rod",
+    "hoshimimod:exposed_lightning_rod",
+    "hoshimimod:weathered_lightning_rod",
+    "hoshimimod:oxidized_lightning_rod",
+    "hoshimimod:waxed_lightning_rod",
+    "hoshimimod:waxed_exposed_lightning_rod",
+    "hoshimimod:waxed_weathered_lightning_rod",
+    "hoshimimod:waxed_oxidized_lightning_rod"
+  ]
+}

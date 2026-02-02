@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/template_lightning_rod",
+  "textures": {
+    "texture": "hoshimimod:block/oxidized_lightning_rod"
+  }
+}

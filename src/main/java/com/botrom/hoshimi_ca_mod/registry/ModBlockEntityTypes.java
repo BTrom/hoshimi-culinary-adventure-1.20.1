@@ -69,6 +69,33 @@ public class ModBlockEntityTypes {
     public static final RegistryObject<BlockEntityType<TeaKettleBlockEntity>> TEA_KETTLE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("tea_kettle",
             () -> BlockEntityType.Builder.of(TeaKettleBlockEntity::new, ModBlocks.TEA_KETTLE.get(), ModBlocks.COPPER_TEA_KETTLE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<CreakingHeartBlockEntity>> CREAKING_HEART = BLOCK_ENTITY_TYPES.register("creaking_heart",
+            () -> BlockEntityType.Builder.of(CreakingHeartBlockEntity::new, ModBlocks.CREAKING_HEART.get()).build(null));
+
+    // Register Copper Chest Block Entity
+    public static Supplier<BlockEntityType<CopperChestBlockEntity>> COPPER_CHEST_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("copper_chest",
+            () -> BlockEntityType.Builder.of(CopperChestBlockEntity::new,
+                ModBlocks.COPPER_CHEST.get(),
+                ModBlocks.EXPOSED_COPPER_CHEST.get(),
+                ModBlocks.WEATHERED_COPPER_CHEST.get(),
+                ModBlocks.OXIDIZED_COPPER_CHEST.get(),
+                ModBlocks.WAXED_COPPER_CHEST.get(),
+                ModBlocks.WAXED_EXPOSED_COPPER_CHEST.get(),
+                ModBlocks.WAXED_WEATHERED_COPPER_CHEST.get(),
+                ModBlocks.WAXED_OXIDIZED_COPPER_CHEST.get()).build(null));
+
+    // Register Copper Golem Statue Block Entity
+    public static Supplier<BlockEntityType<CopperGolemStatueBlockEntity>> COPPER_GOLEM_STATUE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("copper_golem_statue",
+            () -> BlockEntityType.Builder.of(CopperGolemStatueBlockEntity::new,
+                ModBlocks.COPPER_GOLEM_STATUE.get(),
+                ModBlocks.EXPOSED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.WEATHERED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.OXIDIZED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.WAXED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.WAXED_EXPOSED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.WAXED_WEATHERED_COPPER_GOLEM_STATUE.get(),
+                ModBlocks.WAXED_OXIDIZED_COPPER_GOLEM_STATUE.get()
+                ).build(null));
 
 
 //    public static void register(IEventBus eventBus) {

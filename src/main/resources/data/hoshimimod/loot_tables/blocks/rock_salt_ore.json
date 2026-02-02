@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "salt:raw_rock_salt"
+              "name": "hoshimimod:raw_rock_salt"
             }
           ]
         }

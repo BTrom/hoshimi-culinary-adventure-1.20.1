@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:copper_lantern",
+    "hoshimimod:exposed_copper_lantern",
+    "hoshimimod:weathered_copper_lantern",
+    "hoshimimod:oxidized_copper_lantern",
+    "hoshimimod:waxed_copper_lantern",
+    "hoshimimod:waxed_exposed_copper_lantern",
+    "hoshimimod:waxed_weathered_copper_lantern",
+    "hoshimimod:waxed_oxidized_copper_lantern"
+  ]
+}

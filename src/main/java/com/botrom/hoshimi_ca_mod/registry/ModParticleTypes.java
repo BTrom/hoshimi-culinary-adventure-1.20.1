@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod.registry;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
+import com.botrom.hoshimi_ca_mod.utils.mixins.vanillabackportsmixins.access.SimpleParticleTypeAccessor;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,8 +17,12 @@ public class ModParticleTypes {
 	public static final RegistryObject<SimpleParticleType> SURGE = PARTICLE_TYPES.register("surge", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> SHOCKED = PARTICLE_TYPES.register("shocked", ()-> new SimpleParticleType(false));
 	public static final RegistryObject<SimpleParticleType> WHALE_SPLASH = PARTICLE_TYPES.register("whale_splash", ()-> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> FIREFLY = PARTICLE_TYPES.register("firefly", () -> SimpleParticleTypeAccessor.createSimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> DUST_PLUME = PARTICLE_TYPES.register("dust_plume", () -> SimpleParticleTypeAccessor.createSimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> COPPER_FIRE_FLAME = PARTICLE_TYPES.register("copper_fire_flame", () -> new SimpleParticleType(false) {});
 
 	public static void create(IEventBus bus) {
 		PARTICLE_TYPES.register(bus);
 	}
+
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "hoshimimod:block/mossy_carpet_side",
+  "textures": {
+    "side": "hoshimimod:block/pale_moss_carpet_side_small"
+  }
+}

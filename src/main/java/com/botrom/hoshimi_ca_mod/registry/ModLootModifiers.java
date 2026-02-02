@@ -19,6 +19,7 @@ public class ModLootModifiers
     public static final RegistryObject<Codec<SeedsLootModifier>> SEEDS_LOOT_MODIFIER = LOOT_MODIFIERS.register("seeds_harvesting", () -> SeedsLootModifier.CODEC);
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> ADD_ITEM = LOOT_MODIFIERS.register("add_item", AddItemModifier.CODEC);
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> ADD_ITEM_WITH_LOOTING_ENCHANT = LOOT_MODIFIERS.register("add_item_with_looting_enchant", AddItemWithLootingEnchantModifier.CODEC);
+//    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> ADD_COPPER_HORSE_ARMOR = LOOT_MODIFIERS.register("add_copper_horse_armor", AddItemModifier.CODEC);
 
     public static final ResourceLocation CRAB_DIG_LOOT = Utils.createResourceLocation("gameplay/crab_dig_loot");
     public static final ResourceLocation WARM_OCEAN_POT_LOOT = Utils.createResourceLocation("gameplay/warm_ocean_pot_loot");

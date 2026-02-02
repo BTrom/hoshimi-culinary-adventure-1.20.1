@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "hoshimimod:copper_pickaxe"
+    },
+    {
+      "item": "hoshimimod:copper_shovel"
+    },
+    {
+      "item": "hoshimimod:copper_axe"
+    },
+    {
+      "item": "hoshimimod:copper_hoe"
+    },
+    {
+      "item": "hoshimimod:copper_sword"
+    },
+    {
+      "item": "hoshimimod:copper_helmet"
+    },
+    {
+      "item": "hoshimimod:copper_chestplate"
+    },
+    {
+      "item": "hoshimimod:copper_leggings"
+    },
+    {
+      "item": "hoshimimod:copper_boots"
+    },
+    {
+      "item": "hoshimimod:copper_horse_armor"
+    }
+  ],
+  "result": "hoshimimod:copper_nugget"
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "hoshimimod:block/dried_ghast",
+  "textures": {
+    "bottom": "hoshimimod:block/dried_ghast_hydration_3_bottom",
+    "east": "hoshimimod:block/dried_ghast_hydration_3_west",
+    "north": "hoshimimod:block/dried_ghast_hydration_3_north",
+    "particle": "hoshimimod:block/dried_ghast_hydration_3_north",
+    "south": "hoshimimod:block/dried_ghast_hydration_3_south",
+    "tentacles": "hoshimimod:block/dried_ghast_hydration_3_tentacles",
+    "top": "hoshimimod:block/dried_ghast_hydration_3_top",
+    "west": "hoshimimod:block/dried_ghast_hydration_3_east"
+  }
+}

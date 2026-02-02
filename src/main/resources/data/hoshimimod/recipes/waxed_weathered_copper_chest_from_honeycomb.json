@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hoshimimod:weathered_copper_chest"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:waxed_weathered_copper_chest",
+    "count": 1
+  }
+}
+

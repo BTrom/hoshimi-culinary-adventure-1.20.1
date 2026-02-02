@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:copper_chain",
+    "hoshimimod:exposed_copper_chain",
+    "hoshimimod:weathered_copper_chain",
+    "hoshimimod:oxidized_copper_chain",
+    "hoshimimod:waxed_copper_chain",
+    "hoshimimod:waxed_exposed_copper_chain",
+    "hoshimimod:waxed_weathered_copper_chain",
+    "hoshimimod:waxed_oxidized_copper_chain"
+  ]
+}

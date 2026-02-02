@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:white_harness",
+    "hoshimimod:orange_harness",
+    "hoshimimod:magenta_harness",
+    "hoshimimod:light_blue_harness",
+    "hoshimimod:yellow_harness",
+    "hoshimimod:lime_harness",
+    "hoshimimod:pink_harness",
+    "hoshimimod:gray_harness",
+    "hoshimimod:light_gray_harness",
+    "hoshimimod:cyan_harness",
+    "hoshimimod:purple_harness",
+    "hoshimimod:blue_harness",
+    "hoshimimod:brown_harness",
+    "hoshimimod:green_harness",
+    "hoshimimod:red_harness",
+    "hoshimimod:black_harness"
+  ]
+}

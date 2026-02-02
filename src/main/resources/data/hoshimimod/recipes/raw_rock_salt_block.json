@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "salt:raw_rock_salt"
+      "item": "hoshimimod:raw_rock_salt"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "salt:raw_rock_salt_block"
+    "item": "hoshimimod:raw_rock_salt_block"
   },
   "show_notification": true
 }

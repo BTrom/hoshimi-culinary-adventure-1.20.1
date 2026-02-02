@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "chain": "hoshimimod:textures/block/exposed_copper_chain",
+    "knot": "hoshimimod:textures/item/exposed_copper_chain"
+  }
+}

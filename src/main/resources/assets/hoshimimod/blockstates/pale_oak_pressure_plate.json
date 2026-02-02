@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "hoshimimod:block/pale_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "hoshimimod:block/pale_oak_pressure_plate_down"
+    }
+  }
+}

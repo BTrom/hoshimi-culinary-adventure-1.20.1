@@ -25,9 +25,9 @@ public class Dissolving {
      * @return True if block was dissolved.
      */
     public static boolean maybeDissolveInRain(BlockState dissolvedState, ServerLevel level, BlockPos pos) {
-        if (ModConfig.DISSOLVING_IN_RAIN
+        if (ModConfig.dissolvingInRain
                 && level.isRainingAt(pos.above())
-                && level.random.nextDouble() < ModConfig.DISSOLVING_IN_RAIN_CHANCE) {
+                && level.random.nextDouble() < ModConfig.dissolvingInRainChance) {
             dissolve(dissolvedState, level, pos, Fluids.EMPTY, false);
             return true;
         }
@@ -39,7 +39,7 @@ public class Dissolving {
      * @return True if block was dissolved.
      */
     public static boolean maybeDissolve(BlockState dissolvedState, BlockPos dissolvedPos, BlockState adjacentState, BlockPos adjacentPos, ServerLevel level) {
-        if (adjacentState.is(ModTags.SALT_DISSOLVABLES) && level.random.nextDouble() < ModConfig.DISSOLVING_CHANCE) {
+        if (adjacentState.is(ModTags.SALT_DISSOLVABLES) && level.random.nextDouble() < ModConfig.dissolvingChance) {
             FluidState fluidState = adjacentState.getFluidState();
             if (dissolvedPos.getY() > adjacentPos.getY())
                 fluidState = Fluids.EMPTY.defaultFluidState();

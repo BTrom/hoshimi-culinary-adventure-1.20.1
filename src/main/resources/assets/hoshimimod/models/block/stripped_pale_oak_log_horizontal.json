@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "hoshimimod:block/stripped_pale_oak_log_top",
+    "side": "hoshimimod:block/stripped_pale_oak_log"
+  }
+}

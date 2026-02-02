@@ -76,7 +76,7 @@ public class Melting {
      */
     public static boolean tryMeltFromBlock(BlockPos pos, ServerLevel level) {
         if (level.getBlockState(pos).is(ModTags.MELTABLES)
-                && level.random.nextDouble() < ModConfig.MELTING_BLOCK_CHANCE) {
+                && level.random.nextDouble() < ModConfig.meltingBlockChance) {
             meltBlock(pos, level);
             return true;
         }

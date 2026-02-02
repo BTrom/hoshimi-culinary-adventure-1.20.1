@@ -12,7 +12,7 @@
               "condition": "minecraft:random_chance"
             }
           ],
-          "name": "salt:salt"
+          "name": "hoshimimod:salt"
         }
       ],
       "rolls": 1.0

@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -55,5 +56,14 @@ public class Utils {
             return true;
         }
         return false;
+    }
+
+    public static boolean isMoonVisible(Level level) {
+        if (!level.dimensionType().natural()) {
+            return false;
+        } else {
+            int ticks = (int) (level.getDayTime() % 24000L);
+            return ticks >= 12600 && ticks <= 23400;
+        }
     }
 }

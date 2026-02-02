@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "hoshimimod:block/copper_lantern"
+    },
+    "hanging=true": {
+      "model": "hoshimimod:block/copper_lantern_hanging"
+    }
+  }
+}

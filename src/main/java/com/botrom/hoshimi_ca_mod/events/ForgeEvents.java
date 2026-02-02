@@ -4,42 +4,52 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.PanettoneBlock;
 import com.botrom.hoshimi_ca_mod.effects.CorrosionEffect;
 import com.botrom.hoshimi_ca_mod.effects.SurgeEffect;
+import com.botrom.hoshimi_ca_mod.entities.Armadillo;
 import com.botrom.hoshimi_ca_mod.items.AngelWingsItem;
-import com.botrom.hoshimi_ca_mod.registry.ModEffects;
-import com.botrom.hoshimi_ca_mod.registry.ModItems;
-import com.botrom.hoshimi_ca_mod.registry.ModParticleTypes;
-import com.botrom.hoshimi_ca_mod.registry.ModTags;
+import com.botrom.hoshimi_ca_mod.registry.*;
+import com.botrom.hoshimi_ca_mod.utils.ModConfig;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.WingLogicHandler;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.CopperGolemSpawnLogic;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.PlayerJoinHandler;
+import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.api.leash.LeashIntegration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -86,6 +96,18 @@ public class ForgeEvents {
 //					Util.getStack(ModItems.GILDED_LUCUMA, 1), 5, 1, 1));
 //			}
 //		}
+		if (ModConfig.hasPaleTrades) {
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.PALE_OAK_LOG, 8), 4, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.OPEN_EYEBLOSSOM, 1), 7, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 5), Utils.getStack(ModBlocks.PALE_OAK_SAPLING, 1), 8, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.PALE_HANGING_MOSS, 3), 4, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.PALE_MOSS_BLOCK, 2), 5, 1, 1));
+		}
+		if (ModConfig.hasSpringTrades) {
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.WILDFLOWERS, 1), 12, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 1), Utils.getStack(ModBlocks.TALL_DRY_GRASS, 1), 12, 1, 1));
+			trades.add((ent, r) -> new MerchantOffer(new ItemStack(Items.EMERALD, 3), Utils.getStack(ModBlocks.FIREFLY_BUSH, 1), 12, 1, 1));
+		}
 	}
 
 	// Rebound
@@ -341,6 +363,29 @@ public class ForgeEvents {
 					}
 				}
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+		// Instantiate the integration helper
+		LeashIntegration integration = new LeashIntegration();
+
+		// Run the interaction logic
+		InteractionResult result = integration.onInteract(event.getEntity(), event.getTarget(), event.getHand());
+
+		// If the integration did something (SUCCESS or CONSUME), cancel the vanilla event
+		// This matches the logic seen in MobIntegrationImpl
+		if (result != InteractionResult.PASS) {
+			event.setCanceled(true);
+			event.setCancellationResult(result);
+		}
+	}
+
+	@SubscribeEvent
+	public static void mobIntegrations(EntityJoinLevelEvent event) {
+		if (event.getEntity() instanceof Spider spider) {
+			spider.goalSelector.addGoal(2, new AvoidEntityGoal<>(spider, Armadillo.class, 6.0F, 1.0, 1.2, entity -> !((Armadillo) entity).isScared()));
 		}
 	}
 }

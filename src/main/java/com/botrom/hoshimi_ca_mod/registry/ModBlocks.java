@@ -4,15 +4,24 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.blocks.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blocks.crops.SimpleCropBlock;
+import com.botrom.hoshimi_ca_mod.worldgen.tree.PaleOakTreeGrower;
 import com.botrom.hoshimi_ca_mod.worldgen.tree.PalmTreeGrower;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,7 +32,6 @@ import vectorwing.farmersdelight.common.block.PieBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
-import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -47,6 +55,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_PEANUTS = registerBlock("wild_peanuts", () -> new WildCropBlock(MobEffects.DAMAGE_RESISTANCE, 6, Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> WILD_ROOIBOS_PLANT = registerBlock("wild_rooibos_plant", () -> new FlowerBlock(MobEffects.HEAL, 1, BlockBehaviour.Properties.copy(Blocks.DANDELION)));
     public static final RegistryObject<Block> PINEAPPLE_WILD_CROP = registerBlock("pineapple_wild_crop", () -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6, Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> OPEN_EYEBLOSSOM = BLOCKS.register("open_eyeblossom", () -> new EyeblossomBlock(EyeblossomBlock.Type.OPEN, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> CLOSED_EYEBLOSSOM = BLOCKS.register("closed_eyeblossom", () -> new EyeblossomBlock(EyeblossomBlock.Type.CLOSED, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> BUSH = BLOCKS.register("bush", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> FIREFLY_BUSH = BLOCKS.register("firefly_bush", () -> new FireflyBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).ignitedByLava().lightLevel(state -> 2).noCollission().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WILDFLOWERS = BLOCKS.register("wildflowers", () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> LEAF_LITTER = BLOCKS.register("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).replaceable().noCollission().sound(ModSounds.LEAF_LITTER).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> CACTUS_FLOWER = BLOCKS.register("cactus_flower", () -> new CactusFlowerBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).noCollission().instabreak().ignitedByLava().sound(ModSounds.CACTUS_FLOWER).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SHORT_DRY_GRASS = BLOCKS.register("short_dry_grass", () -> new ShortDryGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).replaceable().noCollission().instabreak().sound(SoundType.GRASS).ignitedByLava().offsetType(BlockBehaviour.OffsetType.XYZ).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> TALL_DRY_GRASS = BLOCKS.register("tall_dry_grass", () -> new TallDryGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).replaceable().noCollission().instabreak().sound(SoundType.GRASS).ignitedByLava().offsetType(BlockBehaviour.OffsetType.XYZ).pushReaction(PushReaction.DESTROY)));
 
 
     // Fauna
@@ -92,6 +109,35 @@ public class ModBlocks {
     // Saplings
 //    public static final RegistryObject<Block> AVOCADO_SEED = registerBlock("avocado_pit", () -> new AvocadoSeedBlock(new AvocadoPitGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), false, 0);
     public static final RegistryObject<Block> PALM_SAPLING = BLOCKS.register("palm_sapling", () -> new PalmSaplingBlock(new PalmTreeGrower(), Block.Properties.copy(Blocks.OAK_SAPLING), () -> Blocks.SAND));
+    public static final RegistryObject<Block> PALE_OAK_SAPLING = BLOCKS.register("pale_oak_sapling", () -> new SaplingBlock(new PaleOakTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+
+
+    // Tree Blocks
+    public static final RegistryObject<Block> PALM_LOG = registerBlock("palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_LOG)));
+    public static final RegistryObject<Block> PALM_WOOD = registerBlock("palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_PALM_LOG = registerBlock("stripped_palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_LOG)));
+    public static final RegistryObject<Block> STRIPPED_PALM_WOOD = registerBlock("stripped_palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD)));
+    public static final RegistryObject<Block> PALM_LEAVES = registerBlock("palm_leaves", () -> new PalmLeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> PALE_OAK_LEAVES = BLOCKS.register("pale_oak_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(ModBlocks::never)));
+    public static final RegistryObject<Block> PALE_OAK_WOOD = BLOCKS.register("pale_oak_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> PALE_OAK_LOG = BLOCKS.register("pale_oak_log", () -> new RotatedPillarBlock(logProperties(MapColor.QUARTZ, MapColor.STONE, SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_PALE_OAK_WOOD = BLOCKS.register("stripped_pale_oak_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> STRIPPED_PALE_OAK_LOG = BLOCKS.register("stripped_pale_oak_log", () -> new RotatedPillarBlock(logProperties(MapColor.QUARTZ, MapColor.QUARTZ, SoundType.WOOD)));
+
+
+    // Block Sets and Types
+    public static final BlockSetType PALE_OAK_BLOCK_SET = new BlockSetType("pale_oak");
+    public static final Supplier<BlockSetType> COPPER = () -> new BlockSetType("copper", true, SoundType.COPPER,
+            ModSounds.COPPER_DOOR_CLOSE_SOUND.get(),
+            ModSounds.COPPER_DOOR_OPEN_SOUND.get(),
+            ModSounds.COPPER_TRAPDOOR_CLOSE_SOUND.get(),
+            ModSounds.COPPER_TRAPDOOR_OPEN_SOUND.get(),
+            SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF,
+            SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON,
+            SoundEvents.STONE_BUTTON_CLICK_OFF,
+            SoundEvents.STONE_BUTTON_CLICK_ON
+    );
+    public static final WoodType PALE_OAK_WOOD_TYPE = new WoodType("pale_oak", PALE_OAK_BLOCK_SET);
 
 
     // Blocks
@@ -145,6 +191,34 @@ public class ModBlocks {
     public static final RegistryObject<Block> MEDIUM_SALT_BUD = BLOCKS.register("medium_salt_bud", () -> new SaltClusterBlock(4, 3, BlockBehaviour.Properties.copy(SALT_CLUSTER.get()).lightLevel(state -> 2).sound(ModSounds.MEDIUM_SALT_BUD)));
     public static final RegistryObject<Block> SMALL_SALT_BUD = BLOCKS.register("small_salt_bud", () -> new SaltClusterBlock(3, 4, BlockBehaviour.Properties.copy(SALT_CLUSTER.get()).lightLevel(state -> 1).sound(ModSounds.SMALL_SALT_BUD)));
     public static final RegistryObject<Block> SALT_CAULDRON = BLOCKS.register("salt_cauldron", () -> new SaltCauldronBlock(LayeredCauldronBlock.RAIN, CauldronInteraction.EMPTY));
+    public static final RegistryObject<Block> PALE_OAK_PLANKS = BLOCKS.register("pale_oak_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> PALE_OAK_STAIRS = BLOCKS.register("pale_oak_stairs", () -> new StairBlock(PALE_OAK_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> PALE_OAK_SLAB = BLOCKS.register("pale_oak_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> PALE_OAK_FENCE = BLOCKS.register("pale_oak_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> PALE_OAK_FENCE_GATE = BLOCKS.register("pale_oak_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava(), PALE_OAK_WOOD_TYPE));
+    public static final RegistryObject<Block> PALE_OAK_DOOR = BLOCKS.register("pale_oak_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), PALE_OAK_BLOCK_SET));
+    public static final RegistryObject<Block> PALE_MOSS_BLOCK = BLOCKS.register("pale_moss_block", () -> new PaleMossBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.1F).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> PALE_MOSS_CARPET = BLOCKS.register("pale_moss_carpet", () -> new MossyCarpetBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.1F).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> PALE_HANGING_MOSS = BLOCKS.register("pale_hanging_moss", () -> new HangingMossBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_LIGHT_GRAY).noCollission().sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> POTTED_OPEN_EYEBLOSSOM = BLOCKS.register("potted_open_eyeblossom", () -> new EyeblossomFlowerPotBlock(OPEN_EYEBLOSSOM.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> POTTED_CLOSED_EYEBLOSSOM = BLOCKS.register("potted_closed_eyeblossom", () -> new EyeblossomFlowerPotBlock(CLOSED_EYEBLOSSOM.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> POTTED_PALE_OAK_SAPLING = BLOCKS.register("potted_pale_oak_sapling", () -> new FlowerPotBlock(PALE_OAK_SAPLING.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> CREAKING_HEART = BLOCKS.register("creaking_heart", () -> new CreakingHeartBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).strength(10.0F).sound(ModSounds.CREAKING_HEART)));
+    public static final RegistryObject<Block> PALE_OAK_SIGN = BLOCKS.register("pale_oak_sign", () -> new StandingSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), PALE_OAK_WOOD_TYPE));
+    public static final RegistryObject<Block> PALE_OAK_WALL_SIGN = BLOCKS.register("pale_oak_wall_sign", () -> new WallSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().dropsLike(PALE_OAK_SIGN.get()), PALE_OAK_WOOD_TYPE));
+    public static final RegistryObject<Block> PALE_OAK_HANGING_SIGN = BLOCKS.register("pale_oak_hanging_sign", () -> new CeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), PALE_OAK_WOOD_TYPE));
+    public static final RegistryObject<Block> PALE_OAK_WALL_HANGING_SIGN = BLOCKS.register("pale_oak_wall_hanging_sign", () -> new WallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava().dropsLike(PALE_OAK_HANGING_SIGN.get()), PALE_OAK_WOOD_TYPE));
+    public static final RegistryObject<Block> PALE_OAK_PRESSURE_PLATE = BLOCKS.register("pale_oak_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY), PALE_OAK_BLOCK_SET));
+    public static final RegistryObject<Block> PALE_OAK_TRAPDOOR = BLOCKS.register("pale_oak_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(ModBlocks::never).ignitedByLava(), PALE_OAK_BLOCK_SET));
+    public static final RegistryObject<Block> PALE_OAK_BUTTON = BLOCKS.register("pale_oak_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).pushReaction(PushReaction.DESTROY), PALE_OAK_BLOCK_SET, 30, true));
+    public static final RegistryObject<Block> RESIN_CLUMP = BLOCKS.register("resin_clump", () -> new ResinClumpBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().noCollission().sound(ModSounds.RESIN).ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> RESIN_BLOCK = BLOCKS.register("resin_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(ModSounds.RESIN)));
+    public static final RegistryObject<Block> RESIN_BRICKS = BLOCKS.register("resin_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(ModSounds.RESIN_BRICKS).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> RESIN_BRICK_STAIRS = BLOCKS.register("resin_brick_stairs", () -> new StairBlock(RESIN_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(ModSounds.RESIN_BRICKS).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> RESIN_BRICK_SLAB = BLOCKS.register("resin_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(ModSounds.RESIN_BRICKS).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> RESIN_BRICK_WALL = BLOCKS.register("resin_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(ModSounds.RESIN_BRICKS).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> CHISELED_RESIN_BRICKS = BLOCKS.register("chiseled_resin_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(ModSounds.RESIN_BRICKS).strength(1.5F, 6.0F)));
+    public static final RegistryObject<Block> DRIED_GHAST = BLOCKS.register("dried_ghast", () -> new DriedGhastBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instabreak().sound(ModSounds.DRIED_GHAST).noOcclusion().randomTicks()));
 
 
     // Meal Blocks
@@ -198,13 +272,153 @@ public class ModBlocks {
     public static final RegistryObject<Block> POPCORN_BOX = BLOCKS.register("popcorn_box", PopcornBoxBlock::new);
     public static final RegistryObject<Block> PINEAPPLE_PIE = BLOCKS.register("pineapple_pie", () -> new PieBlock(Properties.copy(Blocks.CAKE), ModItems.PINEAPPLE_PIE_SIDE));
 
+    // Copper blocks - TODO: Sort
+    public static final RegistryObject<Block> COPPER_CHEST = BLOCKS.register("copper_chest", () -> new WeatheringCopperChestBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops().randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_CHEST = BLOCKS.register("exposed_copper_chest", () -> new WeatheringCopperChestBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops().randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_CHEST = BLOCKS.register("weathered_copper_chest", () -> new WeatheringCopperChestBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops().randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_CHEST = BLOCKS.register("oxidized_copper_chest", () -> new WeatheringCopperChestBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops().randomTicks()));
 
-    // Tree Blocks
-    public static final RegistryObject<Block> PALM_LOG = registerBlock("palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_LOG)));
-    public static final RegistryObject<Block> PALM_WOOD = registerBlock("palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.JUNGLE_WOOD)));
-    public static final RegistryObject<Block> STRIPPED_PALM_LOG = registerBlock("stripped_palm_log", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_LOG)));
-    public static final RegistryObject<Block> STRIPPED_PALM_WOOD = registerBlock("stripped_palm_wood", () -> new PalmLogBlock(Block.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD)));
-    public static final RegistryObject<Block> PALM_LEAVES = registerBlock("palm_leaves", () -> new PalmLeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)));
+    // Register Waxed Copper Chest Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_CHEST = BLOCKS.register("waxed_copper_chest", () -> new CopperChestBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_CHEST = BLOCKS.register("waxed_exposed_copper_chest", () -> new CopperChestBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_CHEST = BLOCKS.register("waxed_weathered_copper_chest", () -> new CopperChestBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_CHEST = BLOCKS.register("waxed_oxidized_copper_chest", () -> new CopperChestBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
+
+    // Register Copper Golem Statue Blocks
+    public static final RegistryObject<Block> COPPER_GOLEM_STATUE = BLOCKS.register("copper_golem_statue", () -> new WeatheringCopperGolemStatueBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().randomTicks().noOcclusion()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_GOLEM_STATUE = BLOCKS.register("exposed_copper_golem_statue", () -> new WeatheringCopperGolemStatueBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().randomTicks().noOcclusion()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_GOLEM_STATUE = BLOCKS.register("weathered_copper_golem_statue", () -> new WeatheringCopperGolemStatueBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().randomTicks().noOcclusion()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_GOLEM_STATUE = BLOCKS.register("oxidized_copper_golem_statue", () -> new WeatheringCopperGolemStatueBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().randomTicks().noOcclusion()));
+
+    // Register Waxed Copper Golem Statue Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_GOLEM_STATUE = BLOCKS.register("waxed_copper_golem_statue", () -> new WaxedCopperGolemStatueBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().noOcclusion()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_GOLEM_STATUE = BLOCKS.register("waxed_exposed_copper_golem_statue", () -> new WaxedCopperGolemStatueBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().noOcclusion()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_GOLEM_STATUE = BLOCKS.register("waxed_weathered_copper_golem_statue", () -> new WaxedCopperGolemStatueBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().noOcclusion()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GOLEM_STATUE = BLOCKS.register("waxed_oxidized_copper_golem_statue", () -> new WaxedCopperGolemStatueBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).sound(ModSounds.COPPER_STATUE).requiresCorrectToolForDrops().noOcclusion()));
+
+    // Register Copper Torch Blocks
+    public static final RegistryObject<Block> COPPER_TORCH = BLOCKS.register("copper_torch", () -> new CopperTorchBlock(BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel(p -> 14).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> COPPER_WALL_TORCH = BLOCKS.register("copper_wall_torch", () -> new CopperWallTorchBlock(BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel(p -> 14).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY).dropsLike(COPPER_TORCH.get())));
+
+    // Register Copper Lantern Blocks (Weathering)
+    public static final RegistryObject<Block> COPPER_LANTERN = BLOCKS.register("copper_lantern", () -> new WeatheringCopperLanternBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_LANTERN = BLOCKS.register("exposed_copper_lantern", () -> new WeatheringCopperLanternBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_LANTERN = BLOCKS.register("weathered_copper_lantern", () -> new WeatheringCopperLanternBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_LANTERN = BLOCKS.register("oxidized_copper_lantern", () -> new WeatheringCopperLanternBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+
+    // Register Waxed Copper Lantern Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_LANTERN = BLOCKS.register("waxed_copper_lantern", () -> new CopperLanternBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_LANTERN = BLOCKS.register("waxed_exposed_copper_lantern", () -> new CopperLanternBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_LANTERN = BLOCKS.register("waxed_weathered_copper_lantern", () -> new CopperLanternBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_LANTERN = BLOCKS.register("waxed_oxidized_copper_lantern", () -> new CopperLanternBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.LANTERN).lightLevel(p -> 15).noOcclusion().pushReaction(PushReaction.DESTROY)));
+
+    // Register Copper Chain Blocks
+    public static final RegistryObject<Block> COPPER_CHAIN = BLOCKS.register("copper_chain", () -> new WeatheringCopperChainBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_CHAIN = BLOCKS.register("exposed_copper_chain", () -> new WeatheringCopperChainBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_CHAIN = BLOCKS.register("weathered_copper_chain", () -> new WeatheringCopperChainBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_CHAIN = BLOCKS.register("oxidized_copper_chain", () -> new WeatheringCopperChainBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion().randomTicks()));
+
+    // Register Waxed Copper Chain Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_CHAIN = BLOCKS.register("waxed_copper_chain", () -> new CopperChainBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_CHAIN = BLOCKS.register("waxed_exposed_copper_chain", () -> new CopperChainBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_CHAIN = BLOCKS.register("waxed_weathered_copper_chain", () -> new CopperChainBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_CHAIN = BLOCKS.register("waxed_oxidized_copper_chain", () -> new CopperChainBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().forceSolidOn().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.CHAIN).noOcclusion()));
+
+    // Register Copper Bars Blocks (Weathering)
+    public static final RegistryObject<Block> COPPER_BARS = BLOCKS.register("copper_bars", () -> new WeatheringCopperBarsBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_BARS = BLOCKS.register("exposed_copper_bars", () -> new WeatheringCopperBarsBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_BARS = BLOCKS.register("weathered_copper_bars", () -> new WeatheringCopperBarsBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_BARS = BLOCKS.register("oxidized_copper_bars", () -> new WeatheringCopperBarsBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Waxed Copper Bars Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_BARS = BLOCKS.register("waxed_copper_bars", () -> new CopperBarsBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BARS = BLOCKS.register("waxed_exposed_copper_bars", () -> new CopperBarsBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BARS = BLOCKS.register("waxed_weathered_copper_bars", () -> new CopperBarsBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BARS = BLOCKS.register("waxed_oxidized_copper_bars", () -> new CopperBarsBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Copper Lightning Rod Blocks (Weathering)
+    // Note: Base lightning_rod is vanilla, extended via Mixin (LightningRodBlockMixin)
+    public static final RegistryObject<Block> EXPOSED_LIGHTNING_ROD = BLOCKS.register("exposed_lightning_rod", () -> new WeatheringCopperLightningRodBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_LIGHTNING_ROD = BLOCKS.register("weathered_lightning_rod", () -> new WeatheringCopperLightningRodBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_LIGHTNING_ROD = BLOCKS.register("oxidized_lightning_rod", () -> new WeatheringCopperLightningRodBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Waxed Copper Lightning Rod Blocks
+    public static final RegistryObject<Block> WAXED_LIGHTNING_ROD = BLOCKS.register("waxed_lightning_rod", () -> new WaxedCopperLightningRodBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_LIGHTNING_ROD = BLOCKS.register("waxed_exposed_lightning_rod", () -> new WaxedCopperLightningRodBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_LIGHTNING_ROD = BLOCKS.register("waxed_weathered_lightning_rod", () -> new WaxedCopperLightningRodBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_LIGHTNING_ROD = BLOCKS.register("waxed_oxidized_lightning_rod", () -> new WaxedCopperLightningRodBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Copper Trapdoor Blocks (Weathering)
+    public static final RegistryObject<WeatheringCopperTrapDoorBlock> COPPER_TRAPDOOR = BLOCKS.register("copper_trapdoor", () -> new WeatheringCopperTrapDoorBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<WeatheringCopperTrapDoorBlock> EXPOSED_COPPER_TRAPDOOR = BLOCKS.register("exposed_copper_trapdoor", () -> new WeatheringCopperTrapDoorBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<WeatheringCopperTrapDoorBlock> WEATHERED_COPPER_TRAPDOOR = BLOCKS.register("weathered_copper_trapdoor", () -> new WeatheringCopperTrapDoorBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion().randomTicks()));
+    public static final RegistryObject<WeatheringCopperTrapDoorBlock> OXIDIZED_COPPER_TRAPDOOR = BLOCKS.register("oxidized_copper_trapdoor", () -> new WeatheringCopperTrapDoorBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Waxed Copper Trapdoor Blocks
+    public static final RegistryObject<WaxedCopperTrapDoorBlock> WAXED_COPPER_TRAPDOOR = BLOCKS.register("waxed_copper_trapdoor", () -> new WaxedCopperTrapDoorBlock(WeatheringCopper.WeatherState.UNAFFECTED, COPPER_TRAPDOOR, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<WaxedCopperTrapDoorBlock> WAXED_EXPOSED_COPPER_TRAPDOOR = BLOCKS.register("waxed_exposed_copper_trapdoor", () -> new WaxedCopperTrapDoorBlock(WeatheringCopper.WeatherState.EXPOSED, EXPOSED_COPPER_TRAPDOOR, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<WaxedCopperTrapDoorBlock> WAXED_WEATHERED_COPPER_TRAPDOOR = BLOCKS.register("waxed_weathered_copper_trapdoor", () -> new WaxedCopperTrapDoorBlock(WeatheringCopper.WeatherState.WEATHERED, WEATHERED_COPPER_TRAPDOOR, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+    public static final RegistryObject<WaxedCopperTrapDoorBlock> WAXED_OXIDIZED_COPPER_TRAPDOOR = BLOCKS.register("waxed_oxidized_copper_trapdoor", () -> new WaxedCopperTrapDoorBlock(WeatheringCopper.WeatherState.OXIDIZED, OXIDIZED_COPPER_TRAPDOOR, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).noOcclusion()));
+
+    // Register Copper Bulb Blocks (Weathering)
+    public static final RegistryObject<CopperBulbBlock> COPPER_BULB = BLOCKS.register("copper_bulb", () -> new WeatheringCopperBulbBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelUnaffected).randomTicks()));
+    public static final RegistryObject<CopperBulbBlock> EXPOSED_COPPER_BULB = BLOCKS.register("exposed_copper_bulb", () -> new WeatheringCopperBulbBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelExposed).randomTicks()));
+    public static final RegistryObject<CopperBulbBlock> WEATHERED_COPPER_BULB = BLOCKS.register("weathered_copper_bulb", () -> new WeatheringCopperBulbBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelWeathered).randomTicks()));
+    public static final RegistryObject<CopperBulbBlock> OXIDIZED_COPPER_BULB = BLOCKS.register("oxidized_copper_bulb", () -> new CopperBulbBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelOxidized)));
+
+    // Register Waxed Copper Bulb Blocks
+    public static final RegistryObject<WaxedCopperBulbBlock> WAXED_COPPER_BULB = BLOCKS.register("waxed_copper_bulb", () -> new WaxedCopperBulbBlock(WeatheringCopper.WeatherState.UNAFFECTED, COPPER_BULB, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelUnaffected)));
+    public static final RegistryObject<WaxedCopperBulbBlock> WAXED_EXPOSED_COPPER_BULB = BLOCKS.register("waxed_exposed_copper_bulb", () -> new WaxedCopperBulbBlock(WeatheringCopper.WeatherState.EXPOSED, EXPOSED_COPPER_BULB, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelExposed)));
+    public static final RegistryObject<WaxedCopperBulbBlock> WAXED_WEATHERED_COPPER_BULB = BLOCKS.register("waxed_weathered_copper_bulb", () -> new WaxedCopperBulbBlock(WeatheringCopper.WeatherState.WEATHERED, WEATHERED_COPPER_BULB, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelWeathered)));
+    public static final RegistryObject<WaxedCopperBulbBlock> WAXED_OXIDIZED_COPPER_BULB = BLOCKS.register("waxed_oxidized_copper_bulb", () -> new WaxedCopperBulbBlock(WeatheringCopper.WeatherState.OXIDIZED, OXIDIZED_COPPER_BULB, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).lightLevel(CopperBulbBlock::getLightLevelOxidized)));
+
+    // Register Copper Grate Blocks (Weathering)
+    public static final RegistryObject<Block> COPPER_GRATE = BLOCKS.register("copper_grate", () -> new WeatheringCopperGrateBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_COPPER_GRATE = BLOCKS.register("exposed_copper_grate", () -> new WeatheringCopperGrateBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_COPPER_GRATE = BLOCKS.register("weathered_copper_grate", () -> new WeatheringCopperGrateBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion().randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_GRATE = BLOCKS.register("oxidized_copper_grate", () -> new CopperGrateBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion()));
+
+    // Register Waxed Copper Grate Blocks
+    public static final RegistryObject<Block> WAXED_COPPER_GRATE = BLOCKS.register("waxed_copper_grate", () -> new CopperGrateBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_GRATE = BLOCKS.register("waxed_exposed_copper_grate", () -> new CopperGrateBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_GRATE = BLOCKS.register("waxed_weathered_copper_grate", () -> new CopperGrateBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion()));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GRATE = BLOCKS.register("waxed_oxidized_copper_grate", () -> new CopperGrateBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(ModSounds.COPPER_GRATE).noOcclusion()));
+
+    // Register Chiseled Copper Blocks (Weathering)
+    public static final RegistryObject<Block> CHISELED_COPPER = BLOCKS.register("chiseled_copper", () -> new WeatheringChiseledCopperBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).randomTicks()));
+    public static final RegistryObject<Block> EXPOSED_CHISELED_COPPER = BLOCKS.register("exposed_chiseled_copper", () -> new WeatheringChiseledCopperBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).randomTicks()));
+    public static final RegistryObject<Block> WEATHERED_CHISELED_COPPER = BLOCKS.register("weathered_chiseled_copper", () -> new WeatheringChiseledCopperBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER).randomTicks()));
+    public static final RegistryObject<Block> OXIDIZED_CHISELED_COPPER = BLOCKS.register("oxidized_chiseled_copper", () -> new ChiseledCopperBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER)));
+
+    // Register Waxed Chiseled Copper Blocks
+    public static final RegistryObject<Block> WAXED_CHISELED_COPPER = BLOCKS.register("waxed_chiseled_copper", () -> new ChiseledCopperBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER)));
+    public static final RegistryObject<Block> WAXED_EXPOSED_CHISELED_COPPER = BLOCKS.register("waxed_exposed_chiseled_copper", () -> new ChiseledCopperBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER)));
+    public static final RegistryObject<Block> WAXED_WEATHERED_CHISELED_COPPER = BLOCKS.register("waxed_weathered_chiseled_copper", () -> new ChiseledCopperBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER)));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_CHISELED_COPPER = BLOCKS.register("waxed_oxidized_chiseled_copper", () -> new ChiseledCopperBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER)));
+
+    // Register Copper Door Blocks
+    public static final RegistryObject<WeatheringCopperDoorBlock> COPPER_DOOR = BLOCKS.register("copper_door", () -> new WeatheringCopperDoorBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<WeatheringCopperDoorBlock> EXPOSED_COPPER_DOOR = BLOCKS.register("exposed_copper_door", () -> new WeatheringCopperDoorBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<WeatheringCopperDoorBlock> WEATHERED_COPPER_DOOR = BLOCKS.register("weathered_copper_door", () -> new WeatheringCopperDoorBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY).randomTicks()));
+    public static final RegistryObject<WeatheringCopperDoorBlock> OXIDIZED_COPPER_DOOR = BLOCKS.register("oxidized_copper_door", () -> new WeatheringCopperDoorBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+
+    // Register Waxed Copper Door Blocks
+    public static final RegistryObject<CopperDoorBlock> WAXED_COPPER_DOOR = BLOCKS.register("waxed_copper_door", () -> new CopperDoorBlock(WeatheringCopper.WeatherState.UNAFFECTED, COPPER_DOOR, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<CopperDoorBlock> WAXED_EXPOSED_COPPER_DOOR = BLOCKS.register("waxed_exposed_copper_door", () -> new CopperDoorBlock(WeatheringCopper.WeatherState.EXPOSED, EXPOSED_COPPER_DOOR, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<CopperDoorBlock> WAXED_WEATHERED_COPPER_DOOR = BLOCKS.register("waxed_weathered_copper_door", () -> new CopperDoorBlock(WeatheringCopper.WeatherState.WEATHERED, WEATHERED_COPPER_DOOR, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<CopperDoorBlock> WAXED_OXIDIZED_COPPER_DOOR = BLOCKS.register("waxed_oxidized_copper_door", () -> new CopperDoorBlock(WeatheringCopper.WeatherState.OXIDIZED, OXIDIZED_COPPER_DOOR, BlockBehaviour.Properties.of().strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+
+    // Register Copper Button Blocks
+    public static final RegistryObject<CopperButtonBlock> COPPER_BUTTON = BLOCKS.register("copper_button", () -> new CopperButtonBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<CopperButtonBlock> EXPOSED_COPPER_BUTTON = BLOCKS.register("exposed_copper_button", () -> new CopperButtonBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<CopperButtonBlock> WEATHERED_COPPER_BUTTON = BLOCKS.register("weathered_copper_button", () -> new CopperButtonBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<CopperButtonBlock> OXIDIZED_COPPER_BUTTON = BLOCKS.register("oxidized_copper_button", () -> new CopperButtonBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+
+    // Register Waxed Copper Button Blocks
+    public static final RegistryObject<WaxedCopperButtonBlock> WAXED_COPPER_BUTTON = BLOCKS.register("waxed_copper_button", () -> new WaxedCopperButtonBlock(WeatheringCopper.WeatherState.UNAFFECTED, COPPER_BUTTON, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<WaxedCopperButtonBlock> WAXED_EXPOSED_COPPER_BUTTON = BLOCKS.register("waxed_exposed_copper_button", () -> new WaxedCopperButtonBlock(WeatheringCopper.WeatherState.EXPOSED, EXPOSED_COPPER_BUTTON, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<WaxedCopperButtonBlock> WAXED_WEATHERED_COPPER_BUTTON = BLOCKS.register("waxed_weathered_copper_button", () -> new WaxedCopperButtonBlock(WeatheringCopper.WeatherState.WEATHERED, WEATHERED_COPPER_BUTTON, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
+    public static final RegistryObject<WaxedCopperButtonBlock> WAXED_OXIDIZED_COPPER_BUTTON = BLOCKS.register("waxed_oxidized_copper_button", () -> new WaxedCopperButtonBlock(WeatheringCopper.WeatherState.OXIDIZED, OXIDIZED_COPPER_BUTTON, BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.COPPER)));
 
 
 
@@ -256,5 +470,42 @@ public class ModBlocks {
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
+    }
+
+    private static boolean never(BlockState state, BlockGetter level, BlockPos pos) {
+        return false;
+    }
+
+    private static boolean never(BlockState state, BlockGetter level, BlockPos pos, EntityType<?> type) {
+        return false;
+    }
+
+    private static BlockBehaviour.Properties logProperties(MapColor topColor, MapColor sideColor, SoundType sound) {
+        return BlockBehaviour.Properties.of().mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : sideColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(sound).ignitedByLava();
+    }
+
+    public static void registerButtons() {
+        COPPER_BUTTON.get().setWaxedButton(WAXED_COPPER_BUTTON);
+        EXPOSED_COPPER_BUTTON.get().setWaxedButton(WAXED_EXPOSED_COPPER_BUTTON);
+        WEATHERED_COPPER_BUTTON.get().setWaxedButton(WAXED_WEATHERED_COPPER_BUTTON);
+        OXIDIZED_COPPER_BUTTON.get().setWaxedButton(WAXED_OXIDIZED_COPPER_BUTTON);
+
+        // Setup trapdoor references
+        COPPER_TRAPDOOR.get().setWaxedTrapdoor(WAXED_COPPER_TRAPDOOR);
+        EXPOSED_COPPER_TRAPDOOR.get().setWaxedTrapdoor(WAXED_EXPOSED_COPPER_TRAPDOOR);
+        WEATHERED_COPPER_TRAPDOOR.get().setWaxedTrapdoor(WAXED_WEATHERED_COPPER_TRAPDOOR);
+        OXIDIZED_COPPER_TRAPDOOR.get().setWaxedTrapdoor(WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
+        // Setup bulb references
+        COPPER_BULB.get().setWaxedBulb(WAXED_COPPER_BULB);
+        EXPOSED_COPPER_BULB.get().setWaxedBulb(WAXED_EXPOSED_COPPER_BULB);
+        WEATHERED_COPPER_BULB.get().setWaxedBulb(WAXED_WEATHERED_COPPER_BULB);
+        OXIDIZED_COPPER_BULB.get().setWaxedBulb(WAXED_OXIDIZED_COPPER_BULB);
+
+        // Setup door references
+        COPPER_DOOR.get().setWaxedDoor(WAXED_COPPER_DOOR);
+        EXPOSED_COPPER_DOOR.get().setWaxedDoor(WAXED_EXPOSED_COPPER_DOOR);
+        WEATHERED_COPPER_DOOR.get().setWaxedDoor(WAXED_WEATHERED_COPPER_DOOR);
+        OXIDIZED_COPPER_DOOR.get().setWaxedDoor(WAXED_OXIDIZED_COPPER_DOOR);
     }
 }

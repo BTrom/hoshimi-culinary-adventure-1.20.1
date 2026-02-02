@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flowerbed_4",
+  "textures": {
+    "flowerbed": "hoshimimod:block/wildflowers",
+    "stem": "hoshimimod:block/wildflowers_stem"
+  }
+}

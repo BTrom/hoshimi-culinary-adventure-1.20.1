@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "hoshimimod:exposed_copper_golem_statue"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "hoshimimod:waxed_exposed_copper_golem_statue",
+    "count": 1
+  }
+}
+

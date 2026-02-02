@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "tip=false": {
+      "model": "hoshimimod:block/pale_hanging_moss"
+    },
+    "tip=true": {
+      "model": "hoshimimod:block/pale_hanging_moss_tip"
+    }
+  }
+}

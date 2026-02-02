@@ -1,0 +1,7 @@
+{
+  "parent": "hoshimimod:block/template_bars_side_alt",
+  "textures": {
+    "bars": "hoshimimod:block/exposed_copper_bars",
+    "edge": "hoshimimod:block/exposed_copper_bars"
+  }
+}

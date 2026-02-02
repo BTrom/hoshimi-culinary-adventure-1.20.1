@@ -64,6 +64,11 @@ public class ModTags {
     public static final TagKey<Item> NAUTILUS_TAMING_ITEMS = bindItemTag("nautilus_taming_items");
     public static final TagKey<Item> NAUTILUS_FOOD = bindItemTag("nautilus_food");
     public static final TagKey<Item> NAUTILUS_BUCKET_FOOD = bindItemTag("nautilus_bucket_food");
+    public static final TagKey<Item> PALE_OAK_LOGS_ITEMS = bindItemTag("pale_oak_logs");
+    public static final TagKey<Item> HAPPY_GHAST_TEMPT_ITEMS = bindItemTag("happy_ghast_tempt_items");
+    public static final TagKey<Item> HAPPY_GHAST_FOOD = bindItemTag("happy_ghast_food");
+    public static final TagKey<Item> HARNESSES = bindItemTag("harnesses");
+    public static final TagKey<Item> ARMADILLO_FOOD = bindItemTag("armadillo_food");
 
     // Crockpot Item Tags - TODO: These might be redundant with the rest, but we're adding them for safety
     public static final TagKey<Item> CROPS_ASPARAGUS = bindItemForgeTag("crops/asparagus");
@@ -173,6 +178,17 @@ public class ModTags {
     public static final TagKey<Block> SALT_DISSOLVABLES = bindBlockTag("salt_dissolvables");
     public static final TagKey<Block> MELTABLES = bindBlockTag("meltables");
     public static final TagKey<Block> SALT_CLUSTER_REPLACEABLES = bindBlockTag("salt_cluster_replaceables");
+    public static final TagKey<Block> PALE_OAK_LOGS_BLOCKS = bindBlockTag("pale_oak_logs");
+    public static final TagKey<Block> HAPPY_GHAST_AVOIDS = bindBlockTag("happy_ghast_avoids");
+    public static final TagKey<Block> TRIGGERS_AMBIENT_DESERT_SAND_BLOCK_SOUNDS = bindBlockTag("triggers_ambient_desert_sand_block_sounds");
+    public static final TagKey<Block> TRIGGERS_AMBIENT_DESERT_DRY_VEGETATION_BLOCK_SOUNDS = bindBlockTag("triggers_ambient_desert_dry_vegetation_block_sounds");
+    public static final TagKey<Block> TRIGGERS_AMBIENT_DRIED_GHAST_BLOCK_SOUNDS = bindBlockTag("triggers_ambient_dried_ghast_block_sounds");
+    public static final TagKey<Block> ALLOWS_LEAF_LITTER = bindBlockTag("allows_leaf_litter");
+    public static final TagKey<Block> SPAWN_FALLING_LEAVES = bindBlockTag("spawn_falling_leaves");
+    public static final TagKey<Block> SPAWN_FALLING_NEEDLES = bindBlockTag("spawn_falling_needles");
+    public static final TagKey<Block> ARMADILLO_SPAWNABLE_ON = bindBlockTag("armadillo_spawnable_on");
+    public static final TagKey<Block> COPPER = bindBlockTag("copper");
+    public static final TagKey<Block> COPPER_CHESTS = bindBlockTag("copper_chests");
 
 
     // Mob Effects
@@ -205,6 +221,7 @@ public class ModTags {
     public static final TagKey<EntityType<?>> UNAFFECTED_BY_SLIPPING = bindEntityTag("unaffected_by_slipping");
     public static final TagKey<EntityType<?>> UNAFFECTED_BY_HARMONY = bindEntityTag("unaffected_by_harmony");
     public static final TagKey<EntityType<?>> NAUTILUS_HOSTILES = bindEntityTag("nautilus_hostiles");
+    public static final TagKey<EntityType<?>> FOLLOWABLE_FRIENDLY_MOBS = bindEntityTag("followable_friendly_mobs");
 
 
     // Biome Tags
@@ -223,6 +240,26 @@ public class ModTags {
     public static final TagKey<Biome> HAS_RARE_BANANA_PLANT = bindBiomeTag("has_feature/banana_plant/rare");
     public static final TagKey<Biome> BANANA_PLANT_REQUIRES_SAND = bindBiomeTag("banana_plant_requires_sand");
     public static final TagKey<Biome> HAS_ROCK_SALT_DEPOSITS = bindBiomeTag("has_rock_salt_deposits");
+    public static final TagKey<Biome> SPAWNS_WARM_VARIANT_FARM_ANIMALS = bindBiomeTag("spawns_warm_variant_farm_animals");
+    public static final TagKey<Biome> SPAWNS_COLD_VARIANT_FARM_ANIMALS = bindBiomeTag("spawns_cold_variant_farm_animals");
+    public static final TagKey<Biome> SPAWNS_ARMADILLOS_FREQUENTLY = bindBiomeTag("spawns_armadillos_frequently");
+    public static final TagKey<Biome> SPAWNS_ARMADILLOS = bindBiomeTag("spawns_armadillos");
+    public static final TagKey<Biome> SPAWNS_BUSHES = bindBiomeTag("spawns_bushes");
+    public static final TagKey<Biome> SPAWNS_FIREFLY_BUSHES = bindBiomeTag("spawns_firefly_bushes");
+    public static final TagKey<Biome> SPAWNS_FIREFLY_BUSHES_SWAMP = bindBiomeTag("spawns_firefly_bushes_swamp");
+    public static final TagKey<Biome> SPAWNS_WILDFLOWERS = bindBiomeTag("spawns_wildflowers");
+    public static final TagKey<Biome> SPAWNS_NOISE_BASED_WILDFLOWERS = bindBiomeTag("spawns_noise_based_wildflowers");
+    public static final TagKey<Biome> SPAWNS_DRY_GRASS = bindBiomeTag("spawns_dry_grass");
+    public static final TagKey<Biome> SPAWNS_DRY_GRASS_RARELY = bindBiomeTag("spawns_dry_grass_rarely");
+    public static final TagKey<Biome> SPAWNS_FALLEN_OAK_TREES = bindBiomeTag("spawns_fallen_oak_trees");
+    public static final TagKey<Biome> SPAWNS_FALLEN_BIRCH_TREES = bindBiomeTag("spawns_fallen_birch_trees");
+    public static final TagKey<Biome> SPAWNS_FALLEN_BIRCH_TREES_RARELY = bindBiomeTag("spawns_fallen_birch_trees_rarely");
+    public static final TagKey<Biome> SPAWNS_FALLEN_SUPER_BIRCH_TREES = bindBiomeTag("spawns_fallen_super_birch_trees");
+    public static final TagKey<Biome> SPAWNS_FALLEN_JUNGLE_TREES = bindBiomeTag("spawns_fallen_jungle_trees");
+    public static final TagKey<Biome> SPAWNS_FALLEN_SPRUCE_TREES = bindBiomeTag("spawns_fallen_spruce_trees");
+    public static final TagKey<Biome> SPAWNS_FALLEN_SPRUCE_TREES_RARELY = bindBiomeTag("spawns_fallen_spruce_trees_rarely");
+    public static final TagKey<Biome> SPAWNS_LEAF_LITTER = bindBiomeTag("spawns_leaf_litter");
+    public static final TagKey<Biome> SPAWNS_LEAF_LITTER_PATCHES = bindBiomeTag("spawns_leaf_litter_patches");
 
     // TODO: Try to add Neapolitan's Strawberry Fields
 

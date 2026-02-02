@@ -6,6 +6,7 @@ public class ClientConfig {
     public final ForgeConfigSpec.BooleanValue showFoodValuesTooltip;
     public final ForgeConfigSpec.BooleanValue showFoodEffectsTooltip;
     public final ForgeConfigSpec.BooleanValue gnawsGiftHungerOverlay;
+    public final ForgeConfigSpec.BooleanValue hasUpdatedBatModel;
 
     public ClientConfig(final ForgeConfigSpec.Builder builder) {
         builder.comment("Client settings").push("client");
@@ -18,6 +19,9 @@ public class ClientConfig {
         gnawsGiftHungerOverlay = buildBoolean(builder,
                 "gnawsGiftHungerOverlay", "all", ModConfig.gnawsGiftHungerOverlay,
                 "Set this to false will disable the special hunger bar overlay when the player has Gnaw's Gift effect.");
+        this.hasUpdatedBatModel = builder
+                .comment("Use the updated bat model for bats")
+                .define("updated_bat_model", true);
         builder.pop();
     }
 

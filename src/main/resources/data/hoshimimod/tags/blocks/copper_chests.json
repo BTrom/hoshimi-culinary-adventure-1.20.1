@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:copper_chest",
+    "hoshimimod:exposed_copper_chest",
+    "hoshimimod:weathered_copper_chest",
+    "hoshimimod:oxidized_copper_chest",
+    "hoshimimod:waxed_copper_chest",
+    "hoshimimod:waxed_exposed_copper_chest",
+    "hoshimimod:waxed_weathered_copper_chest",
+    "hoshimimod:waxed_oxidized_copper_chest"
+  ]
+}
+

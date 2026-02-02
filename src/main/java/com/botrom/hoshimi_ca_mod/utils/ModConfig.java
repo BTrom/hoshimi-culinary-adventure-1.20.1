@@ -2,7 +2,6 @@ package com.botrom.hoshimi_ca_mod.utils;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.google.common.collect.Lists;
-import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.List;
 
@@ -53,14 +52,42 @@ public class ModConfig {
     public static boolean showFoodEffectsTooltip = true;
     public static boolean gnawsGiftHungerOverlay = true;
     // Salt
-    public static double DISSOLVING_CHANCE;
-    public static boolean DISSOLVING_IN_RAIN;
-    public static double DISSOLVING_IN_RAIN_CHANCE;
-    public static double MELTING_BLOCK_CHANCE;
-    public static double EVAPORATION_CHANCE;
-    public static double SALT_CLUSTER_GROWING_CHANCE;
-    public static int ROCK_SALT_SIZE;
-    public static double ROCK_SALT_CLUSTER_CHANCE;
+    public static double dissolvingChance;
+    public static boolean dissolvingInRain;
+    public static double dissolvingInRainChance;
+    public static double meltingBlockChance;
+    public static double evaporationChance;
+    public static double saltClusterGrowingChance;
+    public static int rockSaltSize;
+    public static double rockSaltClusterChance;
+    // Vanilla
+    public static boolean hasArmadillos;
+    public static boolean hasResin;
+    public static boolean hasPaleGarden;
+    public static boolean hasPaleTrades;
+    public static int creakingParticleColor;
+    public static int creakingParticleReverseColor;
+    public static boolean hasBushes;
+    public static boolean hasFireflyBushes;
+    public static boolean hasWildflowers;
+    public static boolean hasDryGrass;
+    public static boolean hasFallenTrees;
+    public static boolean hasLeafLitter;
+    public static boolean hasCactusFlowers;
+    public static boolean hasFarmAnimalVariants;
+    public static boolean hasWolfSoundVariants;
+    public static boolean hasSpringTrades;
+    public static boolean hasDriedGhasts;
+    public static boolean leashDropConnections;
+    public static boolean hasTearsMusicDisc;
+    public static double happyGhastSpeedModifier;
+    public static boolean hasUpdatedBatModel;
+    public static boolean golemPressesButtons;
+    public static int buttonPressChancePercent;
+    public static int golemTransportStackSize;
+    public static int weatheringTickFrom;
+    public static int weatheringTickTo;
+    public static boolean endFlashEnabled;
 
 
     public static void bake(net.minecraftforge.fml.config.ModConfig config) {
@@ -108,15 +135,42 @@ public class ModConfig {
             showFoodEffectsTooltip = ConfigHolder.CLIENT.showFoodEffectsTooltip.get();
             gnawsGiftHungerOverlay = ConfigHolder.CLIENT.gnawsGiftHungerOverlay.get();
 
-            DISSOLVING_CHANCE = ConfigHolder.COMMON.DISSOLVING_CHANCE.get();
-            DISSOLVING_IN_RAIN = ConfigHolder.COMMON.DISSOLVING_IN_RAIN.get();
-            DISSOLVING_IN_RAIN_CHANCE = ConfigHolder.COMMON.DISSOLVING_IN_RAIN_CHANCE.get();
-            MELTING_BLOCK_CHANCE = ConfigHolder.COMMON.MELTING_BLOCK_CHANCE.get();
-            EVAPORATION_CHANCE = ConfigHolder.COMMON.EVAPORATION_CHANCE.get();
-            SALT_CLUSTER_GROWING_CHANCE = ConfigHolder.COMMON.SALT_CLUSTER_GROWING_CHANCE.get();
-            ROCK_SALT_SIZE = ConfigHolder.COMMON.ROCK_SALT_SIZE.get();
-            ROCK_SALT_CLUSTER_CHANCE = ConfigHolder.COMMON.ROCK_SALT_CLUSTER_CHANCE.get();
+            dissolvingChance = ConfigHolder.COMMON.dissolvingChance.get();
+            dissolvingInRain = ConfigHolder.COMMON.dissolvingInRain.get();
+            dissolvingInRainChance = ConfigHolder.COMMON.dissolvingInRainChance.get();
+            meltingBlockChance = ConfigHolder.COMMON.meltingBlockChance.get();
+            evaporationChance = ConfigHolder.COMMON.evaporationChance.get();
+            saltClusterGrowingChance = ConfigHolder.COMMON.saltClusterGrowingChance.get();
+            rockSaltSize = ConfigHolder.COMMON.rockSaltSize.get();
+            rockSaltClusterChance = ConfigHolder.COMMON.rockSaltClusterChance.get();
 
+            hasArmadillos = ConfigHolder.COMMON.hasArmadillos.get();
+            hasResin = ConfigHolder.COMMON.hasResin.get();
+            hasPaleGarden = ConfigHolder.COMMON.hasPaleGarden.get();
+            hasPaleTrades = ConfigHolder.COMMON.hasPaleTrades.get();
+            creakingParticleColor = ConfigHolder.COMMON.creakingParticleColor.get();
+            creakingParticleReverseColor = ConfigHolder.COMMON.creakingParticleReverseColor.get();
+            hasBushes = ConfigHolder.COMMON.hasBushes.get();
+            hasFireflyBushes = ConfigHolder.COMMON.hasFireflyBushes.get();
+            hasWildflowers = ConfigHolder.COMMON.hasWildflowers.get();
+            hasDryGrass = ConfigHolder.COMMON.hasDryGrass.get();
+            hasFallenTrees = ConfigHolder.COMMON.hasFallenTrees.get();
+            hasLeafLitter = ConfigHolder.COMMON.hasLeafLitter.get();
+            hasCactusFlowers = ConfigHolder.COMMON.hasCactusFlowers.get();
+            hasFarmAnimalVariants = ConfigHolder.COMMON.hasFarmAnimalVariants.get();
+            hasWolfSoundVariants = ConfigHolder.COMMON.hasWolfSoundVariants.get();
+            hasSpringTrades = ConfigHolder.COMMON.hasSpringTrades.get();
+            hasDriedGhasts = ConfigHolder.COMMON.hasDriedGhasts.get();
+            leashDropConnections = ConfigHolder.COMMON.leashDropConnections.get();
+            hasTearsMusicDisc = ConfigHolder.COMMON.hasTearsMusicDisc.get();
+            happyGhastSpeedModifier = ConfigHolder.COMMON.happyGhastSpeedModifier.get();
+            hasUpdatedBatModel = ConfigHolder.CLIENT.hasUpdatedBatModel.get();
+            golemPressesButtons = ConfigHolder.COMMON.golemPressesButtons.get();
+            buttonPressChancePercent = ConfigHolder.COMMON.buttonPressChancePercent.get();
+            golemTransportStackSize = ConfigHolder.COMMON.golemTransportStackSize.get();
+            weatheringTickFrom = ConfigHolder.COMMON.weatheringTickFrom.get();
+            weatheringTickTo = ConfigHolder.COMMON.weatheringTickTo.get();
+            endFlashEnabled = ConfigHolder.COMMON.endFlashEnabled.get();
         } catch (Exception e) {
             HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");
             e.printStackTrace();

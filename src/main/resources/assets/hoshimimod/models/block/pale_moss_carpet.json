@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "hoshimimod:block/pale_moss_carpet"
+  }
+}

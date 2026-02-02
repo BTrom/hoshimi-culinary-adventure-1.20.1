@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "hoshimimod:resin_bricks"
+  },
+  "result": "hoshimimod:resin_brick_stairs"
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hoshimimod:copper_helmet",
+    "hoshimimod:copper_chestplate",
+    "hoshimimod:copper_leggings",
+    "hoshimimod:copper_boots"
+  ]
+}

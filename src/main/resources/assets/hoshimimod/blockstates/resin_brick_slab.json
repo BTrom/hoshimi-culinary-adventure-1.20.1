@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hoshimimod:block/resin_brick_slab"
+    },
+    "type=double": {
+      "model": "hoshimimod:block/resin_bricks"
+    },
+    "type=top": {
+      "model": "hoshimimod:block/resin_brick_slab_top"
+    }
+  }
+}

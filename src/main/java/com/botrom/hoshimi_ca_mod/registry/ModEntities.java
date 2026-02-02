@@ -6,6 +6,9 @@ import com.botrom.hoshimi_ca_mod.entities.*;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.compat.AbstractNautilus;
 import com.google.common.base.Predicates;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
@@ -259,11 +262,26 @@ public class ModEntities {
 	public static final RegistryObject<EntityType<Nautilus>> NAUTILUS = ENTITIES.register("nautilus",
 			() -> EntityType.Builder.of(Nautilus::new, MobCategory.WATER_CREATURE)
 					.sized(0.875F, 0.95F)
-//					.passengerAttachments(1.1375F)
-//					.eyeHeight(0.2751F)
 					.clientTrackingRange(10)
 					.build("nautilus"));
 
+	public static final RegistryObject<EntityType<HappyGhast>> HAPPY_GHAST = ENTITIES.register("happy_ghast",
+			() -> EntityType.Builder.of(HappyGhast::new, MobCategory.CREATURE)
+					.sized(4.0F, 4.0F)
+					.clientTrackingRange(10)
+					.build("happy_ghast"));
+
+	public static final RegistryObject<EntityType<Armadillo>> ARMADILLO = ENTITIES.register("armadillo",
+			() -> EntityType.Builder.of(Armadillo::new, MobCategory.CREATURE)
+					.sized(0.7F, 0.65F)
+					.clientTrackingRange(10)
+					.build("armadillo"));
+
+	public static final RegistryObject<EntityType<CopperGolemEntity>> COPPER_GOLEM = ENTITIES.register("copper_golem",
+			() -> EntityType.Builder.of(CopperGolemEntity::new, MobCategory.MISC)
+					.sized(0.49F, 0.98F)
+					.clientTrackingRange(10)
+					.build("copper_golem"));
 
 
 	// Projectiles
@@ -288,7 +306,6 @@ public class ModEntities {
 					.build("cachalot_echo"));
 
 
-
 	// Blocks
 	public static final RegistryObject<EntityType<Birdcage>> BIRDCAGE = ENTITIES.register("birdcage",
 			() -> EntityType.Builder.of(Birdcage::new, MobCategory.MISC)
@@ -301,6 +318,19 @@ public class ModEntities {
 			() -> EntityType.Builder.<BananaPeel>of(BananaPeel::new, MobCategory.MISC)
 					.sized(0.5F, 0.5F)
 					.build("banana_peel"));
+
+
+
+	// Variants
+//	public static final ResourceKey<ChickenVariant> TEMPERATE_CHICKEN = ResourceKey.create(ModRegistries.CHICKEN_VARIANT_KEY, new ResourceLocation("minecraft", "temperate"));
+//	public static final ResourceKey<ChickenVariant> COLD_CHICKEN = createChickenKey("cold");
+//	public static final ResourceKey<ChickenVariant> WARM_CHICKEN = createChickenKey("warm");
+//	public static final ResourceKey<CowVariant> TEMPERATE_COW = createCowKey("temperate");
+//	public static final ResourceKey<CowVariant> COLD_COW = createCowKey("cold");
+//	public static final ResourceKey<CowVariant> WARM_COW = createCowKey("warm");
+//	public static final ResourceKey<PigVariant> TEMPERATE_PIG = createPigKey("temperate");
+//	public static final ResourceKey<PigVariant> COLD_PIG = createPigKey("cold");
+//	public static final ResourceKey<PigVariant> WARM_PIG = createPigKey("warm");
 
 
 
@@ -344,6 +374,9 @@ public class ModEntities {
 		event.put(BALEEN_WHALE.get(), EntityBaleenWhale.registerAttributes().build());
 		event.put(COCONUT_CRAB.get(), CoconutCrab.createAttributes().build());
 		event.put(NAUTILUS.get(), Nautilus.createAttributes().build());
+		event.put(ARMADILLO.get(), Armadillo.createAttributes().build());
+		event.put(HAPPY_GHAST.get(), HappyGhast.createAttributes().build());
+		event.put(COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -382,6 +415,7 @@ public class ModEntities {
 		event.register(LIZARD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(TORTOISE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(NAUTILUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractNautilus::checkNautilusSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(ARMADILLO.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Armadillo::checkArmadilloSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static Predicate<LivingEntity> buildPredicateFromTag(TagKey<EntityType<?>> entityTag){

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:flowers",
-    "#minecraft:bee_growables"
+    "#minecraft:flowers"
   ]
 }

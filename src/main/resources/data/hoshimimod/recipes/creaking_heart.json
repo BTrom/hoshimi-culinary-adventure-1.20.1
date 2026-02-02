@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "hoshimimod:pale_oak_log"
+    },
+    "R": {
+      "item": "hoshimimod:resin_block"
+    }
+  },
+  "pattern": [
+    " L ",
+    " R ",
+    " L "
+  ],
+  "result": {
+    "item": "hoshimimod:creaking_heart"
+  },
+  "show_notification": true
+}

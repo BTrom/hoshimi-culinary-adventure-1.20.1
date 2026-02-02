@@ -13,6 +13,7 @@ import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -71,7 +72,7 @@ public class ClientProxy extends CommonProxy {
         bus.addListener(ClientProxy::onItemColors);
         bus.addListener(ClientProxy::onBlockColors);
         bus.addListener(ClientLayerRegistry::onAddLayers);
-        bus.addListener(ClientProxy::setupParticles);
+//        bus.addListener(ClientProxy::setupParticles);
 
         StorageBlockEntityRenderer.registerStorageType(StorageTypeRegistry.CHICKEN_NEST, new ChickenNestRenderer());
 //        ModMenuTypes.registerScreenFactory(ModMenuTypes.STOVE_SCREEN_HANDLER.get(), StoveGui::new);
@@ -121,11 +122,16 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.TORTOISE.get(), TortoiseRenderer::new);
         EntityRenderers.register(ModEntities.BALEEN_WHALE.get(), RendererBaleenWhale::new);
         EntityRenderers.register(ModEntities.NAUTILUS.get(), NautilusRenderer::new);
+        EntityRenderers.register(ModEntities.ARMADILLO.get(), ArmadilloRenderer::new);
+        EntityRenderers.register(ModEntities.HAPPY_GHAST.get(), HappyGhastRenderer::new);
+        EntityRenderers.register(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
         BlockEntityRenderers.register(ModBlockEntityTypes.STORAGE_ENTITY.get(), context -> new StorageBlockEntityRenderer());
         BlockEntityRenderers.register(ModBlockEntityTypes.EYE_BONE_BLOCK_ENTITY.get(), context -> new EyeBoneBlockRenderer(new EyeBoneBlockRenderer.EyeBoneModel()));
+        BlockEntityRenderers.register(ModBlockEntityTypes.COPPER_CHEST_BLOCK_ENTITY.get(), CopperChestRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.COPPER_GOLEM_STATUE_BLOCK_ENTITY.get(), CopperGolemStatueRenderer::new);
     }
 
     private void initRainbowBuffers() {
@@ -166,6 +172,9 @@ public class ClientProxy extends CommonProxy {
         registry.registerSpriteSet(ModParticleTypes.SURGE.get(), SurgeParticle.Provider::new);
         registry.registerSpriteSet(ModParticleTypes.SHOCKED.get(), ParticleSimpleHeart.Factory::new);
         registry.registerSpriteSet(ModParticleTypes.WHALE_SPLASH.get(), ParticleWhaleSplash.Factory::new);
+        registry.registerSpriteSet(ModParticleTypes.FIREFLY.get(), FireflyParticle.Provider::new);
+        registry.registerSpriteSet(ModParticleTypes.DUST_PLUME.get(), DustPlumeParticle.Provider::new);
+        registry.registerSpriteSet(ModParticleTypes.COPPER_FIRE_FLAME.get(), FlameParticle.Provider::new);
     }
 
 

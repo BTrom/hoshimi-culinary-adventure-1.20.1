@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "salt:raw_rock_salt"
+      "item": "hoshimimod:raw_rock_salt"
     }
   ],
   "result": {
-    "item": "salt:salt"
+    "item": "hoshimimod:salt"
   }
 }

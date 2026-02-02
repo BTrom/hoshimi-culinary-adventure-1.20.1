@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "hoshimimod:block/pale_hanging_moss"
+  }
+}

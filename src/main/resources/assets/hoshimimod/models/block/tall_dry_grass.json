@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "hoshimimod:block/tall_dry_grass"
+  }
+}
