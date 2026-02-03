@@ -12,3 +12,4 @@ public record CopperGolemOxidationLevel(
     ResourceLocation eyeTexture
 ) {
 }
+

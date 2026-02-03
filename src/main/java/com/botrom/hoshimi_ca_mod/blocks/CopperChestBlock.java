@@ -4,6 +4,7 @@ import com.botrom.hoshimi_ca_mod.blocks.entities.CopperChestBlockEntity;
 import com.botrom.hoshimi_ca_mod.registry.ModBlockEntityTypes;
 import com.botrom.hoshimi_ca_mod.registry.ModBlocks;
 import com.botrom.hoshimi_ca_mod.registry.ModSounds;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.platform.Services;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -34,28 +36,28 @@ import java.util.function.Supplier;
 
 public class CopperChestBlock extends ChestBlock {
     private static final Map<Block, Supplier<Block>> COPPER_TO_COPPER_CHEST_MAPPING = Map.of(
-        Blocks.COPPER_BLOCK, () -> ModBlocks.COPPER_CHEST.get(),
-        Blocks.EXPOSED_COPPER, () -> ModBlocks.EXPOSED_COPPER_CHEST.get(),
-        Blocks.WEATHERED_COPPER, () -> ModBlocks.WEATHERED_COPPER_CHEST.get(),
-        Blocks.OXIDIZED_COPPER, () -> ModBlocks.OXIDIZED_COPPER_CHEST.get(),
-        Blocks.WAXED_COPPER_BLOCK, () -> ModBlocks.COPPER_CHEST.get(),
-        Blocks.WAXED_EXPOSED_COPPER, () -> ModBlocks.EXPOSED_COPPER_CHEST.get(),
-        Blocks.WAXED_WEATHERED_COPPER, () -> ModBlocks.WEATHERED_COPPER_CHEST.get(),
-        Blocks.WAXED_OXIDIZED_COPPER, () -> ModBlocks.OXIDIZED_COPPER_CHEST.get()
+            Blocks.COPPER_BLOCK, () -> ModBlocks.COPPER_CHEST.get(),
+            Blocks.EXPOSED_COPPER, () -> ModBlocks.EXPOSED_COPPER_CHEST.get(),
+            Blocks.WEATHERED_COPPER, () -> ModBlocks.WEATHERED_COPPER_CHEST.get(),
+            Blocks.OXIDIZED_COPPER, () -> ModBlocks.OXIDIZED_COPPER_CHEST.get(),
+            Blocks.WAXED_COPPER_BLOCK, () -> ModBlocks.COPPER_CHEST.get(),
+            Blocks.WAXED_EXPOSED_COPPER, () -> ModBlocks.EXPOSED_COPPER_CHEST.get(),
+            Blocks.WAXED_WEATHERED_COPPER, () -> ModBlocks.WEATHERED_COPPER_CHEST.get(),
+            Blocks.WAXED_OXIDIZED_COPPER, () -> ModBlocks.OXIDIZED_COPPER_CHEST.get()
     );
 
     protected final WeatheringCopper.WeatherState weatherState;
     private final SoundEvent openSound;
     private final SoundEvent closeSound;
 
-    public CopperChestBlock(WeatheringCopper.WeatherState weatherState, Properties properties) {
+    public CopperChestBlock(WeatheringCopper.WeatherState weatherState, BlockBehaviour.Properties properties) {
         super(properties, () -> ModBlockEntityTypes.COPPER_CHEST_BLOCK_ENTITY.get());
         this.weatherState = weatherState;
         this.openSound = ModSounds.COPPER_CHEST_OPEN.get();
         this.closeSound = ModSounds.COPPER_CHEST_CLOSE.get();
     }
 
-        public WeatheringCopper.WeatherState getState() {
+    public WeatheringCopper.WeatherState getState() {
         return this.weatherState;
     }
 
@@ -75,22 +77,28 @@ public class CopperChestBlock extends ChestBlock {
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new CopperChestBlockEntity(pos, state);
     }
-    
+
     /**
      * Override render shape to support FastChest mod on Fabric.
      * When FastChest's simplified mode is enabled, use MODEL rendering instead of ENTITYBLOCK_ANIMATED.
      */
     @Override
     public RenderShape getRenderShape(BlockState state) {
+        if (/*Services.PLATFORM.isFastChestSimplifiedEnabled()*/ false) {
+            return RenderShape.MODEL;
+        }
         return super.getRenderShape(state);
     }
-    
+
     /**
      * Override ticker to support FastChest mod on Fabric.
      * When FastChest's simplified mode is enabled, disable the ticker for better performance.
      */
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (/*Services.PLATFORM.isFastChestSimplifiedEnabled()*/false) {
+            return null;
+        }
         return super.getTicker(level, state, type);
     }
 
@@ -118,26 +126,26 @@ public class CopperChestBlock extends ChestBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack stack = player.getItemInHand(hand);
-        
+
         // Check if player is using an axe on a waxed chest - dewax it
         if (stack.is(ItemTags.AXES)) {
             // Don't allow dewaxing if chest is open
             if (level.getBlockEntity(pos) instanceof CopperChestBlockEntity chestEntity && chestEntity.isChestOpen()) {
                 return InteractionResult.PASS;
             }
-            
+
             Optional<Block> unwaxedBlock = getUnwaxedBlock(state.getBlock());
-            
+
             if (unwaxedBlock.isPresent()) {
                 ChestType chestType = state.getValue(TYPE);
                 Block newBlock = unwaxedBlock.get();
-                
+
                 // Play sounds and particles for both chests BEFORE server check
                 if (chestType != ChestType.SINGLE) {
                     Direction connectedDir = ChestBlock.getConnectedDirection(state);
                     BlockPos connectedPos = pos.relative(connectedDir);
                     BlockState connectedState = level.getBlockState(connectedPos);
-                    
+
                     if (connectedState.getBlock() == state.getBlock()) {
                         // Play sounds and particles for both chests
                         level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -153,26 +161,26 @@ public class CopperChestBlock extends ChestBlock {
                     level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
                     level.levelEvent(player, 3004, pos, 0);
                 }
-                
+
                 if (!level.isClientSide) {
                     NonNullList<ItemStack> currentItems = copyInventoryAndClear(level, pos);
                     NonNullList<ItemStack> connectedItems = NonNullList.create();
                     BlockState newState = newBlock.withPropertiesOf(state);
-                    
+
                     // If this is a double chest, update both halves atomically
                     if (chestType != ChestType.SINGLE) {
                         Direction connectedDir = ChestBlock.getConnectedDirection(state);
                         BlockPos connectedPos = pos.relative(connectedDir);
                         BlockState connectedState = level.getBlockState(connectedPos);
-                        
+
                         if (connectedState.getBlock() == state.getBlock()) {
                             BlockState connectedNewState = newBlock.withPropertiesOf(connectedState);
                             connectedItems = copyInventoryAndClear(level, connectedPos);
-                            
+
                             // Update both chests with flag 2 (no block updates to neighbors yet)
                             level.setBlock(pos, newState, 2);
                             level.setBlock(connectedPos, connectedNewState, 2);
-                            
+
                             // Now send block updates to both positions
                             level.blockUpdated(pos, newBlock);
                             level.blockUpdated(connectedPos, newBlock);
@@ -188,18 +196,18 @@ public class CopperChestBlock extends ChestBlock {
                         level.setBlockAndUpdate(pos, newState);
                         restoreInventory(level, pos, currentItems);
                     }
-                    
+
                     if (!player.isCreative()) {
                         stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(hand));
                     }
                 }
-                
+
                 return InteractionResult.SUCCESS;
             }
             // Block chest opening even if not waxed
             return InteractionResult.SUCCESS;
         }
-        
+
         // Default chest behavior (open inventory)
         return super.use(state, level, pos, player, hand, hit);
     }

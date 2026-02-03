@@ -14,6 +14,7 @@ import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.FoodUseDuration;
 import com.botrom.hoshimi_ca_mod.utils.compat.crockpot.util.I18nUtils;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.content.SauceType;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.items.*;
+import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.VariantKeys;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.api.DryFoliageColor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -791,8 +792,8 @@ public class ModItems {
     public static final RegistryObject<Item> SNAIL_BUCKET = ITEMS.register("snail_bucket",
             () -> new MobBucketItem(ModEntities.SNAIL, () -> Fluids.EMPTY, ModSounds.BUCKET_EMPTY_SNAIL, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET))); // Snail.Color.values().length);
 
-//    public static final RegistryObject<Item> BLUE_EGG = ITEMS.register("blue_egg", properties -> new VariantEggItem(VariantKeys.COLD_CHICKEN, new Item.Properties().stacksTo(16)));
-//    public static final RegistryObject<Item> BROWN_EGG = ITEMS.register("brown_egg", properties -> new VariantEggItem(VariantKeys.WARM_CHICKEN, new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> BLUE_EGG = ITEMS.register("blue_egg", () -> new VariantEggItem(VariantKeys.COLD_CHICKEN, new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> BROWN_EGG = ITEMS.register("brown_egg", () -> new VariantEggItem(VariantKeys.WARM_CHICKEN, new Item.Properties().stacksTo(16)));
 
     public static final Map<Parrot.Variant, RegistryObject<Item>> PARROT_EGGS = Util.make(new EnumMap<>(Parrot.Variant.class), map -> {
         for (var variant : Parrot.Variant.values()) {

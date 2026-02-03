@@ -9,6 +9,7 @@ import com.botrom.hoshimi_ca_mod.registry.ModTags;
 import com.botrom.hoshimi_ca_mod.utils.ModConfig;
 import com.botrom.hoshimi_ca_mod.utils.compat.copper.PressRandomCopperButton;
 import com.botrom.hoshimi_ca_mod.utils.compat.copper.TransportItemsBetweenContainers;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.compat.ModCompat;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -65,8 +66,7 @@ public class CopperGolemAi {
         ModMemoryModules.VISITED_BLOCK_POSITIONS.get(),
         ModMemoryModules.UNREACHABLE_TRANSPORT_BLOCK_POSITIONS.get(),
         ModMemoryModules.IS_PRESSING_BUTTON.get(),
-        ModMemoryModules.LAST_CONTAINER_EMPTY.get(),
-        ModMemoryModules.GOLEM_DETECTED_MISC_CHEST.get()
+        ModMemoryModules.LAST_CONTAINER_EMPTY.get()
         // MemoryModuleType.DOORS_TO_CLOSE - requires InteractWithDoor from 1.21.10+
     );
     
@@ -131,7 +131,7 @@ public class CopperGolemAi {
         )));
         
         // Prio 1: Press Random Copper Button (enabled by config)
-        if (ModConfig.golemPressesButtons) {
+        if (ModConfig.golemPressesButtons()) {
             behaviorsBuilder.add(Pair.of(1, new PressRandomCopperButton(
                 1.0F,  // Speed Modifier (normale Geschwindigkeit)
                 16,    // Horizontal Search Distance (16 Blöcke)
@@ -214,6 +214,15 @@ public class CopperGolemAi {
     private static void playChestSound(CopperGolemEntity golem, BlockPos pos, boolean open) {
         Level level = golem.level();
         BlockState blockState = level.getBlockState(pos);
+        
+        // Try ModCompat first (SophisticatedStorage, etc.)
+        if (ModCompat.handleChestOpen(level, pos, blockState, open)) {
+            // ModCompat handled the sound and animation
+            level.gameEvent(golem, 
+                open ? net.minecraft.world.level.gameevent.GameEvent.CONTAINER_OPEN : net.minecraft.world.level.gameevent.GameEvent.CONTAINER_CLOSE, 
+                pos);
+            return;
+        }
         
         // Determine sound based on container type (vanilla handling)
         net.minecraft.sounds.SoundEvent soundEvent;
@@ -309,7 +318,8 @@ public class CopperGolemAi {
         if (state.getBlock() instanceof BarrelBlock) {
             return true;
         }
-        return false;
+        // ModCompat containers (SophisticatedStorage, IronChests, etc. that don't extend ChestBlock)
+        return ModCompat.isValidModContainer(state);
     }
     
     /**

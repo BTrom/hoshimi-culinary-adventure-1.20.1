@@ -3,6 +3,7 @@ package com.botrom.hoshimi_ca_mod.utils.compat.copper;
 import com.botrom.hoshimi_ca_mod.entities.ai.CopperGolemNavigation;
 import com.botrom.hoshimi_ca_mod.registry.ModMemoryModules;
 import com.botrom.hoshimi_ca_mod.utils.ModConfig;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.compat.ModCompat;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -79,11 +80,14 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
     ) {
         super(
             ImmutableMap.of(
-                ModMemoryModules.VISITED_BLOCK_POSITIONS.get(), MemoryStatus.REGISTERED,
-                ModMemoryModules.UNREACHABLE_TRANSPORT_BLOCK_POSITIONS.get(), MemoryStatus.REGISTERED,
-                ModMemoryModules.TRANSPORT_ITEMS_COOLDOWN_TICKS.get(), MemoryStatus.VALUE_ABSENT,
-                MemoryModuleType.IS_PANICKING, MemoryStatus.VALUE_ABSENT,
-                ModMemoryModules.GOLEM_DETECTED_MISC_CHEST.get(), MemoryStatus.REGISTERED
+                ModMemoryModules.VISITED_BLOCK_POSITIONS.get(),
+                MemoryStatus.REGISTERED,
+                ModMemoryModules.UNREACHABLE_TRANSPORT_BLOCK_POSITIONS.get(),
+                MemoryStatus.REGISTERED,
+                ModMemoryModules.TRANSPORT_ITEMS_COOLDOWN_TICKS.get(),
+                MemoryStatus.VALUE_ABSENT,
+                MemoryModuleType.IS_PANICKING,
+                MemoryStatus.VALUE_ABSENT
             )
         );
         this.speedModifier = speedModifier;
@@ -113,7 +117,7 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
     }
 
     protected boolean canStillUse(ServerLevel level, PathfinderMob mob, long gameTime) {
-        return mob.getBrain().getMemory(ModMemoryModules.TRANSPORT_ITEMS_COOLDOWN_TICKS.get()).isEmpty() 
+        return mob.getBrain().getMemory(ModMemoryModules.TRANSPORT_ITEMS_COOLDOWN_TICKS.get()).isEmpty()
             && mob.getBrain().getMemory(MemoryModuleType.IS_PANICKING).isEmpty() 
             && !mob.isLeashed();
     }
@@ -189,14 +193,12 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
             this.onTargetInteraction(target, mob);
             if (this.ticksSinceReachingTarget >= 60) {
                 this.doReachedTargetInteraction(
-                        mob,
-                        target.container,
-                        this::pickUpItems,
-                        (mobParam, containerParam) -> this.stopTargetingCurrentTarget(mob),
-                        // Update lambda to pass target.pos
-                        (m, c) -> this.putDownItem(m, c, target.pos),
-                        (mobParam, containerParam) -> this.stopTargetingCurrentTarget(mob),
-                        target.pos // Add target.pos argument
+                    mob,
+                    target.container,
+                    this::pickUpItems,
+                    (mobParam, containerParam) -> this.stopTargetingCurrentTarget(mob),
+                    this::putDownItem,
+                    (mobParam, containerParam) -> this.stopTargetingCurrentTarget(mob)
                 );
                 this.onStartTravelling(mob);
             }
@@ -226,8 +228,7 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
             this.onReachedInteraction(ContainerInteractionState.PICKUP_ITEM),
             this.onReachedInteraction(ContainerInteractionState.PICKUP_NO_ITEM),
             this.onReachedInteraction(ContainerInteractionState.PLACE_ITEM),
-            this.onReachedInteraction(ContainerInteractionState.PLACE_NO_ITEM),
-            target.pos // Add target.pos argument
+            this.onReachedInteraction(ContainerInteractionState.PLACE_NO_ITEM)
         );
         this.setTransportingState(TransportItemState.INTERACTING);
     }
@@ -261,13 +262,12 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
     }
 
     private void doReachedTargetInteraction(
-            PathfinderMob mob,
-            Container container,
-            BiConsumer<PathfinderMob, Container> pickupItem,
-            BiConsumer<PathfinderMob, Container> pickupNoItem,
-            BiConsumer<PathfinderMob, Container> placeItem,
-            BiConsumer<PathfinderMob, Container> placeNoItem,
-            BlockPos targetPos // Add this parameter
+        PathfinderMob mob,
+        Container container,
+        BiConsumer<PathfinderMob, Container> pickupItem,
+        BiConsumer<PathfinderMob, Container> pickupNoItem,
+        BiConsumer<PathfinderMob, Container> placeItem,
+        BiConsumer<PathfinderMob, Container> placeNoItem
     ) {
         if (isPickingUpItems(mob)) {
             if (matchesGettingItemsRequirement(container)) {
@@ -275,8 +275,7 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
             } else {
                 pickupNoItem.accept(mob, container);
             }
-            // Pass targetPos here
-        } else if (matchesLeavingItemsRequirement(mob, container, targetPos)) {
+        } else if (matchesLeavingItemsRequirement(mob, container)) {
             placeItem.accept(mob, container);
         } else {
             placeNoItem.accept(mob, container);
@@ -287,7 +286,8 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
         AABB aabb = this.getTargetSearchArea(mob);
         Set<GlobalPos> set = getVisitedPositions(mob);
         Set<GlobalPos> set1 = getUnreachablePositions(mob);
-        List<ChunkPos> list = ChunkPos.rangeClosed(new ChunkPos(mob.blockPosition()), Math.floorDiv(this.getHorizontalSearchDistance(mob), 16) + 1).toList();
+        List<ChunkPos> list = ChunkPos.rangeClosed(new ChunkPos(mob.blockPosition()), Math.floorDiv(this.getHorizontalSearchDistance(mob), 16) + 1)
+            .toList();
         
         // Collect all BlockEntities and sort by BlockPos.hashCode() to match 1.21.10 iteration order
         // In 1.21.10, ChunkAccess uses Object2ObjectOpenHashMap which iterates based on hash position
@@ -314,7 +314,8 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
             // Support Vanilla containers and mod containers (SophisticatedStorage, etc.)
             BlockState blockState = level.getBlockState(blockentity.getBlockPos());
             boolean isVanillaContainer = blockentity instanceof ChestBlockEntity || blockentity instanceof BarrelBlockEntity;
-            if (isVanillaContainer) {
+            boolean isModContainer = ModCompat.isValidModContainer(blockState);
+            if (isVanillaContainer || isModContainer) {
                 double d1 = blockentity.getBlockPos().distToCenterSqr(mob.position());
                 if (d1 < d0) {
                     TransportItemTarget transportitemsbetweencontainers$transportitemtarget1 = this.isTargetValidToPick(
@@ -534,17 +535,8 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
         return !container.isEmpty();
     }
 
-    private static boolean matchesLeavingItemsRequirement(PathfinderMob mob, Container container, BlockPos targetPos) {
-        if (container.isEmpty()) {
-            return true;
-        }
-        // New Logic: Check if this is the remembered misc chest
-        Optional<GlobalPos> miscChest = mob.getBrain().getMemory(ModMemoryModules.GOLEM_DETECTED_MISC_CHEST.get());
-        if (miscChest.isPresent() && miscChest.get().pos().equals(targetPos) && miscChest.get().dimension() == mob.level().dimension()) {
-            return true;
-        }
-
-        return hasItemMatchingHandItem(mob, container);
+    private static boolean matchesLeavingItemsRequirement(PathfinderMob mob, Container container) {
+        return container.isEmpty() || hasItemMatchingHandItem(mob, container);
     }
 
     private static boolean hasItemMatchingHandItem(PathfinderMob mob, Container container) {
@@ -567,18 +559,10 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
         this.clearMemoriesAfterMatchingTargetFound(mob);
     }
 
-    private void putDownItem(PathfinderMob mob, Container container, BlockPos targetPos) {
-        boolean wasEmpty = container.isEmpty(); // Check state before adding
-
+    private void putDownItem(PathfinderMob mob, Container container) {
         ItemStack itemstack = addItemsToContainer(mob, container);
         container.setChanged();
         mob.setItemSlot(EquipmentSlot.MAINHAND, itemstack);
-
-        // New Logic: If chest was empty and is no longer empty, remember it as the Misc Chest
-        if (wasEmpty && !container.isEmpty()) {
-            mob.getBrain().setMemory(ModMemoryModules.GOLEM_DETECTED_MISC_CHEST.get(), GlobalPos.of(mob.level().dimension(), targetPos));
-        }
-
         if (itemstack.isEmpty()) {
             this.clearMemoriesAfterMatchingTargetFound(mob);
         } else {
@@ -590,7 +574,7 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack itemstack = container.getItem(i);
             if (!itemstack.isEmpty()) {
-                int j = Math.min(itemstack.getCount(), ModConfig.golemTransportStackSize);
+                int j = Math.min(itemstack.getCount(), ModConfig.golemTransportStackSize());
                 return container.removeItem(i, j);
             }
         }
@@ -704,6 +688,12 @@ public class TransportItemsBetweenContainers extends Behavior<PathfinderMob> {
             // Handle vanilla Container interface (Barrels, etc.)
             if (blockEntity instanceof Container container) {
                 return container;
+            }
+            
+            // Handle mod containers (SophisticatedStorage, etc.) via ModCompat
+            Container modContainer = ModCompat.getModContainer(blockEntity, level, pos);
+            if (modContainer != null) {
+                return modContainer;
             }
             
             return null;

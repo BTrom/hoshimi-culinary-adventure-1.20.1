@@ -81,7 +81,7 @@ public class PlayerJoinHandler {
                     .append(Component.literal(t3)
                         .withStyle(ChatFormatting.YELLOW));
                 
-                MutableComponent line2 = Component.literal(HoshimiCulinaryMod.MOD_ID + " v" + version + " - " + modLoader)
+                MutableComponent line2 = Component.literal("Hoshimi's Culinary Mod v" + version + " - " + modLoader)
                     .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD);
                 
                 String r1 = "NOT ";

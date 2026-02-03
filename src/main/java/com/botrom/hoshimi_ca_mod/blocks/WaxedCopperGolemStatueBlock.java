@@ -40,35 +40,35 @@ public class WaxedCopperGolemStatueBlock extends CopperGolemStatueBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         ItemStack stack = player.getItemInHand(hand);
-        
+
         // Axe interaction - dewax if waxed, otherwise restore golem
         if (stack.is(ItemTags.AXES)) {
             // Try dewaxing first
             java.util.Optional<Block> unwaxedBlock = getUnwaxedBlock(state.getBlock());
-            
+
             if (unwaxedBlock.isPresent()) {
                 level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
                 level.levelEvent(player, 3004, pos, 0);
-                
+
                 if (!level.isClientSide) {
                     BlockState newState = unwaxedBlock.get().defaultBlockState()
-                        .setValue(FACING, state.getValue(FACING))
-                        .setValue(POSE, state.getValue(POSE))
-                        .setValue(WATERLOGGED, state.getValue(WATERLOGGED));
+                            .setValue(FACING, state.getValue(FACING))
+                            .setValue(POSE, state.getValue(POSE))
+                            .setValue(WATERLOGGED, state.getValue(WATERLOGGED));
                     level.setBlock(pos, newState, Block.UPDATE_ALL);
-                    
+
                     if (!player.isCreative()) {
                         stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(hand));
                     }
                 }
-                
+
                 return InteractionResult.SUCCESS;
             }
-            
+
             // Not waxed - restore golem (use parent behavior)
             return super.use(state, level, pos, player, hand, hitResult);
         }
-        
+
         // For other interactions, use parent behavior
         return super.use(state, level, pos, player, hand, hitResult);
     }

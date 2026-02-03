@@ -1,0 +1,61 @@
+package com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport;
+
+import com.botrom.hoshimi_ca_mod.utils.ModConfig;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ServerLevelAccessor;
+
+import java.util.Optional;
+
+public class VariantUtils {
+    public static final String VARIANT_KEY = "variant";
+
+    public static <T> T getDefault(BuiltInCoreRegistry<T> registry, ResourceKey<T> key) {
+        return registry.getOrThrow(key);
+    }
+
+    public static <T> T getVariant(BuiltInCoreRegistry<T> registry, String id) {
+        return registry.get(ResourceLocation.tryParse(id));
+    }
+
+    public static <T> String getID(BuiltInCoreRegistry<T> registry, T value) {
+        return registry.getKey(value).toString();
+    }
+
+    public static <T> String getDefaultID(BuiltInCoreRegistry<T> registry, ResourceKey<T> value) {
+        return getID(registry, getDefault(registry, value));
+    }
+
+    public static <T> boolean matches(BuiltInCoreRegistry<T> registry, T variant, ResourceKey<T> value) {
+        return variant == registry.get(value);
+    }
+
+    public static <T> void addVariantSaveData(VariantHolder<T> entity, CompoundTag tag, BuiltInCoreRegistry<T> registry) {
+        tag.putString(VARIANT_KEY, registry.getKey(entity.vb$getVariant()).toString());
+    }
+
+    public static <T> void readVariantSaveData(VariantHolder<T> entity, CompoundTag tag, BuiltInCoreRegistry<T> registry) {
+        T variant = registry.get(ResourceLocation.tryParse(tag.getString(VARIANT_KEY)));
+        if (variant != null) entity.vb$setVariant(variant);
+    }
+
+    public static <T extends PriorityProvider<SpawnContext, ?>> Optional<T> selectVariantToSpawn(SpawnContext context, BuiltInCoreRegistry<T> registry) {
+        ServerLevelAccessor level = context.level();
+        return PriorityProvider.pick(registry.values().stream(), entry -> entry, level.getRandom(), context);
+    }
+
+    // Deferred config check to avoid static init issues
+
+    public static <T extends PriorityProvider<SpawnContext, ?>> Optional<T> selectFarmAnimalVariantToSpawn(SpawnContext context, BuiltInCoreRegistry<T> registry, ResourceKey<T> fallback) {
+        if (!ModConfig.hasFarmAnimalVariants) return Optional.of(registry.getOrThrow(fallback));
+
+        return selectVariantToSpawn(context, registry);
+    }
+
+//    public static <T extends PriorityProvider<SpawnContext, ?>> Optional<T> selectWolfVariantToSpawn(SpawnContext context, BuiltInCoreRegistry<T> registry, ResourceKey<T> fallback) {
+//        if (ModChecker.BACKPORTED_WOLVES_LOADED || !VanillaBackport.COMMON_CONFIG.hasWolfVariants.get()) return Optional.of(registry.getOrThrow(fallback));
+//
+//        return selectVariantToSpawn(context, registry);
+//    }
+}

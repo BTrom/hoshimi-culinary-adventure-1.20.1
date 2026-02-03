@@ -1,6 +1,7 @@
 package com.botrom.hoshimi_ca_mod;
 
 import com.botrom.hoshimi_ca_mod.effects.particle.FireflyParticle;
+import com.botrom.hoshimi_ca_mod.entities.CopperGolemEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.CopperGolemModel;
 import com.botrom.hoshimi_ca_mod.gui.FermenterScreen;
 import com.botrom.hoshimi_ca_mod.entities.models.BananaPeelModel;
@@ -13,6 +14,9 @@ import com.botrom.hoshimi_ca_mod.gui.CrockPotScreen;
 import com.botrom.hoshimi_ca_mod.gui.StoveGui;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.*;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.ForgeLootTableModifier;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.ForgeRegistryHelper;
+import com.botrom.hoshimi_ca_mod.utils.compat.copper.RegistryHelper;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.gui.ScreenPizza;
@@ -25,6 +29,8 @@ import com.botrom.hoshimi_ca_mod.utils.CommonProxy;
 import com.botrom.hoshimi_ca_mod.utils.ClientProxy;
 import com.botrom.hoshimi_ca_mod.utils.ConfigHolder;
 import com.botrom.hoshimi_ca_mod.utils.compat.QuarkModelHandler;
+import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.ModBuiltinRegistries;
+import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.SpawnConditions;
 import com.botrom.hoshimi_ca_mod.worldgen.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -32,6 +38,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.item.CreativeModeTab;
@@ -42,6 +49,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,6 +75,8 @@ import software.bernie.geckolib.GeckoLib;
 import terrablender.api.RegionType;
 import terrablender.api.Regions;
 
+import java.lang.ref.WeakReference;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(HoshimiCulinaryMod.MOD_ID)
 public class HoshimiCulinaryMod {
@@ -82,6 +92,7 @@ public class HoshimiCulinaryMod {
 
         PizzaCraftConfig.register(ModLoadingContext.get());
         modEventBus.addListener(this::setup);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ClientProxy::registerConfigScreen);
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::onModConfigEvent);
         modEventBus.addListener(this::onFinish);
@@ -111,13 +122,17 @@ public class HoshimiCulinaryMod {
         ModEntityDataSerializers.SERIALIZERS.register(modEventBus);
         AMPointOfInterestRegistry.DEF_REG.register(modEventBus);
 
+        RegistryHelper.setInstance(new ForgeRegistryHelper()); // TODO: From CopperAge
+        modEventBus.addListener(this::registerEntityAttributes);
+        modEventBus.addListener(this::commonSetup);
+        ForgeLootTableModifier.register(modEventBus);
+
         // From VanillaBackport TODO
-//        ModPaintingVariants.VARIANTS.register();
 //        ModBuiltinRegistries.WOLF_SOUND_VARIANTS.register();
-//        ModBuiltinRegistries.COW_VARIANTS.register();
-//        ModBuiltinRegistries.CHICKEN_VARIANTS.register();
-//        ModBuiltinRegistries.PIG_VARIANTS.register();
-//        SpawnConditions.CONDITIONS.register();
+        ModBuiltinRegistries.COW_VARIANTS.register();
+        ModBuiltinRegistries.CHICKEN_VARIANTS.register();
+        ModBuiltinRegistries.PIG_VARIANTS.register();
+        SpawnConditions.CONDITIONS.register();
 
         final DeferredRegister<Codec<? extends BiomeModifier>> biomeModifiers = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MOD_ID);
         biomeModifiers.register(modEventBus);
@@ -492,6 +507,9 @@ public class HoshimiCulinaryMod {
             entries.putAfter(ModItems.BLUE_HARNESS.get().getDefaultInstance(), ModItems.PURPLE_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             entries.putAfter(ModItems.PURPLE_HARNESS.get().getDefaultInstance(), ModItems.MAGENTA_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             entries.putAfter(ModItems.MAGENTA_HARNESS.get().getDefaultInstance(), ModItems.PINK_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            entries.putAfter(Items.EGG.getDefaultInstance(), ModItems.BLUE_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(ModItems.BLUE_EGG.get().getDefaultInstance(), ModItems.BROWN_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
@@ -610,4 +628,17 @@ public class HoshimiCulinaryMod {
 //                java.util.Set.of(HoshimiCulinaryMod.MOD_ID)
 //        ));
 //    }
+    // TODO: Here to remove as many differences from the copper mod as we can. Replace later on
+    private void registerEntityAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
+    }
+
+    private void commonSetup(FMLCommonSetupEvent event) {
+        // Fire registration callbacks (like button waxed references)
+        event.enqueueWork(() -> {
+            if (RegistryHelper.getInstance() instanceof ForgeRegistryHelper helper) {
+                helper.fireRegistrationCallbacks();
+            }
+        });
+    }
 }
