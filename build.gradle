@@ -268,3 +268,8 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    // This line forces the correct refmap name every time you compile
+    options.compilerArgs.add("-AoutRefMapFile=hoshimimod.refmap.json")
+}

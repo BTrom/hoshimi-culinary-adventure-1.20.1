@@ -84,10 +84,10 @@ public class ClientEvents {
 		e.registerLayerDefinition(HappyGhastRenderer.HAPPY_GHAST_HARNESS_LAYER_LOCATION, HappyGhastHarnessModel::createHarnessLayer);
 		e.registerLayerDefinition(HappyGhastRenderer.HAPPY_GHAST_ROPES_LAYER_LOCATION, () -> HappyGhastModel.createBodyLayer(false, new CubeDeformation(0.2F)));
 		e.registerLayerDefinition(HappyGhastRenderer.HAPPY_GHAST_BABY_ROPES_LAYER_LOCATION, () -> HappyGhastModel.createBodyLayer(true, new CubeDeformation(0.2F)));
-//		e.registerLayerDefinition(ModModelLayers.COLD_PIG, ColdPigModel::createBodyLayer);
-//		e.registerLayerDefinition(ModModelLayers.COLD_CHICKEN, ColdChickenModel::createBodyLayer);
-//		e.registerLayerDefinition(ModModelLayers.COLD_COW, ColdCowModel::createBodyLayer);
-//		e.registerLayerDefinition(ModModelLayers.WARM_COW, WarmCowModel::createBodyLayer);
+		e.registerLayerDefinition(PigVariantRenderer.COLD_PIG, ColdPigModel::createBodyLayer);
+		e.registerLayerDefinition(ChickenVariantRenderer.COLD_CHICKEN, ColdChickenModel::createBodyLayer);
+		e.registerLayerDefinition(CowVariantRenderer.COLD_COW, ColdCowModel::createBodyLayer);
+		e.registerLayerDefinition(CowVariantRenderer.WARM_COW, WarmCowModel::createBodyLayer);
 //		e.registerLayerDefinition(ModModelLayers.SHEEP_WOOL_UNDERCOAT, SheepModel::createBodyLayer);
 	}
 

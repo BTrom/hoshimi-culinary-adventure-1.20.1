@@ -127,7 +127,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.NAUTILUS.get(), NautilusRenderer::new);
         EntityRenderers.register(ModEntities.ARMADILLO.get(), ArmadilloRenderer::new);
         EntityRenderers.register(ModEntities.HAPPY_GHAST.get(), HappyGhastRenderer::new);
-//        EntityRenderers.register(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
+        EntityRenderers.register(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
