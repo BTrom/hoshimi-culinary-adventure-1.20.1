@@ -5,7 +5,6 @@ import com.botrom.hoshimi_ca_mod.effects.particle.*;
 import com.botrom.hoshimi_ca_mod.entities.models.*;
 import com.botrom.hoshimi_ca_mod.entities.renderers.*;
 import com.botrom.hoshimi_ca_mod.events.ClientEvents;
-import com.botrom.hoshimi_ca_mod.gui.coppergolem.ConfigScreen;
 import com.botrom.hoshimi_ca_mod.registry.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.AMItemRenderProperties;
 import com.botrom.hoshimi_ca_mod.utils.compat.farmandcharm.StorageTypeRegistry;
@@ -15,18 +14,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.FlameParticle;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -34,7 +28,6 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.Level;
@@ -127,7 +120,7 @@ public class ClientProxy extends CommonProxy {
         EntityRenderers.register(ModEntities.NAUTILUS.get(), NautilusRenderer::new);
         EntityRenderers.register(ModEntities.ARMADILLO.get(), ArmadilloRenderer::new);
         EntityRenderers.register(ModEntities.HAPPY_GHAST.get(), HappyGhastRenderer::new);
-        EntityRenderers.register(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
+//        EntityRenderers.register(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
 
         BlockEntityRenderers.register(ModBlockEntityTypes.STOVE_BLOCK_ENTITY.get(), StoveBlockRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PET_BOWL_BLOCK_ENTITY.get(), context -> new PetBowlBlockRenderer());
@@ -227,14 +220,5 @@ public class ClientProxy extends CommonProxy {
 
     public static void registerEntityLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> event) {
         event.accept(BubbleLayer.LAYER_LOCATION, BubbleModel::createLayer);
-    }
-
-    public static void registerConfigScreen() {
-        ModLoadingContext.get().registerExtensionPoint(
-                ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory(
-                        (mc, parent) -> ConfigScreen.create(parent)
-                )
-        );
     }
 }

@@ -49,7 +49,6 @@ import javax.annotation.Nullable;
 public class CopperGolemEntity extends AbstractGolem implements Shearable, ContainerUser {
     private static final long IGNORE_WEATHERING_TICK = -2L;
     private static final long UNSET_WEATHERING_TICK = -1L;
-    // Weathering tick values are now configurable via CommonConfig
     private static final int SPIN_ANIMATION_MIN_COOLDOWN = 200;
     private static final int SPIN_ANIMATION_MAX_COOLDOWN = 240;
     private static final float TURN_TO_STATUE_CHANCE = 0.0058F; // 0.58% chance per tick when oxidized
@@ -285,7 +284,7 @@ public class CopperGolemEntity extends AbstractGolem implements Shearable, Conta
         if (this.nextWeatheringTick != IGNORE_WEATHERING_TICK) {
             if (this.nextWeatheringTick == UNSET_WEATHERING_TICK) {
                 this.nextWeatheringTick = dayTime + random.nextIntBetweenInclusive(
-                    ModConfig.weatheringTickFrom(), ModConfig.weatheringTickTo());
+                    ModConfig.weatheringTickFrom, ModConfig.weatheringTickTo);
             } else {
                 WeatheringCopper.WeatherState weatherState = this.getWeatherState();
                 boolean isOxidized = weatherState == WeatheringCopper.WeatherState.OXIDIZED;
@@ -296,7 +295,7 @@ public class CopperGolemEntity extends AbstractGolem implements Shearable, Conta
                     this.setWeatherState(nextState);
                     this.nextWeatheringTick = willBeOxidized ? 0L : 
                         this.nextWeatheringTick + random.nextIntBetweenInclusive(
-                                ModConfig.weatheringTickFrom(), ModConfig.weatheringTickTo());
+                            ModConfig.weatheringTickFrom, ModConfig.weatheringTickTo);
                 }
                 
                 // Check if golem should turn into statue when fully oxidized
@@ -610,7 +609,7 @@ public class CopperGolemEntity extends AbstractGolem implements Shearable, Conta
     }
 
     // Copper ingot drops are handled by the entity loot table at:
-    // data/copperagebackport/loot_tables/entities/copper_golem.json
+    // data/hoshimimod/loot_tables/entities/copper_golem.json
     // Drops 1-3 copper ingots with looting enchantment bonus (vanilla behavior)
 
     @Override

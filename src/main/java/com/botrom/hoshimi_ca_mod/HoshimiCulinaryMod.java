@@ -15,8 +15,6 @@ import com.botrom.hoshimi_ca_mod.gui.StoveGui;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.compat.alex.*;
 import com.botrom.hoshimi_ca_mod.utils.compat.copper.ForgeLootTableModifier;
-import com.botrom.hoshimi_ca_mod.utils.compat.copper.ForgeRegistryHelper;
-import com.botrom.hoshimi_ca_mod.utils.compat.copper.RegistryHelper;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.blockentity.content.BasinContent;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.config.PizzaCraftConfig;
 import com.botrom.hoshimi_ca_mod.utils.compat.pizzacraft.client.gui.ScreenPizza;
@@ -92,7 +90,6 @@ public class HoshimiCulinaryMod {
 
         PizzaCraftConfig.register(ModLoadingContext.get());
         modEventBus.addListener(this::setup);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ClientProxy::registerConfigScreen);
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::onModConfigEvent);
         modEventBus.addListener(this::onFinish);
@@ -122,9 +119,6 @@ public class HoshimiCulinaryMod {
         ModEntityDataSerializers.SERIALIZERS.register(modEventBus);
         AMPointOfInterestRegistry.DEF_REG.register(modEventBus);
 
-        RegistryHelper.setInstance(new ForgeRegistryHelper()); // TODO: From CopperAge
-        modEventBus.addListener(this::registerEntityAttributes);
-        modEventBus.addListener(this::commonSetup);
         ForgeLootTableModifier.register(modEventBus);
 
         // From VanillaBackport TODO
@@ -628,17 +622,4 @@ public class HoshimiCulinaryMod {
 //                java.util.Set.of(HoshimiCulinaryMod.MOD_ID)
 //        ));
 //    }
-    // TODO: Here to remove as many differences from the copper mod as we can. Replace later on
-    private void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
-    }
-
-    private void commonSetup(FMLCommonSetupEvent event) {
-        // Fire registration callbacks (like button waxed references)
-        event.enqueueWork(() -> {
-            if (RegistryHelper.getInstance() instanceof ForgeRegistryHelper helper) {
-                helper.fireRegistrationCallbacks();
-            }
-        });
-    }
 }

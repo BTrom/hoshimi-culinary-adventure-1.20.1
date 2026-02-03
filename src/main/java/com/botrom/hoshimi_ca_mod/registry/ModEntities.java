@@ -277,7 +277,7 @@ public class ModEntities {
 					.clientTrackingRange(10)
 					.build("armadillo"));
 
-	public static final Supplier<EntityType<CopperGolemEntity>> COPPER_GOLEM = ENTITIES.register("copper_golem",
+	public static final RegistryObject<EntityType<CopperGolemEntity>> COPPER_GOLEM = ENTITIES.register("copper_golem",
 			() -> EntityType.Builder.of(CopperGolemEntity::new, MobCategory.MISC)
 					.sized(0.49F, 0.98F)
 					.clientTrackingRange(10)
@@ -376,7 +376,7 @@ public class ModEntities {
 		event.put(NAUTILUS.get(), Nautilus.createAttributes().build());
 		event.put(ARMADILLO.get(), Armadillo.createAttributes().build());
 		event.put(HAPPY_GHAST.get(), HappyGhast.createAttributes().build());
-//		event.put(COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
+		event.put(COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
 	}
 
 	@SubscribeEvent

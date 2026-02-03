@@ -77,7 +77,7 @@ public class PressRandomCopperButton extends Behavior<CopperGolemEntity> {
         }
         
         // Config-basierte Chance für ButtonPress nach leerem Container (0-100%)
-        int chancePercent = ModConfig.buttonPressChancePercent();
+        int chancePercent = ModConfig.buttonPressChancePercent;
         float chanceFloat = chancePercent / 100.0F;
         if (random.nextFloat() >= chanceFloat) {
             // Kein Glück, lösche Memory für nächsten Versuch
