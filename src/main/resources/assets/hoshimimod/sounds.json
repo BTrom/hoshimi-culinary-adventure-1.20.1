@@ -522,31 +522,6 @@
     ],
     "subtitle": "hoshimimod.sound.subtitle.tortoise.shell_block"
   },
-  "entity/tortoise_egg_break": {
-    "sounds": [
-      "mob/turtle/egg/egg_break1",
-      "mob/turtle/egg/egg_break2"
-    ],
-    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_break"
-  },
-  "entity/tortoise_egg_crack": {
-    "sounds": [
-      "mob/turtle/egg/egg_crack1",
-      "mob/turtle/egg/egg_crack2",
-      "mob/turtle/egg/egg_crack3",
-      "mob/turtle/egg/egg_crack4",
-      "mob/turtle/egg/egg_crack5"
-    ],
-    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_crack"
-  },
-  "entity/tortoise_egg_hatch": {
-    "sounds": [
-      "mob/turtle/baby/egg_hatched1",
-      "mob/turtle/baby/egg_hatched2",
-      "mob/turtle/baby/egg_hatched3"
-    ],
-    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_hatch"
-  },
   "entity/snail_crush": {
     "sounds": [
       "minecraft:mob/turtle/egg/egg_crack1",
@@ -2210,6 +2185,31 @@
     ],
     "subtitle": "hoshimimod.sound.subtitle.succubus_say"
   },
+  "block/tortoise_egg_break": {
+    "sounds": [
+      "mob/turtle/egg/egg_break1",
+      "mob/turtle/egg/egg_break2"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_break"
+  },
+  "block/tortoise_egg_crack": {
+    "sounds": [
+      "mob/turtle/egg/egg_crack1",
+      "mob/turtle/egg/egg_crack2",
+      "mob/turtle/egg/egg_crack3",
+      "mob/turtle/egg/egg_crack4",
+      "mob/turtle/egg/egg_crack5"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_crack"
+  },
+  "block/tortoise_egg_hatch": {
+    "sounds": [
+      "mob/turtle/baby/egg_hatched1",
+      "mob/turtle/baby/egg_hatched2",
+      "mob/turtle/baby/egg_hatched3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.tortoise.egg_hatch"
+  },
   "block/eyeblossom_close": {
     "sounds": [
       "hoshimimod:block/eyeblossom_close1",
@@ -3710,6 +3710,11 @@
       "hoshimimod:ambient/weather/end_flash6",
       "hoshimimod:ambient/weather/end_flash7",
       "hoshimimod:ambient/weather/end_flash8"
+    ]
+  },
+  "music/menu_music": {
+    "sounds": [
+      "hoshimimod:music/menu/shoujo_delight"
     ]
   }
 }

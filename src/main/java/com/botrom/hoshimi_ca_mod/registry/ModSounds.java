@@ -139,7 +139,6 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_UNAFFECTED = createSoundEvent("entity/copper_golem_step.unaffected");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_STEP_WEATHERED = createSoundEvent("entity/copper_golem_step.weathered");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_SPAWN = createSoundEvent("entity/copper_golem_spawn");
-    public static final RegistryObject<SoundEvent> COPPER_GOLEM_BECOME_STATUE = createSoundEvent("entity/become_statue");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_SHEAR = createSoundEvent("entity/copper_golem_shear");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_DROP = createSoundEvent("entity/copper_golem_item_drop");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_NO_DROP = createSoundEvent("entity/copper_golem_item_no_drop");
@@ -205,7 +204,7 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> COPPER_STATUE_BREAK = createSoundEvent("block/copper_statue_break");
     public static final RegistryObject<SoundEvent> COPPER_STATUE_PLACE = createSoundEvent("block/copper_statue_place");
     public static final RegistryObject<SoundEvent> COPPER_STATUE_HIT = createSoundEvent("block/copper_statue_hit");
-    public static final RegistryObject<SoundEvent> COPPER_STATUE_BECOME = createSoundEvent("block/become_statue");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_BECOME_STATUE = createSoundEvent("block/become_statue");
 //    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_CLOSE = createSoundEvent("block/copper_trapdoor_close");
 //    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_OPEN = createSoundEvent("block/copper_trapdoor_open");
     public static final RegistryObject<SoundEvent> COPPER_BULB_TURN_ON = createSoundEvent("block/copper_bulb_turn_on");
