@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_fallen_spruce_trees",
+  "features": "hoshimimod:placed_fallen_spruce_tree",
+  "step": "vegetal_decoration"
+}

@@ -469,6 +469,7 @@
   "item.hoshimimod.copper_leggings": "Copper Leggings",
   "item.hoshimimod.copper_boots": "Copper Boots",
   "item.hoshimimod.copper_horse_armor": "Copper Horse Armor",
+  "item.hoshimimod.succubus_spawn_egg": "Succubus Spawn Egg",
 
   "block.hoshimimod.wild_cucumbers": "Wild Cucumbers",
   "block.hoshimimod.wild_corn": "Wild Corn",
@@ -900,6 +901,7 @@
   "entity.hoshimimod.armadillo": "Armadillo",
   "entity.hoshimimod.happy_ghast": "Happy Ghast",
   "entity.hoshimimod.copper_golem": "Copper Golem",
+  "entity.hoshimimod.succubus": "Succubus",
 
   "information.hoshimimod.view_ingredients": "§6Hold <Shift> to View Ingredients",
   "information.hoshimimod.taste": "§6The Taste of This Pizza is %s",
@@ -1148,6 +1150,9 @@
   "hoshimimod.sound.subtitle.copper_bulb.turn_on": "Copper Bulb turns on",
   "hoshimimod.sound.subtitle.copper_bulb.turn_off": "Copper Bulb turns off",
   "hoshimimod.sound.subtitle.end_flash": "End flashes",
+  "hoshimimod.sound.subtitle.succubus_death": "Succubus dies",
+  "hoshimimod.sound.subtitle.succubus_hurt": "Succubus hurts",
+  "hoshimimod.sound.subtitle.succubus_say": "Succubus whispers",
 
   "advancements.hoshimimod.get_creamy_pasta_with_ham": "Creamy Ham",
   "advancements.hoshimimod.get_creamy_pasta_with_ham.desc": "Make a creamy pasta dish by mixing pasta with milk, ham, and onion",

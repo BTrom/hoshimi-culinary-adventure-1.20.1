@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_firefly_bushes_swamp",
+  "features": "hoshimimod:patch_firefly_bush_near_water_swamp",
+  "step": "vegetal_decoration"
+}

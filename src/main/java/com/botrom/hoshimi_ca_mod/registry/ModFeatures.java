@@ -30,12 +30,12 @@ public class ModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CACTUS_FLOWER = FEATURES.register("cactus_flower", () -> new CactusFlowerFeature(NoneFeatureConfiguration.CODEC));
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
-        context.register(key, new ConfiguredFeature(feature, configuration));
+        context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 
-//    public void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Feature<NoneFeatureConfiguration> feature) {
-//        register(context, key, (Feature)feature, (FeatureConfiguration)FeatureConfiguration.NONE);
-//    }
+    public void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Feature<NoneFeatureConfiguration> feature) {
+        register(context, key, (Feature)feature, (FeatureConfiguration)FeatureConfiguration.NONE);
+    }
 
     public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placements) {
         context.register(key, new PlacedFeature(feature, List.copyOf(placements)));
@@ -45,7 +45,7 @@ public class ModFeatures {
         register(context, key, feature, List.of(placements));
     }
 
-//    public void register(BootstapContext<NormalNoise.NoiseParameters> context, ResourceKey<NormalNoise.NoiseParameters> key, int firstOctave, double firstAmplitude, double... amplitudes) {
-//        context.register(key, new NormalNoise.NoiseParameters(firstOctave, firstAmplitude, amplitudes));
-//    }
+    public void register(BootstapContext<NormalNoise.NoiseParameters> context, ResourceKey<NormalNoise.NoiseParameters> key, int firstOctave, double firstAmplitude, double... amplitudes) {
+        context.register(key, new NormalNoise.NoiseParameters(firstOctave, firstAmplitude, amplitudes));
+    }
 }

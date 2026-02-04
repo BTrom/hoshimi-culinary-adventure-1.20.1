@@ -2188,6 +2188,28 @@
       "hoshimimod:entity/copper_golem_no_item_no_get"
     ]
   },
+  "entity/succubus_death": {
+    "sounds": [
+      "hoshimimod:entity/succubus_aggressive_death"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.succubus_death"
+  },
+  "entity/succubus_hurt": {
+    "sounds": [
+      "hoshimimod:entity/succubus_aggressive_hurt1",
+      "hoshimimod:entity/succubus_aggressive_hurt2",
+      "hoshimimod:entity/succubus_aggressive_hurt3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.succubus_hurt"
+  },
+  "entity/succubus_say": {
+    "sounds": [
+      "hoshimimod:entity/succubus_aggressive_say1",
+      "hoshimimod:entity/succubus_aggressive_say2",
+      "hoshimimod:entity/succubus_aggressive_say3"
+    ],
+    "subtitle": "hoshimimod.sound.subtitle.succubus_say"
+  },
   "block/eyeblossom_close": {
     "sounds": [
       "hoshimimod:block/eyeblossom_close1",

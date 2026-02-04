@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_wildflowers",
+  "features": "hoshimimod:wildflowers_birch_forest",
+  "step": "vegetal_decoration"
+}

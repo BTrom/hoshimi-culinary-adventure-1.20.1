@@ -79,6 +79,8 @@ public class CommonConfig {
     public final ForgeConfigSpec.IntValue weatheringTickFrom;
     public final ForgeConfigSpec.IntValue weatheringTickTo;
     public final ForgeConfigSpec.BooleanValue endFlashEnabled;
+    public final ForgeConfigSpec.BooleanValue spawnDaysPassed;
+    public final ForgeConfigSpec.IntValue spawnDaysSet;
 
 
     public CommonConfig(final ForgeConfigSpec.Builder builder) {
@@ -296,6 +298,12 @@ public class CommonConfig {
         hasDriedGhasts = builder
                 .comment("allow dried ghasts to be obtainable through nether fossils and piglin bartering")
                 .define("dried_ghasts", true);
+        spawnDaysPassed = builder
+                .comment("Mobs only spawn after a certain amount of days have passed [Default: false]")
+                .define("spawnDaysPassed", false);
+        spawnDaysSet = builder
+                .comment("Amount of days required to have passed before they can start spawning [Default: 3]")
+                .defineInRange("spawnDaysSet", 3, 1, Integer.MAX_VALUE);
         builder.pop();
         builder.comment("Danger Zone").push("dangerZone");
         pathfindingThreads = buildInt(builder,

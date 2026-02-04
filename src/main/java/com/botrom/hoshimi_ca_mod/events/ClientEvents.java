@@ -9,6 +9,7 @@ import com.botrom.hoshimi_ca_mod.utils.BlueprintDataUtils;
 import com.botrom.hoshimi_ca_mod.utils.EmissiveBakedModel;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.WingHudOverlay;
+import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.DryFoliageColorReloadListener;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.api.DryFoliageColor;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.api.LeafColors;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -89,6 +90,7 @@ public class ClientEvents {
 		e.registerLayerDefinition(CowVariantRenderer.COLD_COW, ColdCowModel::createBodyLayer);
 		e.registerLayerDefinition(CowVariantRenderer.WARM_COW, WarmCowModel::createBodyLayer);
 //		e.registerLayerDefinition(ModModelLayers.SHEEP_WOOL_UNDERCOAT, SheepModel::createBodyLayer);
+		e.registerLayerDefinition(new ModelLayerLocation(Utils.createResourceLocation("succubus"), "main"), SuccubusModel::createBodyLayer);
 	}
 
 
@@ -131,6 +133,15 @@ public class ClientEvents {
 		// We must force the game to load/bake this model even though no BlockState uses it directly
 		event.register(FIREFLY_BUSH_EMISSIVE);
 		event.register(OPEN_EYEBLOSSOM_EMISSIVE);
+	}
+
+	@SubscribeEvent
+	public void registerReloadListeners(RegisterClientReloadListenersEvent event) {
+		// This registers the listener to the resource manager
+		event.registerReloadListener(DryFoliageColorReloadListener.INSTANCE);
+
+		// If you also have the LeafColorReloadListener from the other code, register it here too:
+		// event.registerReloadListener(LeafColorReloadListener.INSTANCE);
 	}
 
 	@SubscribeEvent

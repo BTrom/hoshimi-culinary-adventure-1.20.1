@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_fallen_jungle_trees",
+  "features": "hoshimimod:placed_fallen_jungle_tree",
+  "step": "vegetal_decoration"
+}

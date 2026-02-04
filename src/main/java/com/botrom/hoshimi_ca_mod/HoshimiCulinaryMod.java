@@ -501,9 +501,6 @@ public class HoshimiCulinaryMod {
             entries.putAfter(ModItems.BLUE_HARNESS.get().getDefaultInstance(), ModItems.PURPLE_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             entries.putAfter(ModItems.PURPLE_HARNESS.get().getDefaultInstance(), ModItems.MAGENTA_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             entries.putAfter(ModItems.MAGENTA_HARNESS.get().getDefaultInstance(), ModItems.PINK_HARNESS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            entries.putAfter(Items.EGG.getDefaultInstance(), ModItems.BLUE_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            entries.putAfter(ModItems.BLUE_EGG.get().getDefaultInstance(), ModItems.BROWN_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
@@ -517,13 +514,20 @@ public class HoshimiCulinaryMod {
             entries.putAfter(ModItems.COPPER_LEGGINGS.get().getDefaultInstance(), ModItems.COPPER_BOOTS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             entries.putAfter(Items.LEATHER_HORSE_ARMOR.getDefaultInstance(), ModItems.COPPER_HORSE_ARMOR.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            entries.putAfter(Items.EGG.getDefaultInstance(), ModItems.BROWN_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(ModItems.BROWN_EGG.get().getDefaultInstance(), ModItems.BLUE_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.getEntries().putAfter(Items.AMETHYST_SHARD.getDefaultInstance(), ModItems.COPPER_NUGGET.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().putAfter(Items.HONEYCOMB.getDefaultInstance(), ModItems.RESIN_CLUMP.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().putAfter(Items.SCUTE.getDefaultInstance(), ModItems.ARMADILLO_SCUTE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().putAfter(Items.NETHER_BRICK.getDefaultInstance(), ModItems.RESIN_BRICK.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            var entries = event.getEntries();
+            entries.putAfter(Items.AMETHYST_SHARD.getDefaultInstance(), ModItems.COPPER_NUGGET.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(Items.HONEYCOMB.getDefaultInstance(), ModItems.RESIN_CLUMP.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(Items.SCUTE.getDefaultInstance(), ModItems.ARMADILLO_SCUTE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(Items.NETHER_BRICK.getDefaultInstance(), ModItems.RESIN_BRICK.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            entries.putAfter(Items.EGG.getDefaultInstance(), ModItems.BROWN_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            entries.putAfter(ModItems.BROWN_EGG.get().getDefaultInstance(), ModItems.BLUE_EGG.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
@@ -601,25 +605,31 @@ public class HoshimiCulinaryMod {
 //        event.registerSpriteSet(ModParticleTypes.FIREFLY.get(), FireflyParticle.Provider::new);
 //    }
 
-//    private void gatherData(net.minecraftforge.data.event.GatherDataEvent event) {
-//        net.minecraft.data.DataGenerator generator = event.getGenerator();
-//        net.minecraft.data.PackOutput output = generator.getPackOutput();
-//        java.util.concurrent.CompletableFuture<net.minecraft.core.HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-//
-//        // Register the RegistrySetBuilder that creates the JSONs
-//        generator.addProvider(event.includeServer(), new net.minecraftforge.common.data.DatapackBuiltinEntriesProvider(
-//                output,
-//                lookupProvider,
-//                new net.minecraft.core.RegistrySetBuilder()
-//                        // 1. Add Configured Features (So Placed Features can find them)
-//                        .add(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
-//
-//                        // 2. Add Placed Features (So Biome Modifiers can find them)
-//                        .add(net.minecraft.core.registries.Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-//
-//                        // 3. Add Biome Modifiers (The files you are missing)
-//                        .add(net.minecraftforge.registries.ForgeRegistries.Keys.BIOME_MODIFIERS, BiomeModifiers::bootstrap),
-//                java.util.Set.of(HoshimiCulinaryMod.MOD_ID)
-//        ));
-//    }
+    private void gatherData(net.minecraftforge.data.event.GatherDataEvent event) {
+        net.minecraft.data.DataGenerator generator = event.getGenerator();
+        net.minecraft.data.PackOutput output = generator.getPackOutput();
+        java.util.concurrent.CompletableFuture<net.minecraft.core.HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(event.includeServer(), new net.minecraftforge.common.data.DatapackBuiltinEntriesProvider(
+                output,
+                lookupProvider,
+                new net.minecraft.core.RegistrySetBuilder()
+                        .add(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE, context -> {
+                            ModConfiguredFeatures.bootstrap(context);
+                            CDConfiguredFeatures.bootstrap(context);
+                        })
+
+                        // --- FIX: MERGE BOTH PLACED FEATURES INTO ONE CALL ---
+                        .add(net.minecraft.core.registries.Registries.PLACED_FEATURE, context -> {
+                            // Register your main mod features
+                            ModPlacedFeatures.bootstrap(context);
+                            // Register the compatibility/other features (Palms, Seashells)
+                            CDPlacedFeatures.bootstrap(context);
+                        })
+                        // ---------------------------------------------------
+
+                        .add(net.minecraftforge.registries.ForgeRegistries.Keys.BIOME_MODIFIERS, BiomeModifiers::bootstrap),
+                java.util.Set.of(HoshimiCulinaryMod.MOD_ID)
+        ));
+    }
 }

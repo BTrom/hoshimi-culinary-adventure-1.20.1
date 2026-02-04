@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_fallen_birch_trees_rarely",
+  "features": "hoshimimod:placed_rare_fallen_birch_tree",
+  "step": "vegetal_decoration"
+}

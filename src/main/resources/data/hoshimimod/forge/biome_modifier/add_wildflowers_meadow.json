@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_noise_based_wildflowers",
+  "features": "hoshimimod:wildflowers_meadow",
+  "step": "vegetal_decoration"
+}

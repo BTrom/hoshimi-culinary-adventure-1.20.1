@@ -93,11 +93,32 @@ public class ModConfiguredFeatures {
         ModFeatures.register(context, CACTUS_FLOWER, ModFeatures.CACTUS_FLOWER.get(), FeatureConfiguration.NONE);
         ModFeatures.register(context, FLOWER_PALE_GARDEN, Feature.FLOWER, new RandomPatchConfiguration(1, 0, 0, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CLOSED_EYEBLOSSOM.get())))));
         ModFeatures.register(context, PALE_GARDEN_FLOWERS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CLOSED_EYEBLOSSOM.get()))));
-        ModFeatures.register(context, PALE_GARDEN_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CREAKING_CHECKED), 0.1F), new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED), 0.9F)), placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED)));
+//        ModFeatures.register(context, PALE_GARDEN_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CREAKING_CHECKED), 0.1F), new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED), 0.9F)), placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED)));
         ModFeatures.register(context, PALE_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ModBlocks.PALE_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 25).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
         ModFeatures.register(context, PALE_MOSS_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(ModBlocks.PALE_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(features.getOrThrow(PALE_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.3F, UniformInt.of(2, 4), 0.75F));
         ModFeatures.register(context, PALE_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(ModBlocks.PALE_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(features.getOrThrow(PALE_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
+        // --- FIX 1: Register the missing PALE_OAK and CREAKING trees ---
+        // You cannot "getOrThrow" these if you don't register them first!
+        // I am using Dark Oak config as a placeholder; replace with your actual Pale Oak config logic
+        ModFeatures.register(context, PALE_OAK, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(ModBlocks.PALE_OAK_LOG.get()), // Ensure you have these blocks
+                new DarkOakTrunkPlacer(6, 2, 1),
+                BlockStateProvider.simple(ModBlocks.PALE_OAK_LEAVES.get()),
+                new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 0, OptionalInt.empty())
+        ).build());
+
+        // Do the same for PALE_OAK_CREAKING
+        ModFeatures.register(context, PALE_OAK_CREAKING, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(ModBlocks.PALE_OAK_LOG.get()),
+                new DarkOakTrunkPlacer(6, 2, 1),
+                BlockStateProvider.simple(ModBlocks.PALE_OAK_LEAVES.get()),
+                new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 0, OptionalInt.empty())
+        ).build()); // Add creaking heart decorator here if needed
+
+        // --- FIX 2: Create the Inline Placements (referenced by the vegetation below) ---
         var paleOakChecked = PlacementUtils.inlinePlaced(
                 features.getOrThrow(PALE_OAK),
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get())
@@ -108,7 +129,10 @@ public class ModConfiguredFeatures {
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get())
         );
 
-        // 2. Register PALE_GARDEN_VEGETATION using the inline variables
+        // ... (Keep PALE_MOSS registrations) ...
+
+        // --- FIX 3: Register PALE_GARDEN_VEGETATION ONLY ONCE ---
+        // Remove the registration at line 83 and keep ONLY this one:
         ModFeatures.register(context, PALE_GARDEN_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
                 List.of(
                         new WeightedPlacedFeature(paleOakCreakingChecked, 0.1F),

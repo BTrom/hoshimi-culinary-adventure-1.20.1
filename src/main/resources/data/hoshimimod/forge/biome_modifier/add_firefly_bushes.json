@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_firefly_bushes",
+  "features": "hoshimimod:patch_firefly_bush_near_water",
+  "step": "vegetal_decoration"
+}

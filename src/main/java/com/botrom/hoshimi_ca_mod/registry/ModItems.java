@@ -748,6 +748,7 @@ public class ModItems {
     public static final RegistryObject<Item> ARMADILLO_SPAWN_EGG = ITEMS.register("armadillo_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.ARMADILLO, 11366765, 8538184, new Item.Properties()));
     public static final RegistryObject<Item> HAPPY_GHAST_SPAWN_EGG = ITEMS.register("happy_ghast_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.HAPPY_GHAST, 16382457, 12369084, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_GOLEM_SPAWN_EGG = ITEMS.register("copper_golem_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.COPPER_GOLEM, 0xB87333, 0x48D1CC, new Item.Properties()));
+    public static final RegistryObject<Item> SUCCUBUS_SPAWN_EGG = ITEMS.register("succubus_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.SUCCUBUS, 4079166, 13218145, new Item.Properties()));
 
     public static final RegistryObject<Item> TIGER_PRAWN_BUCKET = ITEMS.register("tiger_prawn_bucket",
             () -> new MobBucketItem(ModEntities.TIGER_PRAWN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_TADPOLE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));

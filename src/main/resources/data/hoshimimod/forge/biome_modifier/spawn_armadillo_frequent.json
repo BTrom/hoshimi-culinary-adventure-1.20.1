@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#hoshimimod:spawns_armadillos_frequently",
+  "spawners": {
+    "type": "hoshimimod:armadillo",
+    "maxCount": 3,
+    "minCount": 2,
+    "weight": 10
+  }
+}

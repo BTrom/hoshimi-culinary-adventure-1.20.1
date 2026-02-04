@@ -2,6 +2,7 @@ package com.botrom.hoshimi_ca_mod.utils;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.google.common.collect.Lists;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.List;
 
@@ -88,6 +89,9 @@ public class ModConfig {
     public static int weatheringTickFrom;
     public static int weatheringTickTo;
     public static boolean endFlashEnabled;
+    // Gaia
+    public static boolean spawnDaysPassed;
+    public static int spawnDaysSet;
 
 
     public static void bake(net.minecraftforge.fml.config.ModConfig config) {
@@ -171,6 +175,8 @@ public class ModConfig {
             weatheringTickFrom = ConfigHolder.COMMON.weatheringTickFrom.get();
             weatheringTickTo = ConfigHolder.COMMON.weatheringTickTo.get();
             endFlashEnabled = ConfigHolder.COMMON.endFlashEnabled.get();
+            spawnDaysPassed = ConfigHolder.COMMON.spawnDaysPassed.get();
+            spawnDaysSet = ConfigHolder.COMMON.spawnDaysSet.get();
         } catch (Exception e) {
             HoshimiCulinaryMod.loggerWarn("An exception was caused trying to load the config for Alex's Mobs side of Hoshimi's Mod.");
             e.printStackTrace();

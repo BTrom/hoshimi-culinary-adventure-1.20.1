@@ -145,6 +145,11 @@ public class ModSounds
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_NO_DROP = createSoundEvent("entity/copper_golem_item_no_drop");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_GET = createSoundEvent("entity/copper_golem_no_item_get");
     public static final RegistryObject<SoundEvent> COPPER_GOLEM_ITEM_NO_GET = createSoundEvent("entity/copper_golem_no_item_no_get");
+    public static final RegistryObject<SoundEvent> SUCCUBUS_SAY = createSoundEvent("entity/succubus_say");
+    public static final RegistryObject<SoundEvent> SUCCUBUS_HURT = createSoundEvent("entity/succubus_hurt");
+    public static final RegistryObject<SoundEvent> SUCCUBUS_DEATH = createSoundEvent("entity/succubus_death");
+    public static final RegistryObject<SoundEvent> SUCCUBUS_STEP = createSoundEvent("entity/succubus_step");
+    public static final RegistryObject<SoundEvent> SUCCUBUS_ATTACK = createSoundEvent("entity/succubus_attack");
 
 
     public static final RegistryObject<SoundEvent> CROCK_POT_CLOSE = createSoundEvent("block/crock_pot_close");

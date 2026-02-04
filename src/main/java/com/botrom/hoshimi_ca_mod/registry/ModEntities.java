@@ -283,6 +283,12 @@ public class ModEntities {
 					.clientTrackingRange(10)
 					.build("copper_golem"));
 
+	public static final RegistryObject<EntityType<Succubus>> SUCCUBUS = ENTITIES.register("succubus",
+			() -> EntityType.Builder.of(Succubus::new, MobCategory.MONSTER)
+					.sized(0.6F, 1.99F)
+					.clientTrackingRange(8)
+					.build("succubus"));
+
 
 	// Projectiles
 	public static final RegistryObject<EntityType<ThrownParrotEgg>> PARROT_EGG = ENTITIES.register("parrot_egg",
@@ -377,6 +383,7 @@ public class ModEntities {
 		event.put(ARMADILLO.get(), Armadillo.createAttributes().build());
 		event.put(HAPPY_GHAST.get(), HappyGhast.createAttributes().build());
 		event.put(COPPER_GOLEM.get(), CopperGolemEntity.createAttributes().build());
+		event.put(SUCCUBUS.get(), Succubus.createAttributes().build());
 	}
 
 	@SubscribeEvent
@@ -416,6 +423,7 @@ public class ModEntities {
 		event.register(TORTOISE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(NAUTILUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractNautilus::checkNautilusSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 		event.register(ARMADILLO.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Armadillo::checkArmadilloSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+		event.register(SUCCUBUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Succubus::checkSuccubusSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 	}
 
 	public static Predicate<LivingEntity> buildPredicateFromTag(TagKey<EntityType<?>> entityTag){

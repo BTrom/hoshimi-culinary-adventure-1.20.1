@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_dry_grass_rarely",
+  "features": "hoshimimod:patch_dry_grass_badlands",
+  "step": "vegetal_decoration"
+}

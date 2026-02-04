@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_leaf_litter",
+  "features": "hoshimimod:leaf_litter",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_bushes",
+  "features": "hoshimimod:patch_bush",
+  "step": "vegetal_decoration"
+}

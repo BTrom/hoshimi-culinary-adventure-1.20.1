@@ -61,6 +61,10 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> features = context.lookup(Registries.CONFIGURED_FEATURE);
         Holder<ConfiguredFeature<?, ?>> patch = features.getOrThrow(ModConfiguredFeatures.PATCH_FIREFLY_BUSH);
 
+        // TREE PLACEMENTS
+        ModFeatures.register(context, PALE_OAK_CHECKED, features.getOrThrow(ModConfiguredFeatures.PALE_OAK), PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get()));
+        ModFeatures.register(context, PALE_OAK_CREAKING_CHECKED, features.getOrThrow(ModConfiguredFeatures.PALE_OAK_CREAKING), PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get()));
+        // VEGETATION PLACEMENTS
         ModFeatures.register(context, PATCH_BUSH, features.getOrThrow(ModConfiguredFeatures.PATCH_BUSH), RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         ModFeatures.register(context, PATCH_FIREFLY_BUSH_NEAR_WATER, patch, CountPlacement.of(2), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter.biome(), nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get()));
         ModFeatures.register(context, PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP, patch, CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get()));

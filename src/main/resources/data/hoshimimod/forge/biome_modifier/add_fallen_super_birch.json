@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#hoshimimod:spawns_fallen_super_birch_trees",
+  "features": "hoshimimod:placed_fallen_super_birch_tree",
+  "step": "vegetal_decoration"
+}
