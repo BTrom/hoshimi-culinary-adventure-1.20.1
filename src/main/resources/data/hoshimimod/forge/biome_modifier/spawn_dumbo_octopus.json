@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:warm_ocean",
+    "minecraft:lukewarm_ocean",
+    "minecraft:deep_lukewarm_ocean"
+  ],
+  "spawners": {
+    "type": "hoshimimod:dumbo_octopus",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 8
+  }
+}

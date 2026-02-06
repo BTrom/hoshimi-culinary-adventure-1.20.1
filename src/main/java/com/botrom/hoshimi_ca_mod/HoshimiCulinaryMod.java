@@ -1,7 +1,5 @@
 package com.botrom.hoshimi_ca_mod;
 
-import com.botrom.hoshimi_ca_mod.effects.particle.FireflyParticle;
-import com.botrom.hoshimi_ca_mod.entities.CopperGolemEntity;
 import com.botrom.hoshimi_ca_mod.entities.models.CopperGolemModel;
 import com.botrom.hoshimi_ca_mod.gui.FermenterScreen;
 import com.botrom.hoshimi_ca_mod.entities.models.BananaPeelModel;
@@ -36,18 +34,14 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,8 +66,6 @@ import org.apache.logging.log4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import terrablender.api.RegionType;
 import terrablender.api.Regions;
-
-import java.lang.ref.WeakReference;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(HoshimiCulinaryMod.MOD_ID)
@@ -120,6 +112,9 @@ public class HoshimiCulinaryMod {
         AMPointOfInterestRegistry.DEF_REG.register(modEventBus);
 
         ForgeLootTableModifier.register(modEventBus);
+        BiomeModifiers.NAT_BIOME_MODIFIER_SERIALIZER.register(modEventBus);
+        BiomeModifiers.AM_BIOME_MODIFIERS.register(modEventBus);
+        BiomeModifiers.AM_BIOME_MODIFIERS.register("am_mob_spawns", AMMobSpawnBiomeModifier::makeCodec);
 
         // From VanillaBackport TODO
 //        ModBuiltinRegistries.WOLF_SOUND_VARIANTS.register();
@@ -131,7 +126,7 @@ public class HoshimiCulinaryMod {
         final DeferredRegister<Codec<? extends BiomeModifier>> biomeModifiers = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MOD_ID);
         biomeModifiers.register(modEventBus);
         biomeModifiers.register("am_mob_spawns", AMMobSpawnBiomeModifier::makeCodec);
-//        modEventBus.addListener(this::gatherData);
+        modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::creativeTabsInjection);
 
 
@@ -545,6 +540,7 @@ public class HoshimiCulinaryMod {
         if (config.getSpec() == ConfigHolder.COMMON_SPEC) {
             com.botrom.hoshimi_ca_mod.utils.ModConfig.bake(config);
         }
+        com.botrom.hoshimi_ca_mod.utils.ModConfig.init();
     }
 
     private void onFinish(final FMLLoadCompleteEvent event) {

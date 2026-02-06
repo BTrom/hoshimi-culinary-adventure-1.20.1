@@ -3,17 +3,20 @@ package com.botrom.hoshimi_ca_mod.entities;
 import com.botrom.hoshimi_ca_mod.entities.ai.BaleenWhaleFeedGoal;
 import com.botrom.hoshimi_ca_mod.entities.ai.WhaleBreachGoal;
 import com.botrom.hoshimi_ca_mod.entities.ai.WhaleSwimmingGoal;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -31,9 +34,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.PartEntity;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -328,13 +335,13 @@ public class EntityBaleenWhale extends Animal {
     }
 
     // --- Model Scale Logic (Simulated) ---
-    public float getModelScale() {
-        // You can make this dynamic based on Variant if you want
-        return 1.0F;
+        @Override
+    public float getScale() {
+        return WhaleVariant.byId(this.getVariant()).scale;
     }
 
     public int getMultiparts() {
-        return 3 + (int)((this.getModelScale() - 1) * 4);
+        return 3 + (int)((this.getScale() - 1) * 4);
     }
 
     public boolean canBeTargeted() { return false; } // Whales shouldn't be targeted? logic from original
@@ -368,6 +375,56 @@ public class EntityBaleenWhale extends Animal {
 
     public int getSkin() {
         return this.entityData.get(SKIN);
+    }
+
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
+        Holder<Biome> biomeHolder = level.getBiome(this.blockPosition());
+
+        // Find all variants that are allowed in this biome
+        List<WhaleVariant> validVariants = new ArrayList<>();
+        for (WhaleVariant variant : WhaleVariant.values()) {
+            // Check if the current biome key matches any of the variant's allowed biomes
+            if (variant.spawnBiomes.stream().anyMatch(biomeHolder::is)) {
+                validVariants.add(variant);
+            }
+        }
+
+        // If no specific match (e.g. we spawned in a modded ocean), fallback to Minke or random
+        if (validVariants.isEmpty()) {
+            validVariants.add(WhaleVariant.MINKE);
+        }
+
+        // Pick a random one from the valid list
+        // Note: You can add weighted logic here (e.g., make Minke more common) if you want
+        WhaleVariant selected = validVariants.get(this.random.nextInt(validVariants.size()));
+
+        this.setVariant(selected.id);
+        this.setLongFins(selected.hasLongFins);
+
+        // IMPORTANT: Apply the size change immediately
+        this.refreshDimensions();
+
+        return super.finalizeSpawn(level, difficulty, reason, spawnData, dataTag);
+    }
+
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        // Get the base dimensions defined in the Registry (2.6 x 1.6)
+        EntityDimensions base = super.getDimensions(pose);
+
+        // Get the scale modifier from our Variant enum
+        float scaleMod = WhaleVariant.byId(this.getVariant()).scale;
+
+        return base.scale(scaleMod);
+    }
+
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        if (VARIANT.equals(key)) {
+            this.refreshDimensions();
+        }
+        super.onSyncedDataUpdated(key);
     }
 
     // --- Inner Class: Whale Part ---
@@ -430,6 +487,35 @@ public class EntityBaleenWhale extends Animal {
         @Override
         public EntityDimensions getDimensions(Pose poseIn) {
             return this.size.scale(scale);
+        }
+    }
+
+    public enum WhaleVariant {
+        BLUE(0, 1.8F, false, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_OCEAN),
+        FIN(1, 1.6F, false, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_OCEAN),
+        GRAY(2, 1.3F, false, Biomes.COLD_OCEAN, Biomes.OCEAN),
+        HUMPBACK(3, 1.3F, true, Biomes.DEEP_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN),
+        MINKE(4, 1.0F, false, Biomes.COLD_OCEAN, Biomes.DEEP_COLD_OCEAN, Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN),
+        SEI(5, 1.35F, false, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_OCEAN);
+
+        final int id;
+        final float scale;
+        final boolean hasLongFins;
+        final List<ResourceKey<Biome>> spawnBiomes;
+
+        @SafeVarargs
+        WhaleVariant(int id, float scale, boolean hasLongFins, ResourceKey<Biome>... biomes) {
+            this.id = id;
+            this.scale = scale;
+            this.hasLongFins = hasLongFins;
+            this.spawnBiomes = List.of(biomes);
+        }
+
+        public static WhaleVariant byId(int id) {
+            for (WhaleVariant v : values()) {
+                if (v.id == id) return v;
+            }
+            return BLUE; // Default fallback
         }
     }
 }

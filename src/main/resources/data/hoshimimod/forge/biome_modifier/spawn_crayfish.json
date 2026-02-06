@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "minecraft:river",
+  "spawners": {
+    "type": "hoshimimod:crayfish",
+    "maxCount": 3,
+    "minCount": 2,
+    "weight": 6
+  }
+}

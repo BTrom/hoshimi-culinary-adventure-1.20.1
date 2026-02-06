@@ -19,8 +19,6 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.DeferredRegister;
 
-import java.util.List;
-
 public class ModPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, HoshimiCulinaryMod.MOD_ID);
 
@@ -41,6 +39,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PLACED_RARE_FALLEN_SPRUCE_TREE = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("placed_rare_fallen_spruce_tree"));
     
     // VEGETATION PLACEMENTS
+    public static final ResourceKey<PlacedFeature> PATCH_DRAGON_FRUIT = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("patch_dragon_fruit"));
     public static final ResourceKey<PlacedFeature> FLOWER_PALE_GARDEN = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("flower_pale_garden"));
     public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("pale_garden_vegetation"));
     public static final ResourceKey<PlacedFeature> PALE_GARDEN_FLOWERS = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("pale_garden_flowers"));
@@ -56,6 +55,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PATCH_LEAF_LITTER = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("patch_leaf_litter"));
     public static final ResourceKey<PlacedFeature> LEAF_LITTER = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("leaf_litter"));
     public static final ResourceKey<PlacedFeature> CACTUS_FLOWER = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("cactus_flower"));
+    public static final ResourceKey<PlacedFeature> PLACED_SEA_ANEMONE = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("gencontrol.anemone_placed"));
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> features = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -65,6 +65,7 @@ public class ModPlacedFeatures {
         ModFeatures.register(context, PALE_OAK_CHECKED, features.getOrThrow(ModConfiguredFeatures.PALE_OAK), PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get()));
         ModFeatures.register(context, PALE_OAK_CREAKING_CHECKED, features.getOrThrow(ModConfiguredFeatures.PALE_OAK_CREAKING), PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get()));
         // VEGETATION PLACEMENTS
+        ModFeatures.register(context, PATCH_DRAGON_FRUIT, features.getOrThrow(ModConfiguredFeatures.PATCH_DRAGON_FRUIT), RarityFilter.onAverageOnceEvery(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         ModFeatures.register(context, PATCH_BUSH, features.getOrThrow(ModConfiguredFeatures.PATCH_BUSH), RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         ModFeatures.register(context, PATCH_FIREFLY_BUSH_NEAR_WATER, patch, CountPlacement.of(2), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter.biome(), nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get()));
         ModFeatures.register(context, PATCH_FIREFLY_BUSH_NEAR_WATER_SWAMP, patch, CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), nearWaterPredicate(ModBlocks.FIREFLY_BUSH.get()));
@@ -88,6 +89,7 @@ public class ModPlacedFeatures {
         ModFeatures.register(context, PLACED_FALLEN_JUNGLE_TREE, features.getOrThrow(ModConfiguredFeatures.FALLEN_JUNGLE_TREE), VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(80), Blocks.JUNGLE_SAPLING));
         ModFeatures.register(context, PLACED_FALLEN_SPRUCE_TREE, features.getOrThrow(ModConfiguredFeatures.FALLEN_SPRUCE_TREE), VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(80), Blocks.SPRUCE_SAPLING));
         ModFeatures.register(context, PLACED_RARE_FALLEN_SPRUCE_TREE, features.getOrThrow(ModConfiguredFeatures.FALLEN_SPRUCE_TREE), VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(120), Blocks.SPRUCE_SAPLING));
+        ModFeatures.register(context, PLACED_SEA_ANEMONE, features.getOrThrow(ModConfiguredFeatures.SEA_ANEMONE), RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
     }
 
     public static BlockPredicateFilter nearWaterPredicate(Block block) {

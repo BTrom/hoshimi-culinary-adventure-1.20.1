@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:mangrove_swamp",
+    "minecraft:swamp"
+  ],
+  "spawners": {
+    "type": "hoshimimod:giant_mud_crab",
+    "maxCount": 3,
+    "minCount": 2,
+    "weight": 10
+  }
+}

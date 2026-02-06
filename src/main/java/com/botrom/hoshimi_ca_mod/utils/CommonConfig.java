@@ -81,6 +81,42 @@ public class CommonConfig {
     public final ForgeConfigSpec.BooleanValue endFlashEnabled;
     public final ForgeConfigSpec.BooleanValue spawnDaysPassed;
     public final ForgeConfigSpec.IntValue spawnDaysSet;
+//    public static boolean bluejayRemoved = false;
+//    public final int bluejaySpawnWeight = 10;
+//    public final int bluejaySpawnMinGroupSize = 3;
+//    public final int bluejaySpawnMaxGroupSize = 4;
+    public final ForgeConfigSpec.BooleanValue butterflyRemoved;
+    public final ForgeConfigSpec.IntValue butterflySpawnWeight;
+    public final ForgeConfigSpec.IntValue butterflySpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue butterflySpawnMaxGroupSize;
+//    public final ForgeConfigSpec.BooleanValue canaryRemoved = false;
+//    public final int canarySpawnWeight = 10;
+//    public final int canarySpawnMinGroupSize = 3;
+//    public final int canarySpawnMaxGroupSize = 4;
+    public final ForgeConfigSpec.BooleanValue cardinalRemoved;
+    public final ForgeConfigSpec.IntValue cardinalSpawnWeight;
+    public final ForgeConfigSpec.IntValue cardinalSpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue cardinalSpawnMaxGroupSize;
+    public final ForgeConfigSpec.BooleanValue lizardRemoved;
+    public final ForgeConfigSpec.IntValue lizardSpawnWeight;
+    public final ForgeConfigSpec.IntValue lizardSpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue lizardSpawnMaxGroupSize;
+//    public final ForgeConfigSpec.BooleanValue robinRemoved = false;
+//    public final int robinSpawnWeight = 10;
+//    public final int robinSpawnMinGroupSize = 3;
+//    public final int robinSpawnMaxGroupSize = 4;
+    public final ForgeConfigSpec.BooleanValue snailRemoved;
+    public final ForgeConfigSpec.IntValue snailSpawnWeight;
+    public final ForgeConfigSpec.IntValue snailSpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue snailSpawnMaxGroupSize;
+    public final ForgeConfigSpec.BooleanValue sparrowRemoved;
+    public final ForgeConfigSpec.IntValue sparrowSpawnWeight;
+    public final ForgeConfigSpec.IntValue sparrowSpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue sparrowSpawnMaxGroupSize;
+    public final ForgeConfigSpec.BooleanValue tortoiseRemoved;
+    public final ForgeConfigSpec.IntValue tortoiseSpawnWeight;
+    public final ForgeConfigSpec.IntValue tortoiseSpawnMinGroupSize;
+    public final ForgeConfigSpec.IntValue tortoiseSpawnMaxGroupSize;
 
 
     public CommonConfig(final ForgeConfigSpec.Builder builder) {
@@ -292,11 +328,83 @@ public class CommonConfig {
         flyingFishSpawnRolls = buildInt(builder,
                 "flyingFishSpawnRolls", "spawns", ModConfig.flyingFishSpawnRolls, 0, Integer.MAX_VALUE,
                 "Random roll chance to enable mob spawning. Higher number = lower chance of spawning");
+        butterflyRemoved = builder
+                .comment("N/A")
+                .define("butterflyRemoved", false);
+        butterflySpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("butterflySpawnWeight", 10, 1, 16);
+        butterflySpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("butterflySpawnMinGroupSize", 3, 1, 16);
+        butterflySpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("butterflySpawnMaxGroupSize", 6, 1, 16);
+        cardinalRemoved = builder
+                .comment("N/A")
+                .define("cardinalRemoved", false);
+        cardinalSpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("cardinalSpawnWeight", 10, 1, 16);
+        cardinalSpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("cardinalSpawnMinGroupSize", 3, 1, 16);
+        cardinalSpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("cardinalSpawnMaxGroupSize", 4, 1, 16);
+        lizardRemoved = builder
+                .comment("N/A")
+                .define("lizardRemoved", false);
+        lizardSpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("lizardSpawnWeight", 10, 1, 16);
+        lizardSpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("lizardSpawnMinGroupSize", 1, 1, 16);
+        lizardSpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("lizardSpawnMaxGroupSize", 1, 1, 16);
+        snailRemoved = builder
+                .comment("N/A")
+                .define("snailRemoved", false);
+        snailSpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("snailSpawnWeight", 10, 1, 16);
+        snailSpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("snailSpawnMinGroupSize", 2, 1, 16);
+        snailSpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("snailSpawnMaxGroupSize", 3, 1, 16);
+        sparrowRemoved = builder
+                .comment("N/A")
+                .define("sparrowRemoved", false);
+        sparrowSpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("sparrowSpawnWeight", 10, 1, 16);
+        sparrowSpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("sparrowSpawnMinGroupSize", 3, 1, 16);
+        sparrowSpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("sparrowSpawnMaxGroupSize", 4, 1, 16);
+        tortoiseRemoved = builder
+                .comment("N/A")
+                .define("tortoiseRemoved", false);
+        tortoiseSpawnWeight = builder
+                .comment("N/A")
+                .defineInRange("tortoiseSpawnWeight", 10, 1, 16);
+        tortoiseSpawnMinGroupSize = builder
+                .comment("N/A")
+                .defineInRange("tortoiseSpawnMinGroupSize", 1, 1, 16);
+        tortoiseSpawnMaxGroupSize = builder
+                .comment("N/A")
+                .defineInRange("tortoiseSpawnMaxGroupSize", 1, 1, 16);
         hasArmadillos = builder
-                .comment("allow armadillos to generate in the overworld")
+                .comment("Allow armadillos to generate in the overworld")
                 .define("armadillo", true);
         hasDriedGhasts = builder
-                .comment("allow dried ghasts to be obtainable through nether fossils and piglin bartering")
+                .comment("Allow dried ghasts to be obtainable through nether fossils and piglin bartering")
                 .define("dried_ghasts", true);
         spawnDaysPassed = builder
                 .comment("Mobs only spawn after a certain amount of days have passed [Default: false]")

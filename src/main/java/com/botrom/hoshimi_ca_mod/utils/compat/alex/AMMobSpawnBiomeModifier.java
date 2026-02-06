@@ -1,4 +1,4 @@
-package com.botrom.hoshimi_ca_mod.worldgen;
+package com.botrom.hoshimi_ca_mod.utils.compat.alex;
 
 import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.mojang.serialization.Codec;

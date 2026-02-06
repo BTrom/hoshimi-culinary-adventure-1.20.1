@@ -79,6 +79,9 @@ public class ModEvents {
                 trades.get(2).add(
                         new BasicItemListing(new ItemStack(ModItems.CLAM.get(), 3),
                         new ItemStack(Items.EMERALD), 16, 5, 0.05F));
+                trades.get(2).add(
+                        new BasicItemListing(new ItemStack(ModItems.AMBERGRIS.get(), 20),
+                        new ItemStack(ModItems.PEARL.get()), 3, 4, 0.05F));
                 trades.get(4).add(
                         new BasicItemListing(new ItemStack(ModItems.PEARL.get(), 1),
                         new ItemStack(Items.EMERALD), 16, 5, 0.05F));

@@ -2,7 +2,6 @@ package com.botrom.hoshimi_ca_mod.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -146,6 +145,7 @@ public class ModTags {
     
     
     // Block Tags
+    public static final TagKey<Block> DRAGON_FRUIT_SPAWNABLE_ON = bindBlockTag("dragon_fruit_spawnable_on");
     public static final TagKey<Block> CROPS_PLANTABLE_ON = bindBlockTag("crops_plantable_on");
     public static final TagKey<Block> CRAB_SPAWNABLE_ON = bindBlockTag("crab_spawnable_on");
     public static final TagKey<Block> CATFISH_BLOCK_FASCINATIONS = bindBlockTag("catfish_block_fascinations");
@@ -225,14 +225,33 @@ public class ModTags {
 
 
     // Biome Tags
+    public static final TagKey<Biome> DRAGON_FRUIT_SPAWNS = bindBiomeTag("has_spawn/dragon_fruit");
+    public static final TagKey<Biome> PLATINUM_BASS_SPAWNS = bindBiomeTag("has_spawn/platinum_bass");
+    public static final TagKey<Biome> TIGER_PRAWN_SPAWNS = bindBiomeTag("has_spawn/tiger_prawn");
+    public static final TagKey<Biome> URCHIN_SPAWNS = bindBiomeTag("has_spawn/urchin");
+    public static final TagKey<Biome> CLAM_SPAWNS = bindBiomeTag("has_spawn/clam");
+    public static final TagKey<Biome> CHIEFTAIN_CRAB_SPAWNS = bindBiomeTag("has_spawn/chieftain_crab");
     public static final TagKey<Biome> SPAWNS_HUGE_CATFISH = bindBiomeTag("spawns_huge_catfish");
     public static final TagKey<Biome> SPAWNS_WHITE_MANTIS_SHRIMP = bindBiomeTag("spawns_white_mantis_shrimp");
+    public static final TagKey<Biome> SPAWNS_DUMBO_OCTOPUS_RARELY = bindBiomeTag("spawns_dumbo_octopus_rarely");
+//    public static final TagKey<Biome> HAS_BLUEJAY = tag("has_bluejay");
+//    public static final TagKey<Biome> BLACKLIST_BLUEJAY = tag("blacklist_bluejay");
     public static final TagKey<Biome> HAS_BUTTERFLY = bindBiomeTag("has_butterfly");
+    public static final TagKey<Biome> BLACKLIST_BUTTERFLY = bindBiomeTag("blacklist_butterfly");
+//    public static final TagKey<Biome> HAS_CANARY = tag("has_canary");
+//    public static final TagKey<Biome> BLACKLIST_CANARY = tag("blacklist_canary");
     public static final TagKey<Biome> HAS_CARDINAL = bindBiomeTag("has_cardinal");
+    public static final TagKey<Biome> BLACKLIST_CARDINAL = bindBiomeTag("blacklist_cardinal");
     public static final TagKey<Biome> HAS_SPARROW = bindBiomeTag("has_sparrow");
+    public static final TagKey<Biome> BLACKLIST_SPARROW = bindBiomeTag("blacklist_sparrow");
     public static final TagKey<Biome> HAS_TORTOISE = bindBiomeTag("has_tortoise");
+    public static final TagKey<Biome> BLACKLIST_TORTOISE = bindBiomeTag("blacklist_tortoise");
     public static final TagKey<Biome> HAS_SNAIL = bindBiomeTag("has_snail");
+    public static final TagKey<Biome> BLACKLIST_SNAIL = bindBiomeTag("blacklist_snail");
     public static final TagKey<Biome> HAS_LIZARD = bindBiomeTag("has_lizard");
+    public static final TagKey<Biome> BLACKLIST_LIZARD = bindBiomeTag("blacklist_lizard");
+//    public static final TagKey<Biome> HAS_ROBIN = tag("has_robin");
+//    public static final TagKey<Biome> BLACKLIST_ROBIN = tag("blacklist_robin");
     public static final TagKey<Biome> HAS_VANILLA_VINE = bindBiomeTag("has_feature/vanilla_vine");
     public static final TagKey<Biome> HAS_MINT_POND = bindBiomeTag("has_feature/mint_pond");
     public static final TagKey<Biome> HAS_COMMON_BANANA_PLANT = bindBiomeTag("has_feature/banana_plant/common");
@@ -242,6 +261,7 @@ public class ModTags {
     public static final TagKey<Biome> HAS_ROCK_SALT_DEPOSITS = bindBiomeTag("has_rock_salt_deposits");
     public static final TagKey<Biome> SPAWNS_WARM_VARIANT_FARM_ANIMALS = bindBiomeTag("spawns_warm_variant_farm_animals");
     public static final TagKey<Biome> SPAWNS_COLD_VARIANT_FARM_ANIMALS = bindBiomeTag("spawns_cold_variant_farm_animals");
+    public static final TagKey<Biome> SPAWNS_NAUTILUS = bindBiomeTag("spawns_nautilus");
     public static final TagKey<Biome> SPAWNS_ARMADILLOS_FREQUENTLY = bindBiomeTag("spawns_armadillos_frequently");
     public static final TagKey<Biome> SPAWNS_ARMADILLOS = bindBiomeTag("spawns_armadillos");
     public static final TagKey<Biome> SPAWNS_BUSHES = bindBiomeTag("spawns_bushes");

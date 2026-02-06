@@ -31,11 +31,6 @@ public class AMWorldData extends SavedData {
     private int beachedCachalotSpawnDelay;
     private int beachedCachalotSpawnChance;
     private UUID beachedCachalotID;
-    private ChunkPos pupfishChunk;
-    private int pupfishChunkTime = 0;
-    private int pupfishSeedAddition = 0;
-    private long startPupfishSearchTimestamp = -1;
-    private boolean noPupfishChunk;
     private static final Map<Level, AMWorldData> dataMap = new HashMap<>();
     private static final Predicate<BlockState> IS_WATER = (state -> state.is(Blocks.WATER));
 
@@ -72,12 +67,6 @@ public class AMWorldData extends SavedData {
         }
         if (nbt.contains("BeachedCachalotId", 8)) {
             data.beachedCachalotID = UUID.fromString(nbt.getString("BeachedCachalotId"));
-        }
-        if (nbt.contains("PupfishChunkX") && nbt.contains("PupfishChunkZ")) {
-            data.pupfishChunk = new ChunkPos(nbt.getInt("PupfishChunkX"), nbt.getInt("PupfishChunkZ"));
-        }
-        if (nbt.contains("NoPupfishChunk")) {
-            data.noPupfishChunk = nbt.getBoolean("NoPupfishChunk");
         }
         return data;
     }
@@ -116,28 +105,7 @@ public class AMWorldData extends SavedData {
         if (this.beachedCachalotID != null) {
             compound.putString("beachedCachalotId", this.beachedCachalotID.toString());
         }
-        if (this.pupfishChunk != null) {
-            compound.putInt("PupfishChunkX", this.pupfishChunk.x);
-            compound.putInt("PupfishChunkZ", this.pupfishChunk.z);
-        }
-        if(this.noPupfishChunk){
-            compound.putBoolean("NoPupfishChunk", noPupfishChunk);
-        }
         return compound;
-    }
-
-    @Nullable
-    public ChunkPos getPupfishChunk() {
-        return pupfishChunk;
-    }
-
-
-
-    public boolean isInPupfishChunk(BlockPos pos) {
-        if(pupfishChunk != null){
-            return pos.getX() >= pupfishChunk.getMinBlockX() && pos.getX() <= pupfishChunk.getMaxBlockX() && pos.getZ() >= pupfishChunk.getMinBlockZ() && pos.getZ() <= pupfishChunk.getMaxBlockZ();
-        }
-        return false;
     }
 
     public int getWaterHeight(NoiseBasedChunkGenerator generator, RandomState rand, int x, int z, LevelHeightAccessor level) {

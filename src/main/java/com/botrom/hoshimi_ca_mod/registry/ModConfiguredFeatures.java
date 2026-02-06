@@ -4,8 +4,6 @@ import com.botrom.hoshimi_ca_mod.HoshimiCulinaryMod;
 import com.botrom.hoshimi_ca_mod.utils.Utils;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.features.FallenTreeConfiguration;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.treedecorators.AttachedToLogsDecorator;
-import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.treedecorators.CreakingHeartDecorator;
-import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.treedecorators.PaleMossDecorator;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -35,9 +33,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.registries.DeferredRegister;
+import vectorwing.farmersdelight.common.world.configuration.WildCropConfiguration;
+import vectorwing.farmersdelight.common.world.feature.WildCropFeature;
 
 import java.util.List;
 import java.util.OptionalInt;
@@ -47,6 +48,7 @@ public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> FEATURES = DeferredRegister.create(Registries.CONFIGURED_FEATURE, HoshimiCulinaryMod.MOD_ID);
 
     // VEGETATION FEATURES
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DRAGON_FRUIT = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("patch_dragon_fruit"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BUSH = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("patch_bush"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FIREFLY_BUSH = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("patch_firefly_bush"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILDFLOWERS_BIRCH_FOREST = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("wildflowers_birch_forest"));
@@ -61,6 +63,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_MOSS_VEGETATION = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("pale_moss_vegetation"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_MOSS_PATCH = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("pale_moss_patch"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_MOSS_PATCH_BONEMEAL = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("pale_moss_patch_bonemeal"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SEA_ANEMONE = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("gencontrol.anemone_configured"));
 
     // TREE FEATURES
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_TREE = ResourceKey.create(FEATURES.getRegistryKey(), Utils.createResourceLocation("fallen_oak_tree"));
@@ -93,14 +96,11 @@ public class ModConfiguredFeatures {
         ModFeatures.register(context, CACTUS_FLOWER, ModFeatures.CACTUS_FLOWER.get(), FeatureConfiguration.NONE);
         ModFeatures.register(context, FLOWER_PALE_GARDEN, Feature.FLOWER, new RandomPatchConfiguration(1, 0, 0, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CLOSED_EYEBLOSSOM.get())))));
         ModFeatures.register(context, PALE_GARDEN_FLOWERS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CLOSED_EYEBLOSSOM.get()))));
-//        ModFeatures.register(context, PALE_GARDEN_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CREAKING_CHECKED), 0.1F), new WeightedPlacedFeature(placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED), 0.9F)), placements.getOrThrow(ModPlacedFeatures.PALE_OAK_CHECKED)));
         ModFeatures.register(context, PALE_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ModBlocks.PALE_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 25).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
         ModFeatures.register(context, PALE_MOSS_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(ModBlocks.PALE_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(features.getOrThrow(PALE_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.3F, UniformInt.of(2, 4), 0.75F));
         ModFeatures.register(context, PALE_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(ModBlocks.PALE_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(features.getOrThrow(PALE_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
+        ModFeatures.register(context, SEA_ANEMONE, ModFeatures.SEA_ANEMONE.get(), new CountConfiguration(4));
 
-        // --- FIX 1: Register the missing PALE_OAK and CREAKING trees ---
-        // You cannot "getOrThrow" these if you don't register them first!
-        // I am using Dark Oak config as a placeholder; replace with your actual Pale Oak config logic
         ModFeatures.register(context, PALE_OAK, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.PALE_OAK_LOG.get()), // Ensure you have these blocks
                 new DarkOakTrunkPlacer(6, 2, 1),
@@ -109,16 +109,14 @@ public class ModConfiguredFeatures {
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 0, OptionalInt.empty())
         ).build());
 
-        // Do the same for PALE_OAK_CREAKING
         ModFeatures.register(context, PALE_OAK_CREAKING, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.PALE_OAK_LOG.get()),
                 new DarkOakTrunkPlacer(6, 2, 1),
                 BlockStateProvider.simple(ModBlocks.PALE_OAK_LEAVES.get()),
                 new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 0, OptionalInt.empty())
-        ).build()); // Add creaking heart decorator here if needed
+        ).build());
 
-        // --- FIX 2: Create the Inline Placements (referenced by the vegetation below) ---
         var paleOakChecked = PlacementUtils.inlinePlaced(
                 features.getOrThrow(PALE_OAK),
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get())
@@ -129,17 +127,31 @@ public class ModConfiguredFeatures {
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.PALE_OAK_SAPLING.get())
         );
 
-        // ... (Keep PALE_MOSS registrations) ...
-
-        // --- FIX 3: Register PALE_GARDEN_VEGETATION ONLY ONCE ---
-        // Remove the registration at line 83 and keep ONLY this one:
         ModFeatures.register(context, PALE_GARDEN_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
                 List.of(
                         new WeightedPlacedFeature(paleOakCreakingChecked, 0.1F),
                         new WeightedPlacedFeature(paleOakChecked, 0.9F)
-                ),
-                paleOakChecked
+                ), paleOakChecked
         ));
+
+        ModFeatures.register(context, PATCH_DRAGON_FRUIT,
+                vectorwing.farmersdelight.common.registry.ModBiomeFeatures.WILD_CROP.get(),
+                new WildCropConfiguration(25, 5, 3, PlacementUtils.inlinePlaced(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.DRAGON_BUSH.get())),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                                BlockPredicate.matchesTag(Direction.DOWN.getNormal(), ModTags.DRAGON_FRUIT_SPAWNABLE_ON)
+                        ))
+                ), PlacementUtils.inlinePlaced(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(vectorwing.farmersdelight.common.registry.ModBlocks.SANDY_SHRUB.get())),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                                BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                                BlockPredicate.matchesTag(Direction.DOWN.getNormal(), ModTags.DRAGON_FRUIT_SPAWNABLE_ON)
+                        ))
+                ), null)
+        );
     }
 
     private static RandomPatchConfiguration grassPatch(BlockStateProvider provider, int tries) {
@@ -154,21 +166,13 @@ public class ModConfiguredFeatures {
         return segmentedBlockPatchBuilder(ModBlocks.LEAF_LITTER.get(), min, max, PinkPetalsBlock.AMOUNT, PinkPetalsBlock.FACING);
     }
 
-    private static SimpleWeightedRandomList.Builder<BlockState> segmentedBlockPatchBuilder(
-            Block block,
-            int min,
-            int max,
-            IntegerProperty amount,
-            EnumProperty<Direction> facing
-    ) {
+    private static SimpleWeightedRandomList.Builder<BlockState> segmentedBlockPatchBuilder(Block block, int min, int max, IntegerProperty amount, EnumProperty<Direction> facing) {
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
-
         for (int i = min; i <= max; i++) {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 builder.add(block.defaultBlockState().setValue(amount, i).setValue(facing, direction), 1);
             }
         }
-
         return builder;
     }
 

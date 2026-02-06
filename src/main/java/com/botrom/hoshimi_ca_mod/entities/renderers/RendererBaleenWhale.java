@@ -18,7 +18,7 @@ public class RendererBaleenWhale extends MobRenderer<EntityBaleenWhale, EntityMo
     }
     @Override
     protected void scale(EntityBaleenWhale entity, PoseStack matrixStackIn, float partialTickTime) {
-        float f = entity.getModelScale();
+        float f = entity.getScale();
         f *= entity.getScale();
         matrixStackIn.scale(f, f, f);
         this.shadowRadius = f;

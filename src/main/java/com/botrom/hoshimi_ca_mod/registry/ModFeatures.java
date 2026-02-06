@@ -5,11 +5,13 @@ import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.features.CactusFlo
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.features.FallenTreeConfiguration;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.features.FallenTreeFeature;
 import com.botrom.hoshimi_ca_mod.utils.compat.vanillabackport.features.LeafLitterFeature;
+import com.botrom.hoshimi_ca_mod.worldgen.features.FeatureSeaAnemone;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -28,6 +30,8 @@ public class ModFeatures {
     public static final RegistryObject<Feature<FallenTreeConfiguration>> FALLEN_TREE = FEATURES.register("fallen_tree", () -> new FallenTreeFeature(FallenTreeConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> LEAF_LITTER = FEATURES.register("leaf_litter", () -> new LeafLitterFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> CACTUS_FLOWER = FEATURES.register("cactus_flower", () -> new CactusFlowerFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<CountConfiguration>> SEA_ANEMONE = FEATURES.register("sea_anemone", () -> new FeatureSeaAnemone(CountConfiguration.CODEC));
+
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

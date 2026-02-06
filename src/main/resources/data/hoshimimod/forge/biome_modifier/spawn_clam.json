@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#hoshimimod:has_spawn/clam",
+  "spawners": {
+    "type": "hoshimimod:clam",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 1
+  }
+}

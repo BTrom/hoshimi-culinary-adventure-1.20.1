@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#hoshimimod:spawns_dumbo_octopus_rarely",
+  "spawners": {
+    "type": "hoshimimod:dumbo_octopus",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 4
+  }
+}

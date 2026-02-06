@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -15,7 +16,7 @@ public class ModCreativeTabs {
     public static final RegistryObject<CreativeModeTab> INGREDIENTS_TAB = CREATIVE_MODE_TABS.register("hoshimi_ingredients_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("Hoshimi's Culinary Ingredients"))
-                    .icon(ModItems.CORN.get()::getDefaultInstance)
+                    .icon(() -> new ItemStack(ModItems.CORN.get()))
                     .displayItems((displayParameters, output) -> {
                         // Cultural Delight:
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
@@ -657,7 +658,7 @@ public class ModCreativeTabs {
     public static final RegistryObject<CreativeModeTab> MEALS_TAB = CREATIVE_MODE_TABS.register("hoshimi_meals_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("Hoshimi's Culinary Meals"))
-                    .icon(ModItems.CREAMY_PASTA_WITH_HAM.get()::getDefaultInstance)
+                    .icon(() -> new ItemStack(ModItems.CREAMY_PASTA_WITH_CHICKEN_CUTS.get()))
                     .displayItems((displayParameters, output) -> {
                         // Cultural Delight:
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
